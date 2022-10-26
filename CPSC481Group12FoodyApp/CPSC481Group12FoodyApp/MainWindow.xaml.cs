@@ -24,5 +24,15 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

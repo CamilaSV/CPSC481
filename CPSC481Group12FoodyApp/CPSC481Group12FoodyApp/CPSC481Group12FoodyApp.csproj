@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="4053442_bowl_food_health_healthy_salad_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="4053442_bowl_food_health_healthy_salad_icon.png" />
+  </ItemGroup>
+
 </Project>

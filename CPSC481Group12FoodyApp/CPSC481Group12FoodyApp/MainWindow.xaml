@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="853" Width="480">
+        Title="MainWindow" Height="853  " Width="480">
     <Grid>
+        <Button x:Name="SignUpButton" Content="Sign Up" HorizontalAlignment="Center" Margin="0,570,0,0" VerticalAlignment="Top" FontSize="34" Click="SignUpButton_Click" Height="80" Width="200"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Margin="0,473,0,0" VerticalAlignment="Top" FontSize="34" Click="LoginButton_Click" Height="80" Width="200"/>
+        <Label x:Name="AppNameTitle" Content="Food App" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="64"/>
+        <Image x:Name="AppLogo" HorizontalAlignment="Left" Height="100" Margin="180,275,0,0" VerticalAlignment="Top" Width="100" Source="/4053442_bowl_food_health_healthy_salad_icon.png"/>
 
     </Grid>
 </Window>
