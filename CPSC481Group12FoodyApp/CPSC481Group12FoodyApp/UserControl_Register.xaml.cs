@@ -30,7 +30,7 @@ namespace CPSC481Group12FoodyApp
 
         private void Register_SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-
+            navigate_helper.gotoChatList();
         }
 
         private void Register_BackButton_Click(object sender, RoutedEventArgs e)

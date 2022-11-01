@@ -16,26 +16,31 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for UserControl_Login.xaml
+    /// Interaction logic for UserControl_ChatList.xaml
     /// </summary>
-    public partial class UserControl_Login : UserControl
+    public partial class UserControl_ChatList : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public UserControl_Login(PageNavigator navigate_helper)
+        public UserControl_ChatList(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
         }
 
-        private void Login_LoginButton_Click(object sender, RoutedEventArgs e)
+        private void List_HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            navigate_helper.gotoHomePage();
         }
 
-        private void Login_BackButton_Click(object sender, RoutedEventArgs e)
+        private void List_CalButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoStart();
+            navigate_helper.gotoCalendar();
+        }
+
+        private void List_CreateGroup_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoCreateGroup();
         }
     }
 }
