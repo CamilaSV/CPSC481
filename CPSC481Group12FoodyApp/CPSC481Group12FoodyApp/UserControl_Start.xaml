@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
-             d:DesignHeight="853" d:DesignWidth="480">
+             d:DesignHeight="816" d:DesignWidth="467">
     <Grid>
         <Button x:Name="Start_SignUpButton" Content="Sign Up" HorizontalAlignment="Center" Margin="0,570,0,0" VerticalAlignment="Top" FontSize="34" Height="80" Width="200" Click="Start_SignUpButton_Click"/>
         <Button x:Name="Start_LoginButton" Content="Login" HorizontalAlignment="Center" Margin="0,473,0,0" VerticalAlignment="Top" FontSize="34" Height="80" Width="200" Click="Start_LoginButton_Click"/>
