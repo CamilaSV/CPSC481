@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window_Single.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Window_Single : Window
     {
-        public MainWindow()
+        public Window_Single()
         {
             InitializeComponent();
-        }
-
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            new PageNavigator(this); // create a new PageNavigator object which takes care of changing content
         }
     }
 }

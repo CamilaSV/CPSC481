@@ -7,7 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="UserControl_Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControl_Start.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window_Single.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UserControl_Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_Start.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window_Single.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

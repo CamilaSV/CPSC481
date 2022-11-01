@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Repos\CPSC481\CPSC481Group12FoodyApp\CPSC481Group12FoodyApp\obj\Debug\net6.0-windows\
+D:\programming\projects\CPSC481Proj\CPSC481Group12FoodyApp\CPSC481Group12FoodyApp\obj\Debug\net6.0-windows\
 CPSC481Group12FoodyApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\Repos\CPSC481\CPSC481Group12FoodyApp\CPSC481Group12FoodyApp\App.xaml
-11407045341
+D:\programming\projects\CPSC481Proj\CPSC481Group12FoodyApp\CPSC481Group12FoodyApp\App.xaml
+4-436846837
 
-51368669855
-194-1951243044
-MainWindow.xaml;
+9-786827859
+194618410957
+UserControl_Login.xaml;UserControl_Register.xaml;UserControl_Start.xaml;Window_Single.xaml;
 
 False
 
