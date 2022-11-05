@@ -87,6 +87,11 @@ namespace CPSC481Group12FoodyApp
 
         }
 
+        public void gotoGroupCalendar()
+        {
+
+        }
+
         public void gotoInvitation()
         {
 

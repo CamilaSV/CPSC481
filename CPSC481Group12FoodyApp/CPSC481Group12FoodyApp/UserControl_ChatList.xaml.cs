@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for UserControl_ChatList.xaml
+    /// Interaction logic for UserControl_Login.xaml
     /// </summary>
     public partial class UserControl_ChatList : UserControl
     {
@@ -36,6 +36,11 @@ namespace CPSC481Group12FoodyApp
         private void List_CalButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoCalendar();
+        }
+
+        private void List_ChatButton_Click(object sender, RoutedEventArgs e)
+        {
+            // do nothing, as you are already in this page
         }
 
         private void List_CreateGroup_Click(object sender, RoutedEventArgs e)
