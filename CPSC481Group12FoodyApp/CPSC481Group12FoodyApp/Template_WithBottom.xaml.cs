@@ -27,5 +27,25 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
             this.navigate_helper = navigate_helper;
         }
+
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoHomePage();
+        }
+
+        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoCalendar();
+        }
+
+        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoChatList();
+        }
+
+        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
