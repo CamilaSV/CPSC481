@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="4053442_bowl_food_health_healthy_salad_icon.png" />
+    <Page Update="ChatScreen.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="4053442_bowl_food_health_healthy_salad_icon.png" />
+    <Folder Include="Fonts\" />
   </ItemGroup>
 
 </Project>
