@@ -16,5 +16,5 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 194-2004305220
 AddCriteria.xaml;App.xaml;Criteria.xaml;MainWindow.xaml;Template_NoBottom.xaml;Template_WithBottom.xaml;Window_Single.xaml;
 
-False
+True
 

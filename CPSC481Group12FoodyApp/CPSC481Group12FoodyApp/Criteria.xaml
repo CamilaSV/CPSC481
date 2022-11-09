@@ -61,7 +61,7 @@
             <TextBlock FontSize="30" Text="$$" Margin="15,0,0,0"/>
         </BulletDecorator>
 
-        <Button x:Name="addCriteriaBtn" Grid.Column="3" Grid.Row="10" FontWeight="ExtraBlack" FontSize="50" Content=" + " VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"/>
+        <Button x:Name="addCriteriaBtn" Grid.Column="3" Grid.Row="10" FontWeight="ExtraBlack" FontSize="50" Content=" + " VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="addCriteriaBtn_Click"/>
     
     
     </Grid>
