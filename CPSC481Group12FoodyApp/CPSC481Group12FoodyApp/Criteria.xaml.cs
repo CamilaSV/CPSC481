@@ -18,11 +18,18 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for Criteria.xaml
     /// </summary>
-    public partial class Criteria : Page
+    public partial class Criteria : UserControl
     {
-        public Criteria()
+        private PageNavigator navigator_helper;
+        public Criteria(PageNavigator navigator_helper)
         {
             InitializeComponent();
+            this.navigator_helper = navigator_helper;
+        }
+
+        private void addCriteriaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigator_helper.gotoCriteria();
         }
     }
 }

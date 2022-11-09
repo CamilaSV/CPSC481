@@ -111,5 +111,11 @@ namespace CPSC481Group12FoodyApp
         {
             // temporary version that should be deleted
         }
+
+        // WIP: Criteria
+        public void gotoCriteria()
+        {
+
+        }
     }
 }
