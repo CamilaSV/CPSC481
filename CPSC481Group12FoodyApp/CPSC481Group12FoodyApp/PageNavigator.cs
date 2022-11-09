@@ -7,38 +7,38 @@ namespace CPSC481Group12FoodyApp
     public class PageNavigator
     {
         private Window_Single targetWindow;
-
+        /*
         private UserControl_Start startPage;
         private UserControl_Login loginPage;
         private UserControl_Register registerPage;
         private UserControl_ChatList chatListPage;
-
+        */
 
         public PageNavigator(Window_Single target)
         {
             targetWindow = target;
-
+            /*
             startPage = new UserControl_Start(this);
             loginPage = new UserControl_Login(this);
             registerPage = new UserControl_Register(this);
             chatListPage = new UserControl_ChatList(this);
-
             targetWindow.Content = startPage;
+            */
         }
 
         public void gotoStart()
         {
-            targetWindow.Content = startPage;
+            //targetWindow.Content = startPage;
         }
 
         public void gotoLogin()
         {
-            targetWindow.Content = loginPage;
+            //targetWindow.Content = loginPage;
         }
 
         public void gotoRegister()
         {
-            targetWindow.Content = registerPage;
+            //targetWindow.Content = registerPage;
         }
 
         public void gotoProfile()
@@ -59,7 +59,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoChatList()
         {
-            targetWindow.Content = chatListPage;
+            //targetWindow.Content = chatListPage;
         }
 
         public void gotoAddFriend()

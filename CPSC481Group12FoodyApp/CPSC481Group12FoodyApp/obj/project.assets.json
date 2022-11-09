@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Bonnie's Computer\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp.csproj",
+      "projectUniqueName": "F:\\481-horizontal\\CamilaSV\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp.csproj",
       "projectName": "CPSC481Group12FoodyApp",
-      "projectPath": "D:\\Repos\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp.csproj",
-      "packagesPath": "C:\\Users\\Bonnie's Computer\\.nuget\\packages\\",
-      "outputPath": "D:\\Repos\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\obj\\",
+      "projectPath": "F:\\481-horizontal\\CamilaSV\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "F:\\481-horizontal\\CamilaSV\\CPSC481\\CPSC481Group12FoodyApp\\CPSC481Group12FoodyApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bonnie's Computer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -51,7 +51,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -63,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
