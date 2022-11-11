@@ -15,5 +15,7 @@
         <PasswordBox HorizontalAlignment="Center" Height="40" Margin="0,586,0,0" VerticalAlignment="Top" Width="334" FontFamily="Times New Roman" FontSize="24"/>
         <TextBox x:Name="EmailTextBox" HorizontalAlignment="Center" Height="40" Margin="0,459,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" RenderTransformOrigin="-0.464,0.165" FontFamily="Times New Roman" FontSize="24"/>
         <Button x:Name="Register_BackButton" Content="Back" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="98" FontFamily="Times New Roman" FontSize="24" FontWeight="Bold" Click="Register_BackButton_Click"/>
+        <TextBlock x:Name="Register_LoginText" HorizontalAlignment="Left" Height="23" Margin="206,636,0,0" VerticalAlignment="Top" Width="74" FontFamily="Times New Roman" FontSize="16" Foreground="#FF000064" TextDecorations="Underline" MouseUp="Register_LoginText_MouseUp"><Run Language="ko-kr" Text="Login"/><Run Text=" here"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="73,636,0,0" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" FontSize="16"><Run Language="ko-kr" Text="Already registered?"/></TextBlock>
     </Grid>
 </UserControl>

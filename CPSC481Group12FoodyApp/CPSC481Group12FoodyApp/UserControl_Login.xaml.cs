@@ -37,5 +37,10 @@ namespace CPSC481Group12FoodyApp
         {
             navigate_helper.gotoStart();
         }
+
+        private void Login_RegisterText_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            navigate_helper.gotoRegister();
+        }
     }
 }
