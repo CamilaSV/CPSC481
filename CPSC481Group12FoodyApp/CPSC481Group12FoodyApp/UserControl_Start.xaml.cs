@@ -16,23 +16,26 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControl_Start.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserControl_Start : UserControl
     {
-        public MainWindow()
+        private PageNavigator navigate_helper;
+
+        public UserControl_Start(PageNavigator navigate_helper)
         {
             InitializeComponent();
+            this.navigate_helper = navigate_helper;
         }
 
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void Start_LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            navigate_helper.gotoLogin();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void Start_SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-
+            navigate_helper.gotoRegister();
         }
     }
 }
