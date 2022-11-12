@@ -10,6 +10,9 @@
     <Page Update="ChatInfoScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ChatScreenEventNotify.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -20,6 +23,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CreateEventScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SuggestRestaurant.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Template_WithTopBar.xaml">
