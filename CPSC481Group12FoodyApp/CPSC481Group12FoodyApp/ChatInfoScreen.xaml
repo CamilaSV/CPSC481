@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="local:ChatInfoScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="853" d:DesignWidth="480">
+    <Grid x:Name="ChatInfoScreen" Background="White">
+        <Grid HorizontalAlignment="Center" Height="160" Margin="0,410,0,0" VerticalAlignment="Top" Width="460">
+            <Grid HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="178" Margin="10,10,0,0">
+                <Label x:Name="CriteriaLabel" Content="Criteria" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="38" FontWeight="Bold"/>
+                <Button x:Name="CriteriaEditButton" Width="32" Height="32" Margin="146,22,0,7" BorderBrush="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource = "Images/EditIcon.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,76,0,10" Width="440" FontSize="24"><Run Text="Tacos"/><LineBreak/><Run Text="$-$$"/><LineBreak/></TextBlock>
+        </Grid>
+        <Rectangle x:Name="TopBar" HorizontalAlignment ="Left"  Height="74" Margin="-30,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
+        <Button x:Name="BackButton" HorizontalAlignment="Left" Height="64" Width ="64" Margin="10,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/BackButtonIcon.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="ChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="79,1,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Grid HorizontalAlignment="Center" Height="184" Margin="0,80,0,0" VerticalAlignment="Top" Width="460">
+            <Grid HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="215" Margin="10,10,0,0">
+                <Label x:Name="MembersLabel" Content="Members" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="38" FontWeight="Bold"/>
+                <Button x:Name="MemberEditButton" Width="32" Height="32" Margin="183,14,0,15" BorderBrush="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource = "Images/EditIcon.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+            <TextBlock x:Name="MembersTextBlock" HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="187" Height="96"><Run Text="Me"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Jane"/><LineBreak/></TextBlock>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="141" Margin="0,269,0,0" VerticalAlignment="Top" Width="460">
+            <TextBlock x:Name="SchedulerDateTextBlock" Height="54" Margin="10,76,10,0" TextWrapping="Wrap" Text="Friday, October 20th, 2022" VerticalAlignment="Top" Background="#FFBFBFBF" FontSize="38"/>
+            <Grid Height="61" Margin="10,10,227,0" VerticalAlignment="Top">
+                <Label x:Name="SchedulerLabel" Content="Scheduler" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="38" FontWeight="Bold"/>
+                <Button x:Name="SchedulerEditButton" Width="32" Height="32" Margin="191,14,0,15" BorderBrush="{x:Null}" >
+                    <Button.Background>
+                        <ImageBrush ImageSource = "Images/EditIcon.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="244" Margin="0,575,0,0" VerticalAlignment="Top" Width="460">
+            <Grid HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="256" Margin="10,10,0,0">
+                <Label Content="Restaurants" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="38"/>
+                <Button x:Name="RestaurantsEditButton" Width="32" Height="32" Margin="224,14,0,15" BorderBrush="{x:Null}" HorizontalAlignment="Left" >
+                    <Button.Background>
+                        <ImageBrush ImageSource = "Images/EditIcon.png"/>
+                    </Button.Background>
+                </Button>
+            </Grid>
+            <Rectangle HorizontalAlignment="Center" Height="91" Margin="0,71,0,0" Stroke="Black" VerticalAlignment="Top" Width="440" Fill="#FFBFBFBF"/>
+            <Label x:Name="Restaurant1Label" Content="Taco Bell" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,0.539" FontWeight="Bold" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Center" Height="49" Margin="0,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" FontSize="20"><Run Language="en-ca" Text="Tacos"/><LineBreak/><Run Language="en-ca" Text="$"/></TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
