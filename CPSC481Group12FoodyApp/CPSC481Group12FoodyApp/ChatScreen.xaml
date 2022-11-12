@@ -55,19 +55,19 @@
                 <TextBlock x:Name="User1MessageTextBlock1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="73" Height="58" Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"><Run Text="Do you "/><Run Language="en-ca" Text="guys "/><Run Text="want to go for food soon?"/></TextBlock>
             </Canvas>
             <Label x:Name="GroupChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="74,1,0,0" VerticalAlignment="Top" FontSize="48"/>
-            <Canvas Margin="212,378,38,223">
+            <Canvas Margin="212,378,38,143">
                 <Ellipse x:Name="User3" Width="48" Height="48" Canvas.Left="181">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Images/MaleAvatar.png"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Image x:Name="Message3" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="205" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Image x:Name="Message3" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="282" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <Image.RenderTransform>
                         <ScaleTransform ScaleX="-1"/>
                     </Image.RenderTransform>
                 </Image>
                 <Label x:Name="User1NameLabel1" Content="Me" FontSize="20" Height="38" Canvas.Left="132" Canvas.Top="5" Width="44" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock x:Name="User1MessageTextBlock2" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="89" Height="161" Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"><Run Text="OOH YES! I W"/><Run Text="A"/><Run Text="NT TACOS "/><Run Text="2"/><Run Text="! BUT CHEAP ONES CUZ IM"/><Run Language="en-ca" Text=" "/><Run Text="BROKE"/><Run Language="en-ca" Text="EEEE"/><LineBreak/><Run Language="en-ca"/><Run Text="😃💸😢🤑"/></TextBlock>
+                <TextBlock x:Name="User1MessageTextBlock2" Canvas.Left="30" TextWrapping="Wrap" Canvas.Top="103" Height="208" Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"><Run Text="OOH YES! I W"/><Run Text="A"/><Run Text="NT TACOS "/><Run Text="2"/><Run Text="! BUT CHEAP ONES CUZ IM"/><Run Text=" "/><Run Text="BROKE"/><Run Text="EEEE"/><LineBreak/><Run/><Run Text="😃💸😢🤑"/><LineBreak/><Run Language="en-ca" Text="BUT ALSO MAYB SUSHI"/><LineBreak/><Run/></TextBlock>
             </Canvas>
         </Grid>
     </Grid>
