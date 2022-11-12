@@ -45,14 +45,60 @@
             </Button.Background>
         </Button>
 
-
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="64" Width="64" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Images/user_icon.png"/>
             </Button.Background>
         </Button>
         <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
 
+        <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="SearchBar" VerticalAlignment="Center" Text="  Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Image Grid.ColumnSpan="2" Grid.Row="0" Margin="320,0,0,0" Width="50">
+                <Image.Source>
+                    <BitmapImage DecodePixelWidth="50" UriSource="/images/search.png" />
+                </Image.Source>
+            </Image>
+
+            <Border Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat1" VerticalAlignment="Center" Text="Favourites" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat2" VerticalAlignment="Center" Text="Mexican" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat3" VerticalAlignment="Center" Text="Chinese" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat4" VerticalAlignment="Center" Text="Pasta" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat5" VerticalAlignment="Center" Text="Thai" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="150" Width="150" BorderThickness="1" BorderBrush="Black">
+                <TextBox Name="Cat6" VerticalAlignment="Center" Text="Sushi" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            </Border>
+
+        </Grid>
     </Grid>
 </UserControl>
