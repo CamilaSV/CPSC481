@@ -11,7 +11,7 @@
 
     <!--:local="clr-namespace:CPSC481Group12FoodyApp" d:DataContext="{d:DesignInstance Type=local:ChatListVM}"-->
 
-    <Grid d:DataContext="{d:DesignInstance Type=local:ChatListVM}">
+    <Grid d:DataContext="{x:Static local:ChatListDesignModel.Instance}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="auto"/>

@@ -16,7 +16,7 @@ namespace CPSC481Group12FoodyApp
         //private List<ChatListGroupFields> ChatListGroup = new List<ChatListGroupFields>();
         //public IList<ChatListVM> ChatListGroup { get; set; }
         //public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
-
+        /*
         public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
 
         public ChatList()
@@ -51,7 +51,8 @@ namespace CPSC481Group12FoodyApp
 
             };
             this.DataContext = ChatListGroup;
-        }
+        */
+        //}
 
     }
 }

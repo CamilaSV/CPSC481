@@ -30,7 +30,7 @@ namespace CPSC481Group12FoodyApp
         //public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
 
         //public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
-        private ObservableCollection<ChatListVM> _ChatListGroup;
+        /*private ObservableCollection<ChatListVM> _ChatListGroup;
         public ObservableCollection<ChatListVM> ChatListGroup
         {
             get { return _ChatListGroup; }
@@ -39,14 +39,14 @@ namespace CPSC481Group12FoodyApp
                 _ChatListGroup = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("ChatListGroup"));
             }
-        }
+        }*/
 
         public ChatListControl()
         {
 
             InitializeComponent();
-            //this.DataContext = this;
-            ChatListGroup = new ObservableCollection<ChatListVM>
+            this.DataContext = this;
+            /*ChatListGroup = new ObservableCollection<ChatListVM>
             {
                 //new ChatListVM() { Abbreviation = "G", GroupName = "Girls", LastActive = "Last Active: 8h" }
                 new ChatListVM
@@ -128,6 +128,7 @@ namespace CPSC481Group12FoodyApp
                 LastActive = "Last Active: 2h"
             };
         };*/
+        }
 
     }
 

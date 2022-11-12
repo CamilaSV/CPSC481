@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
              mc:Ignorable="d" 
              Background="White"
              
              d:DesignHeight="890" d:DesignWidth="492">
     <!--DataContext="{Binding RelativeSource={RelativeSource Self}}"-->
     
-    <Grid >
+    <Grid DataContext="{x:Static local:ChatListControlDesignModel.Instance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding ChatListGroup}">
+            <ItemsControl ItemsSource="{Binding Chats}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:ChatListGroupControl/>

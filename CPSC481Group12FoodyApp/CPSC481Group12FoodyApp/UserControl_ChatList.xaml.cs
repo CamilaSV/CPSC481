@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace CPSC481Group12FoodyApp
         public UserControl_ChatList(PageNavigator navigate_helper)
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
+
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
