@@ -7,13 +7,25 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChatInfoScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ChatScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatInfoScreen.xaml">
+    <Page Update="ChatEditRestaurant.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateEventScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Template_WithTopBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditCriteria.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
