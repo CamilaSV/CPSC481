@@ -30,7 +30,7 @@
                     <ImageBrush ImageSource="Images/SendButtonIcon.png"/>
                 </Button.Background>
             </Button>
-            <Canvas Margin="42,200,208,443">
+            <Canvas Margin="33,244,217,399">
                 <Image x:Name="Message1" Source="/Images/MessageBubble.png" Stretch="Fill" Height="163" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <Ellipse x:Name="User2" Width="48" Height="48">
                     <Ellipse.Fill>
@@ -40,28 +40,24 @@
                 <Label x:Name="User2NameLabel" Content="Jane" Canvas.Left="53" Canvas.Top="6" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock Height="118" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="84" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22"><Run Text="y"/><Run Text="eah! "/><Run Text="w"/><Run Text="hat are "/><Run Language="en-ca" Text="we"/><Run Text=" feeling? "/><Run Text="I want tacos, ill put it in the criteria section"/><LineBreak/><Run/></TextBlock>
             </Canvas>
-            <Canvas Margin="212,79,38,628">
-                <Ellipse x:Name="User1" Width="48" Height="48" Canvas.Left="181">
+            <Canvas Margin="33,80,217,627">
+                <Ellipse x:Name="User1" Width="48" Height="48" Canvas.Top="5">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Images/MaleAvatar.png"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Image x:Name="Message2" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="98" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Image.RenderTransform>
-                        <ScaleTransform ScaleX="-1"/>
-                    </Image.RenderTransform>
-                </Image>
-                <Label x:Name="User1NameLabel" Content="Alice" FontSize="20" Height="38" Canvas.Left="115" Canvas.Top="5" Width="53" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image x:Name="Message2" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="98" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Label x:Name="User1NameLabel" Content="Alice" FontSize="20" Height="38" Canvas.Left="53" Canvas.Top="10" Width="53" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBlock x:Name="User1MessageTextBlock1" Canvas.Left="20" TextWrapping="Wrap" Canvas.Top="73" Height="58" Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"><Run Text="Do you "/><Run Language="en-ca" Text="guys "/><Run Text="want to go for food soon?"/></TextBlock>
             </Canvas>
             <Label x:Name="GroupChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="74,1,0,0" VerticalAlignment="Top" FontSize="48"/>
-            <Canvas Margin="212,378,38,143">
+            <Canvas Margin="211,422,39,99">
                 <Ellipse x:Name="User3" Width="48" Height="48" Canvas.Left="181">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Images/MaleAvatar.png"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Image x:Name="Message3" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="282" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Image x:Name="Message3" Source="/Images/MessageBubble.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="282" Canvas.Top="55" Width="230" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="-1">
                     <Image.RenderTransform>
                         <ScaleTransform ScaleX="-1"/>
                     </Image.RenderTransform>
