@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
     <Grid>
+
+        <local:ChatListControl>
+            <local:ChatListGroupControl/>
+        </local:ChatListControl>
+        
+        
         <Border Height="1" Margin="2,752,2,100" Background="#000000"/>
         <Border Width="1" Margin="320,752,159,0" Background="#000000"/>
         <Border Width="1" Margin="160,752,319,0" Background="#000000"/>
