@@ -33,14 +33,14 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoChatList();
         }
 
-        private void Login_BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoStart();
-        }
-
         private void Login_RegisterText_MouseUp(object sender, MouseButtonEventArgs e)
         {
             navigate_helper.gotoRegister();
+        }
+
+        private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            navigate_helper.gotoStart();
         }
     }
 }
