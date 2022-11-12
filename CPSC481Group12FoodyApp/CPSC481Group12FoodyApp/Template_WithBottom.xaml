@@ -11,8 +11,8 @@
         <Border Width="1" Margin="320,752,159,0" Background="#000000"/>
         <Border Width="1" Margin="160,752,319,0" Background="#000000"/>
         <Button x:Name="Bottom_CreateButton" Content="+" HorizontalAlignment="Left" Height="38" Margin="400,670,0,0" VerticalAlignment="Top" Width="40" Click="Bottom_CreateButton_Click"/>
-        <TextBlock x:Name="Bottom_HomeButton" HorizontalAlignment="Left" Height="50" Margin="52,778,0,0" TextWrapping="Wrap" Text="&#x1f3e0;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_HomeButton_MouseUp"/>
-        <TextBlock x:Name="Bottom_CalButton" HorizontalAlignment="Left" Height="50" Margin="213,778,0,0" TextWrapping="Wrap" Text="&#x1f4c6;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_CalButton_MouseUp"/>
-        <TextBlock x:Name="Bottom_ChatButton" HorizontalAlignment="Right" Height="50" Margin="0,778,57,0" TextWrapping="Wrap" Text="&#x1f4ac;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_ChatButton_MouseUp"/>
+        <TextBlock x:Name="Bottom_HomeButton" HorizontalAlignment="Left" Height="50" Margin="52,778,0,0" TextWrapping="Wrap" Text="&#x1f3e0;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_HomeButton_Click"/>
+        <TextBlock x:Name="Bottom_CalButton" HorizontalAlignment="Left" Height="50" Margin="213,778,0,0" TextWrapping="Wrap" Text="&#x1f4c6;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_CalButton_Click"/>
+        <TextBlock x:Name="Bottom_ChatButton" HorizontalAlignment="Right" Height="50" Margin="0,778,57,0" TextWrapping="Wrap" Text="&#x1f4ac;" VerticalAlignment="Top" Width="50" FontFamily="Times New Roman" FontSize="40" MouseUp="Bottom_ChatButton_Click"/>
     </Grid>
 </UserControl>
