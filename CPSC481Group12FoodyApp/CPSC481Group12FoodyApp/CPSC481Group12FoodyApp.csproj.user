@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ChatListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControl_Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,6 +21,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChatListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControl_Register.xaml">
       <SubType>Designer</SubType>
     </Page>
