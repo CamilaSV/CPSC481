@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="local:ChatEditRestaurant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="853" d:DesignWidth="480">
+    <Grid x:Name="ChatEditRestaurant" Background="White" RenderTransformOrigin="0.5,0">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform X="10"/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Rectangle x:Name="TopBar" HorizontalAlignment ="Left"  Height="74" Margin="-30,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
+        <Button x:Name="BackButton" HorizontalAlignment="Left" Height="64" Width ="64" Margin="10,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/BackButtonIcon.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="ChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="79,1,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label x:Name="RestaurantLabel" Content="Members" FontSize="38" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
+        <TextBlock FontSize ="30" HorizontalAlignment="Left" Margin="42,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"><Run Text="Me"/><LineBreak/><Run Text="Jane"/><LineBreak/><Run Text="Alice"/></TextBlock>
+        <Label x:Name="AddMemberLabel" FontSize="38" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0" Content="Invite Members" FontWeight="Bold"/>
+        <Grid HorizontalAlignment="Center" Height="477" VerticalAlignment="Top" Margin="0,366,0,0" Width="396">
+            <CheckBox x:Name="JessicaCheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19" Width="63" IsChecked="True">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Jessica" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="SallyCheckBox" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Height="19" Width="63">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Sally" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="AlexCheckBox" HorizontalAlignment="Left" Margin="0,124,0,0" VerticalAlignment="Top" Height="19" Width="63" IsChecked="True">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Alex" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="KayCheckBox" HorizontalAlignment="Left" Margin="0,186,0,0" VerticalAlignment="Top" Height="19" Width="63">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Kay" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="KyloCheckBox" HorizontalAlignment="Left" Margin="0,243,0,0" VerticalAlignment="Top" Height="19" Width="63" IsChecked="True">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Kylo" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="MaggieCheckBox" HorizontalAlignment="Left" Margin="0,410,0,0" VerticalAlignment="Top" Height="19" Width="66">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Maggie" Height="18" Width="43"/>
+            </CheckBox>
+            <CheckBox x:Name="ChelseyCheckBox" HorizontalAlignment="Left" Margin="0,357,0,0" VerticalAlignment="Top" Height="19" Width="74">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Chelsey" Height="18" Width="45"/>
+            </CheckBox>
+            <CheckBox x:Name="ReyCheckBox" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Height="19" Width="63" IsChecked="True">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Rey" Height="18" Width="37"/>
+            </CheckBox>
+            <CheckBox x:Name="SaitoCheckBox" HorizontalAlignment="Left" Margin="0,467,0,0" VerticalAlignment="Top" Height="19" Width="63">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="3" ScaleY="3"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+                <TextBlock Text="Saito" Height="18" Width="37"/>
+            </CheckBox>
+        </Grid>
+        <Button FontSize ="32" Content="Confirm" HorizontalAlignment="Left" Height="49" Margin="327,306,0,0" VerticalAlignment="Top" Width="123"/>
+        <Rectangle HorizontalAlignment="Center" Height="853" Stroke="Black" VerticalAlignment="Center" Width="480" Fill="Black" Opacity="0.7"/>
+        <Grid HorizontalAlignment="Center" Height="260" VerticalAlignment="Center" Width="340" Background="LightGray">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Height="199" Width="320"><Run Text="Confirm adding"/><Run Language="en-ca" Text=" selected"/><Run Text=" members to"/><LineBreak/><Run Text=" &quot;Foodies!&quot;"/><LineBreak/></TextBlock>
+            <Button Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10"/>
+            <Button Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10"/>
+        </Grid>
+    </Grid>
+</UserControl>

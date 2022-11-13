@@ -7,13 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
     <Grid Background="White">
-        <Border Height="1" Margin="2,752,2,100" Background="#000000"/>
-        <Border Width="1" Margin="320,752,159,0" Background="#000000"/>
-        <Border Width="1" Margin="160,752,319,0" Background="#000000"/>
-        <Button x:Name="Bottom_HomeButton" Content="Home" HorizontalAlignment="Left" Height="50" Margin="40,778,0,0" VerticalAlignment="Top" Width="80" Click="Bottom_HomeButton_Click"/>
-        <Button x:Name="Bottom_CalButton" Content="Calendar" HorizontalAlignment="Center" Height="50" Margin="0,778,0,0" VerticalAlignment="Top" Width="80" Click="Bottom_CalButton_Click"/>
-        <Button x:Name="Bottom_ChatButton" Content="Chats" HorizontalAlignment="Left" Height="50" Margin="360,778,0,0" VerticalAlignment="Top" Width="80" Click="Bottom_ChatButton_Click"/>
-        <Rectangle x:Name="TopBar" HorizontalAlignment ="Left"  Height="74" Margin="-30,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
+       <Rectangle x:Name="TopBar" HorizontalAlignment ="Center"  Height="74" Margin="0,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="478"/>
         <Label x:Name="AppNameLabel" Content="Meal Social" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,778"/>
         <Button x:Name="BackButton" HorizontalAlignment="Left" Height="64" Width ="64" Margin="10,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
             <Button.Background>
