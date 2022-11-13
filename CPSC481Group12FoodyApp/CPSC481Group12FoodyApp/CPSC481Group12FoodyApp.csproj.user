@@ -27,7 +27,13 @@
     <Page Update="ChatListControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="InvitationCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ChatListGroupControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_Profile.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControl_Register.xaml">

@@ -39,7 +39,7 @@ namespace CPSC481Group12FoodyApp
                 new propertyChange
                 {
                     Abbreviation = "B",
-                    GroupName = "Boys",
+                    GroupName = "BBBBBBB",
                     LastActive = "Last Active: 2h"
                 },
                 new propertyChange

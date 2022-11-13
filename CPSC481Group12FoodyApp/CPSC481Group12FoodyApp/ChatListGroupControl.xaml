@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
              mc:Ignorable="d" 
+             
              Background="White"
              Height="60"
+             d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
+             
              d:DesignHeight="60" d:DesignWidth="480">
 
-    <!--:local="clr-namespace:CPSC481Group12FoodyApp" d:DataContext="{d:DesignInstance Type=local:ChatListVM}"-->
-
-    <Grid d:DataContext="{x:Static local:ChatListDesignModel.Instance}">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="auto"/>

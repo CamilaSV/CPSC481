@@ -117,5 +117,29 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        // temp
+        public void acceptInvitation()
+        {
+
+        }
+        // temp
+        public void declineInvitation()
+        {
+
+        }
+
+        //temp 
+        public void addFriend()
+        {
+
+        }
+
+        public void editProfile()
+        {
+
+        }
+
+
     }
 }
