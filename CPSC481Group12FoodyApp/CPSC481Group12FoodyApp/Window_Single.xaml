@@ -8,6 +8,6 @@
         ResizeMode="NoResize"
         Title="FOOD APP" Height="890" Width="492">
     <Grid>
-        
+
     </Grid>
 </Window>

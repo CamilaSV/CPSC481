@@ -17,16 +17,16 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for UserControl_Login.xaml
+    /// Interaction logic for UserControl_CreateNewChat.xaml
     /// </summary>
-    public partial class UserControl_ChatList : UserControl
+    public partial class UserControl_CreateNewChat : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public UserControl_ChatList(PageNavigator navigate_helper)
+        public UserControl_CreateNewChat(PageNavigator navigate_helper)
         {
             InitializeComponent();
-            this.navigate_helper= navigate_helper;
+            this.navigate_helper = navigate_helper;
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -49,14 +49,34 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoCreateGroup();
         }
 
-        private void List_Profile_Click(object sender, RoutedEventArgs e)
+        private void minusBtn(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoProfile();
+            navigate_helper.declineInvitation();
         }
 
-        private void List_Invitation_Click(object sender, RoutedEventArgs e)
+        private void editBtn(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoInvitation();
+            navigate_helper.editProfile();
+        }
+
+        private void addBtn2(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.addFriend();
+        }
+
+        private void checkButton(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.acceptInvitation();
+        }
+
+        private void declineButton(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.declineInvitation();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
