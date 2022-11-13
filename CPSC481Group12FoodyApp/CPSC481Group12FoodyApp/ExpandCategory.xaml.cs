@@ -28,10 +28,9 @@ namespace CPSC481Group12FoodyApp
             this.navigate_helper = navigate_helper;
         }
 
-        private void Bottom_HomeButton_Click(object sender, MouseButtonEventArgs e)
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoHomePage();
-
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)

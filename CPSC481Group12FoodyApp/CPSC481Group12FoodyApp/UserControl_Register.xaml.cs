@@ -16,37 +16,30 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_WithBottom.xaml
+    /// Interaction logic for UserControl_Register.xaml
     /// </summary>
-    public partial class Template_WithBottom : UserControl
+    public partial class UserControl_Register : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public Template_WithBottom(PageNavigator navigate_helper)
+        public UserControl_Register(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
         }
 
-        private void Bottom_HomeButton_Click(object sender, MouseButtonEventArgs e)
-        {
-            navigate_helper.gotoHomePage();
-
-        }
-
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoCalendar();
-        }
-
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
+        private void Register_SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoChatList();
         }
 
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        private void Register_LoginText_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            navigate_helper.gotoLogin();
+        }
+        private void Register_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            navigate_helper.gotoStart();
         }
     }
 }

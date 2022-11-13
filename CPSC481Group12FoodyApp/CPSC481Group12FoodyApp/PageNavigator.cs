@@ -7,23 +7,26 @@ namespace CPSC481Group12FoodyApp
     public class PageNavigator
     {
         private Window_Single targetWindow;
-
+        
         private UserControl_Start startPage;
         private UserControl_Login loginPage;
         private UserControl_Register registerPage;
         private UserControl_ChatList chatListPage;
-
+        private UserControl_Profile profilePage;
+        private UserControl_Invitations invitationsPage;
 
         public PageNavigator(Window_Single target)
         {
             targetWindow = target;
-
+            
             startPage = new UserControl_Start(this);
             loginPage = new UserControl_Login(this);
             registerPage = new UserControl_Register(this);
             chatListPage = new UserControl_ChatList(this);
-
+            profilePage = new UserControl_Profile(this);    
+            invitationsPage = new UserControl_Invitations(this);
             targetWindow.Content = startPage;
+            
         }
 
         public void gotoStart()
@@ -43,7 +46,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoProfile()
         {
-
+            targetWindow.Content = profilePage;
         }
 
         // below 3 are bottom navigator options
@@ -94,7 +97,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoInvitation()
         {
-
+            targetWindow.Content = invitationsPage;
         }
 
         public void gotoOneChat(int version)
@@ -111,5 +114,29 @@ namespace CPSC481Group12FoodyApp
         {
             // temporary version that should be deleted
         }
+
+        // temp
+        public void acceptInvitation()
+        {
+
+        }
+        // temp
+        public void declineInvitation()
+        {
+
+        }
+
+        //temp 
+        public void addFriend()
+        {
+
+        }
+
+        public void editProfile()
+        {
+
+        }
+
+
     }
 }
