@@ -7,6 +7,28 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChatAddCustomTime.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditMembersRemove.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditMembersConfirm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditMembers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditRestaurantRemove.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatInfoScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatScreenEventNotify.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
     <Compile Update="ChatListControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +89,24 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window_Single.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditRestaurant.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateEventScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SuggestRestaurant.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Template_WithTopBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatEditCriteria.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
