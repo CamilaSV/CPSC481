@@ -12,7 +12,7 @@ namespace CPSC481Group12FoodyApp
         private UserControl_Login loginPage;
         private UserControl_Register registerPage;
         private UserControl_ChatList chatListPage;
-        
+        private UserControl_Profile profilePage;
 
         public PageNavigator(Window_Single target)
         {
@@ -22,6 +22,7 @@ namespace CPSC481Group12FoodyApp
             loginPage = new UserControl_Login(this);
             registerPage = new UserControl_Register(this);
             chatListPage = new UserControl_ChatList(this);
+            profilePage = new UserControl_Profile(this);    
             targetWindow.Content = startPage;
             
         }
@@ -43,7 +44,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoProfile()
         {
-
+            targetWindow.Content = profilePage;
         }
 
         // below 3 are bottom navigator options

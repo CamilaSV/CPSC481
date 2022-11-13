@@ -22,6 +22,9 @@
     <Compile Update="InvitationCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControl_Invitations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControl_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="UserControl_Invitations.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="UserControl_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
