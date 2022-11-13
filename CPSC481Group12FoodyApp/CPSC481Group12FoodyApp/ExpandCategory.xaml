@@ -20,6 +20,23 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <!-- Top Bar -->
+
+        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/user_icon.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/back_button.png"/>
+            </Button.Background>
+        </Button>
+
+        <!-- Bottom Navigation -->
+
         <Border Height="1" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" Background="#000000"/>
         <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="#000000"/>
         <Border Width="1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Background="#000000"/>
@@ -40,19 +57,8 @@
             </Button.Background>
         </Button>
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/user_icon.png"/>
-            </Button.Background>
-        </Button>
-        <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/back_button.png"/>
-            </Button.Background>
-        </Button>
-        
+        <!-- Middle Content -->
+
         <Grid Grid.ColumnSpan="3" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
@@ -63,42 +69,176 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox Name="Category" Margin="45,0,0,0" VerticalAlignment="Center" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="12*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-            <Button x:Name="Filter" Margin="0,0,45,0" Grid.Column="0" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <!-- Name and Search Bar -->
+
+            <TextBox Name="Category" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}"/>
+
+            <Button x:Name="Filter"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/filter.png"/>
                 </Button.Background>
             </Button>
 
-            <Border  Grid.Row="1" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" BorderBrush="Black">
+            <Border  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Height="50" Width="auto" BorderThickness="1" BorderBrush="Black">
                 <TextBox Name="SearchBar" VerticalAlignment="Center" Text="  Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
             </Border>
 
-            <Image Grid.Row="1" Margin="320,0,0,0" Width="50">
+            <Image Grid.Row="1" Grid.Column="1" Margin="320,0,0,0" Width="50">
                 <Image.Source> 
                     <BitmapImage DecodePixelWidth="50" UriSource="/images/search.png" />
                 </Image.Source>
             </Image>
 
-            <Border Grid.Row="2" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest1" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Native Tongues Taqueria &#x0a; -Mexican &#x0a; -$$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
+            <!-- Restaraunt 1 -->
+
+            <Border Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
+                <RichTextBox Name="Rest1" Width="390" BorderBrush="{x:Null}">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run FontSize="20" FontWeight="Bold">Native Tongues Taqueria</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• Mexican</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• $$</Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
             </Border>
 
-            <Border Grid.Row="3" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest2" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Tacos Mexico &#x0a; -Mexican &#x0a; -$$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
+            <Button x:Name="star1" Grid.Row="2" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/star.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="send1" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/send.png"/>
+                </Button.Background>
+            </Button>
+
+            <!-- Restaraunt 2 -->
+
+            <Border Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
+                <RichTextBox Name="Rest2" Width="390" BorderBrush="{x:Null}">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run FontSize="20" FontWeight="Bold">Tacos Mexico</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• Mexican</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• $$</Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
             </Border>
 
-            <Border Grid.Row="4" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest3" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Spicy Amigos &#x0a; -Mexican &#x0a; -$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
+            <Button x:Name="star2" Grid.Row="3" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/star.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="send2" Grid.Row="3" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/send.png"/>
+                </Button.Background>
+            </Button>
+
+            <!-- Restaraunt 3 -->
+
+            <Border Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
+                <RichTextBox Name="Rest3" Width="390" BorderBrush="{x:Null}">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run FontSize="20" FontWeight="Bold">Spicy Amigos</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• Mexican</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• $</Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
             </Border>
 
-            <Border Grid.Row="5" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest4" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Molcajete &#x0a; -Mexican &#x0a; -$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
+            <Button x:Name="heart1" Grid.Row="4" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/heart.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="send3" Grid.Row="4" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/send.png"/>
+                </Button.Background>
+            </Button>
+
+            <!-- Restaraunt 4 -->
+
+            <Border Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
+                <RichTextBox Name="Rest4" Width="390" BorderBrush="{x:Null}">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run FontSize="20" FontWeight="Bold">Molcajete</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• Mexican</Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run FontSize="20">• $</Run>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
             </Border>
-            
+
+            <Button x:Name="forlater1" Grid.Row="6" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/forlater.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="send4" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/send.png"/>
+                </Button.Background>
+            </Button>
+
         </Grid>
-        
+
+        <!-- Create Button -->
+
         <Button x:Name="Bottom_CreateButton" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Images/add.png"/>
