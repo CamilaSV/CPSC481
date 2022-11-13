@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ChatListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChatListGroupControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControl_Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +31,27 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="InvitationControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="InvitationCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChatListGroupControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_Invitations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_CreateNewChat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_Profile.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControl_Register.xaml">

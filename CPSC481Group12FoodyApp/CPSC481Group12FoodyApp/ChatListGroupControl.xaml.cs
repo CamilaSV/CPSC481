@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Window_Single.xaml
+    /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class Window_Single : Window
+    public partial class ChatListGroupControl : UserControl
     {
-        public Window_Single()
+        public ChatListGroupControl()
         {
             InitializeComponent();
-            new PageNavigator(this); // create a new PageNavigator object which takes care of changing content
-            this.DataContext = new ChatListControlDesignModel();
-            this.DataContext = new InvitationControlDesignModel();
         }
     }
 }

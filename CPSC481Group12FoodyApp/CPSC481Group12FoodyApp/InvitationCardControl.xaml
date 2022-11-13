@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="CPSC481Group12FoodyApp.InvitationCardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
+             mc:Ignorable="d" 
+             Background="LightGray"
+             BorderBrush="White" BorderThickness="4"
+             Height="70"
+             d:DataContext="{x:Static local:InvitationDesignModel.Instance}"
+             d:DesignHeight="70" d:DesignWidth="480">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="2" HorizontalAlignment="Right" Padding="0,0,5,0" > 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Grid.Row="0" x:Name="Plus" FontWeight="ExtraBlack" FontSize="10" Content=" ✓ " Padding="5" VerticalAlignment="Top" HorizontalAlignment="Left" Click="addBtn"/>
+                    <Button x:Name="Minus" FontWeight="ExtraBlack" FontSize="10" Content=" ✘ " Margin="10,0,0,0" Padding="5" VerticalAlignment="Top" HorizontalAlignment="Right" Click="minusBtn"/>
+                </DockPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="2" VerticalAlignment="Center" >
+            <StackPanel>
+                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName}" Padding="0,0,0,0"/>
+                <TextBlock  FontFamily="Segoe UI Light" FontSize="15" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding UserName}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

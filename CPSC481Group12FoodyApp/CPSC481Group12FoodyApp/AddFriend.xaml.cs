@@ -16,30 +16,25 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for UserControl_Register.xaml
+    /// Interaction logic for AddCriteria.xaml
     /// </summary>
-    public partial class UserControl_Register : UserControl
+    public partial class AddFriend : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public UserControl_Register(PageNavigator navigate_helper)
+        public AddFriend(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
         }
 
-        private void Register_SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void submissionButtion_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
         }
 
-        private void Register_LoginText_MouseUp(object sender, MouseButtonEventArgs e)
+        private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            navigate_helper.gotoLogin();
-        }
-        private void Register_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            navigate_helper.gotoStart();
+
         }
     }
 }
