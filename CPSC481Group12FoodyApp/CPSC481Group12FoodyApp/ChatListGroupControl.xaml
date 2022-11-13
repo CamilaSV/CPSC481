@@ -7,10 +7,11 @@
              mc:Ignorable="d" 
              
              Background="White"
-             Height="60"
+             BorderBrush="black" BorderThickness="0.4"
+             Height="70"
              d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
              
-             d:DesignHeight="60" d:DesignWidth="480">
+             d:DesignHeight="70" d:DesignWidth="480">
 
     <Grid >
         <Grid.ColumnDefinitions>

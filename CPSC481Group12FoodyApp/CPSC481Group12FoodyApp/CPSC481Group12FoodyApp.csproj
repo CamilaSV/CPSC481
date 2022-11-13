@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="InvitationControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="InvitationCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

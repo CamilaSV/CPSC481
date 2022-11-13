@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
              mc:Ignorable="d" 
              Background="LightGray"
-             Height="60"
-             d:DesignHeight="60" d:DesignWidth="480">
+             BorderBrush="White" BorderThickness="4"
+             Height="70"
+             d:DataContext="{x:Static local:InvitationDesignModel.Instance}"
+             d:DesignHeight="70" d:DesignWidth="480">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,24 +19,23 @@
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="2" HorizontalAlignment="Right" Padding="0,5,0,0">
+        <Border Grid.Column="2" HorizontalAlignment="Right" Padding="0,0,5,0" > 
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <DockPanel HorizontalAlignment="Right">
-                    <Button Grid.Row="0" x:Name="Plus" FontWeight="ExtraBlack" FontSize="10" Content=" ✓ " Padding="2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="addBtn"/>
-                    <Button x:Name="Minus" FontWeight="ExtraBlack" FontSize="10" Content=" ✘ " Margin="10,0,0,0" Padding="2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="minusBtn"/>
+                <DockPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Grid.Row="0" x:Name="Plus" FontWeight="ExtraBlack" FontSize="10" Content=" ✓ " Padding="5" VerticalAlignment="Top" HorizontalAlignment="Left" Click="addBtn"/>
+                    <Button x:Name="Minus" FontWeight="ExtraBlack" FontSize="10" Content=" ✘ " Margin="10,0,0,0" Padding="5" VerticalAlignment="Top" HorizontalAlignment="Right" Click="minusBtn"/>
                 </DockPanel>
             </Grid>
         </Border>
 
-        <Border Grid.Column="2" VerticalAlignment="Center" Height="50">
+        <Border Grid.Column="2" VerticalAlignment="Center" >
             <StackPanel>
-                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Foodies" Padding="0,0,0,0"/>
-                <TextBlock  FontFamily="Segoe UI Light" FontSize="10" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="  Jessica"/>
-                <TextBlock  FontFamily="Segoe UI Light" FontSize="10" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="  Jerry"/>
+                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName}" Padding="0,0,0,0"/>
+                <TextBlock  FontFamily="Segoe UI Light" FontSize="10" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding UserName}"/>
             </StackPanel>
         </Border>
     </Grid>
