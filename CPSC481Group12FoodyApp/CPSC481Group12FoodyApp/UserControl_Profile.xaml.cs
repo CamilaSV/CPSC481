@@ -73,5 +73,10 @@ namespace CPSC481Group12FoodyApp
         {
             navigate_helper.declineInvitation();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

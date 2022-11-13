@@ -18,11 +18,11 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for AddCriteria.xaml
     /// </summary>
-    public partial class AddCriteria : UserControl
+    public partial class AddFriend : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public AddCriteria(PageNavigator navigate_helper)
+        public AddFriend(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
@@ -30,7 +30,11 @@ namespace CPSC481Group12FoodyApp
 
         private void submissionButtion_Click(object sender, RoutedEventArgs e)
         {
-            testLabel.Content = criteriaText.Text;
+        }
+
+        private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
