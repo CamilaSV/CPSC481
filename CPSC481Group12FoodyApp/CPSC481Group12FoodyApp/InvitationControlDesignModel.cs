@@ -32,13 +32,13 @@ namespace CPSC481Group12FoodyApp
                 new propertyChange
                 {
                      GroupName = "Foodies",
-                     UserName = "  Jessica",
+                     UserName = "Jessica",
                 },
 
                 new propertyChange
                 {
                     GroupName = "Trio",
-                     UserName = "  Bob",
+                     UserName = "Bob",
                 },
             };
         }

@@ -34,8 +34,8 @@
 
         <Border Grid.Column="2" VerticalAlignment="Center" >
             <StackPanel>
-                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName}" Padding="0,0,0,0"/>
-                <TextBlock  FontFamily="Segoe UI Light" FontSize="10" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding UserName}"/>
+                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName}" Padding="0,0,0,0"/>
+                <TextBlock  FontFamily="Segoe UI Light" FontSize="15" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding UserName}"/>
             </StackPanel>
         </Border>
     </Grid>

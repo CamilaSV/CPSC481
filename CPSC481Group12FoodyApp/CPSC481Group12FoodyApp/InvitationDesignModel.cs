@@ -12,7 +12,7 @@ namespace CPSC481Group12FoodyApp
         public InvitationDesignModel()
         {
             GroupName = "Foodies";
-            UserName = "  Jessica";
+            UserName = "Jessica";
         }
     }
 }
