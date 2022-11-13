@@ -13,6 +13,7 @@ namespace CPSC481Group12FoodyApp
         private UserControl_Register registerPage;
         private UserControl_ChatList chatListPage;
         private UserControl_Profile profilePage;
+        private UserControl_Invitations invitationsPage;
 
         public PageNavigator(Window_Single target)
         {
@@ -23,6 +24,7 @@ namespace CPSC481Group12FoodyApp
             registerPage = new UserControl_Register(this);
             chatListPage = new UserControl_ChatList(this);
             profilePage = new UserControl_Profile(this);    
+            invitationsPage = new UserControl_Invitations(this);
             targetWindow.Content = startPage;
             
         }
@@ -95,7 +97,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoInvitation()
         {
-
+            targetWindow.Content = invitationsPage;
         }
 
         public void gotoOneChat(int version)

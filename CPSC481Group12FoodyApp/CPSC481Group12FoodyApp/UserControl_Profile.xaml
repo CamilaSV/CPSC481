@@ -22,7 +22,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Row="0" x:Name="Edit" Background="White" FontWeight="ExtraBlack" FontSize="12" Content=" ✏️ " Padding="6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="editBtn"/>
+                        <Button Grid.Row="0" x:Name="Edit" Background="White" FontWeight="ExtraBlack" FontSize="12" Content=" ✏️ " Padding="6" VerticalAlignment="Top" Click="editBtn"/>
                     </Grid>
                 </Border>
 
@@ -55,21 +55,30 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Center" Padding="0,20,0,0" >
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Grid.Row="0" x:Name="Plus" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Top" HorizontalAlignment="Left" Click="addBtn" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
-                    </Grid>
-                </Border>
-                <Border Grid.Column="2" VerticalAlignment="Top" Height="100" Margin="0,20,0,0" >
-                    <StackPanel>
-                        <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" />
-                        <TextBlock  FontFamily="Segoe UI" FontSize="24" Height ="50" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="  Vegan"/>
+                <Border Grid.Column="2" VerticalAlignment="Top" Height="150" Margin="0,20,0,10" >
+                    <StackPanel HorizontalAlignment="Left" >
+                        <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" Padding="0,0,0,10"/>
+                        <CheckBox FlowDirection="RightToLeft">
+                            <TextBlock FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left"  FlowDirection="LeftToRight" Text="Vegetarian: " Padding="6,0,0,2"/>
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox FlowDirection="RightToLeft">
+                            <TextBlock FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left"  FlowDirection="LeftToRight" Text="Vegan:        " Padding="1,0,0,2"/>
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <CheckBox FlowDirection="RightToLeft">
+                            <TextBlock FontFamily="Segoe UI" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left"  FlowDirection="LeftToRight" Text="Gluten Free:" Padding="0,0,0,2"/>
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2" ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
                     </StackPanel>
                 </Border>
-                <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="100" Margin="0,0,0,20">
+                <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="100" Margin="0,10,0,30">
                     <Grid>
                         <StackPanel>
                             <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Friend Request" />
@@ -83,23 +92,25 @@
                 </Border>
 
                 <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="316">
-                    <StackPanel>
-                        <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend List" />
-                        <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="362" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300">
-                    Jane <LineBreak/> Alice <LineBreak/> John <LineBreak/> Christopher <LineBreak/> Steve <LineBreak/> Martin <LineBreak/> Lisa <LineBreak/> Bethany
-                        </TextBlock>
-                    </StackPanel>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
+                        <StackPanel>
+                            <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friend List" />
+                            <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="131" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300" VerticalAlignment="Top"><Run Text="Jane"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Johnd"/><LineBreak/><Run Text="Marry"/><LineBreak/><Run Text="Bobby"/><LineBreak/><Run Text="dsds"/></TextBlock>
+                            <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="131" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300" VerticalAlignment="Top"><Run Text="Jane"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Johnd"/><LineBreak/><Run Text="Marry"/><LineBreak/><Run Text="Bobby"/><LineBreak/><Run Text="dsds"/></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Border>
                 <Border Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Center" Padding="0,0,0,0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Row="0" x:Name="Plus2" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Top" Click="addBtn2" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Left"/>
+                        <Button Grid.Row="1" x:Name="Plus2" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Top" Click="addBtn2" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Left"/>
                     </Grid>
                 </Border>
+                <Button Background="White"  Grid.Column="2" FontSize="15" Content="✏️" HorizontalAlignment="Left" Height="29" Margin="300,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="36" Click="Button_Click"/>
             </Grid>
-
         </Grid>
 
         <Border Height="1" Margin="2,752,2,100" Background="#000000"/>

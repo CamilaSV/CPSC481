@@ -53,5 +53,10 @@ namespace CPSC481Group12FoodyApp
         {
             navigate_helper.gotoProfile();
         }
+
+        private void List_Invitation_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoInvitation();
+        }
     }
 }

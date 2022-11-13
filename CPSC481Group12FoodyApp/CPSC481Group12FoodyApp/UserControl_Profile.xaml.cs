@@ -49,11 +49,6 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoCreateGroup();
         }
 
-        private void addBtn(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoCriteria();
-        }
-
         private void minusBtn(object sender, RoutedEventArgs e)
         {
             navigate_helper.declineInvitation();

@@ -20,7 +20,7 @@
         <Button x:Name="List_ChatButton" Content="Chats" HorizontalAlignment="Right" Height="52" Margin="0,776,43,0" VerticalAlignment="Top" Width="76" FontFamily="Times New Roman" FontSize="16" RenderTransformOrigin="0.419,0.027" Click="List_ChatButton_Click"/>
         <Button x:Name="List_CreateGroup" Content="+" HorizontalAlignment="Left" Height="54" Margin="378,656,0,0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontSize="16" Click="List_CreateGroup_Click"/>
         <Button x:Name="List_Profile" Content="👤" HorizontalAlignment="Left" Height="38" Margin="408,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontSize="30" Click="List_Profile_Click"/>
-        <Button x:Name="List_Invitation" Background="LightPink" BorderBrush="red" BorderThickness="2"  Content="Chat Requests" HorizontalAlignment="Left" Height="40" Margin="10,69,0,0" VerticalAlignment="Top" Width="94" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontWeight="Bold" FontSize="14"  />
+        <Button x:Name="List_Invitation" Background="LightPink" BorderBrush="red" BorderThickness="2"  Content="Chat Requests" HorizontalAlignment="Left" Height="40" Margin="10,69,0,0" VerticalAlignment="Top" Width="94" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontWeight="Bold" FontSize="14" Click="List_Invitation_Click"  />
         <TextBox Margin="125,69,10,744" Text="Search" FontSize="24" />
     </Grid>
 </UserControl>

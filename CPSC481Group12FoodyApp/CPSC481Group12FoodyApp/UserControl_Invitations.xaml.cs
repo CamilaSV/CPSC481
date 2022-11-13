@@ -19,11 +19,11 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_ChatList : UserControl
+    public partial class UserControl_Invitations : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public UserControl_ChatList(PageNavigator navigate_helper)
+        public UserControl_Invitations(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper= navigate_helper;
