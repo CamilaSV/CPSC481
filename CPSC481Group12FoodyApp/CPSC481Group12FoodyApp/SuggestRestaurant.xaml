@@ -17,14 +17,18 @@
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="460" Margin="10,100,0,0">
             <Label Content="Restaurant Name" FontSize="38" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBox Height="50" Width="440" FontSize="28">Taiyo</TextBox>
+            <TextBlock Height="36" TextWrapping="Wrap" Text="*Required Field" Width="184" FontSize="20" Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="460" Margin="10,310,0,0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="148" Width="460" Margin="0,310,0,0">
             <Label Content="Website" FontSize="38" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBox Height="50" Width="440" FontSize="28">https://www.taiyojapaneserestaurant.com/</TextBox>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="460" Margin="10,520,0,0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="200" Width="460" Margin="0,458,0,0">
             <Label Content="Criteria" FontSize="38" FontWeight="Bold"/>
-            <TextBox Height="50" Width="440" FontSize="28"></TextBox>
+            <RadioButton Content="Tacos" FontSize="28" Width="430"/>
+            <RadioButton Content="Sushi" FontSize="28" Width="430"/>
+            <RadioButton Content="$" FontSize="28" Width="430"/>
+            <RadioButton Content="$$" FontSize="28" Width="430"/>
         </StackPanel>
         <Button Content="Submit Restaurant" Width="300" Height="120" FontSize="34" VerticalAlignment="Top" Margin="90,723,90,0"/>
     </Grid>

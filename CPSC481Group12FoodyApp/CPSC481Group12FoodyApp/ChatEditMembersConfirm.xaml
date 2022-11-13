@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="local:ChatEditRestaurant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="853" d:DesignWidth="480">
+    <Grid x:Name="ChatEditRestaurant" Background="White">
+        <Rectangle x:Name="TopBar" HorizontalAlignment ="Left"  Height="74" Margin="-30,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
+        <Button x:Name="BackButton" HorizontalAlignment="Left" Height="64" Width ="64" Margin="10,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/BackButtonIcon.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="ChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="79,1,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label x:Name="RestaurantLabel" Content="Members" FontSize="38" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
+        <TextBlock FontSize ="30" HorizontalAlignment="Left" Margin="42,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+        Me <LineBreak/> Jane <LineBreak/> Alice
+        </TextBlock>
+        <Label x:Name="AddMemberLabel" FontSize="38" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0" FontWeight="Bold">
+            <TextBlock x:Name="ConfirmAddFriendsText" TextWrapping="Wrap" Text="Confirm adding people?" Background="#FF8E8E8E"/>
+        </Label>
+        <CheckBox FontSize ="32" Content="Jessica" HorizontalAlignment="Left" Margin="105,385,0,0" VerticalAlignment="Top"/>
+        <CheckBox FontSize ="32" Content="Daniel" HorizontalAlignment="Left" Margin="117,691,0,0" VerticalAlignment="Top"/>
+        <CheckBox FontSize ="32" Content="Bonnie" HorizontalAlignment="Left" Margin="105,420,0,0" VerticalAlignment="Top"/>
+        <CheckBox FontSize ="32" Content="Shanna" HorizontalAlignment="Left" Margin="105,480,0,0" VerticalAlignment="Top"/>
+        <CheckBox FontSize ="32" Content="Camila" HorizontalAlignment="Left" Margin="117,644,0,0" VerticalAlignment="Top"/>
+        <CheckBox FontSize ="32" Content="Jaydin" HorizontalAlignment="Left" Margin="121,551,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>
