@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    
+
     <Grid ShowGridLines="False" x:Name="ExpandRestaraunt" Background="White">
 
         <Grid.ColumnDefinitions>
@@ -19,6 +19,23 @@
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!-- Top Bar -->
+
+        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/user_icon.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/back_button.png"/>
+            </Button.Background>
+        </Button>
+
+        <!-- Bottom Navigation -->
 
         <Border Height="1" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" Background="#000000"/>
         <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="#000000"/>
@@ -40,68 +57,77 @@
             </Button.Background>
         </Button>
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/user_icon.png"/>
-            </Button.Background>
-        </Button>
-        <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/back_button.png"/>
-            </Button.Background>
-        </Button>
-        
+        <!-- Middle Content -->
+
         <Grid Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="12*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="0.4*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox Name="Category" Margin="45,0,0,0" VerticalAlignment="Center" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}"/>
+            <!-- Restaraunt Info -->
 
-            <Button x:Name="Filter" Margin="0,0,45,0" Grid.Column="0" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <RichTextBox Name="Name" Grid.Row="1" Grid.Column="1" BorderBrush="{x:Null}">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </RichTextBox.Resources>
+                <FlowDocument>
+                    <Paragraph>
+                        <Run FontSize="40" FontWeight="Bold">Native Tongues</Run>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontSize="40" FontWeight="Bold">Taqueria</Run>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontSize="20">https://www.nativetongues.ca/</Run>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+
+            <Button x:Name="star" Content="" Margin="0,10,50,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" Width="40" Click="Bottom_CalButton_Click" BorderBrush="{x:Null}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/filter.png"/>
+                    <ImageBrush ImageSource="Images/star.png"/>
                 </Button.Background>
             </Button>
 
-            <Border  Grid.Row="1" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="SearchBar" VerticalAlignment="Center" Text="  Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
+            <Button x:Name="send" Content="" Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Height="40" Width="40" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/send.png"/>
+                </Button.Background>
+            </Button>
 
-            <Image Grid.Row="1" Margin="320,0,0,0" Width="50">
-                <Image.Source> 
-                    <BitmapImage DecodePixelWidth="50" UriSource="/images/search.png" />
-                </Image.Source>
-            </Image>
+            <!-- Barrier -->
 
-            <Border Grid.Row="2" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest1" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Native Tongues Taqueria &#x0a; -Mexican &#x0a; -$$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
+            <TextBox Name="Notes" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Notes" TextAlignment="Center" FontSize="40" BorderBrush="{x:Null}"/>
+            <TextBox Name="Criteria" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Mexican - $$" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            <Button x:Name="Edit" Content="" Grid.Row="2" Grid.Column="1" Margin="130,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="40" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/edit.png"/>
+                </Button.Background>
+            </Button>
+            <!-- Notes -->
 
-            <Border Grid.Row="3" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest2" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Tacos Mexico &#x0a; -Mexican &#x0a; -$$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
+            <TextBox Name="note1" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Text="• Cheap drinks" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            <TextBox Name="note2" Grid.Row="3" Grid.Column="1" Margin="0,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="• Best taco flavours are:" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
+            <TextBox Name="note3" Grid.Row="3" Grid.Column="1" Margin="0,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="      • Carnitas and Barbacoa de cordero" TextAlignment="Center" FontSize="20" BorderBrush="{x:Null}"/>
 
-            <Border Grid.Row="4" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest3" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Spicy Amigos &#x0a; -Mexican &#x0a; -$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
 
-            <Border Grid.Row="5" VerticalAlignment="Center" Height="85" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="Rest4" Height="auto" Width="auto" FontWeight="Bold" VerticalAlignment="Top" Text="Molcajete &#x0a; -Mexican &#x0a; -$" TextAlignment="Left" FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
-            
         </Grid>
-        
-        <Button x:Name="Bottom_CreateButton" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
+
+        <!-- Create Button -->
+
+        <Button x:Name="Trash" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/add.png"/>
+                <ImageBrush ImageSource="Images/trash.png"/>
             </Button.Background>
         </Button>
     </Grid>
