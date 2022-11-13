@@ -24,6 +24,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ExpandRestaraunt.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ExpandCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="InvitationControl.xaml">
       <SubType>Designer</SubType>
     </Page>
