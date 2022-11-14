@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid>
+    <Grid Background="White">
         <Label Content="Food App" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="64"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="180,200,0,0" VerticalAlignment="Top" Width="100" Source="/4053442_bowl_food_health_healthy_salad_icon.png"/>
         <Label Content="Email:" HorizontalAlignment="Left" Height="40" Margin="73,344,0,0" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" FontSize="24" FontWeight="Bold" RenderTransformOrigin="0.476,0.017"/>
