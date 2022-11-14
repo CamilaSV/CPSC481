@@ -6,32 +6,130 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid x:Name="ChatEditCriteria" Background="White">
-        <Rectangle x:Name="TopBar" HorizontalAlignment ="Left"  Height="74" Margin="-30,1,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
-        <Button x:Name="BackButton" HorizontalAlignment="Left" Height="64" Width ="64" Margin="10,6,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
+
+    <Grid ShowGridLines="False" x:Name="ChatAddCustomTime" Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <!-- Top Bar -->
+
+        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
+        <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/BackButtonIcon.png"/>
+                <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>
         </Button>
-        <Label x:Name="ChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="79,1,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <Grid HorizontalAlignment="Center" Height="763" Margin="0,80,0,0" VerticalAlignment="Top" Width="460">
-            <Label x:Name="CriteriaLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Criteria" FontSize="38" FontWeight="Bold"/>
-            <Grid HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" Height="195">
-                <TextBlock x:Name ="MeCriteriaTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30" Width="99" Height="173" Margin="13,9,0,0"><Bold><Run Text="Me:"/></Bold><LineBreak/><Run Text="Tacos"/><LineBreak/><Run Text="Sushi"/><LineBreak/></TextBlock>
-                <Button Content="Delete" HorizontalAlignment="Left" Margin="105,36,0,0" VerticalAlignment="Top" FontSize="24"/>
-                <Button Content="Delete" HorizontalAlignment="Left" Margin="105,85,0,0" VerticalAlignment="Top" FontSize="24"/>
-                <ComboBox HorizontalAlignment="Left" Margin="13,136,0,0" VerticalAlignment="Top" Width="346" FontSize="30">
-                    <ComboBox Height="83" Width="547"/>
-                    <ComboBoxItem Content="Select New Criteria" IsSelected="True"/>
-                </ComboBox>
-                <Button Content="Add" HorizontalAlignment="Left" Margin="364,146,0,0" VerticalAlignment="Top" FontSize="24"/>
-            </Grid>
-            <TextBlock x:Name ="JaneCriteriaTextBlock" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" Margin="0,268,0,0" Width="440" Height="150">
-                <Bold>Jane:</Bold><LineBreak/> Tacos <LineBreak/>$<LineBreak/>
-            </TextBlock>
-            <TextBlock x:Name ="AliceCriteriaTextBlock" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" Margin="0,428,0,0" Width="440" Height="150">
-                <Bold>Alice:</Bold><LineBreak/> $$<LineBreak/>
-            </TextBlock>
-        </Grid>
+
+        <!-- Content -->
+
+        <ListBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+            <ListBox.ItemContainerStyle >
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBoxItem >
+                <Label x:Name="CriteriaLabel" Content="Criteria" FontSize="36" FontWeight="Bold"/>
+            </ListBoxItem>
+            <!-- My Criteria -->
+            <ListBox BorderBrush="{x:Null}">
+                <ListBoxItem>
+                    <TextBlock x:Name ="MeCriteriaTextBlock" Text="Me:" FontSize="30" FontWeight="Bold"/>
+                </ListBoxItem>
+                <!-- List -->
+                <ListBoxItem>
+                    <ListBoxItem>
+                        <ListBox BorderBrush="{x:Null}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBoxItem>
+                                <TextBlock x:Name ="Criteria1" Text="Tacos" FontSize="30" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Button Content="Delete" FontSize="24"/>
+                            </ListBoxItem>
+                        </ListBox>
+                    </ListBoxItem>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <ListBoxItem RenderTransformOrigin="0.5,0.5">
+                        <ListBoxItem.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.691"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ListBoxItem.RenderTransform>
+                        <ListBox BorderBrush="{x:Null}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBoxItem>
+                                <TextBlock x:Name ="Criteria2" Text="Sushi" FontSize="30" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Button Content="Delete" FontSize="24"/>
+                            </ListBoxItem>
+                        </ListBox>
+                    </ListBoxItem>
+                </ListBoxItem>
+                <!-- Add -->
+                <ListBoxItem>
+                    <ListBoxItem>
+                        <ListBox BorderBrush="{x:Null}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBoxItem>
+                                <ComboBox FontSize="30">
+                                    <ComboBoxItem Content="Select New Criteria" IsSelected="True"/>
+                                </ComboBox>
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <Button Content="Add"  FontSize="24"/>
+                            </ListBoxItem>
+                        </ListBox>
+                    </ListBoxItem>
+                </ListBoxItem>
+            </ListBox>
+
+            <!-- Jane's Criteria -->
+            <ListBox BorderBrush="{x:Null}">
+                <ListBoxItem>
+                    <TextBlock x:Name ="JaneCriteriaTextBlock" Text="Jane:" FontSize="30" FontWeight="Bold"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock x:Name ="Criteria4" Text="Tacos" FontSize="30"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock x:Name ="Criteria5" Text="$$" FontSize="30"/>
+                </ListBoxItem>
+            </ListBox>
+
+            <!-- Jane's Criteria -->
+            <ListBox BorderBrush="{x:Null}">
+                <ListBoxItem>
+                    <TextBlock x:Name ="AliceCriteriaTextBlock" Text="Alice:" FontSize="30" FontWeight="Bold"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock x:Name ="Criteria6" Text="$" FontSize="30"/>
+                </ListBoxItem>
+            </ListBox>
+
+        </ListBox>
     </Grid>
+
 </UserControl>
