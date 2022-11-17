@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for SuggestRestaurant.xaml
     /// </summary>
-    public partial class Template_WithTopBar : UserControl
+    public partial class SuggestRestaurant : Page
     {
         private PageNavigator navigate_helper;
 
-        public Template_WithTopBar(PageNavigator navigate_helper)
+        public SuggestRestaurant(PageNavigator navigate_helper)
         {
             this.navigate_helper = navigate_helper;
         }

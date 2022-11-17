@@ -19,7 +19,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_CreateNewChat.xaml
     /// </summary>
-    public partial class UserControl_CreateNewChat : UserControl
+    public partial class UserControl_CreateNewChat : Page
     {
         private PageNavigator navigate_helper;
 

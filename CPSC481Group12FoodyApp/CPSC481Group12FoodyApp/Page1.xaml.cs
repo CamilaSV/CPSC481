@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatEditRestaurant.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class ChatEditRestaurant : Page
+    public partial class Page1 : Page
     {
-        private PageNavigator navigate_helper;
-
-        public ChatEditRestaurant(PageNavigator navigate_helper)
+        public Page1()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
     }
 }

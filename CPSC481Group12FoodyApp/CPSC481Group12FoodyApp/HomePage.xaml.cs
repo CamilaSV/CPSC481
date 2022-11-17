@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_WithBottom.xaml
+    /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class Template_WithBottom : UserControl
+    public partial class HomePage : Page
     {
         private PageNavigator navigate_helper;
 
-        public Template_WithBottom(PageNavigator navigate_helper)
+        public HomePage(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;

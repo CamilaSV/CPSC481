@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="local:ChatEditRestaurant"
+﻿<Page x:Class="CPSC481Group12FoodyApp.ChatEditRestaurantRemove"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatEditRestaraunt" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatEditRestarauntRemove" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -74,4 +74,4 @@
         </Grid>
 
     </Grid>
-</UserControl>
+</Page>

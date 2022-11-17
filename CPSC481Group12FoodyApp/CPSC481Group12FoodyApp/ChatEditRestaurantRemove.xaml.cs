@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for ChatEditRestaurantRemove.xaml
     /// </summary>
-    public partial class ChatEditRestaurant : UserControl
+    public partial class ChatEditRestaurantRemove : Page
     {
         private PageNavigator navigate_helper;
 
-        public ChatEditRestaurant(PageNavigator navigate_helper)
+        public ChatEditRestaurantRemove(PageNavigator navigate_helper)
         {
             this.navigate_helper = navigate_helper;
         }

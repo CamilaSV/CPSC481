@@ -18,11 +18,11 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for Template_WithBottom.xaml
     /// </summary>
-    public partial class Template_WithBottom : UserControl
+    public partial class ExpandCategory: Page
     {
         private PageNavigator navigate_helper;
 
-        public Template_WithBottom(PageNavigator navigate_helper)
+        public ExpandCategory(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;

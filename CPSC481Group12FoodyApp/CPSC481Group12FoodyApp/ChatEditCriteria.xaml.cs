@@ -16,15 +16,12 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for ChatEditCriteria.xaml
     /// </summary>
-    public partial class ChatEditCriteria : UserControl
+    public partial class ChatEditCriteria : Page
     {
-        private PageNavigator navigate_helper;
-
-        public ChatEditCriteria(PageNavigator navigate_helper)
+        public ChatEditCriteria()
         {
-            this.navigate_helper = navigate_helper;
         }
     }
 }

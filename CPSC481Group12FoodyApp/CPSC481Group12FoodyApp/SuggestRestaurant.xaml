@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="local:SuggestRestaurant"
+﻿<Page x:Class="CPSC481Group12FoodyApp.SuggestRestaurant"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="SuggestRestaraunt" Background="White">
+    <Grid ShowGridLines="False" x:Name="SuggestRestaurant" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -51,4 +51,4 @@
             </Button.Background>
         </Button>
     </Grid>
-</UserControl>
+</Page>

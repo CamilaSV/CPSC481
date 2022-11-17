@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for ChatInfoScreen.xaml
     /// </summary>
-    public partial class ChatInfoScreen : UserControl
+    public partial class ChatInfoScreen : Page
     {
         private PageNavigator navigate_helper;
 

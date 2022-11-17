@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CPSC481Group12FoodyApp.ExpandRepository"
+﻿<Page x:Class="CPSC481Group12FoodyApp.PersonalCalendar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -73,4 +73,4 @@
             <Button FontSize="18" Content="Save Restaurant" Margin="310,133,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
-</UserControl>
+</Page>

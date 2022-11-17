@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for Template_WithTopBar.xaml
     /// </summary>
     public partial class Template_WithTopBar : UserControl
     {
