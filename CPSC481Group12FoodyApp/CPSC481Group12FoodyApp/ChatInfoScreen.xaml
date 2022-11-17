@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="ChatInfoScreen" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatInfoScreenGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="ChatAddCustomTime" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -45,8 +45,8 @@
             </Grid.RowDefinitions>
 
             <!-- Date Picker -->
-            
-            <ListBox Grid.Row="1" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+
+            <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <Label Content="Date" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
                 </ListBoxItem>
@@ -54,10 +54,10 @@
                     <DatePicker FontSize="28"/>
                 </ListBoxItem>
             </ListBox>
-            
+
             <!-- Time Picker -->
 
-            <ListBox Grid.Row="2" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <Label Content="Time" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
                 </ListBoxItem>
@@ -87,7 +87,7 @@
             <!-- Submit -->
 
             <Button Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152"/>
-            
+
         </Grid>
     </Grid>
 </Page>

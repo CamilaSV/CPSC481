@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="ExpandRestaraunt" Background="White">
+    <Grid ShowGridLines="False" x:Name="ExpandRestarauntGrid" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -74,12 +74,7 @@
 
             <!-- Restaraunt Info -->
 
-            <RichTextBox Name="Name" Grid.Row="1" Grid.Column="1" BorderBrush="{x:Null}">
-                <RichTextBox.Resources>
-                    <Style TargetType="{x:Type Paragraph}">
-                        <Setter Property="Margin" Value="0"/>
-                    </Style>
-                </RichTextBox.Resources>
+            <RichTextBox Name="RestaurantName" Grid.Row="1" Grid.Column="1" BorderBrush="{x:Null}">
                 <FlowDocument>
                     <Paragraph>
                         <Run FontSize="40" FontWeight="Bold">Native Tongues</Run>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
     
-    <Grid ShowGridLines="False" x:Name="HomePage" Background="White">
+    <Grid ShowGridLines="False" x:Name="HomePageGrid" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatEditMembersRemove" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -40,7 +40,7 @@
             <!-- Members -->
 
             <TextBlock Text="Members" FontSize="36" FontWeight="Bold"/>
-            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Me (Admin)" FontSize="30" />
                 </ListBoxItem>

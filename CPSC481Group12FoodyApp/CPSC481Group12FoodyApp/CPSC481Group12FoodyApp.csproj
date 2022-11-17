@@ -8,10 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Page Update="ChatAddCustomTime.xaml">
+    <Page Remove="ChatEditCriteria.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Update="ChatEditMembersRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -47,9 +53,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Template_WithTopBar.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
-    <Page Update="ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

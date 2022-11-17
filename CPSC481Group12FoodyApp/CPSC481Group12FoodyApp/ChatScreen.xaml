@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatScreen" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatScreenGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

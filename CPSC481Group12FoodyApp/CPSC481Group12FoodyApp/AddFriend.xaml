@@ -7,7 +7,7 @@
              mc:Ignorable="d"  FontSize="30"
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="AddFriend" Background="White">
+    <Grid ShowGridLines="False" x:Name="AddFriendGrid" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>

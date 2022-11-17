@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="UserControl_Profile" Background="White">
+    <Grid ShowGridLines="False" x:Name="UserControl_ProfileGrid" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
