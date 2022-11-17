@@ -12,36 +12,36 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ChatEditCriteria.xaml">
+    <Content Include="ChatScreens\ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="ChatEditMembersRemove.xaml">
+    <Page Update="ChatScreens\ChatEditMembersRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatEditMembers.xaml">
+    <Page Update="ChatScreens\ChatEditMembers.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatEditRestaurantRemove.xaml">
+    <Page Update="ChatScreens\ChatEditRestaurantRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatInfoScreen.xaml">
+    <Page Update="ChatScreens\ChatInfoScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreenEventNotify.xaml">
+    <Page Update="ChatScreens\ChatScreenEventNotify.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreen.xaml">
+    <Page Update="ChatScreens\ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="ChatEditRestaurant.xaml">
+    <Page Update="ChatScreens\ChatEditRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -52,7 +52,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Template_WithTopBar.xaml">
+    <Page Update="User_Controls\Template_WithTopBar.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

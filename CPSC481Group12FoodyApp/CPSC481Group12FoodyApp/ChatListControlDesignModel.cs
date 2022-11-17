@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPSC481Group12FoodyApp
+namespace CPSC481Group12FoodyApp.ChatScreens
 {
     public class ChatListControlDesignModel : propertyChange
     {
@@ -27,7 +27,7 @@ namespace CPSC481Group12FoodyApp
 
         public ChatListControlDesignModel()
         {
-            this.Chats = new ObservableCollection<propertyChange>
+            Chats = new ObservableCollection<propertyChange>
             {
                 new propertyChange
                 {

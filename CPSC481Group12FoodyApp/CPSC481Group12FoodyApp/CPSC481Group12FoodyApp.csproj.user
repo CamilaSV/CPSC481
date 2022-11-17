@@ -2,18 +2,15 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="ChatAddCustomTime.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Page1.xaml.cs">
+    <Compile Update="ChatScreens\ChatAddCustomTime.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ChatAddCustomTime.xaml">
+    <Page Update="ChatScreens\ChatAddCustomTime.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Page1.xaml">
+    <Page Update="Dictionaries\MainStylesDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

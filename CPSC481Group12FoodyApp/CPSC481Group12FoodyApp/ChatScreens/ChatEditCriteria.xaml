@@ -21,7 +21,7 @@
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/backbutton.png"/>
+                <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
 

@@ -64,16 +64,16 @@
         
         <!-- Top Bar -->
 
-        <Rectangle x:Name="TopBar" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White" Grid.Column="1"/>
+        <Rectangle x:Name="TopBar" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White" Grid.ColumnSpan="3"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Grid.Column="1"/>
         <Button x:Name="BackButton" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/backbutton.png"/>
+                <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ChatInfoButton" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Center" BorderBrush="{x:Null}" Margin="348,0,0,0" Grid.Column="1">
+        <Button x:Name="ChatInfoButton" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Center" BorderBrush="{x:Null}" Margin="348,0,0,0" Grid.Column="1" Click="ChatInfoButton_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/InfoIcon.png"/>
+                <ImageBrush ImageSource="/Images/InfoIcon.png"/>
             </Button.Background>
         </Button>
 

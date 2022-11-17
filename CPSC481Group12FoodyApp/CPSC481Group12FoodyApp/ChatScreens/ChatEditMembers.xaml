@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="White">
 
@@ -27,7 +33,7 @@
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/backbutton.png"/>
+                <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
 
@@ -41,12 +47,12 @@
 
             <!-- Members -->
             
-            <TextBlock Text="Members" FontSize="36" FontWeight="Bold"/>
+            <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
             <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Me (Admin)" FontSize="30" />
                 </ListBoxItem>
-                <ListBoxItem>
+                <ListBoxItem Selected="ListBoxItem_Selected">
                     <ListBox BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -57,7 +63,7 @@
                             <TextBlock Text="Jane" Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="Remove" FontSize ="15"/>
+                            <Button Style="{StaticResource Delete}" Click="Button_Click_1"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -72,7 +78,7 @@
                             <TextBlock Text="Alice"  Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="Remove" FontSize ="15"/>
+                            <Button Style="{StaticResource Delete}" FontSize ="15" Click="Button_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -81,15 +87,15 @@
             <!-- Invite Members -->
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Invite Members   " FontSize="36" FontWeight="Bold"/>
+                <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 <Button FontSize ="28" Content="Confirm"/>
             </StackPanel>
 
-            <CheckBox x:Name="JessicaCheckBox" IsChecked="True">
+            <CheckBox x:Name="JessicaCheckBox" IsChecked="True" Checked="JessicaCheckBox_Checked">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
-                <TextBlock Text="Jessica"/>
+                <TextBlock Text="Sally"/>
             </CheckBox>
             <CheckBox x:Name="SallyCheckBox" IsChecked="True">
                 <CheckBox.LayoutTransform>

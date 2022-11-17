@@ -1,0 +1,112 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="HomeTemplate">
+        <Grid ShowGridLines="False" x:Name="HomePage" Background="White">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Top Bar -->
+
+            <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
+            <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/user_icon.png"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+
+            <!-- Bottom Panel -->
+
+            <Rectangle x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
+            <Border Height="1" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" Background="Black"/>
+            <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="Black"/>
+            <Border Width="1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Background="Black"/>
+            <Button x:Name="Bottom_HomeButton" Content="" Grid.Row="3" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_HomeButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/home.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Bottom_CalButton" Content="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_CalButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/calendar.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Bottom_ChatButton" Content="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/chat.png"/>
+                </Button.Background>
+            </Button>
+
+            <!-- Plus Button -->
+
+            <Button x:Name="Bottom_CreateButton" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3"  Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/add.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Theme Colours -->
+    <SolidColorBrush x:Key="msbrown" Color="#DCC48E"/>
+    <SolidColorBrush x:Key="mslightgreen" Color="#EAEFD3"/>
+    <SolidColorBrush x:Key="msdarkgreen" Color="#B3C0A4"/>
+    <SolidColorBrush x:Key="mspurple" Color="#A300A0"/>
+    <SolidColorBrush x:Key="msnavy" Color="#0B132B"/>
+
+    <!-- Text Styles -->
+    <Style x:Key="BaseHeaderTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
+    <!-- Custom Buttons -->
+    <Style x:Key="Delete" TargetType="Button" >
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="trashicon" Source="/Images/trash.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BackButton" TargetType="Button" >
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="trashicon" Source="/Images/backbuttpn.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Profile" TargetType="Button" >
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="trashicon" Source="/Images/user_icon.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
