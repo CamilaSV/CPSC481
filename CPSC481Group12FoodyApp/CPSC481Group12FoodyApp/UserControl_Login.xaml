@@ -11,7 +11,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="180,200,0,0" VerticalAlignment="Top" Width="100" Source="/4053442_bowl_food_health_healthy_salad_icon.png"/>
         <Label Content="Email:" HorizontalAlignment="Left" Height="40" Margin="73,344,0,0" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" FontSize="24" FontWeight="Bold" RenderTransformOrigin="0.476,0.017"/>
         <Label Content="Password:" HorizontalAlignment="Left" Height="40" Margin="73,466,0,0" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" FontSize="24" FontWeight="Bold" RenderTransformOrigin="1.169,0.603"/>
-        <Button x:Name="Login_LoginButton" Content="Login" HorizontalAlignment="Center" Margin="0,589,0,0" VerticalAlignment="Top" FontSize="34" Height="80" Width="200" Click="Login_LoginButton_Click"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Margin="0,589,0,0" VerticalAlignment="Top" FontSize="34" Height="80" Width="200" Click="LoginButton_Click"/>
         <PasswordBox HorizontalAlignment="Center" Height="40" Margin="0,511,0,0" VerticalAlignment="Top" Width="334" FontFamily="Times New Roman" FontSize="24"/>
         <TextBox x:Name="Login_EmailTextBox" HorizontalAlignment="Center" Height="40" Margin="0,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" RenderTransformOrigin="-0.464,0.165" FontFamily="Times New Roman" FontSize="24"/>
         <TextBlock x:Name="Login_RegisterText" HorizontalAlignment="Left" Height="23" Margin="240,718,0,0" VerticalAlignment="Top" Width="87" FontFamily="Times New Roman" FontSize="16" Foreground="#FF000064" TextDecorations="Underline" MouseUp="Login_RegisterText_MouseUp"><Run Text="Sign up here"/></TextBlock>

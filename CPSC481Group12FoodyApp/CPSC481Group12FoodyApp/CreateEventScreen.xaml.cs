@@ -18,31 +18,26 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatEventScreen.xaml
     /// </summary>
-    public partial class ChatEventScreen : Page
+    public partial class CreateEventScreen : Page
     {
         private PageNavigator navigate_helper;
 
-        public ChatEventScreen(PageNavigator navigate_helper)
+        public CreateEventScreen(PageNavigator navigate_helper)
         {
             this.navigate_helper = navigate_helper;
         }
 
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        private void CreateEventButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoHomePage();
+
         }
 
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCalendar();
+
         }
 
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoChatList();
-        }
-
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        private void ProfileButton_Cick(object sender, RoutedEventArgs e)
         {
 
         }

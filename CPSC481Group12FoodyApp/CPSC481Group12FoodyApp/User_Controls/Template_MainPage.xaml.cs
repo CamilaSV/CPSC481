@@ -53,5 +53,15 @@ namespace CPSC481Group12FoodyApp.User_Controls
         {
 
         }
+
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

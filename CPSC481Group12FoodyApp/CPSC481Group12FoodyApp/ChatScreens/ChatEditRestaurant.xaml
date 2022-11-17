@@ -30,32 +30,32 @@
         </Button>
 
         <!-- Content -->
-        
+
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
             <Label x:Name="RestaurantLabel" Content="Restaurants" FontSize="36" FontWeight="Bold"/>
             <Grid x:Name="Restaurant1StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taco Bell" FontSize="34" FontWeight="Bold"/>
-                        <Button Content="Delete" Height="20" Margin="20"/>
+                        <Button x:Name="DeleteButton1" Content="Delete" Height="20" Margin="20" Click="DeleteButton1_Click"/>
 
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Taco" />
                     <TextBlock FontSize="30" Text=" • $" />
                 </StackPanel>
-                <Button Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5"/>
+                <Button x:Name="VoteButton1" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5" Click="VoteButton1_Click"/>
                 <Label x:Name="Restaurant1LabelUser" Content="Jane" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
             <Grid x:Name="Restaurant2StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taiyo" FontSize="34" FontWeight="Bold"/>
-                        <Button Content="Delete" Height="20" Margin="20"/>
+                        <Button x:Name="DeleteButton2" Content="Delete" Height="20" Margin="20" Click="DeleteButton2_Click"/>
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Sushi" />
                     <TextBlock FontSize="30" Text=" • $$" />
                 </StackPanel>
-                <Button Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5"/>
+                <Button x:Name="VoteButton2" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" Margin="0,91,5,5" Click="VoteButton2_Click"/>
                 <Label x:Name="Restaurant2LabelUser" Content="Me" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
         </StackPanel>

@@ -49,11 +49,11 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="28" TextAlignment="Center">
                     Confirm Event: <LineBreak/> Taco Bell <LineBreak/> Dec 9 2022 @ 6:30PM
                     </TextBlock>
-                    <Button Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10"/>
-                    <Button Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10"/>
+                    <Button x:Name="YesButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesButton_Click"/>
+                    <Button x:Name="NoButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoButton_Click"/>
                 </Grid>
                 <TextBox x:Name="TypeMessageLabel" Height="45" Width="400" HorizontalAlignment="Left" Margin="42,778,0,0" VerticalAlignment="Top" BorderBrush="Black"/>
-                <Button x:Name="SendButton" HorizontalAlignment="Left" Height="45" Margin="396,778,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}">
+                <Button x:Name="SendButton" HorizontalAlignment="Left" Height="45" Margin="396,778,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Click="SendButton_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/SendButtonIcon.png"/>
                     </Button.Background>
@@ -61,12 +61,12 @@
             </Grid>
         </Grid>
 
-        
+
         <!-- Top Bar -->
 
         <Rectangle x:Name="TopBar" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White" Grid.ColumnSpan="3"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Grid.Column="1"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>

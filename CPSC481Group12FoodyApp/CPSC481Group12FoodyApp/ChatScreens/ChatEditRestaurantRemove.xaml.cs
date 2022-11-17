@@ -26,5 +26,15 @@ namespace CPSC481Group12FoodyApp
         {
             this.navigate_helper = navigate_helper;
         }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

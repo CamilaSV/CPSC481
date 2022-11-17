@@ -37,5 +37,15 @@ namespace CPSC481Group12FoodyApp
         {
             navigate_helper.gotoRegister();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

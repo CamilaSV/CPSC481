@@ -24,7 +24,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
@@ -75,10 +75,10 @@
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBoxItem>
-                            <Button Content="AM" FontSize="30" Width="76"/>
+                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Click="AM_Button_Click"/>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="PM" FontSize="30" Width="76"/>
+                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Click="PM_Button_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -86,7 +86,7 @@
 
             <!-- Submit -->
 
-            <Button Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152"/>
+            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click"/>
 
         </Grid>
     </Grid>

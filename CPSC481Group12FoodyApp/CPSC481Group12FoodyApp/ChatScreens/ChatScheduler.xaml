@@ -36,7 +36,7 @@
                 </Calendar>
                 <Label Content="Scheduler" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="34"/>
                 <Label Content="Suggested Times" HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                <Button Content="Click to add custom time..." Height="46" Margin="0,770,0,30" Width="460" HorizontalAlignment="Center" FontSize="24"/>
+                <Button x:Name="AddTimeButton" Content="Click to add custom time..." Height="46" Margin="0,770,0,30" Width="460" HorizontalAlignment="Center" FontSize="24" Click="AddTimeButton_Click"/>
                 <TextBlock HorizontalAlignment="Left" Margin="42,528,0,0" TextWrapping="Wrap" Text=" November 13, 2022 @ 6:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
                 <TextBlock HorizontalAlignment="Left" Margin="42,570,0,0" TextWrapping="Wrap" Text=" November 18, 2022 @ 5:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
                 <TextBlock HorizontalAlignment="Left" Margin="42,612,0,0" TextWrapping="Wrap" Text=" November 18, 2022 @ 6:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
@@ -46,7 +46,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Height="64" Width ="64" BorderBrush="{x:Null}" Margin="0,0,0,10" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>

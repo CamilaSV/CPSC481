@@ -74,8 +74,8 @@
         </Grid>
         <Rectangle HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3"/>
         <Grid HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1">
-            <Button Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10"/>
-            <Button Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10"/>
+            <Button x:Name="YesButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesButton_Click"/>
+            <Button x:Name="NoButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoButton_Click"/>
             <TextBlock HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68"><Run Language="en-ca" Text="Confirm deleting upcoming event? This will remove you from the event."/></TextBlock>
         </Grid>
     </Grid>

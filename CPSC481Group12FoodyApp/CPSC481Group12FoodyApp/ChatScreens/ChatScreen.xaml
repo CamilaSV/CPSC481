@@ -57,7 +57,7 @@
                     <TextBlock x:Name="User1MessageTextBlock2" Canvas.Left="30" TextWrapping="Wrap" Canvas.Top="103" Height="208" Width="190" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"><Run Text="OOH YES! I W"/><Run Text="A"/><Run Text="NT TACOS "/><Run Text="2"/><Run Text="! BUT CHEAP ONES CUZ IM"/><Run Text=" "/><Run Text="BROKE"/><Run Text="EEEE"/><LineBreak/><Run/><Run Text="😃💸😢🤑"/><LineBreak/><Run Language="en-ca" Text="BUT ALSO MAYB SUSHI"/><LineBreak/><Run/></TextBlock>
                 </Canvas>
                 <TextBox x:Name="TypeMessageLabel" Height="45" Width="400" HorizontalAlignment="Left" Margin="42,778,0,0" VerticalAlignment="Top" BorderBrush="Black"/>
-                <Button x:Name="SendButton" HorizontalAlignment="Left" Height="45" Margin="396,778,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}">
+                <Button x:Name="SendButton" HorizontalAlignment="Left" Height="45" Margin="396,778,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Click="SendButton_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/SendButtonIcon.png"/>
                     </Button.Background>
@@ -69,12 +69,12 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ChatInfoButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Center" BorderBrush="{x:Null}" Margin="382,0,0,0">
+        <Button x:Name="ChatInfoButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Center" BorderBrush="{x:Null}" Margin="382,0,0,0" Click="ChatInfoButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/InfoIcon.png"/>
             </Button.Background>

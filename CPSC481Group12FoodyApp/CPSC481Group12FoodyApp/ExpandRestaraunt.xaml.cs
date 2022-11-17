@@ -43,7 +43,27 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoChatList();
         }
 
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_TrashButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StarButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

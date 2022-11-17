@@ -37,7 +37,7 @@
                     <RadioButton Content="$" FontSize="28" Width="430"/>
                     <RadioButton Content="$$" FontSize="28" Width="430"/>
                 </StackPanel>
-                <Button Content="Submit Restaurant" Width="300" Height="120" FontSize="34" VerticalAlignment="Top" Margin="90,680,90,0"/>
+                <Button x:Name="SubmitRestaurantButton" Content="Submit Restaurant" Width="300" Height="120" FontSize="34" VerticalAlignment="Top" Margin="90,680,90,0" Click="SubmitRestaurantButton_Click"/>
             </Grid>
         </Grid>
 
@@ -45,7 +45,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>

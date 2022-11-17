@@ -38,7 +38,7 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoRegister();
         }
 
-        private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoStart();
         }

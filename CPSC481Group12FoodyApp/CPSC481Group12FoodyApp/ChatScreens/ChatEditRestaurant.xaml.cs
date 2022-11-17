@@ -26,5 +26,25 @@ namespace CPSC481Group12FoodyApp
         {
             this.navigate_helper = navigate_helper;
         }
+
+        private void DeleteButton1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VoteButton1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VoteButton2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

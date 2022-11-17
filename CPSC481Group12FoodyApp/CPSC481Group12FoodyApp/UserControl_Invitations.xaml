@@ -9,7 +9,7 @@
     <Grid>
 
         <Border Padding="0,75,0,110">
-            <local:InvitationControl/>
+            <local:InvitationControl>
         </Border>
 
         <Border Height="1" Margin="2,752,2,100" Background="#000000"/>
