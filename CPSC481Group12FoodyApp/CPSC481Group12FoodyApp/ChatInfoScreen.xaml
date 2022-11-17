@@ -37,20 +37,20 @@
             <Label x:Name="MembersLabel" Content="Members" FontSize="30" FontWeight="Bold"/>
             <Grid Height="121" Width="410" Background="LightGray">
                 <TextBlock x:Name="MembersTextBlock" Margin="10" HorizontalAlignment="Left" TextWrapping="Wrap"  FontSize="24" Width="188" Height="96"><Run Text="Me"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Jane"/><LineBreak/></TextBlock>
-                <Button Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray"/>
+                <Button x:Name="Members_ShowMoreButton" Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray" Click="Members_ShowMoreButton_Click"/>
             </Grid>
 
             <Label x:Name="SchedulerLabel" Content="Scheduler" FontSize="30" FontWeight="Bold"/>
             <Grid HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray">
-                    <Button x:Name="SchedulerDateTextBlock" Height="38" VerticalAlignment="Center" FontSize="24" Content="Click here to see times..." BorderBrush="{x:Null}" Background="{x:Null}" />
+                    <Button x:Name="SchedulerDateButton" Height="38" VerticalAlignment="Center" FontSize="24" Content="Click here to see times..." BorderBrush="{x:Null}" Background="{x:Null}" Click="SchedulerDateButton_Click" />
                 </Grid>
             </Grid>
             
             <Grid HorizontalAlignment="Center" Height="166" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray" Margin="0,50,0,0">
                     <TextBlock HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Language="en-ca" Text="Tacos"/><LineBreak/><Run Language="en-ca" Text="Sushi"/><LineBreak/><Run Language="en-ca" Text="$-$$"/></TextBlock>
-                    <Button Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray"/>
+                    <Button x:Name="Criteria_ShowMoreButton" Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray" Click="Criteria_ShowMoreButton_Click"/>
                 </Grid>
                 <Label Content="Criteria" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
             </Grid>
@@ -62,11 +62,11 @@
                     <TextBlock HorizontalAlignment="Left" Height="49" Margin="10,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" FontSize="18"><Run Language="en-ca" Text="Tacos"/><LineBreak/><Run Language="en-ca" Text="$"/></TextBlock>
                     <Label x:Name="Restaurant2Label" Content="Taiyo" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Margin="0,81,0,0" />
                     <TextBlock HorizontalAlignment="Left" Height="50" Margin="10,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontSize="18"><Run Language="en-ca" Text="Sushi"/><LineBreak/><Run Language="en-ca" Text="$$"/></TextBlock>
-                    <Button Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray" />
+                    <Button x:Name="Restaurants_ShowMoreButton" Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray" Click="Restaurants_ShowMoreButton_Click" />
                 </Grid>
             </Grid>
-            <Button Content="Click to add custom time..." Height="46" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24"/>
-            <Button Content="Click to create event..." Height="46" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24"/>
+            <Button x:Name="SchedulerTimeButton" Content="Click to add custom time..." Height="46" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="SchedulerTimeButton_Click"/>
+            <Button x:Name="CreateEventButton" Content="Click to create event..." Height="46" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="CreateEventButton_Click"/>
 
         </StackPanel>
     </Grid>

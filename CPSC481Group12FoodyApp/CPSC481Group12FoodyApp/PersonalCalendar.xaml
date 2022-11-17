@@ -41,7 +41,7 @@
         </Button>
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/user_icon.png"/>
             </Button.Background>
@@ -62,15 +62,15 @@
             <Rectangle HorizontalAlignment="Center" Height="121" Margin="0,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="460" Fill="#4C000000"/>
             <Label Content="Upcoming Events" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="208"/>
             <TextBlock   HorizontalAlignment="Left" Margin="0,0,0,17" TextWrapping="Wrap" Width="465" FontSize="22" VerticalAlignment="Bottom"><Run Text=" "/><Run FontWeight="Bold" Text="Taco Bell"/><LineBreak/><Run Text=" "/><Run Text="Sunday November 13, 2022 at 5:30PM"/><LineBreak/><Run Text=" "/><Run Text="with Foodies!"/></TextBlock>
-            <Button Content="Delete Event" FontSize="18                     " HorizontalAlignment="Right" Height="30" Margin="343,47,0,0" VerticalAlignment="Top" Width="115"/>
-            <Button FontSize="18" Content="Save Restaurant" Margin="310,133,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <Button x:Name="DeleteEventButton1" Content="Delete Event" FontSize="18                     " HorizontalAlignment="Right" Height="30" Margin="343,47,0,0" VerticalAlignment="Top" Width="115" Click="DeleteEventButton_Click"/>
+            <Button x:Name="SaveRestaurantButton1" FontSize="18" Content="Save Restaurant" Margin="310,133,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SaveRestaurantButton_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Right" Height="168" Margin="0,474,8,0" Grid.Row="1" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="3">
             <Rectangle HorizontalAlignment="Center" Height="121" Margin="0,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="460" Fill="#4C000000"/>
             <Label Content="Completed Events" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="230"/>
             <TextBlock   HorizontalAlignment="Left" Margin="0,0,0,17" TextWrapping="Wrap" Width="465" FontSize="22" VerticalAlignment="Bottom"><Run Text=" "/><Run FontWeight="Bold" Text="Olive Garden"/><LineBreak/><Run Text=" "/><Run Text="Thursday"/><Run Text=" November 1"/><Run Text="0"/><Run Text=", 2022 at "/><Run Text="6"/><Run Text=":30PM"/><LineBreak/><Run Text=" "/><Run Text="with "/><Run Text="John and Sally"/></TextBlock>
-            <Button Content="Delete Event" FontSize="18                     " HorizontalAlignment="Right" Height="30" Margin="343,47,0,0" VerticalAlignment="Top" Width="115"/>
-            <Button FontSize="18" Content="Save Restaurant" Margin="310,133,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <Button x:Name="DeleteEvent2" Content="Delete Event" FontSize="18" HorizontalAlignment="Right" Height="30" Margin="343,47,0,0" VerticalAlignment="Top" Width="115" Click="DeleteEventButton_Click"/>
+            <Button x:Name="SaveRestaurantButton2" FontSize="18" Content="Save Restaurant" Margin="310,133,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SaveRestraurant_Click"/>
         </Grid>
     </Grid>
 </Page>

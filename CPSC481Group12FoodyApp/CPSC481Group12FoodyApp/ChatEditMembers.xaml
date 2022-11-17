@@ -25,7 +25,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>
@@ -57,7 +57,7 @@
                             <TextBlock Text="Jane" Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="Remove" FontSize ="15"/>
+                            <Button x:Name="RemoveButton1" Content="Remove" FontSize ="15" Click="RemoveButton_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -72,7 +72,7 @@
                             <TextBlock Text="Alice"  Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="Remove" FontSize ="15"/>
+                            <Button x:Name="RemoveButton2" Content="Remove" FontSize ="15" Click="RemoveButton_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -82,10 +82,10 @@
             
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Invite Members   " FontSize="36" FontWeight="Bold"/>
-                <Button FontSize ="28" Content="Confirm"/>
+                <Button x:Name="ConfirmButton" FontSize ="28" Content="Confirm" Click="ConfirmButton_Click"/>
             </StackPanel>
 
-            <CheckBox x:Name="JessicaCheckBox" IsChecked="True">
+            <CheckBox x:Name="JessicaCheckBox" IsChecked="True" Checked="JessicaCheckBox_Checked" Width="141">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>

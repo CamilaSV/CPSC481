@@ -19,7 +19,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>
@@ -54,7 +54,7 @@
                                 <TextBlock x:Name ="Criteria1" Text="Tacos" FontSize="30" />
                             </ListBoxItem>
                             <ListBoxItem>
-                                <Button Content="Delete" FontSize="24"/>
+                                <Button x:Name ="DeleteButton1" Content="Delete" FontSize="24" Click="DeleteButton_Click1"/>
                             </ListBoxItem>
                         </ListBox>
                     </ListBoxItem>
@@ -79,7 +79,7 @@
                                 <TextBlock x:Name ="Criteria2" Text="Sushi" FontSize="30" />
                             </ListBoxItem>
                             <ListBoxItem>
-                                <Button Content="Delete" FontSize="24"/>
+                                <Button x:Name ="DeleteButton2" Content="Delete" FontSize="24" Click="DeleteButton_Click2"/>
                             </ListBoxItem>
                         </ListBox>
                     </ListBoxItem>
@@ -94,12 +94,12 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                             <ListBoxItem>
-                                <ComboBox FontSize="30">
-                                    <ComboBoxItem Content="Select New Criteria" IsSelected="True"/>
+                                <ComboBox FontSize="30" SelectionChanged="ComboBox_SelectionChanged">
+                                    <ComboBoxItem x:Name="SelectNewCriteriaButton" Content="Select New Criteria" IsSelected="True"/>
                                 </ComboBox>
                             </ListBoxItem>
                             <ListBoxItem>
-                                <Button Content="Add"  FontSize="24"/>
+                                <Button x:Name="AddButton" Content="Add"  FontSize="24" Click="AddButton_Click"/>
                             </ListBoxItem>
                         </ListBox>
                     </ListBoxItem>

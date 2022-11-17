@@ -27,7 +27,7 @@
         <!-- Top Bar -->
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/user_icon.png"/>
             </Button.Background>

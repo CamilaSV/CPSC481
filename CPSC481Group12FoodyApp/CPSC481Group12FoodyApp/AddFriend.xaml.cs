@@ -28,11 +28,16 @@ namespace CPSC481Group12FoodyApp
             this.navigate_helper = navigate_helper;
         }
 
-        private void submissionButtion_Click(object sender, RoutedEventArgs e)
+        private void SubmissionButton_Click(object sender, RoutedEventArgs e)
         {
         }
 
         private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -47,5 +47,25 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteEventButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveRestaurantButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveRestraurant_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

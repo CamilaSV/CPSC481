@@ -24,5 +24,25 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void AM_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PM_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

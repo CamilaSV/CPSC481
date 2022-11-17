@@ -47,5 +47,50 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void star1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void send4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void star2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void send2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void heart1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void send3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void forlater1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

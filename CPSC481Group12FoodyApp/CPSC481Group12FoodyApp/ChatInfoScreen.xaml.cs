@@ -26,5 +26,35 @@ namespace CPSC481Group12FoodyApp
         {
             this.navigate_helper = navigate_helper;
         }
+
+        private void Members_ShowMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Criteria_ShowMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Restaurants_ShowMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SchedulerDateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SchedulerTimeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateEventButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

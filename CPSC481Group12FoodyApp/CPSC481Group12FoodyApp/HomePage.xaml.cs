@@ -47,5 +47,10 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
