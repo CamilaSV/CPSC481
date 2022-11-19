@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CPSC481Group12FoodyApp/CPSC481Group12FoodyApp/obj/Debug/net6.0-windows/CPSC481Group12FoodyApp.assets.cache
+/.gitignore
