@@ -30,7 +30,16 @@ namespace CPSC481Group12FoodyApp
 
         private void Register_SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            string result = Logic_Register.register(Register_EmailTextBox.Text, Register_PasswordBox.Password);
+
+            if (result.Equals("true"))
+            {
+                navigate_helper.gotoChatList();
+            }
+            else
+            {
+                ErrorTextBlock.Text = result;
+            }
         }
 
         private void Register_LoginText_MouseUp(object sender, MouseButtonEventArgs e)

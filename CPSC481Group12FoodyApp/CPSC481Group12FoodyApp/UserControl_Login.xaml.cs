@@ -28,17 +28,26 @@ namespace CPSC481Group12FoodyApp
             this.navigate_helper = navigate_helper;
         }
 
-        private void Login_LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoChatList();
-        }
-
         private void Login_RegisterText_MouseUp(object sender, MouseButtonEventArgs e)
         {
             navigate_helper.gotoRegister();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string result = Logic_Login.login(Login_EmailTextBox.Text, Login_PasswordBox.Password);
+
+            if (result.Equals("true"))
+            {
+                navigate_helper.gotoChatList();
+            }
+            else
+            {
+                ErrorTextBlock.Text = result;
+            }
+        }
+
+        private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             navigate_helper.gotoStart();
         }

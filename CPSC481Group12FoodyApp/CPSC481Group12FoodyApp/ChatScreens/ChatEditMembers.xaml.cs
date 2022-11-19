@@ -41,5 +41,15 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

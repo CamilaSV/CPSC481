@@ -78,5 +78,20 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
