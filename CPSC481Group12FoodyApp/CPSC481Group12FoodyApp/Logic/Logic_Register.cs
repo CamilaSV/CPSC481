@@ -18,7 +18,7 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\" + email + ".cfg");
+                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + ".cfg");
                     userFile.Close();
 
                     result = "The account already exists.";
@@ -29,7 +29,7 @@ namespace CPSC481Group12FoodyApp
                 }
                 catch (DirectoryNotFoundException dnfe)
                 {
-                    Directory.CreateDirectory(".\\DB");
+                    Directory.CreateDirectory(".\\DB\\Accounts");
                     result = createUser(email, password);
                 }
             }
@@ -51,7 +51,7 @@ namespace CPSC481Group12FoodyApp
             }
 
 
-            StreamWriter fileWriter = File.AppendText(".\\DB\\" + email + ".cfg");
+            StreamWriter fileWriter = File.AppendText(".\\DB\\Accounts\\" + email + ".cfg");
 
             fileWriter.WriteLine("Email:");
             fileWriter.WriteLine(email);
