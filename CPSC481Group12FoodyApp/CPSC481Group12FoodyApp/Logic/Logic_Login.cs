@@ -17,7 +17,7 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\" + email + ".cfg");
+                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + ".cfg");
 
                     if (!userFile.ReadLine().Equals("Email:"))
                     {
