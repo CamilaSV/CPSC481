@@ -19,7 +19,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Profile.xaml
     /// </summary>
-    public partial class UserControl_Profile : UserControl
+    public partial class UserControl_Profile : Page
     {
         private PageNavigator navigate_helper;
 

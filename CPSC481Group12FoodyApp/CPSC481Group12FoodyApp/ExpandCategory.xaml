@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CPSC481Group12FoodyApp.ExpandCategory"
+﻿<Page x:Class="CPSC481Group12FoodyApp.ExpandCategory"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    
-    <Grid ShowGridLines="False" x:Name="ExpandCategory" Background="White">
+
+    <Grid ShowGridLines="False" x:Name="ExpandCategoryGrid" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -23,7 +23,7 @@
         <!-- Top Bar -->
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/user_icon.png"/>
             </Button.Background>
@@ -79,7 +79,7 @@
 
             <TextBox Name="Category" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}"/>
 
-            <Button x:Name="Filter"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+            <Button x:Name="Filter"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="Filter_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/filter.png"/>
                 </Button.Background>
@@ -90,7 +90,7 @@
             </Border>
 
             <Image Grid.Row="1" Grid.Column="1" Margin="320,0,0,0" Width="50">
-                <Image.Source> 
+                <Image.Source>
                     <BitmapImage DecodePixelWidth="50" UriSource="/images/search.png" />
                 </Image.Source>
             </Image>
@@ -118,7 +118,7 @@
                 </RichTextBox>
             </Border>
 
-            <Button x:Name="star1" Grid.Row="2" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="star1" Grid.Row="2" Grid.Column="1" Margin="372,33,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star1_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/star.png"/>
                 </Button.Background>
@@ -153,13 +153,13 @@
                 </RichTextBox>
             </Border>
 
-            <Button x:Name="star2" Grid.Row="3" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="star2" Grid.Row="3" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star2_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/star.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="send2" Grid.Row="3" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="send2" Grid.Row="3" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send2_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/send.png"/>
                 </Button.Background>
@@ -188,13 +188,13 @@
                 </RichTextBox>
             </Border>
 
-            <Button x:Name="heart1" Grid.Row="4" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="heart1" Grid.Row="4" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="heart1_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/heart.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="send3" Grid.Row="4" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="send3" Grid.Row="4" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send3_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/send.png"/>
                 </Button.Background>
@@ -223,13 +223,13 @@
                 </RichTextBox>
             </Border>
 
-            <Button x:Name="forlater1" Grid.Row="6" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="forlater1" Grid.Row="6" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="forlater1_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/forlater.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="send4" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
+            <Button x:Name="send4" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send4_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/send.png"/>
                 </Button.Background>
@@ -245,4 +245,4 @@
             </Button.Background>
         </Button>
     </Grid>
-</UserControl>
+</Page>

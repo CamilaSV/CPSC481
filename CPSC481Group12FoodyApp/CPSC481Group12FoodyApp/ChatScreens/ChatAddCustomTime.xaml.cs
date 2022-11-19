@@ -16,15 +16,23 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for SuggestRestaurant.xaml
+    /// Interaction logic for ChatAddCustomTime.xaml
     /// </summary>
-    public partial class SuggestRestaurant : Page
+    public partial class ChatAddCustomTime : Page
     {
-        private PageNavigator navigate_helper;
-
-        public SuggestRestaurant(PageNavigator navigate_helper)
+        public ChatAddCustomTime()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
+        }
+
+        private void AM_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PM_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -32,7 +40,7 @@ namespace CPSC481Group12FoodyApp
 
         }
 
-        private void SubmitRestaurantButton_Click(object sender, RoutedEventArgs e)
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

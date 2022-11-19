@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for AddCriteria.xaml
+    /// Interaction logic for AddFriend.xaml
     /// </summary>
-    public partial class AddFriend : UserControl
+    public partial class AddFriend : Page
     {
         private PageNavigator navigate_helper;
 
@@ -28,11 +28,16 @@ namespace CPSC481Group12FoodyApp
             this.navigate_helper = navigate_helper;
         }
 
-        private void submissionButtion_Click(object sender, RoutedEventArgs e)
+        private void SubmissionButton_Click(object sender, RoutedEventArgs e)
         {
         }
 
         private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

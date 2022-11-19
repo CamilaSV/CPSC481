@@ -18,15 +18,23 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for Template_NoBottom.xaml
     /// </summary>
-    public partial class ChatScreen : UserControl
+    public partial class ChatScheduler : Page
     {
         private PageNavigator navigate_helper;
 
-        public ChatScreen(PageNavigator navigate_helper)
+        public ChatScheduler(PageNavigator navigate_helper)
         {
             this.navigate_helper = navigate_helper;
         }
 
+        private void AddTimeButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

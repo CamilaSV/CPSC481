@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_WithBottom.xaml
+    /// Interaction logic for PersonalCalendar.xaml
     /// </summary>
-    public partial class Template_WithBottom : UserControl
+    public partial class PersonalCalendar : Page
     {
         private PageNavigator navigate_helper;
 
-        public Template_WithBottom(PageNavigator navigate_helper)
+        public PersonalCalendar(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
@@ -44,6 +44,26 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteEventButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveRestaurantButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveRestraurant_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -18,7 +18,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Start.xaml
     /// </summary>
-    public partial class UserControl_Start : UserControl
+    public partial class UserControl_Start : Page
     {
         private PageNavigator navigate_helper;
 
@@ -36,6 +36,16 @@ namespace CPSC481Group12FoodyApp
         private void Start_SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoRegister();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

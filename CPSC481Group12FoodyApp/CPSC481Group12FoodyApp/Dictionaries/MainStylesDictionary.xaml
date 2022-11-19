@@ -1,0 +1,212 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Theme Colours -->
+    <SolidColorBrush x:Key="msbrown" Color="#DCC48E"/>
+    <SolidColorBrush x:Key="mslightgreen" Color="#EAEFD3"/>
+    <SolidColorBrush x:Key="msdarkgreen" Color="#B3C0A4"/>
+    <SolidColorBrush x:Key="mspurple" Color="#8D6A9F"/>
+    <SolidColorBrush x:Key="msnavy" Color="#0B132B"/>
+
+    <!-- Text Styles -->
+    <Style x:Key="BaseHeaderTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="BaseBodyTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <!-- Custom Buttons -->
+    <Style x:Key="Delete" TargetType="Button" >
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="trashicon" Source="/Images/trash.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Back" TargetType="Button" >
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="backicon" Source="/Images/backbutton.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Home" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="homeicon" Source="/Images/home.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Calendar" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="icon" Source="/Images/calendar.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Chat" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="chaticon" Source="/Images/chat.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Profile" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="usericon" Source="/Images/user_icon.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Create" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="addicon" Source="/Images/add.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CategoriesButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" Height="150" Width="150" BorderThickness="1" BorderBrush="Black" CornerRadius="20" SnapsToDevicePixels="True">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#D0AFE0" Offset="0.0" />
+                                    <GradientStop Color="#8D6A9F" Offset="0.5" />
+                                    <GradientStop Color="#7E3F9E" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LargeCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="3" ScaleY="3" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SmallCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Bars -->
+    <DataTemplate x:Key="HomeTopBar">
+        <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HomeTopBarBack">
+        <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
+            <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ChatTopBar">
+        <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Label x:Name="GroupChatNameLabel" Content="Foodies!" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ChatTopBarBack">
+        <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
+            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
+            <Label x:Name="GroupChatNameLabel" Content="Foodies!" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HomeBottomBar">
+        <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="BottomBar" Grid.ColumnSpan="3" Fill="{StaticResource msbrown}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="Black"/>
+            <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="#000000"/>
+            <Border Width="1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Background="#000000"/>
+            <Button x:Name="Home" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Home}" BorderBrush="{x:Null}" />
+            <Button x:Name="Calendar" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Calendar}" BorderBrush="{x:Null}" />
+            <Button x:Name="Chat" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Chat}" BorderBrush="{x:Null}" />
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

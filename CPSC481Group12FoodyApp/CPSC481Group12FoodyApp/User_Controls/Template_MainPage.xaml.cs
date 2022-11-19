@@ -13,24 +13,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CPSC481Group12FoodyApp
+namespace CPSC481Group12FoodyApp.User_Controls
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for Template_MainPage.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class Template_MainPage : UserControl
     {
         private PageNavigator navigate_helper;
 
-        public HomePage(PageNavigator navigate_helper)
+        public Template_MainPage()
+        {
+            InitializeComponent();
+        }
+
+        public Template_MainPage(PageNavigator navigate_helper)
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
         }
 
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        private void Bottom_HomeButton_Click(object sender, MouseButtonEventArgs e)
         {
             navigate_helper.gotoHomePage();
+
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +50,11 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CPSC481Group12FoodyApp.EventScreen"
+﻿<Page x:Class="CPSC481Group12FoodyApp.CreateEventScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatScreenEventNotify" Background="White">
+    <Grid ShowGridLines="False" x:Name="CreateEventScreenGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -39,23 +39,23 @@
                         <ComboBoxItem Content="Dec 10 2022 @ 5:30PM"/>
                     </ComboBox>
                 </StackPanel>
-                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,566,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204"/>
+                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,566,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204" Click="CreateEventButton_Click"/>
             </Grid>
         </Grid>
 
 
         <!-- Top Bar -->
 
-        <Button x:Name="ProfileButton" Grid.ColumnSpan="3" Margin="0,0,8,0"  HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ProfileButton" Grid.ColumnSpan="3" Margin="0,0,8,0"  HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ProfileButton_Cick">
              <Button.Background>
                  <ImageBrush ImageSource="Images/user_icon.png"/>
              </Button.Background>
          </Button>
          <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>
         </Button>
     </Grid>
-</UserControl>
+</Page>

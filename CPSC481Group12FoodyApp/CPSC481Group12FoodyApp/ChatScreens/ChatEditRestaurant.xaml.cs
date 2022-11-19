@@ -16,15 +16,35 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_NoBottom.xaml
+    /// Interaction logic for ChatEditRestaurant.xaml
     /// </summary>
-    public partial class ChatEditRestaurant : UserControl
+    public partial class ChatEditRestaurant : Page
     {
         private PageNavigator navigate_helper;
 
         public ChatEditRestaurant(PageNavigator navigate_helper)
         {
             this.navigate_helper = navigate_helper;
+        }
+
+        private void DeleteButton1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VoteButton1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VoteButton2_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

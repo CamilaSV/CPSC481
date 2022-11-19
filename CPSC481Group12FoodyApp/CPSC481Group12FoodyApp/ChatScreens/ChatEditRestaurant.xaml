@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="local:ChatEditRestaurant"
+﻿<Page x:Class="CPSC481Group12FoodyApp.ChatEditRestaurant"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,7 +25,7 @@
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/backbutton.png"/>
+                <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
 
@@ -37,41 +37,27 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taco Bell" FontSize="34" FontWeight="Bold"/>
-                        <Button Content="Delete" Height="20" Margin="20"/>
+                        <Button x:Name="DeleteButton1" Content="Delete" Height="20" Margin="20" Click="DeleteButton1_Click"/>
 
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Taco" />
                     <TextBlock FontSize="30" Text=" • $" />
                 </StackPanel>
-                <Button Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5"/>
+                <Button x:Name="VoteButton1" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5" Click="VoteButton1_Click"/>
                 <Label x:Name="Restaurant1LabelUser" Content="Jane" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
             <Grid x:Name="Restaurant2StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taiyo" FontSize="34" FontWeight="Bold"/>
-                        <Button Content="Delete" Height="20" Margin="20"/>
+                        <Button x:Name="DeleteButton2" Content="Delete" Height="20" Margin="20" Click="DeleteButton2_Click"/>
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Sushi" />
                     <TextBlock FontSize="30" Text=" • $$" />
                 </StackPanel>
-                <Button Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5"/>
+                <Button x:Name="VoteButton2" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" Margin="0,91,5,5" Click="VoteButton2_Click"/>
                 <Label x:Name="Restaurant2LabelUser" Content="Me" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
         </StackPanel>
-
-        <!-- Confirmation Box -->
-
-        <Rectangle Grid.RowSpan="3" Grid.ColumnSpan="3" Height="853" Width="480" Opacity="0.7"  Fill="Black" />
-        <Grid HorizontalAlignment="Center" Height="220" Width="340" Grid.Row="1" Grid.Column="1" Background="LightGray">
-            <StackPanel>
-                <TextBlock FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Text="Confirm removing &quot;Taiyo&quot; from &quot;Restaraunts&quot;?" />
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <Button Content="Yes" FontSize="28" Width="100" Height="50" Margin="10,0,0,0"/>
-                    <Button Content="No" FontSize="28" Width="100" Height="50" Margin="120,0,0,0"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-
     </Grid>
-</UserControl>
+</Page>

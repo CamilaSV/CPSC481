@@ -1,0 +1,92 @@
+﻿<Page x:Class="CPSC481Group12FoodyApp.ChatEditMembers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="853" d:DesignWidth="480">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- Top Bar -->
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <!-- Members -->
+            
+            <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
+            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
+                <ListBoxItem>
+                    <TextBlock Text="Me (Admin)" FontSize="30" />
+                </ListBoxItem>
+                <ListBoxItem Selected="ListBoxItem_Selected">
+                    <ListBox BorderBrush="{x:Null}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBoxItem>
+                            <TextBlock Text="Jane" Width="75" FontSize="30" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Button x:Name="RemoveButton1" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
+                        </ListBoxItem>
+                    </ListBox>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <ListBox BorderBrush="{x:Null}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBoxItem>
+                            <TextBlock Text="Alice"  Width="75" FontSize="30" />
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Button x:Name="RemoveButton2" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
+                        </ListBoxItem>
+                    </ListBox>
+                </ListBoxItem>
+            </ListBox>
+            
+            <!-- Invite Members -->
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
+                <Button FontSize ="28" Content="Confirm"/>
+            </StackPanel>
+
+            <CheckBox x:Name="SallyCheckBox" Content="Sally" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="JessicaCheckBox" Content="Jessica" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="AlexCheckBox" Content="Alex" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="KayCheckBox" Content="Kay" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="KyloCheckBox" Content="Kylo" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="ReyCheckBox" Content="Rey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="ChelseyCheckBox" Content="Chelsey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="MaggieCheckBox" Content="Maggie" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+        </StackPanel>
+
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+    </Grid>
+</Page>

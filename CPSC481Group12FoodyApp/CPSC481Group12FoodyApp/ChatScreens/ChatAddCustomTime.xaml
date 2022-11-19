@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="local:ChatAddCustomTime"
+﻿<Page x:Class="CPSC481Group12FoodyApp.ChatAddCustomTime"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,15 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatAddCustomTime" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="White">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -24,13 +31,13 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/backbutton.png"/>
+                <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
         </Button>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="3" Content="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="36" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
 
         <!-- Content -->
 
@@ -45,27 +52,27 @@
             </Grid.RowDefinitions>
 
             <!-- Date Picker -->
-            
-            <ListBox Grid.Row="1" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+
+            <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
-                    <Label Content="Date" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
+                    <TextBlock Text="Date" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <DatePicker FontSize="28"/>
                 </ListBoxItem>
             </ListBox>
-            
+
             <!-- Time Picker -->
 
-            <ListBox Grid.Row="2" VerticalAlignment="Top" SelectionChanged="ChangeLeft" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
-                    <Label Content="Time" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
+                    <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBox TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBlock Text="&#x0a;Select time of day below:" Width="284" FontSize="22" TextWrapping="Wrap"/>
+                    <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <ListBox BorderBrush="{x:Null}">
@@ -75,10 +82,10 @@
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBoxItem>
-                            <Button Content="AM" FontSize="30" Width="76"/>
+                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Click="AM_Button_Click"/>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button Content="PM" FontSize="30" Width="76"/>
+                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Click="PM_Button_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -86,8 +93,8 @@
 
             <!-- Submit -->
 
-            <Button Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152"/>
-            
+            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click"/>
+
         </Grid>
     </Grid>
-</UserControl>
+</Page>

@@ -18,7 +18,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_Login : UserControl
+    public partial class UserControl_Login : Page
     {
         private PageNavigator navigate_helper;
 
@@ -38,7 +38,7 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoRegister();
         }
 
-        private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoStart();
         }
