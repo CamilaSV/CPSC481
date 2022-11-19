@@ -20,56 +20,6 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
-    <Style x:Key="CategoriesButton" TargetType="{x:Type Button}">
-        <Setter Property="Height" Value="150"/>
-        <Setter Property="Width" Value="150"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="{StaticResource mspurple}" />
-        <Setter Property="BorderBrush" Value="{x:Null}"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Border x:Name="border" Height="150" Width="150" BorderThickness="1" BorderBrush="Black" CornerRadius="20" SnapsToDevicePixels="True">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Color="#D0AFE0" Offset="0.0" />
-                                    <GradientStop Color="#8D6A9F" Offset="0.5" />
-                                    <GradientStop Color="#7E3F9E" Offset="0.75" />
-                                </LinearGradientBrush>
-                            </Border.Background>
-                        </Border>
-                        <ContentPresenter
-                                Content="{TemplateBinding Content}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-
-    <Style x:Key="Categories" TargetType="{x:Type TextBox}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <!-- Modify default template, to change triggers -->
-                <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                    <Border x:Name="border" Height="150" Width="150" BorderThickness="1" CornerRadius="15" Background="{StaticResource mspurple}" SnapsToDevicePixels="True"/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{x:Null}"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Text" Value="Favourites"/>
-    </Style>
-
     <!-- Custom Buttons -->
     <Style x:Key="Delete" TargetType="Button" >
         <Setter Property="Height" Value="30"/>
@@ -83,7 +33,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="BackButton" TargetType="Button" >
+    <Style x:Key="Back" TargetType="Button" >
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="30"/>
         <Setter Property="Template">
@@ -162,11 +112,58 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CategoriesButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" Height="150" Width="150" BorderThickness="1" BorderBrush="Black" CornerRadius="20" SnapsToDevicePixels="True">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#D0AFE0" Offset="0.0" />
+                                    <GradientStop Color="#8D6A9F" Offset="0.5" />
+                                    <GradientStop Color="#7E3F9E" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LargeCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="3" ScaleY="3" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SmallCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <!-- Bars -->
     <DataTemplate x:Key="HomeTopBar">
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
-            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
             <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         </Grid>
     </DataTemplate>
@@ -174,8 +171,8 @@
     <DataTemplate x:Key="HomeTopBarBack">
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
-            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
-            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource BackButton}" BorderBrush="{x:Null}" />
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
             <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         </Grid>
     </DataTemplate>
@@ -183,7 +180,7 @@
     <DataTemplate x:Key="ChatTopBar">
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
-            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
             <Label x:Name="GroupChatNameLabel" Content="Foodies!" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         </Grid>
     </DataTemplate>
@@ -191,7 +188,7 @@
     <DataTemplate x:Key="ChatTopBarBack">
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
-            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource BackButton}" BorderBrush="{x:Null}" />
+            <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
             <Label x:Name="GroupChatNameLabel" Content="Foodies!" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         </Grid>
     </DataTemplate>
@@ -203,7 +200,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Rectangle x:Name="BottomBar" Grid.ColumnSpan="3" Fill="{StaticResource msbrown}" Height="82" Width="480" Stroke="Black"/>
+            <Rectangle x:Name="BottomBar" Grid.ColumnSpan="3" Fill="{StaticResource msbrown}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="Black"/>
             <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="#000000"/>
             <Border Width="1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Background="#000000"/>
             <Button x:Name="Home" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Home}" BorderBrush="{x:Null}" />

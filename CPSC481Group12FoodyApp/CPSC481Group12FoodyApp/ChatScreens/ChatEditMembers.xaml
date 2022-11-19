@@ -29,21 +29,7 @@
 
         <!-- Top Bar -->
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/backbutton.png"/>
-            </Button.Background>
-        </Button>
-
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type CheckBox}">
-                    <Setter Property="Margin" Value="0,10,0,0"/>
-                </Style>
-
-            </StackPanel.Resources>
 
             <!-- Members -->
             
@@ -63,7 +49,7 @@
                             <TextBlock Text="Jane" Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button x:Name="RemoveButton1" Content="Remove" FontSize ="15" Click="RemoveButton_Click"/>
+                            <Button x:Name="RemoveButton1" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -78,7 +64,7 @@
                             <TextBlock Text="Alice"  Width="75" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button x:Name="RemoveButton2" Content="Remove" FontSize ="15" Click="RemoveButton_Click"/>
+                            <Button x:Name="RemoveButton2" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -91,66 +77,16 @@
                 <Button FontSize ="28" Content="Confirm"/>
             </StackPanel>
 
-            <CheckBox x:Name="JessicaCheckBox" IsChecked="True" Checked="JessicaCheckBox_Checked">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Sally"/>
-            </CheckBox>
-            <CheckBox x:Name="SallyCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Sally"/>
-            </CheckBox>
-            <CheckBox x:Name="AlexCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Alex"/>
-            </CheckBox>
-            <CheckBox x:Name="KayCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Kay"/>
-            </CheckBox>
-            <CheckBox x:Name="KyloCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Kylo"/>
-            </CheckBox>
-            <CheckBox x:Name="ReyCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Rey"/>
-            </CheckBox>
-            <CheckBox x:Name="ChelseyCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Chelsey"/>
-            </CheckBox>
-            <CheckBox x:Name="MaggieCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Maggie"/>
-            </CheckBox>
-            <CheckBox x:Name="NoelleCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Noelle"/>
-            </CheckBox>
-            <CheckBox x:Name="JonCheckBox" IsChecked="True">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                </CheckBox.LayoutTransform>
-                <TextBlock Text="Noelle"/>
-            </CheckBox>
+            <CheckBox x:Name="SallyCheckBox" Content="Sally" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="JessicaCheckBox" Content="Jessica" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="AlexCheckBox" Content="Alex" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="KayCheckBox" Content="Kay" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="KyloCheckBox" Content="Kylo" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="ReyCheckBox" Content="Rey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="ChelseyCheckBox" Content="Chelsey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <CheckBox x:Name="MaggieCheckBox" Content="Maggie" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
         </StackPanel>
+
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
     </Grid>
 </Page>

@@ -6,6 +6,13 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="White">
 
@@ -30,7 +37,7 @@
             </Button.Background>
         </Button>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="3" Content="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="36" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
 
         <!-- Content -->
 
@@ -48,7 +55,7 @@
 
             <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
-                    <Label Content="Date" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
+                    <TextBlock Text="Date" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <DatePicker FontSize="28"/>
@@ -59,13 +66,13 @@
 
             <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}">
                 <ListBoxItem>
-                    <Label Content="Time" FontSize="34" FontWeight="Bold" BorderBrush="{x:Null}"/>
+                    <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBox TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBlock Text="&#x0a;Select time of day below:" Width="284" FontSize="22" TextWrapping="Wrap"/>
+                    <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <ListBox BorderBrush="{x:Null}">

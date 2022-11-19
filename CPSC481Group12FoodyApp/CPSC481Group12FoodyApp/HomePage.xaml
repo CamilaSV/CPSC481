@@ -14,8 +14,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
-    <Grid ShowGridLines="False" x:Name="HomePageGrid" Background="White">
+
+    <Grid ShowGridLines="False" x:Name="HomePageGrid" Background="{StaticResource mslightgreen}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -39,29 +39,29 @@
                 <RowDefinition Height="1.5*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="SearchBar" VerticalAlignment="Center" Text="  Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
+            <Border Grid.ColumnSpan="2" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" Background="White" BorderBrush="Black">
+                <TextBox Name="SearchBar" VerticalAlignment="Center" Text=" Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
             </Border>
 
-            <Image Grid.ColumnSpan="2" Grid.Row="0" Margin="320,0,0,0" Width="50">
+            <Image Grid.Row="0" Margin="135,0,55,0" Width="50" Grid.Column="1">
                 <Image.Source>
                     <BitmapImage DecodePixelWidth="50" UriSource="/Images/search.png" />
                 </Image.Source>
             </Image>
 
-            <TextBox Name="Cat1" Text="Favourites" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
-            <TextBox Name="Cat2" Text="Pasta" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
-            <TextBox Name="Cat3" Text="Mexican" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
-            <TextBox Name="Cat4" Text="Thai" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
-            <TextBox Name="Cat5" Text="Chinese" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
-            <TextBox Name="Cat6" Text="Sushi" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center"  Style="{StaticResource Categories}"/>
+            <Button x:Name="Cat1" Content="Favourites" Grid.Column="0" Grid.Row="1" Style="{StaticResource CategoriesButton}"/>
+            <Button Name="Cat2" Content="Pasta" Grid.Column="1" Grid.Row="1"  Style="{StaticResource CategoriesButton}"/>
+            <Button Name="Cat3" Content="Mexican" Grid.Column="1" Grid.Row="2"  Style="{StaticResource CategoriesButton}"/>
+            <Button Name="Cat4" Content="Thai" Grid.Column="0" Grid.Row="2"  Style="{StaticResource CategoriesButton}"/>
+            <Button Name="Cat5" Content="Chinese" Grid.Column="1" Grid.Row="3"  Style="{StaticResource CategoriesButton}"/>
+            <Button Name="Cat6" Content="Sushi" Grid.Column="0" Grid.Row="3"  Style="{StaticResource CategoriesButton}"/>
         </Grid>
 
         <Button x:Name="Bottom_CreateButton" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Create}" />
-        
+
     </Grid>
 </Page>
