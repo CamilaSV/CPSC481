@@ -17,22 +17,10 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + ".cfg");
+                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\email.cfg");
+                    userFile.Close();
 
-                    if (!userFile.ReadLine().Equals("Email:"))
-                    {
-                        result = "Please contact the customer support.";
-                    }
-
-                    if(!userFile.ReadLine().Equals(email))
-                    {
-                        result = "Please contact the customer support.";
-                    }
-
-                    if (!userFile.ReadLine().Equals("Password:"))
-                    {
-                        result = "Please contact the customer support.";
-                    }
+                    userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\password.cfg");
 
                     if (!userFile.ReadLine().Equals(password))
                     {

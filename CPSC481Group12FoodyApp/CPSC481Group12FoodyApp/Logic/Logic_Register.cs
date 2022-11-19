@@ -18,7 +18,7 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + ".cfg");
+                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\email.cfg");
                     userFile.Close();
 
                     result = "The account already exists.";
@@ -29,7 +29,7 @@ namespace CPSC481Group12FoodyApp
                 }
                 catch (DirectoryNotFoundException dnfe)
                 {
-                    Directory.CreateDirectory(".\\DB\\Accounts");
+                    Directory.CreateDirectory(".\\DB\\Accounts\\" + email);
                     result = createUser(email, password);
                 }
             }
@@ -51,23 +51,22 @@ namespace CPSC481Group12FoodyApp
             }
 
 
-            StreamWriter fileWriter = File.AppendText(".\\DB\\Accounts\\" + email + ".cfg");
-
-            fileWriter.WriteLine("Email:");
+            StreamWriter fileWriter = File.CreateText(".\\DB\\Accounts\\" + email + "\\email.cfg");
             fileWriter.WriteLine(email);
-            fileWriter.WriteLine("Password:");
-            fileWriter.WriteLine(password);
-            fileWriter.WriteLine("Display_Name:");
-            fileWriter.WriteLine(email);
-            fileWriter.WriteLine("Bio:");
-            fileWriter.WriteLine("Friends:");
-            fileWriter.WriteLine("Chats:");
-            fileWriter.WriteLine("Saved_Categories:");
-            fileWriter.WriteLine("Saved_Restaurants:");
-            fileWriter.WriteLine("Future_Schedules:");
-            fileWriter.WriteLine("Completed_Schedules:");
-
             fileWriter.Close();
+
+            fileWriter = File.CreateText(".\\DB\\Accounts\\" + email + "\\password.cfg");
+            fileWriter.WriteLine(password);
+            fileWriter.Close();
+
+            File.Create(".\\DB\\Accounts\\" + email + "\\display_name.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\bio.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\friends.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\chats.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\saved_cat.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\saved_res.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\future_sch.cfg").Close();
+            File.Create(".\\DB\\Accounts\\" + email + "\\comp_sch.cfg").Close();
 
             return "true";
         }
