@@ -13,7 +13,8 @@ namespace CPSC481Group12FoodyApp
         private const string acc_pw = "password.dat";
         private const string acc_name = "display_name.dat";
         private const string acc_bio = "bio.dat";
-        private const string acc_inv = "invitations.dat";
+        private const string acc_inv = "chat_invitations.dat";
+        private const string acc_req = "friend_requests.dat";
         private const string acc_fr = "friends.dat";
         private const string acc_chats = "chats.dat";
         private const string acc_cat = "saved_cat.dat";
@@ -164,9 +165,14 @@ namespace CPSC481Group12FoodyApp
             return getAccDir(email) + acc_bio;
         }
 
-        public static string getAccInv(string email)
+        public static string getAccChatInv(string email)
         {
             return getAccDir(email) + acc_inv;
+        }
+
+        public static string getAccFriendReq(string email)
+        {
+            return getAccDir(email) + acc_req;
         }
 
         public static string getAccFriends(string email)

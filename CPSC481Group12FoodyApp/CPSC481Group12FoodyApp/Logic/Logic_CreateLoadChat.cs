@@ -46,7 +46,7 @@ namespace CPSC481Group12FoodyApp
 
                 foreach (var eachEmail in emailsToInvite)
                 {
-                    fileWriter = File.AppendText(PathFinder.getAccInv(eachEmail));
+                    fileWriter = File.AppendText(PathFinder.getAccChatInv(eachEmail));
                     fileWriter.WriteLine(chatId);
                     fileWriter.Close();
                 }
@@ -92,6 +92,7 @@ namespace CPSC481Group12FoodyApp
         {
             StreamReader fileReader = File.OpenText(PathFinder.getChatName(chatId));
             string chatName = fileReader.ReadLine();
+            fileReader.Close();
             string[] chatLog = File.ReadAllLines(PathFinder.getChatLog(chatId));
 
             return new Tuple<string, string, string[]>(emailUser, chatName, chatLog);
