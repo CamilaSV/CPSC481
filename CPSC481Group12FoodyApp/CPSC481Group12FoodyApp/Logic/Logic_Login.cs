@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
 
@@ -8,7 +7,7 @@ namespace CPSC481Group12FoodyApp
     public static class Logic_Login
     {
         // check if the user-entered information validates logging in (Matching email and password)
-        public static string login(String email, String password)
+        public static string login(string email, string password)
         {
             string result;
 
@@ -17,10 +16,10 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\email.cfg");
+                    StreamReader userFile = File.OpenText(PathFinder.getAccEmail(email));
                     userFile.Close();
 
-                    userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\password.cfg");
+                    userFile = File.OpenText(PathFinder.getAccPw(email));
 
                     if (!userFile.ReadLine().Equals(password))
                     {
@@ -41,6 +40,10 @@ namespace CPSC481Group12FoodyApp
                 {
                     result = "User does not exist.";
                 }
+                catch (Exception e)
+                {
+                    result = "Something is wrong. Please contact support.";
+                }
             }
             else
             {
@@ -48,6 +51,13 @@ namespace CPSC481Group12FoodyApp
             }
 
             return result;
+        }
+
+        public static string[] loadUserData(string email)
+        {
+            string[] wholeData;
+
+            return null;
         }
     }
 }

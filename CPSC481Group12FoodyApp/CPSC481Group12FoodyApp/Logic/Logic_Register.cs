@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Net.Mail;
 
@@ -9,7 +7,7 @@ namespace CPSC481Group12FoodyApp
     public static class Logic_Register
     {
         // check if the user-entered information validates register (No duplicate emails)
-        public static string register(String email, String password)
+        public static string register(string email, string password)
         {
             string result;
 
@@ -18,10 +16,17 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(".\\DB\\Accounts\\" + email + "\\email.cfg");
-                    userFile.Close();
+                    if (String.IsNullOrWhiteSpace(password))
+                    {
+                        result = "The password must not be empty.";
+                    }
+                    else
+                    {
+                        StreamReader userFile = File.OpenText(PathFinder.getAccEmail(email));
+                        userFile.Close();
 
-                    result = "The account already exists.";
+                        result = "The account already exists.";
+                    }
                 }
                 catch (FileNotFoundException fnfe)
                 {
@@ -29,8 +34,12 @@ namespace CPSC481Group12FoodyApp
                 }
                 catch (DirectoryNotFoundException dnfe)
                 {
-                    Directory.CreateDirectory(".\\DB\\Accounts\\" + email);
+                    Directory.CreateDirectory(PathFinder.getAccDir(email));
                     result = createUser(email, password);
+                }
+                catch (Exception e)
+                {
+                    result = "Something is wrong. Please contact support.";
                 }
             }
             else
@@ -40,33 +49,27 @@ namespace CPSC481Group12FoodyApp
 
             return result;
         }
+
         private static string createUser(string email, string password)
         { 
             // the account does not exist, so register the account
-
-            // make sure the password is not empty and is not just whitespace
-            if (String.IsNullOrWhiteSpace(password))
-            {
-                return "Password is empty.";
-            }
-
-
-            StreamWriter fileWriter = File.CreateText(".\\DB\\Accounts\\" + email + "\\email.cfg");
+            StreamWriter fileWriter = File.CreateText(PathFinder.getAccEmail(email));
             fileWriter.WriteLine(email);
             fileWriter.Close();
 
-            fileWriter = File.CreateText(".\\DB\\Accounts\\" + email + "\\password.cfg");
+            fileWriter = File.CreateText(PathFinder.getAccPw(email));
             fileWriter.WriteLine(password);
             fileWriter.Close();
 
-            File.Create(".\\DB\\Accounts\\" + email + "\\display_name.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\bio.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\friends.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\chats.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\saved_cat.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\saved_res.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\future_sch.cfg").Close();
-            File.Create(".\\DB\\Accounts\\" + email + "\\comp_sch.cfg").Close();
+            File.Create(PathFinder.getAccName(email)).Close();
+            File.Create(PathFinder.getAccBio(email)).Close();
+            File.Create(PathFinder.getAccInv(email)).Close();
+            File.Create(PathFinder.getAccFriends(email)).Close();
+            File.Create(PathFinder.getAccChats(email)).Close();
+            File.Create(PathFinder.getAccCategories(email)).Close();
+            File.Create(PathFinder.getAccRestaurants(email)).Close();
+            File.Create(PathFinder.getAccFutSch(email)).Close();
+            File.Create(PathFinder.getAccCompSch(email)).Close();
 
             return "true";
         }
