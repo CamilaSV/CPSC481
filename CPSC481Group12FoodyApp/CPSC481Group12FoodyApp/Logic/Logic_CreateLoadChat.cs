@@ -82,13 +82,13 @@ namespace CPSC481Group12FoodyApp
             return new Tuple<string, string>(chatName, lastChat); // get chat name and the very last chat
         }
 
-        public static Tuple<string, string, string> enterOneChat(string emailUser, string chatId)
+        public static Tuple<string, string, string[]> enterOneChat(string emailUser, string chatId)
         {
             StreamReader fileReader = File.OpenText(PathFinder.getChatName(chatId));
             string chatName = fileReader.ReadLine();
             string[] chatLog = File.ReadAllLines(PathFinder.getChatLog(chatId));
 
-            return new Tuple<string, string, string>(emailUser, chatName, chatLog);
+            return new Tuple<string, string, string[]>(emailUser, chatName, chatLog);
         }
     }
 }
