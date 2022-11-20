@@ -22,7 +22,9 @@ namespace CPSC481Group12FoodyApp
 
                 int chatId;
 
-                for (chatId = 0; Directory.Exists(PathFinder.getChatDir(chatId)); chatId++) ;
+                for (chatId = 0; Directory.Exists(PathFinder.getChatDir(chatId)); chatId++) ; // find a unique chat id
+
+                // create necessary files and directories for the chat group
                 Directory.CreateDirectory(PathFinder.getChatDir(chatId));
 
                 StreamWriter fileWriter = File.CreateText(PathFinder.getChatName(chatId));
@@ -39,8 +41,8 @@ namespace CPSC481Group12FoodyApp
 
                 File.Create(PathFinder.getChatLog(chatId)).Close();
                 File.Create(PathFinder.getChatRestaurants(chatId)).Close();
-                File.Create(PathFinder.getChatFutSch(chatId)).Close();
-                File.Create(PathFinder.getChatCompSch(chatId)).Close();
+                Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
+                Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
 
                 foreach (var eachEmail in emailsToInvite)
                 {
@@ -48,6 +50,10 @@ namespace CPSC481Group12FoodyApp
                     fileWriter.WriteLine(chatId);
                     fileWriter.Close();
                 }
+
+                // create necessary directories for the chat creator
+                Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailCreator, chatId));
+                Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailCreator, chatId));
 
                 result = "true";
             }

@@ -68,8 +68,9 @@ namespace CPSC481Group12FoodyApp
             File.Create(PathFinder.getAccChats(email)).Close();
             File.Create(PathFinder.getAccCategories(email)).Close();
             File.Create(PathFinder.getAccRestaurants(email)).Close();
-            File.Create(PathFinder.getAccFutSch(email)).Close();
-            File.Create(PathFinder.getAccCompSch(email)).Close();
+
+            Directory.CreateDirectory(PathFinder.getAccFutSchDir(email));
+            Directory.CreateDirectory(PathFinder.getAccCompSchDir(email));
 
             return "true";
         }
