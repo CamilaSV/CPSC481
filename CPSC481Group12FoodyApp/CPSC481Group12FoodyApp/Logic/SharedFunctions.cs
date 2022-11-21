@@ -25,6 +25,23 @@ namespace CPSC481Group12FoodyApp
             fileWriter.Close();
         }
 
+        // remove target by reading all lines and excluding target lines
+        public static void removeLineFromFile(string filePath, int lineToRemove)
+        {
+            string[] allLines = File.ReadAllLines(filePath);
+
+            StreamWriter fileWriter = File.CreateText(filePath);
+            foreach (string line in allLines)
+            {
+                if (!line.Equals(lineToRemove))
+                {
+                    fileWriter.WriteLine(line);
+                }
+            }
+
+            fileWriter.Close();
+        }
+
         // append target line to file
         public static void appendLineToFile(string filePath, string lineToAppend)
         {

@@ -85,7 +85,6 @@ namespace CPSC481Group12FoodyApp
         public static void sendChatInvite(string emailTarget, string chatId)
         {
             SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
-
         }
 
         public static void sendChatInvite(string emailTarget, int chatId)
@@ -95,21 +94,28 @@ namespace CPSC481Group12FoodyApp
 
         public static void acceptChatInvite(string emailUser, string chatId)
         {
+            SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
+            Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
+            Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
+            removeChatInvite(emailUser, chatId);
         }
 
         public static void acceptChatInvite(string emailUser, int chatId)
         {
-
+            SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
+            Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
+            Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
+            removeChatInvite(emailUser, chatId);
         }
 
         public static void removeChatInvite(string emailUser, string chatId)
         {
-
+            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
         }
 
         public static void removeChatInvite(string emailUser, int chatId)
         {
-
+            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
         }
     }
 }
