@@ -16,12 +16,8 @@ namespace CPSC481Group12FoodyApp
             {
                 try
                 {
-                    StreamReader userFile = File.OpenText(PathFinder.getAccEmail(email));
-                    userFile.Close();
-
-                    userFile = File.OpenText(PathFinder.getAccPw(email));
-
-                    if (!userFile.ReadLine().Equals(password))
+                    SharedFunctions.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
+                    if (!SharedFunctions.getFirstLineFromFile(PathFinder.getAccPw(email)).Equals(password))
                     {
                         result = "Username and password combination does not match.";
                     }
@@ -29,8 +25,6 @@ namespace CPSC481Group12FoodyApp
                     {
                         result = "true";
                     }
-
-                    userFile.Close();
                 }
                 catch (FileNotFoundException fnfe)
                 {

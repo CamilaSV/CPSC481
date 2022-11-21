@@ -22,9 +22,7 @@ namespace CPSC481Group12FoodyApp
                     }
                     else
                     {
-                        StreamReader userFile = File.OpenText(PathFinder.getAccEmail(email));
-                        userFile.Close();
-
+                        SharedFunctions.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
                         result = "The account already exists.";
                     }
                 }
@@ -51,15 +49,10 @@ namespace CPSC481Group12FoodyApp
         }
 
         private static string createUser(string email, string password)
-        { 
+        {
             // the account does not exist, so register the account
-            StreamWriter fileWriter = File.CreateText(PathFinder.getAccEmail(email));
-            fileWriter.WriteLine(email);
-            fileWriter.Close();
-
-            fileWriter = File.CreateText(PathFinder.getAccPw(email));
-            fileWriter.WriteLine(password);
-            fileWriter.Close();
+            SharedFunctions.appendLineToFile(PathFinder.getAccEmail(email), email);
+            SharedFunctions.appendLineToFile(PathFinder.getAccPw(email), password);
 
             File.Create(PathFinder.getAccName(email)).Close();
             File.Create(PathFinder.getAccBio(email)).Close();

@@ -27,17 +27,9 @@ namespace CPSC481Group12FoodyApp
                 // create necessary files and directories for the chat group
                 Directory.CreateDirectory(PathFinder.getChatDir(chatId));
 
-                StreamWriter fileWriter = File.CreateText(PathFinder.getChatName(chatId));
-                fileWriter.WriteLine(chatName);
-                fileWriter.Close();
-
-                fileWriter = File.CreateText(PathFinder.getChatAdmin(chatId));
-                fileWriter.WriteLine(emailCreator);
-                fileWriter.Close();
-
-                fileWriter = File.CreateText(PathFinder.getChatMembers(chatId));
-                fileWriter.WriteLine(emailCreator);
-                fileWriter.Close();
+                SharedFunctions.appendLineToFile(PathFinder.getChatName(chatId), chatName);
+                SharedFunctions.appendLineToFile(PathFinder.getChatAdmin(chatId), emailCreator);
+                SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailCreator);
 
                 File.Create(PathFinder.getChatLog(chatId)).Close();
                 File.Create(PathFinder.getChatRestaurants(chatId)).Close();
@@ -46,9 +38,7 @@ namespace CPSC481Group12FoodyApp
 
                 foreach (var eachEmail in emailsToInvite)
                 {
-                    fileWriter = File.AppendText(PathFinder.getAccChatInv(eachEmail));
-                    fileWriter.WriteLine(chatId);
-                    fileWriter.Close();
+                    sendChatInvite(eachEmail, chatId);
                 }
 
                 // create necessary directories for the chat creator
@@ -66,7 +56,6 @@ namespace CPSC481Group12FoodyApp
             List<Tuple<string, string>> result = new List<Tuple<string, string>>();
 
             StreamReader fileReader = File.OpenText(PathFinder.getAccChats(emailUser));
-
             while (!fileReader.EndOfStream)
             {
                 result.Add(previewOneChat(fileReader.ReadLine()));
@@ -79,10 +68,7 @@ namespace CPSC481Group12FoodyApp
 
         public static Tuple<string, string> previewOneChat(string chatId)
         {
-            StreamReader fileReader = File.OpenText(PathFinder.getChatName(chatId));
-            string chatName = fileReader.ReadLine();
-            fileReader.Close();
-
+            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
             string lastChat = File.ReadLines(PathFinder.getChatLog(chatId)).Last();
 
             return new Tuple<string, string>(chatName, lastChat); // get chat name and the very last chat
@@ -90,12 +76,40 @@ namespace CPSC481Group12FoodyApp
 
         public static Tuple<string, string, string[]> enterOneChat(string emailUser, string chatId)
         {
-            StreamReader fileReader = File.OpenText(PathFinder.getChatName(chatId));
-            string chatName = fileReader.ReadLine();
-            fileReader.Close();
+            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
             string[] chatLog = File.ReadAllLines(PathFinder.getChatLog(chatId));
 
             return new Tuple<string, string, string[]>(emailUser, chatName, chatLog);
+        }
+
+        public static void sendChatInvite(string emailTarget, string chatId)
+        {
+            SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
+
+        }
+
+        public static void sendChatInvite(string emailTarget, int chatId)
+        {
+            SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
+        }
+
+        public static void acceptChatInvite(string emailUser, string chatId)
+        {
+        }
+
+        public static void acceptChatInvite(string emailUser, int chatId)
+        {
+
+        }
+
+        public static void removeChatInvite(string emailUser, string chatId)
+        {
+
+        }
+
+        public static void removeChatInvite(string emailUser, int chatId)
+        {
+
         }
     }
 }
