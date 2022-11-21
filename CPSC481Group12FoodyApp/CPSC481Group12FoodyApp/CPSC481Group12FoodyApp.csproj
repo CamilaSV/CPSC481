@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="AddFriend_FriendRequests\ChatListControl.xaml">
+    <Page Update="AddFriend_FriendRequests\FriendRequestListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="AddFriend_FriendRequests\ChatListGroupControl.xaml">
+    <Page Update="AddFriend_FriendRequests\FriendRequestCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="ChatScreens\ChatEditMembersRemove.xaml">

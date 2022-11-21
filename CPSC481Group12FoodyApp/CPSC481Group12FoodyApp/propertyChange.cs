@@ -16,6 +16,7 @@ namespace CPSC481Group12FoodyApp
         private string groupName;
         private string lastActive;
         private string userName;
+        private string targetUserName;
 
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
@@ -71,6 +72,19 @@ namespace CPSC481Group12FoodyApp
                 {
                     userName = value;
                     OnPropertyChanged(nameof(UserName));
+                }
+            }
+        }
+
+        public string TargetUserName
+        {
+            get { return targetUserName; }
+            set
+            {
+                if (value != targetUserName)
+                {
+                    targetUserName = value;
+                    OnPropertyChanged(nameof(TargetUserName));
                 }
             }
         }

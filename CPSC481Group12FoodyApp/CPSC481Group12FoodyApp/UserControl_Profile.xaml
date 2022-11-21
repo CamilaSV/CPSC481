@@ -100,7 +100,8 @@
                         <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
                             <StackPanel>
                                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friend List" />
-                                <TextBlock FontFamily="Segoe UI Light" FontSize="24" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding FriendName}"/>
+                                <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="131" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300" VerticalAlignment="Top"><Run Text="Jane"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Johnd"/><LineBreak/><Run Text="Marry"/><LineBreak/><Run Text="Bobby"/><LineBreak/><Run Text="dsds"/></TextBlock>
+                                <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="131" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300" VerticalAlignment="Top"><Run Text="Jane"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Johnd"/><LineBreak/><Run Text="Marry"/><LineBreak/><Run Text="Bobby"/><LineBreak/><Run Text="dsds"/></TextBlock>
                             </StackPanel>
                         </ScrollViewer>
                     </Border>

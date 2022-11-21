@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatListControl.xaml
+    /// Interaction logic for FriendRequestCardControl.xaml
     /// </summary>
-    public partial class ChatListGroupControl : UserControl
+    public partial class FriendRequestCardControl : UserControl
     {
-        public ChatListGroupControl()
+        public FriendRequestCardControl()
         {
             InitializeComponent();
         }
