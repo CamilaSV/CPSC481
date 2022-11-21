@@ -59,11 +59,6 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.editProfile();
         }
 
-        private void addBtn2(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.addFriend();
-        }
-
         private void checkButton(object sender, RoutedEventArgs e)
         {
             navigate_helper.acceptInvitation();
@@ -77,6 +72,11 @@ namespace CPSC481Group12FoodyApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoAddFriend();
         }
     }
 }

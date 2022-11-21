@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,25 +17,23 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for AddFriend.xaml
+    /// Interaction logic for UserControl_AddFriends.xaml
     /// </summary>
-    public partial class AddFriend : Page
+    public partial class UserControl_AddFriends : UserControl
     {
         private PageNavigator navigate_helper;
 
-        
-        private void SubmissionButton_Click(object sender, RoutedEventArgs e)
+        public UserControl_AddFriends(PageNavigator navigate_helper)
         {
+            InitializeComponent();
+            this.navigate_helper= navigate_helper;
         }
 
-        private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
+        private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Logic_AddRemFriend.addFriend(Logic_Login.getCurrentUserEmail(), AddFriendTextBox.Text);
+            navigate_helper.gotoProfile();
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

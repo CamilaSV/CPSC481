@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for AddFriend.xaml
+    /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class AddFriend : Page
+    public partial class ChatListGroupControl : UserControl
     {
-        private PageNavigator navigate_helper;
-
-        
-        private void SubmissionButton_Click(object sender, RoutedEventArgs e)
+        public ChatListGroupControl()
         {
-        }
-
-        private void criteriaText_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }

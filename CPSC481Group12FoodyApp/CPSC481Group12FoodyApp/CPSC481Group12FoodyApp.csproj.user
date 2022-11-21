@@ -7,10 +7,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddFriend_FriendRequests\ChatListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddFriend_FriendRequests\ChatListGroupControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ChatScreens\ChatAddCustomTime.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dictionaries\MainStylesDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl_AddFriends.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

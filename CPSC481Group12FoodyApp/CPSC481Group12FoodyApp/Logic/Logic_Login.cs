@@ -1,14 +1,29 @@
 ﻿using System;
 using System.IO;
+using System.Linq.Expressions;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 
 namespace CPSC481Group12FoodyApp
 {
     public static class Logic_Login
     {
+        /* TEMP */
+        private static string currentUserEmail;
+        public static string getCurrentUserEmail()
+        {
+            if (String.IsNullOrEmpty(currentUserEmail))
+                return "is null or empty";
+            else
+                return currentUserEmail;
+        }
+
         // check if the user-entered information validates logging in (Matching email and password)
         public static string login(string email, string password)
         {
+            /* TEMP */
+            currentUserEmail = email;
+
             string result;
 
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
