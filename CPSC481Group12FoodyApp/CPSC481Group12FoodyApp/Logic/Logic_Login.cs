@@ -12,10 +12,11 @@ namespace CPSC481Group12FoodyApp
         private static string currentUserEmail;
         public static string getCurrentUserEmail()
         {
-            if (String.IsNullOrEmpty(currentUserEmail))
-                return "is null or empty";
-            else
-                return currentUserEmail;
+            //if (String.IsNullOrEmpty(currentUserEmail))
+            //    return "is null or empty";
+            //else
+            //    return currentUserEmail;
+            return "test@mail.com";
         }
 
         // check if the user-entered information validates logging in (Matching email and password)

@@ -12,7 +12,7 @@
 
     <Grid DataContext="{x:Static localchat:FriendRequestControlDesignModel.Instance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Chats}">
+            <ItemsControl ItemsSource="{Binding FriendRequestCollection}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:FriendRequestCardControl>

@@ -33,5 +33,6 @@ namespace CPSC481Group12FoodyApp
         {
             SharedFunctions.removeLineFromFile(PathFinder.getAccFriendReq(emailUser), emailTarget);
         }
+
     }
 }
