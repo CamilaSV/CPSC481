@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Windows.Shapes;
 
-namespace CPSC481Group12FoodyApp
+namespace CPSC481Group12FoodyApp.Logic
 {
     public static class SharedFunctions
     {
@@ -38,6 +39,21 @@ namespace CPSC481Group12FoodyApp
             StreamWriter fileWriter = File.CreateText(filePath);
             fileWriter.WriteLine(text);
             fileWriter.Close();
+        }
+
+        public static Boolean isLineInFile(string filePath, string text)
+        {
+            string[] allLines = File.ReadAllLines(filePath);
+
+            foreach (string line in allLines)
+            {
+                if (line.Equals(text))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // read line from file

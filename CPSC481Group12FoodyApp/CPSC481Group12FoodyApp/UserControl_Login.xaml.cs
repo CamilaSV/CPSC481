@@ -35,7 +35,7 @@ namespace CPSC481Group12FoodyApp
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Middle_LoginRegister.login(this);
+            API_Login.login(this);
         }
 
         private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)

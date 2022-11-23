@@ -22,18 +22,19 @@ namespace CPSC481Group12FoodyApp
     public partial class UserControl_AddFriends : UserControl
     {
         internal PageNavigator navigate_helper;
+        private UserControl_Profile profilePage;
+        private string friendSelected_Email;
 
-        public UserControl_AddFriends(PageNavigator navigate_helper)
+        public UserControl_AddFriends(PageNavigator navigate_helper, UserControl_Profile profilePage)
         {
             InitializeComponent();
-            this.navigate_helper= navigate_helper;
+            this.navigate_helper = navigate_helper;
+            this.profilePage = profilePage;
         }
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.addFriend(UserProfile.currentUserEmail, AddFriendTextBox.Text);
-            navigate_helper.gotoProfile();
+            API_AddRemFriend.addFriend(this, profilePage, friendSelected_Email);
         }
-
     }
 }

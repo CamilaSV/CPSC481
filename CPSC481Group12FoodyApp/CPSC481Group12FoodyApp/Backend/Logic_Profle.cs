@@ -12,7 +12,7 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public static ObservableCollection<propertyChange> displayUsersFriendRequest(ObservableCollection<propertyChange> friendRequestCollection)
         {
-            if (String.IsNullOrEmpty(UserProfile.currentUserEmail))
+            if (String.IsNullOrEmpty(UserProfile.getCurrentEmail()))
             {
                 propertyChange requestItem = new propertyChange();
                 friendRequestCollection.Add(requestItem);
@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 List<string> lines = new List<string>();
                 // ReadAllLines closes file after reading.
-                lines = File.ReadAllLines(PathFinder.getAccFriendReq(UserProfile.currentUserEmail)).ToList();
+                lines = File.ReadAllLines(PathFinder.getAccFriendReq(UserProfile.getCurrentEmail())).ToList();
 
                 if (String.IsNullOrEmpty(lines[0]))
                 {

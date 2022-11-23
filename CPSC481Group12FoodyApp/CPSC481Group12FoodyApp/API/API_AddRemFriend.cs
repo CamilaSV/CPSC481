@@ -2,38 +2,45 @@
 using System.IO;
 using System.Net.Mail;
 
+using CPSC481Group12FoodyApp.Logic;
+
 namespace CPSC481Group12FoodyApp
 {
     public static class API_AddRemFriend
     {
-        public static void login(UserControl_Login loginWindow)
+        public static void addFriend(UserControl_AddFriends addPage, UserControl_Profile profilePage, string emailTarget)
         {
-            string result = Login_Login.login(loginWindow.Login_EmailTextBox.Text, loginWindow.Login_PasswordBox.Password);
+            string result = Logic_AddRemFriend.addFriend(UserProfile.getCurrentEmail(), emailTarget);
 
             if (result.Equals("true"))
             {
-                UserProfile.currentUserEmail = loginWindow.Login_EmailTextBox.Text;
-                loginWindow.navigate_helper.gotoChatList();
+                UserProfile.addFriendToList(emailTarget);
+                profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(UserProfile.getCurrentEmail());
             }
             else
             {
-                loginWindow.ErrorTextBlock.Text = result;
+                addPage.ErrorTextBlock.Text = result;
             }
         }
 
-        public static void register(UserControl_Register registerWindow)
+    public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
         {
-            string result = Logic_Register.register(registerWindow.Register_EmailTextBox.Text, registerWindow.Register_PasswordBox.Password);
+            Logic_AddRemFriend.deleteFriend(UserProfile.getCurrentEmail(), emailTarget);
+            UserProfile.remFriendFromList(emailTarget);
+            profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(UserProfile.getCurrentEmail());
+        }
 
-            if (result.Equals("true"))
-            {
-                UserProfile.currentUserEmail = registerWindow.Register_EmailTextBox.Text;
-                registerWindow.navigate_helper.gotoChatList();
-            }
-            else
-            {
-                registerWindow.ErrorTextBlock.Text = result;
-            }
+        public static void acceptFriendReq(string emailTarget)
+        {
+            Logic_AddRemFriend.acceptFriendReq(UserProfile.getCurrentEmail(), emailTarget);
+            UserProfile.addFriendToList(emailTarget);
+            UserProfile.remFriendReqFromList(emailTarget);
+        }
+
+        public static void denyFriendReq(string emailTarget)
+        {
+            Logic_AddRemFriend.removeFriendReq(UserProfile.getCurrentEmail(), emailTarget);
+            UserProfile.remFriendFromList(emailTarget);
         }
     }
 }

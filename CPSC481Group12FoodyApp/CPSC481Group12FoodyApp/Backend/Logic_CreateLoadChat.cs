@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 
-namespace CPSC481Group12FoodyApp
+namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_CreateLoadChat
     {
@@ -87,20 +87,7 @@ namespace CPSC481Group12FoodyApp
             SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
         }
 
-        public static void sendChatInvite(string emailTarget, int chatId)
-        {
-            SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
-        }
-
         public static void acceptChatInvite(string emailUser, string chatId)
-        {
-            SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
-            Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
-            Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
-            removeChatInvite(emailUser, chatId);
-        }
-
-        public static void acceptChatInvite(string emailUser, int chatId)
         {
             SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
@@ -113,9 +100,29 @@ namespace CPSC481Group12FoodyApp
             SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
         }
 
+        public static Tuple<string, string> previewOneChat(int chatId)
+        {
+            return previewOneChat(chatId.ToString());
+        }
+
+        public static Tuple<string, string, string[]> enterOneChat(string emailUser, int chatId)
+        {
+            return enterOneChat(emailUser, chatId.ToString());
+        }
+
+        public static void sendChatInvite(string emailTarget, int chatId)
+        {
+            sendChatInvite(emailTarget, chatId.ToString());
+        }
+
+        public static void acceptChatInvite(string emailUser, int chatId)
+        {
+            acceptChatInvite(emailUser, chatId.ToString());
+        }
+
         public static void removeChatInvite(string emailUser, int chatId)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
+            removeChatInvite(emailUser, chatId.ToString());
         }
     }
 }

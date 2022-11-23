@@ -9,7 +9,7 @@
     <Grid>
 
         <Border Padding="0,125,0,110">
-            <local:ChatListControl/>
+            <local:ChatListControl x:Name="ListControl"/>
         </Border>
 
         <Border Height="1" Margin="2,752,2,100" Background="#000000"/>

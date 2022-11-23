@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net.Mail;
 
-namespace CPSC481Group12FoodyApp
+namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Login_Login
     {

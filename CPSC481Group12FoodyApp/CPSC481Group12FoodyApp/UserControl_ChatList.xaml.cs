@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using CPSC481Group12FoodyApp.Logic;
+
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
@@ -26,7 +28,8 @@ namespace CPSC481Group12FoodyApp
         public UserControl_ChatList(PageNavigator navigate_helper)
         {
             InitializeComponent();
-            this.navigate_helper= navigate_helper;
+            this.navigate_helper = navigate_helper;
+//            ComponentFunctions.addComponentToList(this);
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -57,6 +60,10 @@ namespace CPSC481Group12FoodyApp
         private void List_Invitation_Click(object sender, RoutedEventArgs e)
         {
             navigate_helper.gotoInvitation();
+        }
+
+        public void refreshComponent()
+        {
         }
     }
 }

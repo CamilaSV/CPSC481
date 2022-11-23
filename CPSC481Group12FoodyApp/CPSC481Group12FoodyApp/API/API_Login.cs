@@ -2,6 +2,8 @@
 using System.IO;
 using System.Net.Mail;
 
+using CPSC481Group12FoodyApp.Logic;
+
 namespace CPSC481Group12FoodyApp
 {
     public static class API_Login
@@ -12,7 +14,7 @@ namespace CPSC481Group12FoodyApp
 
             if (result.Equals("true"))
             {
-                UserProfile.currentUserEmail = loginWindow.Login_EmailTextBox.Text;
+                UserProfile.initializeUser(loginWindow.Login_EmailTextBox.Text);
                 loginWindow.navigate_helper.gotoChatList();
             }
             else
