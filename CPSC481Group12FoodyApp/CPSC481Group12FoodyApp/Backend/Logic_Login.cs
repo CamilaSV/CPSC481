@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace CPSC481Group12FoodyApp
 {
-    public static class Logic_Login
+    public static class Login_Login
     {
         // check if the user-entered information validates logging in (Matching email and password)
         public static string login(string email, string password)

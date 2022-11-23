@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_Login : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public UserControl_Login(PageNavigator navigate_helper)
         {
@@ -35,17 +35,7 @@ namespace CPSC481Group12FoodyApp
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            string result = Logic_Login.login(Login_EmailTextBox.Text, Login_PasswordBox.Password);
-
-            if (result.Equals("true"))
-            {
-                UserProfile.currentUserEmail= Login_EmailTextBox.Text;
-                navigate_helper.gotoChatList();
-            }
-            else
-            {
-                ErrorTextBlock.Text = result;
-            }
+            Middle_LoginRegister.login(this);
         }
 
         private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)

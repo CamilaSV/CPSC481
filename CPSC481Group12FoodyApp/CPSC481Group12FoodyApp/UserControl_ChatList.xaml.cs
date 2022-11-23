@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_ChatList : UserControl
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public UserControl_ChatList(PageNavigator navigate_helper)
         {

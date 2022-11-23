@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_Profile : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public UserControl_Profile(PageNavigator navigate_helper)
         {

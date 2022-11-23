@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp.User_Controls
     /// </summary>
     public partial class Template_MainPage : UserControl
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public Template_MainPage()
         {

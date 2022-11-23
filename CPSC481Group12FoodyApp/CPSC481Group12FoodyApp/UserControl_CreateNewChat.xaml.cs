@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_CreateNewChat : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public UserControl_CreateNewChat(PageNavigator navigate_helper)
         {

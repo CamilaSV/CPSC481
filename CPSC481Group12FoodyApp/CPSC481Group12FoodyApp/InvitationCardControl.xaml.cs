@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class InvitationCardControl : UserControl
     {
-        private PageNavigator navigator_helper;
+        internal PageNavigator navigator_helper;
         public InvitationCardControl()
         {
             InitializeComponent();
