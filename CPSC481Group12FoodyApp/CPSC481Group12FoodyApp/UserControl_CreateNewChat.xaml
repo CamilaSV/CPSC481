@@ -40,7 +40,7 @@
                         <Border Grid.Column="2" VerticalAlignment="Top" Height="120" Margin="0,20,0,10" >
                             <StackPanel HorizontalAlignment="Left" Width="415" >
                                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Group Name" Padding="0,0,0,10"/>
-                                <TextBox FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"  Text="Enter a group name" Padding="8" Foreground="#FFCACACA"/>
+                                <TextBox x:Name="GroupNameText" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"  Text="Enter a group name" Padding="8" Foreground="#FFCACACA"/>
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="160" Margin="0,10,0,50">
@@ -67,7 +67,7 @@
                             </ScrollViewer>
                         </Border>
 
-                        <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,170,0,170" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396"/>
+                        <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,170,0,170" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396" Click="CreateGroupButton_Click"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -76,13 +76,13 @@
 
         <!-- Top Bar -->
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ProfileButton" Grid.ColumnSpan="3" Margin="0,0,8,0"  HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
+        <Button x:Name="ProfileButton" Grid.ColumnSpan="3" Margin="0,0,8,0"  HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ProfileButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/user_icon.png"/>
             </Button.Background>
         </Button>
         <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/backbutton.png"/>
             </Button.Background>

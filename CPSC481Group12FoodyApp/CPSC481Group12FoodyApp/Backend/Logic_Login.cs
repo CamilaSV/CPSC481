@@ -46,12 +46,5 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return result;
         }
-
-        public static string[] loadUserData(string email)
-        {
-            string[] wholeData;
-
-            return null;
-        }
     }
 }

@@ -10,13 +10,16 @@ namespace CPSC481Group12FoodyApp
 {
     public static class API_CreateLoadChat
     {
-        public static void createChat(string chatName, string emailCreator, string[] emailsToInvite)
+        public static void createChat(UserControl_CreateNewChat createPage)
         {
-            string result = Logic_CreateLoadChat.createChat(chatName, emailCreator, emailsToInvite);
+            string result = Logic_CreateLoadChat.createChat(createPage.GroupNameText.Text, UserProfile.getCurrentEmail(), UserProfile.getfriendsInvitedToChat());
+            createPage.navigate_helper.gotoChatList();
         }
 
-        public static void loadChatList(string chatName, string emailUser)
+        public static void loadChatList(UserControl_ChatList chatListPage)
         {
+            List<Tuple<string, string>> result = Logic_CreateLoadChat.loadChatList(UserProfile.getCurrentEmail());
+
         }
 
         public static void previewOneChat(string chatId)

@@ -29,68 +29,34 @@ namespace CPSC481Group12FoodyApp
             this.navigate_helper = navigate_helper;
         }
 
-        private void List_HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoHomePage();
-        }
-
-        private void List_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoCalendar();
-        }
-
-        private void List_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            // do nothing, as you are already in this page
-        }
-
-        private void List_CreateGroup_Click(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.gotoCreateGroup();
-        }
-
-        private void minusBtn(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.declineInvitation();
-        }
-
-        private void editBtn(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.editProfile();
-        }
-
-        private void addBtn2(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void checkButton(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.acceptInvitation();
-        }
-
-        private void declineButton(object sender, RoutedEventArgs e)
-        {
-            navigate_helper.declineInvitation();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
         {
-
+            navigate_helper.gotoChatList();
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
         {
-
+            navigate_helper.gotoCalendar();
         }
 
         private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
+            navigate_helper.gotoHomePage();
+        }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoChatList();
+        }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigate_helper.gotoProfile();
+        }
+
+        private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
+        {
+            API_CreateLoadChat.createChat(this);
         }
     }
 }

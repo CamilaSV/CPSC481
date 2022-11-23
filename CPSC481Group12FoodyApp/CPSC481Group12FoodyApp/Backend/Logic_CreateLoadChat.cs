@@ -8,7 +8,7 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_CreateLoadChat
     {
-        public static string createChat(string chatName, string emailCreator, string[] emailsToInvite)
+        public static string createChat(string chatName, string emailCreator, List<string> emailsToInvite)
         {
             string result;
 
@@ -51,7 +51,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return result;
         }
 
-        public static List<Tuple<string, string>> loadChatList(string chatName, string emailUser)
+        public static List<Tuple<string, string>> loadChatList(string emailUser)
         {
             List<Tuple<string, string>> result = new List<Tuple<string, string>>();
 

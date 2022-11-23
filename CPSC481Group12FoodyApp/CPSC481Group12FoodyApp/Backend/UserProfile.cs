@@ -9,14 +9,26 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class UserProfile
     {
+        // user data
         private static string currentUserEmail;
         private static List<string> currentFriendList = new List<string>();
         private static List<string> currentFriendReq = new List<string>();
         private static List<string> currentChatInv = new List<string>();
+        private static List<Tuple<string, string>> currentEventList = new List<Tuple<string, string>>();
 
+        // chat data
         private static string currentChatId;
         private static List<string> currentChatList = new List<string>();
+
+        // data for one chat
         private static List<string> currentChatLog = new List<string>();
+        private static List<string> currentChatEventList = new List<string>();
+
+        // data when creating chat
+        private static List<string> friendsInvitedToChat = new List<string>();
+
+        // data when creating event under here?
+
 
         public static void initializeUser(string email)
         {
@@ -32,6 +44,12 @@ namespace CPSC481Group12FoodyApp.Logic
             currentChatId = chatId;
             currentChatLog = File.ReadAllLines(PathFinder.getChatLog(chatId)).ToList();
             ComponentFunctions.refreshAll();
+        }
+
+        public static void initializeChatInvite()
+        {
+            friendsInvitedToChat.Clear();
+            ComponentFunctions.refreshChatCreate();
         }
 
         public static string getCurrentEmail()
@@ -62,6 +80,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static List<string> getCurrentChatInv()
         {
             return currentChatInv;
+        }
+
+        public static List<string> getfriendsInvitedToChat()
+        {
+            return friendsInvitedToChat;
         }
 
         public static void addFriendToList(string item)
@@ -117,6 +140,12 @@ namespace CPSC481Group12FoodyApp.Logic
             currentChatInv.Remove(item);
             ComponentFunctions.refreshChats();
             ComponentFunctions.refreshChatsInv();
+        }
+
+        public static void addFriendToChatCreateList(string item)
+        {
+            friendsInvitedToChat.Add(item);
+            ComponentFunctions.refreshChatCreate();
         }
 
         public static void initializeChat(int chatId)

@@ -13,6 +13,8 @@ namespace CPSC481Group12FoodyApp.Logic
         private static List<Interface_FriendListComponent> friendListComponents = new List<Interface_FriendListComponent>();
         private static List<Interface_FriendReqComponent> friendReqComponents = new List<Interface_FriendReqComponent>();
 
+        private static List<Interface_ChatCreateComponent> chatCreateComponents = new List<Interface_ChatCreateComponent>();
+
         public static void addComponentToList(Interface_ChatListComponent component)
         {
             if (!chatListComponents.Contains(component))
@@ -80,6 +82,14 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void refreshFriendsReq()
         {
             foreach (var component in friendReqComponents)
+            {
+                component.refreshComponent();
+            }
+        }
+
+        public static void refreshChatCreate()
+        {
+            foreach (var component in chatCreateComponents)
             {
                 component.refreshComponent();
             }
