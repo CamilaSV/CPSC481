@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="HomePageGrid" Background="{StaticResource mslightgreen}">
+    <Grid ShowGridLines="False" x:Name="HomePageGrid" Background="{StaticResource mainbackground}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

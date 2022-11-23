@@ -14,11 +14,12 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="{StaticResource mainbackground}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="360*"></RowDefinition>
+            <RowDefinition Height="408*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -29,19 +30,13 @@
 
         <!-- Top Bar -->
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/backbutton.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
 
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
+        <TextBlock Text="Add Custom Date and Time" HorizontalAlignment="Center"  VerticalAlignment="Top" Style="{StaticResource BaseHeaderTextBlockStyle}" Grid.Column="1" Margin="0,85,0,0" Grid.RowSpan="2"/>
 
         <!-- Content -->
 
-        <Grid Grid.Row="1" Grid.Column="1" ShowGridLines="False" >
+        <Grid ShowGridLines="False" Grid.ColumnSpan="3" Margin="34,85,34,0" Grid.RowSpan="3" >
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
@@ -53,39 +48,39 @@
 
             <!-- Date Picker -->
 
-            <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="1" VerticalAlignment="Top" Margin="0,30,0,0" Background="Transparent" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Date" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <DatePicker FontSize="28"/>
+                    <DatePicker Background="White" FontSize="28"  />
                 </ListBoxItem>
             </ListBox>
 
             <!-- Time Picker -->
 
-            <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="2" VerticalAlignment="Top" Background="Transparent" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBox TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75"/>
+                    <TextBox TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="360" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <ListBox BorderBrush="{x:Null}">
+                    <ListBox Background="Transparent" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBoxItem>
-                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Click="AM_Button_Click"/>
+                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Style="{StaticResource GeneralButtonStyle}" Click="AM_Button_Click"/>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Click="PM_Button_Click"/>
+                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Style="{StaticResource GeneralButtonStyle}" Click="PM_Button_Click"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -93,7 +88,7 @@
 
             <!-- Submit -->
 
-            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click"/>
+            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Style="{StaticResource GeneralButtonStyle}" Click="SubmitButton_Click"/>
 
         </Grid>
     </Grid>

@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="{StaticResource mainbackground}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -34,19 +34,19 @@
             <!-- Members -->
             
             <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Background="Transparent" BorderBrush="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Me (Admin)" FontSize="30" />
                 </ListBoxItem>
                 <ListBoxItem Selected="ListBoxItem_Selected">
-                    <ListBox BorderBrush="{x:Null}">
+                    <ListBox Background="Transparent" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBoxItem>
-                            <TextBlock Text="Jane" Width="75" FontSize="30" />
+                            <TextBlock Text="Jane" Width="75" Style="{StaticResource BaseBodyTextBlockStyle}" FontSize="30" />
                         </ListBoxItem>
                         <ListBoxItem>
                             <Button x:Name="RemoveButton1" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
@@ -54,7 +54,7 @@
                     </ListBox>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <ListBox BorderBrush="{x:Null}">
+                    <ListBox Background="Transparent" BorderBrush="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"/>
@@ -74,7 +74,7 @@
             
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-                <Button FontSize ="28" Content="Confirm"/>
+                <Button FontSize ="28" Width="115" Style="{StaticResource GeneralButtonStyle}" Content="Confirm"/>
             </StackPanel>
 
             <CheckBox x:Name="SallyCheckBox" Content="Sally" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>

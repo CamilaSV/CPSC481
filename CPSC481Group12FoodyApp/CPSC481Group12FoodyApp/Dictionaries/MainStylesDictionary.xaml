@@ -7,20 +7,45 @@
     <SolidColorBrush x:Key="msdarkgreen" Color="#B3C0A4"/>
     <SolidColorBrush x:Key="mspurple" Color="#8D6A9F"/>
     <SolidColorBrush x:Key="msnavy" Color="#0B132B"/>
+    <SolidColorBrush x:Key="mainbackground" Color="#EAEFD3"/>
 
     <!-- Text Styles -->
+    
+    <!-- All bolded text -->
     <Style x:Key="BaseHeaderTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="36"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
+    <!-- All other text -->
     <Style x:Key="BaseBodyTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
     <!-- Custom Buttons -->
+
+    <Style x:Key="GeneralButtonStyle" TargetType="{x:Type Button}">
+        <!-- Any non specific buttons -->
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" Background="{StaticResource msdarkgreen}" BorderThickness="1" BorderBrush="Black" CornerRadius="10" SnapsToDevicePixels="True"/>
+                        <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="Delete" TargetType="Button" >
         <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="30"/>
@@ -34,8 +59,8 @@
     </Style>
 
     <Style x:Key="Back" TargetType="Button" >
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -87,7 +112,7 @@
     <Style x:Key="Profile" TargetType="Button" >
         <Setter Property="Height" Value="60"/>
         <Setter Property="Width" Value="60"/>
-        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Margin" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -107,6 +132,21 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Image Name="addicon" Source="/Images/add.png" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Info" TargetType="Button" >
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Name="infoicon" Source="/Images/InfoIcon.png" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -180,7 +220,7 @@
     <DataTemplate x:Key="ChatTopBar">
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
-            <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Button x:Name="Info" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Info}" BorderBrush="{x:Null}" />
             <Label x:Name="GroupChatNameLabel" Content="Foodies!" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         </Grid>
     </DataTemplate>

@@ -6,7 +6,15 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatEditRestaraunt" Background="White">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid ShowGridLines="False" x:Name="ChatEditRestaraunt" Background="{StaticResource mainbackground}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -21,23 +29,17 @@
 
         <!-- Top Bar -->
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/backbutton.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
 
         <!-- Content -->
 
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
-            <Label x:Name="RestaurantLabel" Content="Restaurants" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="RestaurantLabel" Text="Restaurants" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
             <Grid x:Name="Restaurant1StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taco Bell" FontSize="34" FontWeight="Bold"/>
-                        <Button x:Name="DeleteButton1" Content="Delete" Height="20" Margin="20" Click="DeleteButton1_Click"/>
+                        <Button x:Name="DeleteButton1" Style="{StaticResource Delete}"  Margin="20,0,0,0" Click="DeleteButton1_Click"/>
 
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Taco" />
@@ -50,7 +52,7 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Taiyo" FontSize="34" FontWeight="Bold"/>
-                        <Button x:Name="DeleteButton2" Content="Delete" Height="20" Margin="20" Click="DeleteButton2_Click"/>
+                        <Button x:Name="DeleteButton2" Style="{StaticResource Delete}" Margin="20,0,0,0" Click="DeleteButton2_Click"/>
                     </StackPanel>
                     <TextBlock FontSize="30" Text=" • Sushi" />
                     <TextBlock FontSize="30" Text=" • $$" />
