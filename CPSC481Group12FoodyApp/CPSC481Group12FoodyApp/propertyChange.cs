@@ -17,6 +17,7 @@ namespace CPSC481Group12FoodyApp
         private string lastActive;
         private string userName;
         private string targetUserName;
+        private string targetEmail;
 
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
@@ -89,6 +90,17 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-
+        public string TargetEmail
+        {
+            get { return targetEmail; }
+            set
+            {
+                if (value != targetEmail)
+                {
+                    targetEmail = value;
+                    OnPropertyChanged(nameof(TargetEmail));
+                }
+            }
+        }
     }
 }

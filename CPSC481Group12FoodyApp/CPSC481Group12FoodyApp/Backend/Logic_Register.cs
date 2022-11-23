@@ -51,10 +51,10 @@ namespace CPSC481Group12FoodyApp.Logic
         private static string createUser(string email, string password)
         {
             // the account does not exist, so register the account
-            SharedFunctions.appendLineToFile(PathFinder.getAccEmail(email), email);
-            SharedFunctions.appendLineToFile(PathFinder.getAccPw(email), password);
+            SharedFunctions.createFileWithText(PathFinder.getAccEmail(email), email);
+            SharedFunctions.createFileWithText(PathFinder.getAccPw(email), password);
+            SharedFunctions.createFileWithText(PathFinder.getAccName(email), email);
 
-            File.Create(PathFinder.getAccName(email)).Close();
             File.Create(PathFinder.getAccBio(email)).Close();
             File.Create(PathFinder.getAccChatInv(email)).Close();
             File.Create(PathFinder.getAccFriendReq(email)).Close();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class FriendRequestControlDesignModel : propertyChange
+    public class FriendRequestControlDesignModel : propertyChange, Interface_FriendReqComponent
     {
         public static FriendRequestControlDesignModel Instance { get; } = new FriendRequestControlDesignModel();
 
@@ -29,26 +29,13 @@ namespace CPSC481Group12FoodyApp
 
         public FriendRequestControlDesignModel()
         {
-            friendRequestCollection = new ObservableCollection<propertyChange>();
-            Logic_Profle.displayUsersFriendRequest(friendRequestCollection);
+            ComponentFunctions.addComponentToList(this);
+            friendRequestCollection = Logic_Profle.displayUsersFriendRequest();
+        }
 
-            // for testing purposes.
-
-            /*
-            FriendRequestCollection = new ObservableCollection<propertyChange>
-            {
-                new propertyChange
-                {
-                    Abbreviation = "G",
-                    TargetUserName = "Girls",
-                },
-                new propertyChange
-                {
-                    Abbreviation = "F",
-                    TargetUserName = "Fred",
-                },
-            };
-            */
+        public void refreshComponent()
+        {
+            friendRequestCollection = Logic_Profle.displayUsersFriendRequest();
         }
     }
 }

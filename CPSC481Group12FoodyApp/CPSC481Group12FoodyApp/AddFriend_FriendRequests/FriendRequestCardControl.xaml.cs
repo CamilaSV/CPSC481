@@ -24,5 +24,14 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void Decline_Button_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Accept_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

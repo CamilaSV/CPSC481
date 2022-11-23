@@ -30,11 +30,12 @@
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
             <DockPanel>
-                <Button Margin="10,0,0,0" DockPanel.Dock="Right" Content="✓" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="LimeGreen" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
-                <Button DockPanel.Dock="Right" Content="⨉" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+                <Button Margin="10,0,0,0" DockPanel.Dock="Right" Content="✓" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="LimeGreen" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Accept_Button_Click" />
+                <Button DockPanel.Dock="Right" Content="⨉" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Decline_Button_Click" />
                 <!--<TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>-->
                 <TextBlock  DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetUserName}" VerticalAlignment="Center"/>
             </DockPanel>
         </Border>
+        <TextBlock FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetEmail}" VerticalAlignment="Top" Grid.Column="2" Margin="0,53,0,0"/>
     </Grid>
 </UserControl>

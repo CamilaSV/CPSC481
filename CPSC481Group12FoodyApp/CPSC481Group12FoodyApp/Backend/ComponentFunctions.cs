@@ -8,23 +8,39 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class ComponentFunctions
     {
-        private static List<Interface_ChatListComponent> chatListComponents;
-        private static List<Interface_FriendListComponent> friendListComponents;
-        private static List<Interface_FriendReqComponent> friendReqComponents;
+        private static List<Interface_ChatListComponent> chatListComponents = new List<Interface_ChatListComponent>();
+        private static List<Interface_FriendListComponent> friendListComponents = new List<Interface_FriendListComponent>();
+        private static List<Interface_FriendReqComponent> friendReqComponents = new List<Interface_FriendReqComponent>();
 
         public static void addComponentToList(Interface_ChatListComponent component)
         {
-            chatListComponents.Add(component);
+            if (!chatListComponents.Contains(component))
+            {
+                chatListComponents.Add(component);
+            }
         }
 
         public static void addComponentToList(Interface_FriendListComponent component)
         {
-            friendListComponents.Add(component);
+            if (!friendListComponents.Contains(component))
+            {
+                friendListComponents.Add(component);
+            }
         }
 
         public static void addComponentToList(Interface_FriendReqComponent component)
         {
-            friendReqComponents.Add(component);
+            if (!friendReqComponents.Contains(component))
+            {
+                friendReqComponents.Add(component);
+            }
+        }
+
+        public static void refreshAll()
+        {
+            refreshChats();
+            refreshFriends();
+            refreshFriendsReq();
         }
 
         public static void refreshChats()
@@ -47,6 +63,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             foreach (var component in friendReqComponents)
             {
+                System.Diagnostics.Debug.WriteLine(component);
                 component.refreshComponent();
             }
         }

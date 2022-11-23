@@ -10,37 +10,23 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_Profle
     {
-        public static ObservableCollection<propertyChange> displayUsersFriendRequest(ObservableCollection<propertyChange> friendRequestCollection)
+        public static ObservableCollection<propertyChange> displayUsersFriendRequest()
         {
-            if (String.IsNullOrEmpty(UserProfile.getCurrentEmail()))
-            {
-                propertyChange requestItem = new propertyChange();
-                friendRequestCollection.Add(requestItem);
-            }
-            else
-            {
-                List<string> lines = new List<string>();
-                // ReadAllLines closes file after reading.
-                lines = File.ReadAllLines(PathFinder.getAccFriendReq(UserProfile.getCurrentEmail())).ToList();
+            ObservableCollection<propertyChange> friendRequestCollection = new ObservableCollection<propertyChange>();
 
-                if (String.IsNullOrEmpty(lines[0]))
+            if (UserProfile.getCurrentFriendReq().Any())
+            {
+                string name;
+                foreach (string line in UserProfile.getCurrentFriendReq())
                 {
-                    propertyChange requestItem = new propertyChange();
-                    friendRequestCollection.Add(requestItem);
-                }
-                else
-                {
-                    foreach (string line in lines)
+                    name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
+                    propertyChange requestItem = new propertyChange
                     {
-                        string[] currentUserName = line.Split('@');
-                        string nameAbbreviation = currentUserName[0].Substring(0, 1);
-                        propertyChange requestItem = new propertyChange
-                        {
-                            TargetUserName = currentUserName[0],
-                            Abbreviation = nameAbbreviation
-                        };
-                        friendRequestCollection.Add(requestItem);
-                    }
+                        TargetEmail = line,
+                        TargetUserName = name,
+                        Abbreviation = name.Substring(0, 1),
+                    };
+                    friendRequestCollection.Add(requestItem);
                 }
             }
 

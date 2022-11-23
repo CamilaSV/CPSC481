@@ -13,9 +13,17 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             string result;
 
-            if (SharedFunctions.isLineInFile(PathFinder.getAccFriends(emailUser), emailTarget))
+            if (emailTarget.Equals(UserProfile.getCurrentEmail()))
+            {
+                result = "You cannot add yourself as a friend.";
+            }
+            else if (SharedFunctions.isLineInFile(PathFinder.getAccFriends(emailUser), emailTarget))
             {
                 result = "The user is already your friend.";
+            }
+            else if (!Directory.Exists(PathFinder.getAccDir(emailTarget)))
+            {
+                result = "The user does not exist.";
             }
             else
             {

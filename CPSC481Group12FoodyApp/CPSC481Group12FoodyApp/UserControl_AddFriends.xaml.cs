@@ -23,7 +23,6 @@ namespace CPSC481Group12FoodyApp
     {
         internal PageNavigator navigate_helper;
         private UserControl_Profile profilePage;
-        private string friendSelected_Email;
 
         public UserControl_AddFriends(PageNavigator navigate_helper, UserControl_Profile profilePage)
         {
@@ -34,7 +33,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-            API_AddRemFriend.addFriend(this, profilePage, friendSelected_Email);
+            API_AddRemFriend.addFriend(this, profilePage, AddFriendTextBox.Text);
         }
     }
 }

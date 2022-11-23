@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -21,17 +22,18 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class FriendRequestListControl : UserControl
+    public partial class FriendRequestListControl : UserControl, Interface_FriendReqComponent
     {
-
         public FriendRequestListControl()
         {
-
             InitializeComponent();
             this.DataContext = this;
-           
+            ComponentFunctions.addComponentToList(this);
         }
 
+        public void refreshComponent()
+        {
+            ListControl.Items.Refresh();
+        }
     }
-    
 }

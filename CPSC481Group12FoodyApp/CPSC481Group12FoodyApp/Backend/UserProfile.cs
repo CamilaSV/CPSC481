@@ -10,12 +10,12 @@ namespace CPSC481Group12FoodyApp.Logic
     public static class UserProfile
     {
         private static string currentUserEmail;
-        private static List<string> currentFriendList;
-        private static List<string> currentFriendReq;
-        private static List<string> currentChatInv;
+        private static List<string> currentFriendList = new List<string>();
+        private static List<string> currentFriendReq = new List<string>();
+        private static List<string> currentChatInv = new List<string>();
 
         private static string currentChatId;
-        private static List<string> currentChatLog;
+        private static List<string> currentChatLog = new List<string>();
 
         public static void initializeUser(string email)
         {
@@ -23,12 +23,14 @@ namespace CPSC481Group12FoodyApp.Logic
             currentFriendList = File.ReadAllLines(PathFinder.getAccFriends(email)).ToList();
             currentFriendReq = File.ReadAllLines(PathFinder.getAccFriendReq(email)).ToList();
             currentChatInv = File.ReadAllLines(PathFinder.getAccChatInv(email)).ToList();
+            ComponentFunctions.refreshAll();
         }
 
         public static void initializeChat(string chatId)
         {
             currentChatId = chatId;
             currentChatLog = File.ReadAllLines(PathFinder.getChatLog(chatId)).ToList();
+            ComponentFunctions.refreshChats();
         }
 
         public static string getCurrentEmail()

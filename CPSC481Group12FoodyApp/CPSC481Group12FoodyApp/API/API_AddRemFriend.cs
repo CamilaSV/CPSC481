@@ -16,6 +16,7 @@ namespace CPSC481Group12FoodyApp
             {
                 UserProfile.addFriendToList(emailTarget);
                 profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(UserProfile.getCurrentEmail());
+                addPage.navigate_helper.gotoProfile();
             }
             else
             {
