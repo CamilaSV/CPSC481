@@ -66,11 +66,14 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addFriendToList(string item)
         {
             currentFriendList.Add(item);
+            ComponentFunctions.refreshFriends();
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void addFriendReqToList(string item)
         {
             currentFriendReq.Add(item);
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void addInvToList(string item)
@@ -86,11 +89,14 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void remFriendFromList(string item)
         {
             currentFriendList.Remove(item);
+            ComponentFunctions.refreshFriends();
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void remFriendReqFromList(string item)
         {
             currentFriendReq.Remove(item);
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void remInvFromList(string item)

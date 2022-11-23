@@ -36,6 +36,6 @@
                 <TextBlock  DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetUserName}" VerticalAlignment="Center"/>
             </DockPanel>
         </Border>
-        <TextBlock FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetEmail}" VerticalAlignment="Top" Grid.Column="2" Margin="0,53,0,0"/>
+        <TextBlock x:Name="EmailText" FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetEmail}" VerticalAlignment="Top" Grid.Column="2" Margin="0,53,0,0"/>
     </Grid>
 </UserControl>

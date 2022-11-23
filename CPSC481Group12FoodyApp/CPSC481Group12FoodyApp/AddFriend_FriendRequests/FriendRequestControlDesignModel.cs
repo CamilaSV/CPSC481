@@ -30,12 +30,12 @@ namespace CPSC481Group12FoodyApp
         public FriendRequestControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            friendRequestCollection = Logic_Profle.displayUsersFriendRequest();
+            FriendRequestCollection = Logic_Profle.displayUsersFriendRequest();
         }
 
         public void refreshComponent()
         {
-            friendRequestCollection = Logic_Profle.displayUsersFriendRequest();
+            FriendRequestCollection = Logic_Profle.displayUsersFriendRequest();
         }
     }
 }
