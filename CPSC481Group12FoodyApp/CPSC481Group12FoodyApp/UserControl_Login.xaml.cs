@@ -39,6 +39,7 @@ namespace CPSC481Group12FoodyApp
 
             if (result.Equals("true"))
             {
+                UserProfile.currentUserEmail= Login_EmailTextBox.Text;
                 navigate_helper.gotoChatList();
             }
             else

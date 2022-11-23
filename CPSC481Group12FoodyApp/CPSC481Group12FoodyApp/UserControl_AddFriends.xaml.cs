@@ -31,7 +31,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.addFriend(Logic_Login.getCurrentUserEmail(), AddFriendTextBox.Text);
+            Logic_AddRemFriend.addFriend(UserProfile.currentUserEmail, AddFriendTextBox.Text);
             navigate_helper.gotoProfile();
         }
 

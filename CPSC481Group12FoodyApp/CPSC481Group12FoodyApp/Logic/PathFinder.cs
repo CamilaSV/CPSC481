@@ -8,38 +8,6 @@ namespace CPSC481Group12FoodyApp
 {
     public static class PathFinder
     {
-        private const string accDir = "DB\\Accounts\\";
-
-        private const string acc_email = "email.dat";
-        private const string acc_pw = "password.dat";
-        private const string acc_name = "display_name.dat";
-        private const string acc_bio = "bio.dat";
-        private const string acc_inv = "chat_invitations.dat";
-        private const string acc_req = "friend_requests.dat";
-        private const string acc_fr = "friends.dat";
-        private const string acc_chats = "chats.dat";
-
-        private const string accCatDir = "Categories\\";
-        private const string accCat_name = "category_name.dat";
-        private const string accCat_res = "restaurants.dat";
-
-        private const string chatDir = "DB\\Groups\\";
-        private const string chat_name = "name.dat";
-        private const string chat_admin = "admin.dat";
-        private const string chat_member = "members.dat";
-        private const string chat_log = "chat_log.dat";
-        private const string chat_restaurants = "saved_res.dat";
-
-        private const string scheduleEventDir = "Events\\Schedule\\";
-        private const string completeEventDir = "Events\\Complete\\";
-
-        private const string ev_resname = "restaurant_name.dat";
-        private const string ev_date = "date.dat";
-
-        private const string resDir = "DB\\Restaurants\\";
-        private const string res_name = "res_name.dat";
-        private const string res_criteria = "res_criteria.dat";
-
         // get paths for restaurant data
         public static string getRestaurantName(string restaurantId)
         {
@@ -237,6 +205,39 @@ namespace CPSC481Group12FoodyApp
         {
             return getChatCompSchEvDir(chatId, eventId) + ev_resname;
         }
+
+        // these are put here just to send important methods to the top
+        private const string accDir = "DB\\Accounts\\";
+
+        private const string acc_email = "email.dat";
+        private const string acc_pw = "password.dat";
+        private const string acc_name = "display_name.dat";
+        private const string acc_bio = "bio.dat";
+        private const string acc_inv = "chat_invitations.dat";
+        private const string acc_req = "friend_requests.dat";
+        private const string acc_fr = "friends.dat";
+        private const string acc_chats = "chats.dat";
+
+        private const string accCatDir = "Categories\\";
+        private const string accCat_name = "category_name.dat";
+        private const string accCat_res = "restaurants.dat";
+
+        private const string chatDir = "DB\\Groups\\";
+        private const string chat_name = "name.dat";
+        private const string chat_admin = "admin.dat";
+        private const string chat_member = "members.dat";
+        private const string chat_log = "chat_log.dat";
+        private const string chat_restaurants = "saved_res.dat";
+
+        private const string scheduleEventDir = "Events\\Schedule\\";
+        private const string completeEventDir = "Events\\Complete\\";
+
+        private const string ev_resname = "restaurant_name.dat";
+        private const string ev_date = "date.dat";
+
+        private const string resDir = "DB\\Restaurants\\";
+        private const string res_name = "res_name.dat";
+        private const string res_criteria = "res_criteria.dat";
 
         // polymorphism methods go down here
         public static string getRestaurantName(int restaurantId)
