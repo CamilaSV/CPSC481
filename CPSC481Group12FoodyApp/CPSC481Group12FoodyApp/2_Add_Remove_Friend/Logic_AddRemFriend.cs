@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using CPSC481Group12FoodyApp.Logic;
 
-namespace CPSC481Group12FoodyApp.Add_Remove_Friend
+namespace CPSC481Group12FoodyApp
 {
     public static class Logic_AddRemFriend
     {
@@ -14,7 +14,7 @@ namespace CPSC481Group12FoodyApp.Add_Remove_Friend
         {
             string result;
 
-            if (emailTarget.Equals(UserProfile.getCurrentEmail()))
+            if (emailTarget.Equals(SessionData.getCurrentEmail()))
             {
                 result = "You cannot add yourself as a friend.";
             }

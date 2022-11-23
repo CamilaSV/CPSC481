@@ -71,16 +71,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="3_Create_Enter_Chat\InvitationControl.xaml.cs">
+    <Compile Update="4_Chat_Invite\InvitationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Enter_Chat\InvitationCardControl.xaml.cs">
+    <Compile Update="4_Chat_Invite\InvitationCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Enter_Chat\UserControl_Invitations.xaml.cs">
+    <Compile Update="4_Chat_Invite\UserControl_Invitations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml.cs">
@@ -98,7 +98,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="3_Create_Enter_Chat\UserControl_Invitations.xaml">
+    <Page Update="4_Chat_Invite\UserControl_Invitations.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml">

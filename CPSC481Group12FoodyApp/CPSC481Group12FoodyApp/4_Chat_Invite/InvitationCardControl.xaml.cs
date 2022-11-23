@@ -29,12 +29,10 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
-            navigator_helper.acceptInvitation();
         }
 
         private void minusBtn(object sender, RoutedEventArgs e)
         {
-            navigator_helper.declineInvitation();
         }
     }
 }

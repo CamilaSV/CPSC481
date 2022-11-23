@@ -14,10 +14,10 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange> friendRequestCollection = new ObservableCollection<propertyChange>();
 
-            if (UserProfile.getCurrentFriendReq().Any())
+            if (SessionData.getCurrentFriendReq().Any())
             {
                 string name;
-                foreach (string line in UserProfile.getCurrentFriendReq())
+                foreach (string line in SessionData.getCurrentFriendReq())
                 {
                     name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
                     propertyChange requestItem = new propertyChange
@@ -37,9 +37,9 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange> chatListCollection = new ObservableCollection<propertyChange>();
 
-            if (UserProfile.getCurrentChatList().Any())
+            if (SessionData.getCurrentChatList().Any())
             {
-                foreach (Tuple<string, string, TupleEachMsg> lastmsg in UserProfile.getCurrentChatList())
+                foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
                 {
                     propertyChange requestItem = new propertyChange
                     {

@@ -7,7 +7,7 @@ using System.Net.Mail;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public static class UserProfile
+    public static class SessionData
     {
         // user data
         private static string currentUserEmail;
