@@ -90,9 +90,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void acceptChatInvite(string emailUser, string chatId)
         {
             SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
+            removeChatInvite(emailUser, chatId);
+
+            SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
             Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
-            removeChatInvite(emailUser, chatId);
         }
 
         public static void removeChatInvite(string emailUser, string chatId)

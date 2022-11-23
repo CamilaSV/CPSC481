@@ -81,7 +81,6 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             foreach (var component in friendReqComponents)
             {
-                System.Diagnostics.Debug.WriteLine(component);
                 component.refreshComponent();
             }
         }

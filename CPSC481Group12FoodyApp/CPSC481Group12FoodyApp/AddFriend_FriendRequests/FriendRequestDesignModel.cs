@@ -11,9 +11,6 @@ namespace CPSC481Group12FoodyApp
         public static FriendRequestDesignModel Instance { get; } = new FriendRequestDesignModel();
         public FriendRequestDesignModel()
         {
-            Abbreviation = "B";
-            TargetUserName = "Bob";
-
         }
     }
 }

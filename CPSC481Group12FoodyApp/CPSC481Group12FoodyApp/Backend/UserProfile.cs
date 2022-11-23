@@ -15,6 +15,7 @@ namespace CPSC481Group12FoodyApp.Logic
         private static List<string> currentChatInv = new List<string>();
 
         private static string currentChatId;
+        private static List<string> currentChatList = new List<string>();
         private static List<string> currentChatLog = new List<string>();
 
         public static void initializeUser(string email)
@@ -30,7 +31,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             currentChatId = chatId;
             currentChatLog = File.ReadAllLines(PathFinder.getChatLog(chatId)).ToList();
-            ComponentFunctions.refreshChats();
+            ComponentFunctions.refreshAll();
         }
 
         public static string getCurrentEmail()
@@ -73,17 +74,28 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addFriendReqToList(string item)
         {
             currentFriendReq.Add(item);
+            ComponentFunctions.refreshFriends();
             ComponentFunctions.refreshFriendsReq();
         }
 
         public static void addInvToList(string item)
         {
             currentChatInv.Add(item);
+            ComponentFunctions.refreshChats();
+            ComponentFunctions.refreshChatsInv();
         }
 
-        public static void addChatToList(string item)
+        public static void addNewChatToList(string item)
+        {
+            currentChatList.Add(item);
+            ComponentFunctions.refreshChats();
+            ComponentFunctions.refreshChatsInv();
+        }
+
+        public static void addChatLogToList(string item)
         {
             currentChatLog.Add(item);
+            ComponentFunctions.refreshChats();
         }
 
         public static void remFriendFromList(string item)
@@ -96,12 +108,15 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void remFriendReqFromList(string item)
         {
             currentFriendReq.Remove(item);
+            ComponentFunctions.refreshFriends();
             ComponentFunctions.refreshFriendsReq();
         }
 
         public static void remInvFromList(string item)
         {
             currentChatInv.Remove(item);
+            ComponentFunctions.refreshChats();
+            ComponentFunctions.refreshChatsInv();
         }
 
         public static void initializeChat(int chatId)
