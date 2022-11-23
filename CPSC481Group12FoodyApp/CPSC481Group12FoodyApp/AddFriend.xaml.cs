@@ -20,14 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class AddFriend : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
-        public AddFriend(PageNavigator navigate_helper)
-        {
-            InitializeComponent();
-            this.navigate_helper = navigate_helper;
-        }
-
+        
         private void SubmissionButton_Click(object sender, RoutedEventArgs e)
         {
         }

@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ExpandRestaraunt: UserControl
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public ExpandRestaraunt(PageNavigator navigate_helper)
         {

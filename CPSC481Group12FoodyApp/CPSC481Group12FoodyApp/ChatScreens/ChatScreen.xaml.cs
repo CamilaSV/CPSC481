@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatScreen : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public ChatScreen(PageNavigator navigate_helper)
         {

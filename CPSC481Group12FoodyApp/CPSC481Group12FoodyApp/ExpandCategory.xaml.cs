@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ExpandCategory: Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public ExpandCategory(PageNavigator navigate_helper)
         {

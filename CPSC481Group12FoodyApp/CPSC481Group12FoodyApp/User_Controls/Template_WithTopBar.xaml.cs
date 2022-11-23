@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class Template_WithTopBar : UserControl
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public Template_WithTopBar(PageNavigator navigate_helper)
         {

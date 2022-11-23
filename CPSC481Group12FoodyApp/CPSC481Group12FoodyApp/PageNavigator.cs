@@ -14,6 +14,7 @@ namespace CPSC481Group12FoodyApp
         private UserControl_ChatList chatListPage;
         private UserControl_Profile profilePage;
         private UserControl_Invitations invitationsPage;
+        private UserControl_AddFriends addFriendPage;
 
         public PageNavigator(Window_Single target)
         {
@@ -25,6 +26,7 @@ namespace CPSC481Group12FoodyApp
             chatListPage = new UserControl_ChatList(this);
             profilePage = new UserControl_Profile(this);    
             invitationsPage = new UserControl_Invitations(this);
+            addFriendPage = new UserControl_AddFriends(this);
             targetWindow.Content = startPage;
             
         }
@@ -49,6 +51,11 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = profilePage;
         }
 
+        public void gotoAddFriend()
+        {
+            targetWindow.Content = addFriendPage;
+        }
+
         // below 3 are bottom navigator options
         public void gotoCalendar()
         {
@@ -63,11 +70,6 @@ namespace CPSC481Group12FoodyApp
         public void gotoChatList()
         {
             targetWindow.Content = chatListPage;
-        }
-
-        public void gotoAddFriend()
-        {
-
         }
 
         public void gotoCreateGroup()
@@ -127,10 +129,6 @@ namespace CPSC481Group12FoodyApp
         }
 
         //temp 
-        public void addFriend()
-        {
-
-        }
 
         public void editProfile()
         {

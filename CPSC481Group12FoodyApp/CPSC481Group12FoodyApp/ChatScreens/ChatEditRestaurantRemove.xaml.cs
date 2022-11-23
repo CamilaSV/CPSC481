@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditRestaurantRemove : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public ChatEditRestaurantRemove(PageNavigator navigate_helper)
         {

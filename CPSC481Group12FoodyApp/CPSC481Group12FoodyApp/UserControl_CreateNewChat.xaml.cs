@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_CreateNewChat : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public UserControl_CreateNewChat(PageNavigator navigate_helper)
         {
@@ -61,7 +61,6 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn2(object sender, RoutedEventArgs e)
         {
-            navigate_helper.addFriend();
         }
 
         private void checkButton(object sender, RoutedEventArgs e)
@@ -75,6 +74,21 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

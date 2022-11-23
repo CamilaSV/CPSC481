@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for SuggestRestaurant.xaml
+    /// Interaction logic for FriendRequestCardControl.xaml
     /// </summary>
-    public partial class SuggestRestaurant : Page
+    public partial class FriendRequestCardControl : UserControl
     {
-        internal PageNavigator navigate_helper;
-
-        public SuggestRestaurant(PageNavigator navigate_helper)
+        public FriendRequestCardControl()
         {
-            this.navigate_helper = navigate_helper;
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SubmitRestaurantButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }

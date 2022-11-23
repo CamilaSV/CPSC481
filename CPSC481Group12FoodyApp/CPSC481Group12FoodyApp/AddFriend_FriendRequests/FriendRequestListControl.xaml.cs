@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,25 +19,19 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for SuggestRestaurant.xaml
+    /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class SuggestRestaurant : Page
+    public partial class FriendRequestListControl : UserControl
     {
-        internal PageNavigator navigate_helper;
 
-        public SuggestRestaurant(PageNavigator navigate_helper)
-        {
-            this.navigate_helper = navigate_helper;
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        public FriendRequestListControl()
         {
 
+            InitializeComponent();
+            this.DataContext = this;
+           
         }
 
-        private void SubmitRestaurantButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
+    
 }

@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditMembers : Page
     {
-        private PageNavigator navigate_helper;
+        internal PageNavigator navigate_helper;
 
         public ChatEditMembers(PageNavigator navigate_helper)
         {
@@ -38,6 +38,16 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }

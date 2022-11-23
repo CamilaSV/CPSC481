@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.ChatScreens;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace CPSC481Group12FoodyApp
             new PageNavigator(this); // create a new PageNavigator object which takes care of changing content
             this.DataContext = new ChatListControlDesignModel();
             this.DataContext = new InvitationControlDesignModel();
+            this.DataContext = new FriendRequestControlDesignModel();
         }
     }
 }
