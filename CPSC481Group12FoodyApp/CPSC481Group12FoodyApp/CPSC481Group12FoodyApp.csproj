@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="AddFriend_FriendRequests\FriendRequestListControl.xaml">
+    <Page Update="2_Add_Remove_Friend\FriendRequestListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="AddFriend_FriendRequests\FriendRequestCardControl.xaml">
+    <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="ChatScreens\ChatEditMembersRemove.xaml">
@@ -58,7 +58,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControl_AddFriends.xaml">
+    <Page Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="User_Controls\Template_WithTopBar.xaml">
@@ -71,46 +71,46 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="InvitationControl.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\InvitationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="InvitationCardControl.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\InvitationCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_AddFriends.xaml.cs">
+    <Compile Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_Invitations.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\UserControl_Invitations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_CreateNewChat.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControl_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_ChatList.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\UserControl_ChatList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_Register.xaml.cs">
+    <Compile Update="1_Start_Login_Register\UserControl_Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="UserControl_Invitations.xaml">
+    <Page Update="3_Create_Enter_Chat\UserControl_Invitations.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="UserControl_CreateNewChat.xaml">
+    <Page Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="UserControl_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="UserControl_ChatList.xaml">
+    <Page Update="3_Create_Enter_Chat\UserControl_ChatList.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="UserControl_Register.xaml">
+    <Page Update="1_Start_Login_Register\UserControl_Register.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

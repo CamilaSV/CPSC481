@@ -15,6 +15,8 @@ namespace CPSC481Group12FoodyApp
         private UserControl_Profile profilePage;
         private UserControl_Invitations invitationsPage;
         private UserControl_AddFriends addFriendPage;
+        private UserControl_CreateNewChat createChatPage;
+        private HomePage homePage;
 
         public PageNavigator(Window_Single target)
         {
@@ -27,6 +29,8 @@ namespace CPSC481Group12FoodyApp
             profilePage = new UserControl_Profile(this);    
             invitationsPage = new UserControl_Invitations(this);
             addFriendPage = new UserControl_AddFriends(this, profilePage);
+            createChatPage = new UserControl_CreateNewChat(this);
+            homePage = new HomePage(this);
             targetWindow.Content = startPage;
             
         }
@@ -64,7 +68,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoHomePage()
         {
-
+            targetWindow.Content = homePage;
         }
 
         public void gotoChatList()
@@ -74,7 +78,7 @@ namespace CPSC481Group12FoodyApp
 
         public void gotoCreateGroup()
         {
-
+            targetWindow.Content = createChatPage;
         }
 
         public void gotoOneChat()
@@ -101,40 +105,5 @@ namespace CPSC481Group12FoodyApp
         {
             targetWindow.Content = invitationsPage;
         }
-
-        public void gotoOneChat(int version)
-        {
-            // temporary version that should be deleted
-        }
-
-        public void gotoChatInfo(int version)
-        {
-            // temporary version that should be deleted
-        }
-
-        public void gotoChatMember(int version)
-        {
-            // temporary version that should be deleted
-        }
-
-        // temp
-        public void acceptInvitation()
-        {
-
-        }
-        // temp
-        public void declineInvitation()
-        {
-
-        }
-
-        //temp 
-
-        public void editProfile()
-        {
-
-        }
-
-
     }
 }

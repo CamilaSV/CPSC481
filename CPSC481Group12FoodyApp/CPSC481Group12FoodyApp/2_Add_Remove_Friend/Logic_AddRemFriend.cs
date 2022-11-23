@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using CPSC481Group12FoodyApp.Logic;
 
-namespace CPSC481Group12FoodyApp.Logic
+namespace CPSC481Group12FoodyApp.Add_Remove_Friend
 {
     public static class Logic_AddRemFriend
     {
