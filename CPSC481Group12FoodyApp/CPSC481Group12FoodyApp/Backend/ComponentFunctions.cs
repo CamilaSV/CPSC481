@@ -18,6 +18,7 @@ namespace CPSC481Group12FoodyApp.Logic
         private static List<Interface_ChatCreateComponent> chatCreateComponents = new List<Interface_ChatCreateComponent>();
 
         // related to the selected chat? Such as events etc.
+        private static List<Interface_ChatMsgComponent> chatMsgComponents = new List<Interface_ChatMsgComponent>();
 
 
         public static void addComponentToList(Interface_ChatListComponent component)
@@ -52,12 +53,21 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
+        public static void addComponentToList(Interface_ChatMsgComponent component)
+        {
+            if (!chatMsgComponents.Contains(component))
+            {
+                chatMsgComponents.Add(component);
+            }
+        }
+
         public static void refreshAll()
         {
             refreshChats();
             refreshChatsInv();
             refreshFriends();
             refreshFriendsReq();
+            refreshChatMsgs();
         }
 
         public static void refreshChats()
@@ -95,6 +105,14 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void refreshChatCreate()
         {
             foreach (var component in chatCreateComponents)
+            {
+                component.refreshComponent();
+            }
+        }
+
+        public static void refreshChatMsgs()
+        {
+            foreach (var component in chatMsgComponents)
             {
                 component.refreshComponent();
             }

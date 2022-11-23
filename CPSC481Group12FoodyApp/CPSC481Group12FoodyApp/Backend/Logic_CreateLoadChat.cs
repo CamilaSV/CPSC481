@@ -54,9 +54,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return result;
         }
 
-        public static List<Tuple<string, TupleEachMsg>> loadChatList(string emailUser)
+        public static List<Tuple<string, string, TupleEachMsg>> loadChatList(string emailUser)
         {
-            List<Tuple<string, TupleEachMsg>> result = new List<Tuple<string, TupleEachMsg>>();
+            List<Tuple<string, string, TupleEachMsg>> result = new List<Tuple<string, string, TupleEachMsg>>();
 
             StreamReader fileReader = File.OpenText(PathFinder.getAccChats(emailUser));
             while (!fileReader.EndOfStream)
@@ -106,7 +106,7 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
         }
 
-        public static Tuple<string, TupleEachMsg> previewOneChat(string chatId)
+        public static Tuple<string, string, TupleEachMsg> previewOneChat(string chatId)
         {
             string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
 
@@ -114,7 +114,7 @@ namespace CPSC481Group12FoodyApp.Logic
             string lastMsg = File.ReadLines(PathFinder.getChatLogMessage(chatId)).Last();
             DateTime lastTime = DateTime.Parse(File.ReadLines(PathFinder.getChatLogSender(chatId)).Last());
 
-            return new Tuple<string, TupleEachMsg>(chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
+            return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
         }
 
         public static Tuple<string, TupleEachMsg> previewOneChat(int chatId)

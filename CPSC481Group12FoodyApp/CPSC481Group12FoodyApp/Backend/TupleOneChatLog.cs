@@ -39,5 +39,10 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             return eachRoomChats.Item3.ElementAt(index).getTime();
         }
+
+        public void Add(TupleEachMsg item)
+        {
+            eachRoomChats.Item3.Add(item);
+        }
     }
 }

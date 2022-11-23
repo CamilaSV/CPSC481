@@ -13,16 +13,24 @@ namespace CPSC481Group12FoodyApp
         public static void createChat(UserControl_CreateNewChat createPage)
         {
             string result = Logic_CreateLoadChat.createChat(createPage.GroupNameText.Text, UserProfile.getCurrentEmail(), UserProfile.getfriendsInvitedToChat());
-            createPage.navigate_helper.gotoChatList();
+
+            if (result.Equals("true"))
+            {
+                UserProfile.initializeChatList();
+                createPage.navigate_helper.gotoChatList();
+            }
+            else
+            {
+                createPage.ErrorTextBlock.Text = result;
+            }
         }
 
         public static void loadChatList(UserControl_ChatList chatListPage)
         {
-            List<Tuple<string, TupleEachMsg>> result = Logic_CreateLoadChat.loadChatList(UserProfile.getCurrentEmail());
-            result.Sort(delegate(Tuple<string, TupleEachMsg> msg1, Tuple<string, TupleEachMsg> msg2) { return msg1.Item2.getTime().CompareTo(msg2.Item2.getTime()); });
+            UserProfile.initializeChatList();
         }
 
-        public static void enterOneChat(string emailUser, string chatId)
+        public static void enterOneChat(UserControl_ChatList chatListPage)
         {
         }
 
@@ -36,6 +44,21 @@ namespace CPSC481Group12FoodyApp
 
         public static void removeChatInvite(string emailUser, string chatId)
         {
+        }
+
+        public static void sendChatInvite(string emailTarget, int chatId)
+        {
+            sendChatInvite(emailTarget, chatId.ToString());
+        }
+
+        public static void acceptChatInvite(string emailUser, int chatId)
+        {
+            acceptChatInvite(emailUser, chatId.ToString());
+        }
+
+        public static void removeChatInvite(string emailUser, int chatId)
+        {
+            removeChatInvite(emailUser, chatId.ToString());
         }
     }
 }
