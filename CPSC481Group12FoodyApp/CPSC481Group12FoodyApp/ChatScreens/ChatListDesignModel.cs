@@ -11,9 +11,6 @@ namespace CPSC481Group12FoodyApp
         public static ChatListDesignModel Instance { get; } = new ChatListDesignModel();
         public ChatListDesignModel()
         {
-            Abbreviation = "G";
-            GroupName = "Girls";
-            LastActive = "Last Active: 7h";
         }
     }
 }

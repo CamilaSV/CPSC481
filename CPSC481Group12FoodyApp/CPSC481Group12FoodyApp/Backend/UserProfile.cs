@@ -73,6 +73,11 @@ namespace CPSC481Group12FoodyApp.Logic
             return currentFriendReq;
         }
 
+        public static List<Tuple<string, string, TupleEachMsg>> getCurrentChatList()
+        {
+            return currentChatList;
+        }
+
         public static string getCurrentChatId()
         {
             return currentChatId;

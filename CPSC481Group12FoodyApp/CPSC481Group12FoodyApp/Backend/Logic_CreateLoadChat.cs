@@ -117,7 +117,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
         }
 
-        public static Tuple<string, TupleEachMsg> previewOneChat(int chatId)
+        public static Tuple<string, string, TupleEachMsg> previewOneChat(int chatId)
         {
             return previewOneChat(chatId.ToString());
         }

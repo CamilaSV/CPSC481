@@ -32,5 +32,28 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return friendRequestCollection;
         }
+
+        public static ObservableCollection<propertyChange> displayUsersChatList()
+        {
+            ObservableCollection<propertyChange> chatListCollection = new ObservableCollection<propertyChange>();
+
+            if (UserProfile.getCurrentChatList().Any())
+            {
+                foreach (Tuple<string, string, TupleEachMsg> lastmsg in UserProfile.getCurrentChatList())
+                {
+                    propertyChange requestItem = new propertyChange
+                    {
+                        ChatId = lastmsg.Item1,
+                        ChatName = lastmsg.Item2,
+                        ChatLastSender = lastmsg.Item3.getEmail(),
+                        ChatLastMsg = lastmsg.Item3.getMessage(),
+                        ChatLastTime = lastmsg.Item3.getTime(),
+                    };
+                    chatListCollection.Add(requestItem);
+                }
+            }
+
+            return chatListCollection;
+        }
     }
 }

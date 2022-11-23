@@ -1,5 +1,4 @@
-﻿using CPSC481Group12FoodyApp.ChatScreens;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;

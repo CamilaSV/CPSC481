@@ -4,20 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
-             xmlns:localchat="clr-namespace:CPSC481Group12FoodyApp.ChatScreens"
              mc:Ignorable="d" 
              Background="White"
              
              d:DesignHeight="890" d:DesignWidth="492">
     <!--DataContext="{Binding RelativeSource={RelativeSource Self}}"-->
 
-    <Grid DataContext="{x:Static localchat:ChatListControlDesignModel.Instance}">
+    <Grid DataContext="{x:Static local:ChatListControlDesignModel.Instance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Chats}">
+            <ItemsControl x:Name="ListControl" ItemsSource="{Binding Chats}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ChatListGroupControl>
-                        </local:ChatListGroupControl>
+                        <local:ChatListControl>
+                        </local:ChatListControl>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

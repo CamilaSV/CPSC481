@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_ChatList : UserControl
+    public partial class UserControl_ChatList : UserControl, Interface_FriendListComponent
     {
         internal PageNavigator navigate_helper;
 
@@ -29,7 +29,7 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
             this.navigate_helper = navigate_helper;
-//            ComponentFunctions.addComponentToList(this);
+            ComponentFunctions.addComponentToList(this);
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -64,6 +64,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
+            ListControl.Items.Refresh();
         }
     }
 }

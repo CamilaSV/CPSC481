@@ -30,35 +30,44 @@ namespace CPSC481Group12FoodyApp
             UserProfile.initializeChatList();
         }
 
-        public static void enterOneChat(UserControl_ChatList chatListPage)
+        public static void enterOneChat(UserControl_ChatList chatListPage, string chatId)
         {
+            UserProfile.initializeChat(chatId);
         }
 
-        public static void sendChatInvite(string emailTarget, string chatId)
+        public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
         {
+            Logic_AddRemFriend.deleteFriend(UserProfile.getCurrentEmail(), emailTarget);
+            UserProfile.remFriendFromList(emailTarget);
+            profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(UserProfile.getCurrentEmail());
         }
 
-        public static void acceptChatInvite(string emailUser, string chatId)
+        public static void acceptChatInvite(string chatId)
         {
+            Logic_CreateLoadChat.acceptChatInvite(UserProfile.getCurrentEmail(), chatId);
+            UserProfile.addNewChatToList(Logic_CreateLoadChat.previewOneChat(chatId));
+            UserProfile.remInvFromList(chatId);
         }
 
-        public static void removeChatInvite(string emailUser, string chatId)
+        public static void removeChatInvite(string chatId)
         {
+            Logic_CreateLoadChat.removeChatInvite(UserProfile.getCurrentEmail(), chatId);
+            UserProfile.remInvFromList(chatId);
         }
 
-        public static void sendChatInvite(string emailTarget, int chatId)
+        public static void acceptChatInvite(int chatId)
         {
-            sendChatInvite(emailTarget, chatId.ToString());
+            acceptChatInvite(chatId.ToString());
         }
 
-        public static void acceptChatInvite(string emailUser, int chatId)
+        public static void removeChatInvite(int chatId)
         {
-            acceptChatInvite(emailUser, chatId.ToString());
+            removeChatInvite(chatId.ToString());
         }
 
-        public static void removeChatInvite(string emailUser, int chatId)
+        public static void enterOneChat(UserControl_ChatList chatListPage, int chatId)
         {
-            removeChatInvite(emailUser, chatId.ToString());
+            UserProfile.initializeChat(chatId);
         }
     }
 }

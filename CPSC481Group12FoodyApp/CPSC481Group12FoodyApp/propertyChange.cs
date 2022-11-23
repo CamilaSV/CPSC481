@@ -18,6 +18,11 @@ namespace CPSC481Group12FoodyApp
         private string userName;
         private string targetUserName;
         private string targetEmail;
+        private string chatId;
+        private string chatName;
+        private string chatLastSender;
+        private string chatLastMsg;
+        private DateTime chatLastTime;
 
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
@@ -99,6 +104,71 @@ namespace CPSC481Group12FoodyApp
                 {
                     targetEmail = value;
                     OnPropertyChanged(nameof(TargetEmail));
+                }
+            }
+        }
+
+        public string ChatId
+        {
+            get { return chatId; }
+            set
+            {
+                if (value != chatId)
+                {
+                    chatId = value;
+                    OnPropertyChanged(nameof(ChatId));
+                }
+            }
+        }
+
+        public string ChatName
+        {
+            get { return chatName; }
+            set
+            {
+                if (value != chatName)
+                {
+                    chatName = value;
+                    OnPropertyChanged(nameof(ChatName));
+                }
+            }
+        }
+
+        public string ChatLastSender
+        {
+            get { return chatLastSender; }
+            set
+            {
+                if (value != chatLastSender)
+                {
+                    chatLastSender = value;
+                    OnPropertyChanged(nameof(ChatLastSender));
+                }
+            }
+        }
+
+        public string ChatLastMsg
+        {
+            get { return chatLastMsg; }
+            set
+            {
+                if (value != chatLastMsg)
+                {
+                    chatLastMsg = value;
+                    OnPropertyChanged(nameof(ChatLastMsg));
+                }
+            }
+        }
+
+        public DateTime ChatLastTime
+        {
+            get { return chatLastTime; }
+            set
+            {
+                if (value != chatLastTime)
+                {
+                    chatLastTime = value;
+                    OnPropertyChanged(nameof(ChatLastTime));
                 }
             }
         }

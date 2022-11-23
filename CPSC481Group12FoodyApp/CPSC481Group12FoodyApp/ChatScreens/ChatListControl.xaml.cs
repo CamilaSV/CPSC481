@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -21,117 +22,19 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class ChatListControl : UserControl
+    public partial class ChatListControl : UserControl, Interface_ChatListComponent
     {
-
-        //public readonly List<ChatListGroupFields> ChatListGroup;
-        //private List<ChatListGroupFields> ChatListGroup = new List<ChatListGroupFields>();
-        //public IList<ChatListVM> ChatListGroup { get; set; }
-        //public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
-
-        //public ObservableCollection<ChatListVM> ChatListGroup { get; set; }
-        /*private ObservableCollection<ChatListVM> _ChatListGroup;
-        public ObservableCollection<ChatListVM> ChatListGroup
-        {
-            get { return _ChatListGroup; }
-            set
-            {
-                _ChatListGroup = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ChatListGroup"));
-            }
-        }*/
-
         public ChatListControl()
         {
 
             InitializeComponent();
             this.DataContext = this;
-            /*ChatListGroup = new ObservableCollection<ChatListVM>
-            {
-                //new ChatListVM() { Abbreviation = "G", GroupName = "Girls", LastActive = "Last Active: 8h" }
-                new ChatListVM
-                {
-                    Abbreviation = "G",
-                    GroupName = "Girls",
-                    LastActive = "Last Active: 7h"
-                },
-                new ChatListVM
-                {
-                    Abbreviation = "Bssss",
-                    GroupName = "Boys",
-                    LastActive = "Last Active: 2h"
-                },
-                new ChatListVM
-                {
-                    Abbreviation = "a",
-                    GroupName = "Boys",
-                    LastActive = "Last Active: 2h"
-                },
-                new ChatListVM
-                {
-                    Abbreviation = "e",
-                    GroupName = "Boys",
-                    LastActive = "Last Active: 2h"
-                },
-
-        };
-            this.DataContext = ChatListGroup;
-
+            ComponentFunctions.addComponentToList(this);
         }
 
-            public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
-
-        /*ChatListGroup = new ObservableCollection<ChatListVM>
+        public void refreshComponent()
         {
-            //new ChatListVM() { Abbreviation = "G", GroupName = "Girls", LastActive = "Last Active: 8h" }
-            new ChatListVM
-            {
-                Abbreviation = "G",
-                GroupName = "Girls",
-                LastActive = "Last Active: 7h"
-            },
-            new ChatListVM
-            {
-                Abbreviation = "B",
-                GroupName = "Boys",
-                LastActive = "Last Active: 2h"
-            },
-            new ChatListVM
-            {
-                Abbreviation = "a",
-                GroupName = "Boys",
-                LastActive = "Last Active: 2h"
-            },
-            new ChatListVM
-            {
-                Abbreviation = "e",
-                GroupName = "Boys",
-                LastActive = "Last Active: 2h"
-            },
-
-    };
-        this.DataContext = ChatListGroup;
-        /*ChatListGroup = new List<ChatListVM>();
-        {
-            new ChatListVM
-            {
-                Abbreviation = "G",
-                GroupName = "Girls",
-                LastActive = "Last Active: 7h"
-            };
-
-            new ChatListVM
-            {
-                Abbreviation = "B",
-                GroupName = "Boys",
-                LastActive = "Last Active: 2h"
-            };
-        };*/
+            ListControl.Items.Refresh();
         }
-
     }
-
-        
-    
 }
