@@ -27,12 +27,12 @@ namespace CPSC481Group12FoodyApp
                 // create necessary files and directories for the chat group
                 Directory.CreateDirectory(PathFinder.getChatDir(chatId));
 
-                SharedFunctions.appendLineToFile(PathFinder.getChatName(chatId), chatName);
-                SharedFunctions.appendLineToFile(PathFinder.getChatAdmin(chatId), emailCreator);
-                SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailCreator);
+                SharedFunctions.createFileWithText(PathFinder.getChatName(chatId), chatName);
+                SharedFunctions.createFileWithText(PathFinder.getChatAdmin(chatId), emailCreator);
+                SharedFunctions.createFileWithText(PathFinder.getChatMembers(chatId), emailCreator);
 
                 File.Create(PathFinder.getChatLog(chatId)).Close();
-                File.Create(PathFinder.getChatRestaurants(chatId)).Close();
+                File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
                 Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
                 Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
 
