@@ -21,8 +21,8 @@ namespace CPSC481Group12FoodyApp.Logic
         private static List<string> currentChatList = new List<string>();
 
         // data for one chat
-        private static List<string> currentChatLog = new List<string>();
-        private static List<string> currentChatEventList = new List<string>();
+//        private static List<string> currentChatLog = new List<string>();
+//        private static List<string> currentChatEventList = new List<string>();
 
         // data when creating chat
         private static List<string> friendsInvitedToChat = new List<string>();
@@ -42,7 +42,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void initializeChat(string chatId)
         {
             currentChatId = chatId;
-            currentChatLog = File.ReadAllLines(PathFinder.getChatLog(chatId)).ToList();
+//            currentChatLog = File.ReadAllLines(PathFinder.getChatLog(chatId)).ToList();
             ComponentFunctions.refreshAll();
         }
 

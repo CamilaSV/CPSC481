@@ -24,7 +24,7 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-    public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
+        public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
         {
             Logic_AddRemFriend.deleteFriend(UserProfile.getCurrentEmail(), emailTarget);
             UserProfile.remFriendFromList(emailTarget);

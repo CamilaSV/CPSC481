@@ -174,9 +174,19 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatDir(chatId) + chat_member;
         }
 
-        public static string getChatLog(string chatId)
+        public static string getChatLogSender(string chatId)
         {
-            return getChatDir(chatId) + chat_log;
+            return getChatDir(chatId) + chat_log_sender;
+        }
+
+        public static string getChatLogMessage(string chatId)
+        {
+            return getChatDir(chatId) + chat_log_message;
+        }
+
+        public static string getChatLogTime(string chatId)
+        {
+            return getChatDir(chatId) + chat_log_time;
         }
 
         public static string getChatSavedRestaurants(string chatId)
@@ -226,7 +236,9 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string chat_name = "name.dat";
         private const string chat_admin = "admin.dat";
         private const string chat_member = "members.dat";
-        private const string chat_log = "chat_log.dat";
+        private const string chat_log_sender = "chat_log_sender.dat";
+        private const string chat_log_message = "chat_log_message.dat";
+        private const string chat_log_time = "chat_log_time.dat";
         private const string chat_restaurants = "saved_res.dat";
 
         private const string scheduleEventDir = "Events\\Schedule\\";
@@ -395,9 +407,19 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatMembers(chatId.ToString());
         }
 
-        public static string getChatLog(int chatId)
+        public static string getChatLogSender(int chatId)
         {
-            return getChatLog(chatId.ToString());
+            return getChatLogSender(chatId.ToString());
+        }
+
+        public static string getChatLogMessage(int chatId)
+        {
+            return getChatLogMessage(chatId.ToString());
+        }
+
+        public static string getChatLogTime(int chatId)
+        {
+            return getChatLogTime(chatId.ToString());
         }
 
         public static string getChatSavedRestaurants(int chatId)

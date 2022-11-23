@@ -18,19 +18,11 @@ namespace CPSC481Group12FoodyApp
 
         public static void loadChatList(UserControl_ChatList chatListPage)
         {
-            List<Tuple<string, string>> result = Logic_CreateLoadChat.loadChatList(UserProfile.getCurrentEmail());
-
-        }
-
-        public static void previewOneChat(string chatId)
-        {
+            List<Tuple<string, TupleEachMsg>> result = Logic_CreateLoadChat.loadChatList(UserProfile.getCurrentEmail());
+            result.Sort(delegate(Tuple<string, TupleEachMsg> msg1, Tuple<string, TupleEachMsg> msg2) { return msg1.Item2.getTime().CompareTo(msg2.Item2.getTime()); });
         }
 
         public static void enterOneChat(string emailUser, string chatId)
-        {
-        }
-
-        public static void enterOneChat(string emailUser, int chatId)
         {
         }
 
@@ -38,23 +30,11 @@ namespace CPSC481Group12FoodyApp
         {
         }
 
-        public static void sendChatInvite(string emailTarget, int chatId)
-        {
-        }
-
         public static void acceptChatInvite(string emailUser, string chatId)
         {
         }
 
-        public static void acceptChatInvite(string emailUser, int chatId)
-        {
-        }
-
         public static void removeChatInvite(string emailUser, string chatId)
-        {
-        }
-
-        public static void removeChatInvite(string emailUser, int chatId)
         {
         }
     }

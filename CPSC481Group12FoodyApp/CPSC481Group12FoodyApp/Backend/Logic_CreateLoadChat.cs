@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Printing;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -31,7 +32,9 @@ namespace CPSC481Group12FoodyApp.Logic
                 SharedFunctions.createFileWithText(PathFinder.getChatAdmin(chatId), emailCreator);
                 SharedFunctions.createFileWithText(PathFinder.getChatMembers(chatId), emailCreator);
 
-                File.Create(PathFinder.getChatLog(chatId)).Close();
+                File.Create(PathFinder.getChatLogSender(chatId)).Close();
+                File.Create(PathFinder.getChatLogMessage(chatId)).Close();
+                File.Create(PathFinder.getChatLogTime(chatId)).Close();
                 File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
                 Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
                 Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
@@ -51,9 +54,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return result;
         }
 
-        public static List<Tuple<string, string>> loadChatList(string emailUser)
+        public static List<Tuple<string, TupleEachMsg>> loadChatList(string emailUser)
         {
-            List<Tuple<string, string>> result = new List<Tuple<string, string>>();
+            List<Tuple<string, TupleEachMsg>> result = new List<Tuple<string, TupleEachMsg>>();
 
             StreamReader fileReader = File.OpenText(PathFinder.getAccChats(emailUser));
             while (!fileReader.EndOfStream)
@@ -66,20 +69,21 @@ namespace CPSC481Group12FoodyApp.Logic
             return result;
         }
 
-        public static Tuple<string, string> previewOneChat(string chatId)
+        public static TupleOneChatLog enterOneChat(string emailUser, string chatId)
         {
             string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
-            string lastChat = File.ReadLines(PathFinder.getChatLog(chatId)).Last();
+            string[] emails = File.ReadAllLines(PathFinder.getChatLogSender(chatId));
+            string[] messages = File.ReadAllLines(PathFinder.getChatLogMessage(chatId));
+            string[] times = File.ReadAllLines(PathFinder.getChatLogTime(chatId));
 
-            return new Tuple<string, string>(chatName, lastChat); // get chat name and the very last chat
-        }
+            List<TupleEachMsg> msgs = new List<TupleEachMsg>();
 
-        public static Tuple<string, string, string[]> enterOneChat(string emailUser, string chatId)
-        {
-            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
-            string[] chatLog = File.ReadAllLines(PathFinder.getChatLog(chatId));
+            for (int i = 0; i < emails.Length; i++)
+            {
+                msgs.Add(new TupleEachMsg(emails[i], messages[i], DateTime.Parse(times[i])));
+            }
 
-            return new Tuple<string, string, string[]>(emailUser, chatName, chatLog);
+            return new TupleOneChatLog(emailUser, chatName, msgs);
         }
 
         public static void sendChatInvite(string emailTarget, string chatId)
@@ -102,12 +106,23 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
         }
 
-        public static Tuple<string, string> previewOneChat(int chatId)
+        public static Tuple<string, TupleEachMsg> previewOneChat(string chatId)
+        {
+            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
+
+            string lastSender = File.ReadLines(PathFinder.getChatLogSender(chatId)).Last();
+            string lastMsg = File.ReadLines(PathFinder.getChatLogMessage(chatId)).Last();
+            DateTime lastTime = DateTime.Parse(File.ReadLines(PathFinder.getChatLogSender(chatId)).Last());
+
+            return new Tuple<string, TupleEachMsg>(chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
+        }
+
+        public static Tuple<string, TupleEachMsg> previewOneChat(int chatId)
         {
             return previewOneChat(chatId.ToString());
         }
 
-        public static Tuple<string, string, string[]> enterOneChat(string emailUser, int chatId)
+        public static TupleOneChatLog enterOneChat(string emailUser, int chatId)
         {
             return enterOneChat(emailUser, chatId.ToString());
         }

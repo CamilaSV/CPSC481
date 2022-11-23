@@ -8,12 +8,17 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class ComponentFunctions
     {
+        // realted to user
         private static List<Interface_ChatListComponent> chatListComponents = new List<Interface_ChatListComponent>();
         private static List<Interface_ChatInvComponent> chatInvComponents = new List<Interface_ChatInvComponent>();
         private static List<Interface_FriendListComponent> friendListComponents = new List<Interface_FriendListComponent>();
         private static List<Interface_FriendReqComponent> friendReqComponents = new List<Interface_FriendReqComponent>();
-
+        
+        // related to creating chat
         private static List<Interface_ChatCreateComponent> chatCreateComponents = new List<Interface_ChatCreateComponent>();
+
+        // related to the selected chat? Such as events etc.
+
 
         public static void addComponentToList(Interface_ChatListComponent component)
         {
