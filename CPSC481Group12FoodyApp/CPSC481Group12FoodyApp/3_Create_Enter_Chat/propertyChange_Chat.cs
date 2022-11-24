@@ -16,7 +16,7 @@ namespace CPSC481Group12FoodyApp
         private string chatName;
         private string chatLastSender;
         private string chatLastMsg;
-        private DateTime chatLastTime;
+        private string chatLastTime;
 
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
@@ -91,7 +91,7 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        public DateTime ChatLastTime
+        public string ChatLastTime
         {
             get { return chatLastTime; }
             set

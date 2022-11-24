@@ -35,7 +35,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return eachRoomChats.Item3.ElementAt(index).getMessage();
         }
 
-        public DateTime getOneMessageTime(int index)
+        public string getOneMessageTime(int index)
         {
             return eachRoomChats.Item3.ElementAt(index).getTime();
         }

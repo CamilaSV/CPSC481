@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -90,6 +91,31 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createFileWithText(string filePath, int text)
         {
             createFileWithText(filePath, text.ToString());
+        }
+
+        public static string getCurrentEpochTime()
+        {
+            return DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+        }
+
+        public static string getDateOrTimefromEpoch(string epochTime)
+        {
+            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeSeconds(long.Parse(epochTime.Trim()));
+
+            DateTime epochDateTime = timeoff.DateTime.ToLocalTime();
+            string dateOrTime;
+
+            if ((int)(DateTime.Now - epochDateTime).TotalDays > 0)
+            {
+                // at least 1 day has passed; only show date
+                dateOrTime = epochDateTime.ToString("MM-dd", new CultureInfo("en-US"));
+            }
+            else
+            {
+                dateOrTime = epochDateTime.ToString("hh:mm tt", new CultureInfo("en-US"));
+            }
+
+            return dateOrTime;
         }
     }
 }

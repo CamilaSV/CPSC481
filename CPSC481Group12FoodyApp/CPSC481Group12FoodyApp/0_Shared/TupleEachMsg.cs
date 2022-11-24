@@ -8,11 +8,11 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public class TupleEachMsg
     {
-        private Tuple<string, string, DateTime> message;
+        private Tuple<string, string, string> message;
 
-        public TupleEachMsg(string email, string message, DateTime time)
+        public TupleEachMsg(string email, string message, string time)
         {
-            this.message = new Tuple<string, string, DateTime>(email, message, time);
+            this.message = new Tuple<string, string, string>(email, message, time);
         }
 
         public string getEmail()
@@ -25,7 +25,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return message.Item2;
         }
 
-        public DateTime getTime()
+        public string getTime()
         {
             return message.Item3;
         }

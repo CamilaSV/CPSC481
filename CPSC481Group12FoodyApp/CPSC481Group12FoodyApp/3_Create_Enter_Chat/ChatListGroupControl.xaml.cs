@@ -24,5 +24,10 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void EnterChat_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

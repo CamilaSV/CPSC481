@@ -24,7 +24,7 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        public static void loadChatList(UserControl_ChatList chatListPage)
+        public static void loadChatList()
         {
             SessionData.initializeChatList();
         }

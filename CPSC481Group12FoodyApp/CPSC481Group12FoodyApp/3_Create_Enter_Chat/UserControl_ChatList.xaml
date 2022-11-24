@@ -14,8 +14,8 @@
                     <ItemsControl x:Name="ListControl" ItemsSource="{Binding Chats}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <local:FriendRequestCardControl>
-                                </local:FriendRequestCardControl>
+                                <local:ChatListGroupControl>
+                                </local:ChatListGroupControl>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

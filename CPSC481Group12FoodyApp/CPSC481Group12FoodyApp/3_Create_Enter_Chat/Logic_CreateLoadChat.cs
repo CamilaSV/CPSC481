@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -16,7 +17,6 @@ namespace CPSC481Group12FoodyApp.Logic
 
             foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
             {
-                System.Diagnostics.Debug.WriteLine("ChatId: " + lastmsg.Item1);
                 propertyChange_Chat chatItem = new propertyChange_Chat
                 {
                     Abbreviation = lastmsg.Item2.Substring(0, 1),
@@ -25,7 +25,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     ChatLastSender = lastmsg.Item3.getEmail(),
                     ChatLastMsg = lastmsg.Item3.getMessage(),
 
-                    ChatLastTime = lastmsg.Item3.getTime(),
+                    ChatLastTime = SharedFunctions.getDateOrTimefromEpoch(lastmsg.Item3.getTime()),
                 };
                 chatListCollection.Add(chatItem);
             }
@@ -68,9 +68,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     sendChatInvite(eachEmail, chatId);
                 }
 
-                // create necessary directories for the chat creator
-                Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailCreator, chatId));
-                Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailCreator, chatId));
+                acceptChatInvite(emailCreator, chatId); // the creator automatically accepts the invitation
 
                 result = "true";
             }
@@ -104,7 +102,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
             for (int i = 0; i < emails.Length; i++)
             {
-                msgs.Add(new TupleEachMsg(emails[i], messages[i], DateTime.Parse(times[i])));
+                msgs.Add(new TupleEachMsg(emails[i], messages[i], times[i]));
             }
 
             return new TupleOneChatLog(emailUser, chatName, msgs);
@@ -123,6 +121,12 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
             Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
+
+            SharedFunctions.appendLineToFile(PathFinder.getChatLogSender(chatId), "");
+            SharedFunctions.appendLineToFile(PathFinder.getChatLogMessage(chatId),
+                SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
+            SharedFunctions.appendLineToFile(PathFinder.getChatLogTime(chatId), SharedFunctions.getCurrentEpochTime());
+
         }
 
         public static void removeChatInvite(string emailUser, string chatId)
@@ -133,10 +137,17 @@ namespace CPSC481Group12FoodyApp.Logic
         public static Tuple<string, string, TupleEachMsg> previewOneChat(string chatId)
         {
             string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
+            List<string> tester = File.ReadAllLines(PathFinder.getChatLogSender(chatId)).ToList();
 
-            string lastSender = File.ReadLines(PathFinder.getChatLogSender(chatId)).Last();
-            string lastMsg = File.ReadLines(PathFinder.getChatLogMessage(chatId)).Last();
-            DateTime lastTime = DateTime.Parse(File.ReadLines(PathFinder.getChatLogSender(chatId)).Last());
+            string lastSender = "";
+            string lastMsg = "";
+            string lastTime = "";
+            if (tester.Any())
+            {
+                lastSender = File.ReadLines(PathFinder.getChatLogSender(chatId)).Last();
+                lastMsg = File.ReadLines(PathFinder.getChatLogMessage(chatId)).Last();
+                lastTime = File.ReadLines(PathFinder.getChatLogTime(chatId)).Last();
+            }
 
             return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
         }
