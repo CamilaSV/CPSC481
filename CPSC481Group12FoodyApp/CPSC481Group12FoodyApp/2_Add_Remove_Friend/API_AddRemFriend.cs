@@ -7,14 +7,13 @@ namespace CPSC481Group12FoodyApp
 {
     public static class API_AddRemFriend
     {
-        public static void addFriend(UserControl_AddFriends addPage, UserControl_Profile profilePage, string emailTarget)
+        public static void addFriend(UserControl_AddFriends addPage, string emailTarget)
         {
             string result = Logic_AddRemFriend.addFriend(SessionData.getCurrentEmail(), emailTarget);
 
             if (result.Equals("true"))
             {
                 SessionData.addFriendToList(emailTarget);
-                profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(SessionData.getCurrentEmail());
                 addPage.navigate_helper.gotoProfile();
             }
             else
@@ -23,7 +22,7 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
+        public static void deleteFriend(string emailTarget)
         {
             Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendFromList(emailTarget);

@@ -56,6 +56,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="2_Add_Remove_Friend\FriendListCardControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="2_Add_Remove_Friend\FriendRequestListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>

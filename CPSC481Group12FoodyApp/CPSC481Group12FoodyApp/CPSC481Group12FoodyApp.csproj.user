@@ -7,6 +7,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="2_Add_Remove_Friend\FriendListCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="2_Add_Remove_Friend\FriendRequestListControl.xaml">
       <SubType>Designer</SubType>
     </Page>

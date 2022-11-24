@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp
             chatListPage = new UserControl_ChatList(this);
             profilePage = new UserControl_Profile(this);    
             invitationsPage = new UserControl_Invitations(this);
-            addFriendPage = new UserControl_AddFriends(this, profilePage);
+            addFriendPage = new UserControl_AddFriends(this);
             createChatPage = new UserControl_CreateNewChat(this);
             homePage = new HomePage(this);
             targetWindow.Content = startPage;

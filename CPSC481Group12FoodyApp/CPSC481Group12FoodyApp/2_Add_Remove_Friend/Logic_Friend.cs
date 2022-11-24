@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public static class Logic_FriendRequest
+    public static class Logic_Friend
     {
         public static ObservableCollection<propertyChange_Friend> displayUsersFriendRequest()
         {
@@ -28,6 +28,26 @@ namespace CPSC481Group12FoodyApp.Logic
             }
 
             return friendRequestCollection;
+        }
+
+        public static ObservableCollection<propertyChange_Friend> displayUsersFriendList()
+        {
+            ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
+
+            string name;
+            foreach (string line in SessionData.getCurrentFriends())
+            {
+                name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
+                propertyChange_Friend listItem = new propertyChange_Friend
+                {
+                    TargetEmail = line,
+                    TargetUserName = name,
+                    Abbreviation = name.Substring(0, 1),
+                };
+                friendListCollection.Add(listItem);
+            }
+
+            return friendListCollection;
         }
     }
 }
