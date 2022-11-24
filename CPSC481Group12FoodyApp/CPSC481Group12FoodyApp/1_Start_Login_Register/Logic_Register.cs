@@ -56,7 +56,8 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.createFileWithText(PathFinder.getAccName(email), email);
 
             File.Create(PathFinder.getAccBio(email)).Close();
-            File.Create(PathFinder.getAccChatInv(email)).Close();
+            File.Create(PathFinder.getAccChatInvId(email)).Close();
+            File.Create(PathFinder.getAccChatInvSender(email)).Close();
             File.Create(PathFinder.getAccFriendReq(email)).Close();
             File.Create(PathFinder.getAccFriends(email)).Close();
             File.Create(PathFinder.getAccChats(email)).Close();

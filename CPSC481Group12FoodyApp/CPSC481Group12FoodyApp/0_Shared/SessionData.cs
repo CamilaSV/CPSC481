@@ -96,12 +96,12 @@ namespace CPSC481Group12FoodyApp.Logic
             return currentChatLog;
         }
 
-        public static List<string> getCurrentChatInv_Id()
+        public static List<string> getCurrentChatInvId()
         {
             return currentChatInv_Id;
         }
 
-        public static List<string> getCurrentChatInv_SenderEmail()
+        public static List<string> getCurrentChatInvSender()
         {
             return currentChatInv_SenderEmail;
         }
@@ -147,7 +147,25 @@ namespace CPSC481Group12FoodyApp.Logic
             currentFriendReq.Remove(item);
         }
 
-        public static void remInvFromList(string chatId)
+        public static void remOneInvFromList(string email, string chatId)
+        {
+            // removes one matching invite
+            for (var i = 0; i < currentChatInv_Id.Count; i++)
+            {
+                if (currentChatInv_Id[i].Equals(chatId))
+                {
+                    if (currentChatInv_SenderEmail[i].Equals(email))
+                    {
+                        currentChatInv_Id.RemoveAt(i);
+                        currentChatInv_SenderEmail.RemoveAt(i);
+
+                        return;
+                    }
+                }
+            }
+        }
+
+        public static void remAllInvFromList(string chatId)
         {
             // removes all invites from the same group; traverse in reverse so that it doesn't affect index number
             for (var i = currentChatInv_Id.Count - 1; i >= 0; i--)
@@ -158,6 +176,16 @@ namespace CPSC481Group12FoodyApp.Logic
                     currentChatInv_SenderEmail.RemoveAt(i);
                 }
             }
+        }
+
+        public static void remOneInvFromList(string email, int chatId)
+        {
+            remOneInvFromList(email, chatId.ToString());
+        }
+
+        public static void remAllInvFromList(int chatId)
+        {
+            remAllInvFromList(chatId.ToString());
         }
 
         public static void addFriendToChatCreateList(string item)

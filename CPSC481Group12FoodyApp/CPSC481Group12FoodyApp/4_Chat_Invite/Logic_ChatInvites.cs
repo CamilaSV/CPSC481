@@ -15,16 +15,14 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_ChatInvite> invListCollection = new ObservableCollection<propertyChange_ChatInvite>();
 
-            foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatInv())
+            for (int i = 0; i < SessionData.getCurrentChatInvId().Count; i++)
             {
                 propertyChange_ChatInvite invItem = new propertyChange_ChatInvite
                 {
-                    ChatId = lastmsg.Item1,
-                    ChatName = lastmsg.Item2,
-                    ChatLastSender = lastmsg.Item3.getEmail(),
-                    ChatLastMsg = lastmsg.Item3.getMessage(),
-
-                    ChatLastTime = SharedFunctions.getDateOrTimefromEpoch(lastmsg.Item3.getTime()),
+                    GroupId = SessionData.getCurrentChatInvId()[i],
+                    GroupName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentChatInvId()[i])),
+                    SenderEmail = SessionData.getCurrentChatInvSender()[i],
+                    SenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentChatInvSender()[i])),
                 };
                 invListCollection.Add(invItem);
             }
@@ -35,7 +33,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void acceptChatInvite(string emailUser, string chatId)
         {
             SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
-            removeChatInvite(emailUser, chatId);
+            removeAllChatInvites(emailUser, chatId);
 
             SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
@@ -47,9 +45,20 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.appendLineToFile(PathFinder.getChatLogTime(chatId), SharedFunctions.getCurrentEpochTime());
         }
 
-        public static void removeChatInvite(string emailUser, string chatId)
+        public static void removeAllChatInvites(string emailUser, string chatId)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
+            List<string> filepaths = new List<string>()
+            {   
+                PathFinder.getAccChatInvId(emailUser),
+                PathFinder.getAccChatInvSender(emailUser) 
+            };
+            SharedFunctions.removeLineFromMultipleFiles(filepaths, chatId);
+        }
+
+        public static void removeOneChatInvite(string emailUser, string emailSender, string chatId)
+        {
+            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInvId(emailUser), chatId);
+            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInvSender(emailUser), emailSender);
         }
 
         public static void acceptChatInvite(string emailUser, int chatId)
@@ -57,9 +66,15 @@ namespace CPSC481Group12FoodyApp.Logic
             acceptChatInvite(emailUser, chatId.ToString());
         }
 
-        public static void removeChatInvite(string emailUser, int chatId)
+        public static void removeAllChatInvites(string emailUser, int chatId)
         {
-            removeChatInvite(emailUser, chatId.ToString());
+            removeAllChatInvites(emailUser, chatId.ToString());
         }
+
+        public static void removeOneChatInvite(string emailUser, string emailSender, int chatId)
+        {
+            removeOneChatInvite(emailUser, emailSender, chatId.ToString());
+        }
+
     }
 }

@@ -11,8 +11,6 @@ namespace CPSC481Group12FoodyApp
         public static InvitationDesignModel Instance { get; } = new InvitationDesignModel();
         public InvitationDesignModel()
         {
-            GroupName = "Foodies";
-            UserName = "Jessica";
         }
     }
 }

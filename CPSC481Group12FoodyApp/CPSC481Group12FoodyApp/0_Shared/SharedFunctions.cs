@@ -27,6 +27,36 @@ namespace CPSC481Group12FoodyApp.Logic
             fileWriter.Close();
         }
 
+        // filepaths[0] looks for linetoRemoveFromItem1
+        // if found, then that line is excluded, and that line number is excluded in all files in the filepaths
+        public static void removeLineFromMultipleFiles(List<string> filepaths, string linetoRemoveFromItem1)
+        {
+            List<string[]> allLinesItems = new List<string[]>();
+            List<StreamWriter> fileWriters = new List<StreamWriter>();
+            for (int i = 0; i < filepaths.Count; i++)
+            {
+                allLinesItems.Add(File.ReadAllLines(filepaths[i]));
+                fileWriters.Add(File.CreateText(filepaths[i]));
+            }
+
+            // traverse in reverse so it doesn't mess with the line numbers
+            for (int i = allLinesItems[0].Length - 1; i >= 0; i--)
+            {
+                if (!allLinesItems[0][i].Equals(linetoRemoveFromItem1))
+                {
+                    for (int j = 0; j < filepaths.Count; j++)
+                    {
+                        fileWriters[j].WriteLine(allLinesItems[j][i]);
+                    }
+                }
+            }
+
+            foreach (StreamWriter fileWriter in fileWriters)
+            {
+                fileWriter.Close();
+            }
+        }
+
         // append target line to file
         public static void appendLineToFile(string filePath, string lineToAppend)
         {

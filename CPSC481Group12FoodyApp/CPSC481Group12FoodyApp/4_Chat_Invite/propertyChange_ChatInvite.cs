@@ -12,8 +12,9 @@ namespace CPSC481Group12FoodyApp
     public class propertyChange_ChatInvite : INotifyPropertyChanged
     {
         private string groupName;
-        private string userName;
-        private string chatId;
+        private string senderName;
+        private string groupId;
+        private string senderEmail;
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
 
@@ -35,28 +36,41 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        public string UserName
+        public string SenderName
         {
-            get { return userName; }
+            get { return senderName; }
             set
             {
-                if (value != userName)
+                if (value != senderName)
                 {
-                    userName = value;
-                    OnPropertyChanged(nameof(UserName));
+                    senderName = value;
+                    OnPropertyChanged(nameof(SenderName));
                 }
             }
         }
 
-        public string ChatId
+        public string GroupId
         {
-            get { return chatId; }
+            get { return groupId; }
             set
             {
-                if (value != chatId)
+                if (value != groupId)
                 {
-                    chatId = value;
-                    OnPropertyChanged(nameof(ChatId));
+                    groupId = value;
+                    OnPropertyChanged(nameof(GroupId));
+                }
+            }
+        }
+
+        public string SenderEmail
+        {
+            get { return senderEmail; }
+            set
+            {
+                if (value != senderEmail)
+                {
+                    senderEmail = value;
+                    OnPropertyChanged(nameof(SenderEmail));
                 }
             }
         }

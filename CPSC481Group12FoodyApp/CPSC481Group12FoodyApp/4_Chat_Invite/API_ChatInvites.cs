@@ -13,14 +13,20 @@ namespace CPSC481Group12FoodyApp
         {
             Logic_ChatInvites.acceptChatInvite(SessionData.getCurrentEmail(), chatId);
             SessionData.addNewChatToList(Logic_CreateLoadChat.previewOneChat(chatId));
-            SessionData.remInvFromList(chatId);
+            removeAllChatInvites(chatId);
+        }
+
+        public static void removeAllChatInvites(string chatId)
+        {
+            Logic_ChatInvites.removeAllChatInvites(SessionData.getCurrentEmail(), chatId);
+            SessionData.remAllInvFromList(chatId);
             ComponentFunctions.refreshAll();
         }
 
-        public static void removeChatInvite(string chatId)
+        public static void removeOneChatInvite(string emailSender, string chatId)
         {
-            Logic_ChatInvites.removeChatInvite(SessionData.getCurrentEmail(), chatId);
-            SessionData.remInvFromList(chatId);
+            Logic_ChatInvites.removeOneChatInvite(SessionData.getCurrentEmail(), emailSender, chatId);
+            SessionData.remOneInvFromList(emailSender, chatId);
             ComponentFunctions.refreshAll();
         }
 
@@ -29,9 +35,14 @@ namespace CPSC481Group12FoodyApp
             acceptChatInvite(chatId.ToString());
         }
 
-        public static void removeChatInvite(int chatId)
+        public static void removeAllChatInvites(int chatId)
         {
-            removeChatInvite(chatId.ToString());
+            removeAllChatInvites(chatId.ToString());
+        }
+
+        public static void removeOneChatInvite(string emailSender, int chatId)
+        {
+            removeOneChatInvite(emailSender, chatId.ToString());
         }
     }
 }

@@ -65,7 +65,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 foreach (var eachEmail in emailsToInvite)
                 {
-                    sendChatInvite(eachEmail, chatId);
+                    sendChatInvite(emailCreator, eachEmail, chatId);
                 }
 
                 Logic_ChatInvites.acceptChatInvite(emailCreator, chatId); // the creator automatically accepts the invitation
@@ -108,9 +108,10 @@ namespace CPSC481Group12FoodyApp.Logic
             return new TupleOneChatLog(emailUser, chatName, msgs);
         }
 
-        public static void sendChatInvite(string emailTarget, string chatId)
+        public static void sendChatInvite(string emailUser, string emailTarget, string chatId)
         {
-            SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
+            SharedFunctions.appendLineToFile(PathFinder.getAccChatInvId(emailTarget), chatId);
+            SharedFunctions.appendLineToFile(PathFinder.getAccChatInvSender(emailTarget), emailUser);
         }
 
         public static Tuple<string, string, TupleEachMsg> previewOneChat(string chatId)
@@ -141,9 +142,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return enterOneChat(emailUser, chatId.ToString());
         }
 
-        public static void sendChatInvite(string emailTarget, int chatId)
+        public static void sendChatInvite(string emailUser, string emailTarget, int chatId)
         {
-            sendChatInvite(emailTarget, chatId.ToString());
+            sendChatInvite(emailUser, emailTarget, chatId.ToString());
         }
     }
 }
