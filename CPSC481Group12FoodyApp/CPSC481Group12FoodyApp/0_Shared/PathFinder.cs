@@ -120,9 +120,14 @@ namespace CPSC481Group12FoodyApp.Logic
             return getAccDir(email) + acc_bio;
         }
 
-        public static string getAccChatInv(string email)
+        public static string getAccChatInvId(string email)
         {
-            return getAccDir(email) + acc_inv;
+            return getAccDir(email) + acc_inv_id;
+        }
+
+        public static string getAccChatInvSender(string email)
+        {
+            return getAccDir(email) + acc_inv_sender;
         }
 
         public static string getAccFriendReq(string email)
@@ -252,7 +257,8 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string acc_pw = "password.dat";
         private const string acc_name = "display_name.dat";
         private const string acc_bio = "bio.dat";
-        private const string acc_inv = "chat_invitations.dat";
+        private const string acc_inv_id = "chat_invitations_id.dat";
+        private const string acc_inv_sender = "chat_invitations_sender.dat";
         private const string acc_req = "friend_requests.dat";
         private const string acc_fr = "friends.dat";
         private const string acc_chats = "chats.dat";

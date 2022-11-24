@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,40 +8,33 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class InvitationControlDesignModel : propertyChange_ChatInvite
+    public class InvitationControlDesignModel : propertyChange_ChatInvite, Interface_ChatInvComponent
     {
         public static InvitationControlDesignModel Instance { get; } = new InvitationControlDesignModel();
 
-        private ObservableCollection<propertyChange_ChatInvite> chats;
-        public ObservableCollection<propertyChange_ChatInvite> Chats
+        private ObservableCollection<propertyChange_ChatInvite> invites;
+        public ObservableCollection<propertyChange_ChatInvite> Invites
         {
-            get { return chats; }
+            get { return invites; }
             set
             {
-                if (value != chats)
+                if (value != invites)
                 {
-                    chats = value;
-                    OnPropertyChanged(nameof(Chats));
+                    invites = value;
+                    OnPropertyChanged(nameof(Invites));
                 }
             }
         }
 
         public InvitationControlDesignModel()
         {
-            this.Chats = new ObservableCollection<propertyChange_ChatInvite>
-            {
-                new propertyChange_ChatInvite
-                {
-                     GroupName = "Foodies",
-                     UserName = "Jessica",
-                },
+            ComponentFunctions.addComponentToList(this);
+            Invites = Logic_ChatInvites.displayUsersGroupInviteList();
+        }
 
-                new propertyChange_ChatInvite
-                {
-                    GroupName = "Trio",
-                     UserName = "Bob",
-                },
-            };
+        public void refreshComponent()
+        {
+            Invites = Logic_ChatInvites.displayUsersGroupInviteList();
         }
     }
 }

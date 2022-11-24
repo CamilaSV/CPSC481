@@ -14,6 +14,7 @@ namespace CPSC481Group12FoodyApp
             if (result.Equals("true"))
             {
                 SessionData.addFriendToList(emailTarget);
+                ComponentFunctions.refreshAll();
                 addPage.navigate_helper.gotoProfile();
             }
             else
@@ -26,6 +27,7 @@ namespace CPSC481Group12FoodyApp
         {
             Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendFromList(emailTarget);
+            ComponentFunctions.refreshAll();
         }
 
         public static void acceptFriendReq(string emailTarget)
@@ -33,12 +35,14 @@ namespace CPSC481Group12FoodyApp
             Logic_AddRemFriend.acceptFriendReq(SessionData.getCurrentEmail(), emailTarget);
             SessionData.addFriendToList(emailTarget);
             SessionData.remFriendReqFromList(emailTarget);
+            ComponentFunctions.refreshAll();
         }
 
         public static void denyFriendReq(string emailTarget)
         {
             Logic_AddRemFriend.removeFriendReq(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendReqFromList(emailTarget);
+            ComponentFunctions.refreshAll();
         }
     }
 }

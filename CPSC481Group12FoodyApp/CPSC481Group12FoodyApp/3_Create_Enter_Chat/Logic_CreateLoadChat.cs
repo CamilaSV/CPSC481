@@ -68,7 +68,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     sendChatInvite(eachEmail, chatId);
                 }
 
-                acceptChatInvite(emailCreator, chatId); // the creator automatically accepts the invitation
+                Logic_ChatInvites.acceptChatInvite(emailCreator, chatId); // the creator automatically accepts the invitation
 
                 result = "true";
             }
@@ -113,27 +113,6 @@ namespace CPSC481Group12FoodyApp.Logic
             SharedFunctions.appendLineToFile(PathFinder.getAccChatInv(emailTarget), chatId);
         }
 
-        public static void acceptChatInvite(string emailUser, string chatId)
-        {
-            SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
-            removeChatInvite(emailUser, chatId);
-
-            SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
-            Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
-            Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
-
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogSender(chatId), "");
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogMessage(chatId),
-                SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogTime(chatId), SharedFunctions.getCurrentEpochTime());
-
-        }
-
-        public static void removeChatInvite(string emailUser, string chatId)
-        {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInv(emailUser), chatId);
-        }
-
         public static Tuple<string, string, TupleEachMsg> previewOneChat(string chatId)
         {
             string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
@@ -165,16 +144,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void sendChatInvite(string emailTarget, int chatId)
         {
             sendChatInvite(emailTarget, chatId.ToString());
-        }
-
-        public static void acceptChatInvite(string emailUser, int chatId)
-        {
-            acceptChatInvite(emailUser, chatId.ToString());
-        }
-
-        public static void removeChatInvite(string emailUser, int chatId)
-        {
-            removeChatInvite(emailUser, chatId.ToString());
         }
     }
 }

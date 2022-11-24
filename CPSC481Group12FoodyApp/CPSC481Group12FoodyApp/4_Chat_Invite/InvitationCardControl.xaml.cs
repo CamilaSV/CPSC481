@@ -29,10 +29,12 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
+            API_ChatInvites.acceptChatInvite();
         }
 
         private void minusBtn(object sender, RoutedEventArgs e)
         {
+            API_ChatInvites.removeChatInvite();
         }
     }
 }

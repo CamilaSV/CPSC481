@@ -13,6 +13,7 @@ namespace CPSC481Group12FoodyApp
     {
         private string groupName;
         private string userName;
+        private string chatId;
 
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
 
@@ -43,6 +44,19 @@ namespace CPSC481Group12FoodyApp
                 {
                     userName = value;
                     OnPropertyChanged(nameof(UserName));
+                }
+            }
+        }
+
+        public string ChatId
+        {
+            get { return chatId; }
+            set
+            {
+                if (value != chatId)
+                {
+                    chatId = value;
+                    OnPropertyChanged(nameof(ChatId));
                 }
             }
         }

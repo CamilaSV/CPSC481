@@ -27,46 +27,27 @@ namespace CPSC481Group12FoodyApp
         public static void loadChatList()
         {
             SessionData.initializeChatList();
+            ComponentFunctions.refreshAll();
         }
 
         public static void enterOneChat(UserControl_ChatList chatListPage, string chatId)
         {
             SessionData.initializeChat(chatId);
+            ComponentFunctions.refreshAll();
         }
 
         public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
         {
             Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendFromList(emailTarget);
+            ComponentFunctions.refreshAll();
             profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(SessionData.getCurrentEmail());
-        }
-
-        public static void acceptChatInvite(string chatId)
-        {
-            Logic_CreateLoadChat.acceptChatInvite(SessionData.getCurrentEmail(), chatId);
-            SessionData.addNewChatToList(Logic_CreateLoadChat.previewOneChat(chatId));
-            SessionData.remInvFromList(chatId);
-        }
-
-        public static void removeChatInvite(string chatId)
-        {
-            Logic_CreateLoadChat.removeChatInvite(SessionData.getCurrentEmail(), chatId);
-            SessionData.remInvFromList(chatId);
-        }
-
-        public static void acceptChatInvite(int chatId)
-        {
-            acceptChatInvite(chatId.ToString());
-        }
-
-        public static void removeChatInvite(int chatId)
-        {
-            removeChatInvite(chatId.ToString());
         }
 
         public static void enterOneChat(UserControl_ChatList chatListPage, int chatId)
         {
             SessionData.initializeChat(chatId);
+            ComponentFunctions.refreshAll();
         }
     }
 }

@@ -27,17 +27,17 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public string getOneMessageSender(int index)
         {
-            return eachRoomChats.Item3.ElementAt(index).getEmail();
+            return eachRoomChats.Item3[index].getEmail();
         }
 
         public string getOneMessageMessage(int index)
         {
-            return eachRoomChats.Item3.ElementAt(index).getMessage();
+            return eachRoomChats.Item3[index].getMessage();
         }
 
         public string getOneMessageTime(int index)
         {
-            return eachRoomChats.Item3.ElementAt(index).getTime();
+            return eachRoomChats.Item3[index].getTime();
         }
 
         public void Add(TupleEachMsg item)

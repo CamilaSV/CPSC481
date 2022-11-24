@@ -36,5 +36,8 @@
             <TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="14" TextTrimming="CharacterEllipsis" Text="{Binding ChatLastTime, TargetNullValue=''}" Width="80"/>
             <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="24" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatName, TargetNullValue=''}"/>
         </DockPanel>
+        <DockPanel Margin="375,45,6,3" Grid.Column="2" Grid.ColumnSpan="2" Visibility="Hidden">
+            <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatId, TargetNullValue=''}"/>
+        </DockPanel>
     </Grid>
 </UserControl>
