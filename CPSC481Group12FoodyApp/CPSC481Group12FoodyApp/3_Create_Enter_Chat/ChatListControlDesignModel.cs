@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class ChatListControlDesignModel : propertyChange, Interface_ChatListComponent
+    public class ChatListControlDesignModel : propertyChange_Chat, Interface_ChatListComponent
     {
         public static ChatListControlDesignModel Instance { get; } = new ChatListControlDesignModel();
 
-        private ObservableCollection<propertyChange> chats;
-        public ObservableCollection<propertyChange> Chats
+        private ObservableCollection<propertyChange_Chat> chats;
+        public ObservableCollection<propertyChange_Chat> Chats
         {
             get { return chats; }
             set
@@ -29,12 +29,12 @@ namespace CPSC481Group12FoodyApp
         public ChatListControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            Chats = Logic_Profle.displayUsersChatList();
+            Chats = Logic_CreateLoadChat.displayUsersChatList();
         }
 
         public void refreshComponent()
         {
-            Chats = Logic_Profle.displayUsersChatList();
+            Chats = Logic_CreateLoadChat.displayUsersChatList();
         }
     }
 }

@@ -8,11 +8,49 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\static\RobotoMono-Bold.ttf" />
+    <None Remove="Fonts\static\RobotoMono-BoldItalic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-ExtraLight.ttf" />
+    <None Remove="Fonts\static\RobotoMono-ExtraLightItalic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-Italic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-Light.ttf" />
+    <None Remove="Fonts\static\RobotoMono-LightItalic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-Medium.ttf" />
+    <None Remove="Fonts\static\RobotoMono-MediumItalic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-Regular.ttf" />
+    <None Remove="Fonts\static\RobotoMono-SemiBold.ttf" />
+    <None Remove="Fonts\static\RobotoMono-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\static\RobotoMono-Thin.ttf" />
+    <None Remove="Fonts\static\RobotoMono-ThinItalic.ttf" />
+    <None Remove="Images\add.png" />
+    <None Remove="Images\AppIcon.png" />
+    <None Remove="Images\backbutton.png" />
+    <None Remove="Images\calendar.png" />
+    <None Remove="Images\chat.png" />
+    <None Remove="Images\edit.png" />
+    <None Remove="Images\EditIcon.png" />
+    <None Remove="Images\FemaleAvatar.png" />
+    <None Remove="Images\filter.png" />
+    <None Remove="Images\forlater.png" />
+    <None Remove="Images\heart.png" />
+    <None Remove="Images\home.png" />
+    <None Remove="Images\InfoIcon.png" />
+    <None Remove="Images\MaleAvatar.png" />
+    <None Remove="Images\MessageBubble.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="Images\send.png" />
+    <None Remove="Images\SendButtonIcon.png" />
+    <None Remove="Images\star.png" />
+    <None Remove="Images\trash.png" />
+    <None Remove="Images\user_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Remove="ChatEditCriteria.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ChatScreens\ChatEditCriteria.xaml">
+    <Content Include="5_OneChat\ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Content>
   </ItemGroup>
@@ -24,37 +62,37 @@
     <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="ChatScreens\ChatEditMembersRemove.xaml">
+    <Page Update="5_OneChat\ChatEditMembersRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreens\ChatEditMembers.xaml">
+    <Page Update="5_OneChat\ChatEditMembers.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreens\ChatEditRestaurantRemove.xaml">
+    <Page Update="5_OneChat\ChatEditRestaurantRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreens\ChatInfoScreen.xaml">
+    <Page Update="5_OneChat\ChatInfoScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreens\ChatScreenEventNotify.xaml">
+    <Page Update="5_OneChat\ChatScreenEventNotify.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChatScreens\ChatScreen.xaml">
+    <Page Update="5_OneChat\ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="ChatScreens\ChatEditRestaurant.xaml">
+    <Page Update="5_OneChat\ChatEditRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CreateEventScreen.xaml">
+    <Page Update="5_OneChat\CreateEventScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="SuggestRestaurant.xaml">
+    <Page Update="5_OneChat\SuggestRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -67,7 +105,41 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <Resource Include="Fonts\static\RobotoMono-Bold.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-BoldItalic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-ExtraLight.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-Italic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-Light.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-LightItalic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-Medium.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-MediumItalic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-Regular.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-SemiBold.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-Thin.ttf" />
+    <Resource Include="Fonts\static\RobotoMono-ThinItalic.ttf" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\AppIcon.png" />
+    <Resource Include="Images\backbutton.png" />
+    <Resource Include="Images\calendar.png" />
+    <Resource Include="Images\chat.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\EditIcon.png" />
+    <Resource Include="Images\FemaleAvatar.png" />
+    <Resource Include="Images\filter.png" />
+    <Resource Include="Images\forlater.png" />
+    <Resource Include="Images\heart.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\InfoIcon.png" />
+    <Resource Include="Images\MaleAvatar.png" />
+    <Resource Include="Images\MessageBubble.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\send.png" />
+    <Resource Include="Images\SendButtonIcon.png" />
+    <Resource Include="Images\star.png" />
+    <Resource Include="Images\trash.png" />
+    <Resource Include="Images\user_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,7 +158,7 @@
     <Compile Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControl_Profile.xaml.cs">
+    <Compile Update="6_Profile\UserControl_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_Create_Enter_Chat\UserControl_ChatList.xaml.cs">
@@ -104,7 +176,7 @@
     <Page Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="UserControl_Profile.xaml">
+    <Page Update="6_Profile\UserControl_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="3_Create_Enter_Chat\UserControl_ChatList.xaml">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -115,6 +116,30 @@ namespace CPSC481Group12FoodyApp.Logic
             DateTime lastTime = DateTime.Parse(File.ReadLines(PathFinder.getChatLogSender(chatId)).Last());
 
             return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
+        }
+
+        public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
+        {
+            ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
+
+            if (SessionData.getCurrentChatList().Any())
+            {
+                foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
+                {
+                    propertyChange_Chat requestItem = new propertyChange_Chat
+                    {
+                        ChatId = lastmsg.Item1,
+                        ChatName = lastmsg.Item2,
+                        ChatLastSender = lastmsg.Item3.getEmail(),
+                        ChatLastMsg = lastmsg.Item3.getMessage(),
+
+                        ChatLastTime = lastmsg.Item3.getTime(),
+                    };
+                    chatListCollection.Add(requestItem);
+                }
+            }
+
+            return chatListCollection;
         }
 
         public static Tuple<string, string, TupleEachMsg> previewOneChat(int chatId)

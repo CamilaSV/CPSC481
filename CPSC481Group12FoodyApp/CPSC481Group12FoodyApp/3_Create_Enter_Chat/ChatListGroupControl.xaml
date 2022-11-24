@@ -30,9 +30,12 @@
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>
-                <TextBlock  DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding GroupName}"/>
+                <TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="14" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatLastTime}"/>
+                <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding GroupName}"/>
             </DockPanel>
         </Border>
+        <DockPanel Margin="10,45,0,3" Grid.Column="2">
+            <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatLastMsg}"/>
+        </DockPanel>
     </Grid>
 </UserControl>

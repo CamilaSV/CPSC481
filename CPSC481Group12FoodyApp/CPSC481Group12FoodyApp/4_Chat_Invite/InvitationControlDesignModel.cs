@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class InvitationControlDesignModel : propertyChange
+    public class InvitationControlDesignModel : propertyChange_ChatInvite
     {
         public static InvitationControlDesignModel Instance { get; } = new InvitationControlDesignModel();
 
-        private ObservableCollection<propertyChange> chats;
-        public ObservableCollection<propertyChange> Chats
+        private ObservableCollection<propertyChange_Friend> chats;
+        public ObservableCollection<propertyChange_Friend> Chats
         {
             get { return chats; }
             set
@@ -27,15 +27,15 @@ namespace CPSC481Group12FoodyApp
 
         public InvitationControlDesignModel()
         {
-            this.Chats = new ObservableCollection<propertyChange>
+            this.Chats = new ObservableCollection<propertyChange_ChatInvite>
             {
-                new propertyChange
+                new propertyChange_ChatInvite
                 {
                      GroupName = "Foodies",
                      UserName = "Jessica",
                 },
 
-                new propertyChange
+                new propertyChange_ChatInvite
                 {
                     GroupName = "Trio",
                      UserName = "Bob",

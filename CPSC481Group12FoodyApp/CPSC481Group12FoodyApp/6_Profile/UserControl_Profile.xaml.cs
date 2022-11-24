@@ -59,7 +59,7 @@ namespace CPSC481Group12FoodyApp
             navigate_helper.gotoAddFriend();
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void editBtn(object sender, RoutedEventArgs e)
         {
 
         }

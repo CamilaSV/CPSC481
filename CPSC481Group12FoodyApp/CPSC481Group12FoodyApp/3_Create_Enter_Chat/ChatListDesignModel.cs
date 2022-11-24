@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class ChatListDesignModel : propertyChange
+    public class ChatListDesignModel : propertyChange_Chat
     {
         public static ChatListDesignModel Instance { get; } = new ChatListDesignModel();
         public ChatListDesignModel()

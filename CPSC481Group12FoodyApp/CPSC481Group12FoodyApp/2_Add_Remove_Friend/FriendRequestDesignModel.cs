@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class FriendRequestDesignModel : propertyChange
+    public class FriendRequestDesignModel : propertyChange_Friend
     {
         public static FriendRequestDesignModel Instance { get; } = new FriendRequestDesignModel();
         public FriendRequestDesignModel()

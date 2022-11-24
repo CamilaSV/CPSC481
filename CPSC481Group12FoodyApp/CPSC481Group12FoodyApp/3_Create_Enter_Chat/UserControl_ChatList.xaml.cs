@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_ChatList : UserControl, Interface_FriendListComponent
+    public partial class UserControl_ChatList : UserControl, Interface_ChatListComponent
     {
         internal PageNavigator navigate_helper;
 
