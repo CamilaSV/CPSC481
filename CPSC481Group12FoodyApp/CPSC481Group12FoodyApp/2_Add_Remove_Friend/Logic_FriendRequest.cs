@@ -14,20 +14,17 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
 
-            if (SessionData.getCurrentFriendReq().Any())
+            string name;
+            foreach (string line in SessionData.getCurrentFriendReq())
             {
-                string name;
-                foreach (string line in SessionData.getCurrentFriendReq())
+                name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
+                propertyChange_Friend requestItem = new propertyChange_Friend
                 {
-                    name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
-                    propertyChange_Friend requestItem = new propertyChange_Friend
-                    {
-                        TargetEmail = line,
-                        TargetUserName = name,
-                        Abbreviation = name.Substring(0, 1),
-                    };
-                    friendRequestCollection.Add(requestItem);
-                }
+                    TargetEmail = line,
+                    TargetUserName = name,
+                    Abbreviation = name.Substring(0, 1),
+                };
+                friendRequestCollection.Add(requestItem);
             }
 
             return friendRequestCollection;

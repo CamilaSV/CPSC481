@@ -11,8 +11,8 @@ namespace CPSC481Group12FoodyApp
     {
         public static InvitationControlDesignModel Instance { get; } = new InvitationControlDesignModel();
 
-        private ObservableCollection<propertyChange_Friend> chats;
-        public ObservableCollection<propertyChange_Friend> Chats
+        private ObservableCollection<propertyChange_ChatInvite> chats;
+        public ObservableCollection<propertyChange_ChatInvite> Chats
         {
             get { return chats; }
             set

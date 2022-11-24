@@ -27,7 +27,6 @@ namespace CPSC481Group12FoodyApp
         {
             Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendFromList(emailTarget);
-            profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(SessionData.getCurrentEmail());
         }
 
         public static void acceptFriendReq(string emailTarget)
@@ -40,7 +39,7 @@ namespace CPSC481Group12FoodyApp
         public static void denyFriendReq(string emailTarget)
         {
             Logic_AddRemFriend.removeFriendReq(SessionData.getCurrentEmail(), emailTarget);
-            SessionData.remFriendFromList(emailTarget);
+            SessionData.remFriendReqFromList(emailTarget);
         }
     }
 }
