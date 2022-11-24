@@ -11,6 +11,7 @@ namespace CPSC481Group12FoodyApp
 {
     public class propertyChange_Chat : INotifyPropertyChanged
     {
+        private string abbreviation;
         private string chatId;
         private string chatName;
         private string chatLastSender;
@@ -23,6 +24,19 @@ namespace CPSC481Group12FoodyApp
         public void OnPropertyChanged([CallerMemberName] String name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public string Abbreviation
+        {
+            get { return abbreviation; }
+            set
+            {
+                if (value != abbreviation)
+                {
+                    abbreviation = value;
+                    OnPropertyChanged(nameof(Abbreviation));
+                }
+            }
         }
 
         public string ChatId

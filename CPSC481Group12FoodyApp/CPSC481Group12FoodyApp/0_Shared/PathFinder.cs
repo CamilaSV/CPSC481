@@ -9,14 +9,28 @@ namespace CPSC481Group12FoodyApp.Logic
     public static class PathFinder
     {
         // get paths for restaurant data
+        public static string getResDir(string restaurantId) {
+            return resDir + restaurantId + "\\";
+        }
+
+        public static string getRestaurantId(string restaurantId)
+        {
+            return getResDir(restaurantId) + res_id;
+        }
+
         public static string getRestaurantName(string restaurantId)
         {
-            return resDir + restaurantId + "\\" + res_name;
+            return getResDir(restaurantId) + res_name;
         }
 
         public static string getRestaurantCriteria(string restaurantId)
         {
-            return resDir + restaurantId + "\\" + res_criteria;
+            return getResDir(restaurantId) + res_criteria;
+        }
+
+        public static string getRestaurantAddress(string restaurantId)
+        {
+            return getResDir(restaurantId) + res_address;
         }
 
         // get directory path for the account
@@ -137,6 +151,16 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // get file path for the group's specific event's restaurant name
+        public static string getAccFutSchGroupEvId(string email, string chatId, string eventId)
+        {
+            return getAccFutSchGroupDir(email, chatId) + ev_id;
+        }
+
+        public static string getAccCompSchGroupEvId(string email, string chatId, string eventId)
+        {
+            return getAccCompSchGroupDir(email, chatId) + ev_id;
+        }
+
         public static string getAccFutSchGroupEvName(string email, string chatId, string eventId)
         {
             return getAccFutSchGroupDir(email, chatId) + ev_resname;
@@ -159,6 +183,11 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // get file paths for the group
+        public static string getChatId(string chatId)
+        {
+            return getChatDir(chatId) + chat_id;
+        }
+
         public static string getChatName(string chatId)
         {
             return getChatDir(chatId) + chat_name;
@@ -233,6 +262,7 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string accCat_res = "restaurants.dat";
 
         private const string chatDir = "DB\\Groups\\";
+        private const string chat_id = "chat_id.dat";
         private const string chat_name = "name.dat";
         private const string chat_admin = "admin.dat";
         private const string chat_member = "members.dat";
@@ -244,14 +274,27 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string scheduleEventDir = "Events\\Schedule\\";
         private const string completeEventDir = "Events\\Complete\\";
 
+        private const string ev_id = "event_id.dat";
         private const string ev_resname = "restaurant_name.dat";
         private const string ev_date = "date.dat";
 
         private const string resDir = "DB\\Restaurants\\";
+        private const string res_id = "res_id.dat";
         private const string res_name = "res_name.dat";
         private const string res_criteria = "res_criteria.dat";
+        private const string res_address = "res_address.dat";
 
         // polymorphism methods go down here
+        public static string getResDir(int restaurantId)
+        {
+            return getResDir(restaurantId.ToString());
+        }
+
+        public static string getRestaurantId(int restaurantId)
+        {
+            return getRestaurantId(restaurantId.ToString());
+        }
+
         public static string getRestaurantName(int restaurantId)
         {
             return getRestaurantName(restaurantId.ToString());
@@ -260,6 +303,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getRestaurantCriteria(int restaurantId)
         {
             return getRestaurantCriteria(restaurantId.ToString());
+        }
+
+        public static string getRestaurantAddress(int restaurantId)
+        {
+            return getRestaurantAddress(restaurantId.ToString());
         }
 
         public static string getAccOneCategoryDir(string email, int categoryId)
@@ -332,6 +380,36 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatCompSchEvDir(chatId.ToString(), eventId.ToString());
         }
 
+        public static string getAccFutSchGroupEvId(string email, string chatId, int eventId)
+        {
+            return getAccFutSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getAccFutSchGroupEvId(string email, int chatId, string eventId)
+        {
+            return getAccFutSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getAccFutSchGroupEvId(string email, int chatId, int eventId)
+        {
+            return getAccFutSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getAccCompSchGroupEvId(string email, string chatId, int eventId)
+        {
+            return getAccCompSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getAccCompSchGroupEvId(string email, int chatId, string eventId)
+        {
+            return getAccCompSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getAccCompSchGroupEvId(string email, int chatId, int eventId)
+        {
+            return getAccCompSchGroupEvId(email, chatId.ToString(), eventId.ToString());
+        }
+
         public static string getAccFutSchGroupEvName(string email, string chatId, int eventId)
         {
             return getAccFutSchGroupEvName(email, chatId.ToString(), eventId.ToString());
@@ -390,6 +468,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getAccCompSchGroupEvDate(string email, int chatId, int eventId)
         {
             return getAccCompSchGroupEvDate(email, chatId.ToString(), eventId.ToString());
+        }
+
+        public static string getChatId(int chatId)
+        {
+            return getChatId(chatId.ToString());
         }
 
         public static string getChatName(int chatId)

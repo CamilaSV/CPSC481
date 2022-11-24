@@ -10,6 +10,29 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_CreateLoadChat
     {
+        public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
+        {
+            ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
+
+            foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
+            {
+                System.Diagnostics.Debug.WriteLine("ChatId: " + lastmsg.Item1);
+                propertyChange_Chat chatItem = new propertyChange_Chat
+                {
+                    Abbreviation = lastmsg.Item2.Substring(0, 1),
+                    ChatId = lastmsg.Item1,
+                    ChatName = lastmsg.Item2,
+                    ChatLastSender = lastmsg.Item3.getEmail(),
+                    ChatLastMsg = lastmsg.Item3.getMessage(),
+
+                    ChatLastTime = lastmsg.Item3.getTime(),
+                };
+                chatListCollection.Add(chatItem);
+            }
+
+            return chatListCollection;
+        }
+
         public static string createChat(string chatName, string emailCreator, List<string> emailsToInvite)
         {
             string result;
@@ -116,30 +139,6 @@ namespace CPSC481Group12FoodyApp.Logic
             DateTime lastTime = DateTime.Parse(File.ReadLines(PathFinder.getChatLogSender(chatId)).Last());
 
             return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));
-        }
-
-        public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
-        {
-            ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
-
-            if (SessionData.getCurrentChatList().Any())
-            {
-                foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
-                {
-                    propertyChange_Chat requestItem = new propertyChange_Chat
-                    {
-                        ChatId = lastmsg.Item1,
-                        ChatName = lastmsg.Item2,
-                        ChatLastSender = lastmsg.Item3.getEmail(),
-                        ChatLastMsg = lastmsg.Item3.getMessage(),
-
-                        ChatLastTime = lastmsg.Item3.getTime(),
-                    };
-                    chatListCollection.Add(requestItem);
-                }
-            }
-
-            return chatListCollection;
         }
 
         public static Tuple<string, string, TupleEachMsg> previewOneChat(int chatId)
