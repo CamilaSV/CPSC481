@@ -20,11 +20,8 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatScreen_Unused : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatScreen_Unused(PageNavigator navigate_helper)
+        public ChatScreen_Unused()
         {
-            this.navigate_helper = navigate_helper;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

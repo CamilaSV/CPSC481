@@ -166,12 +166,12 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static string getCurrentEpochTime()
         {
-            return DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+            return DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
         }
 
         public static string getDateOrTimefromEpoch(string epochTime)
         {
-            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeSeconds(long.Parse(epochTime.Trim()));
+            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(epochTime.Trim()));
 
             DateTime epochDateTime = timeoff.DateTime.ToLocalTime();
             string dateOrTime;

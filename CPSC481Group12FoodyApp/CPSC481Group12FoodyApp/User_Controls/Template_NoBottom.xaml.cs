@@ -20,12 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class Template_NoBottom : UserControl
     {
-        internal PageNavigator navigate_helper;
-
-        public Template_NoBottom(PageNavigator navigate_helper)
+        public Template_NoBottom()
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
         }
     }
 }

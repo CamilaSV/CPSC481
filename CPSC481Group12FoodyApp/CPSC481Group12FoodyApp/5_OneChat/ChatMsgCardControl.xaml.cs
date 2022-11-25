@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatMsgCardControl : UserControl
     {
-        internal PageNavigator navigator_helper;
         public ChatMsgCardControl()
         {
             InitializeComponent();
-            this.navigator_helper = navigator_helper;
         }
 
         private void addBtn(object sender, RoutedEventArgs e)

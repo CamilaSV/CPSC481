@@ -20,33 +20,25 @@ namespace CPSC481Group12FoodyApp.User_Controls
     /// </summary>
     public partial class Template_MainPage : UserControl
     {
-        internal PageNavigator navigate_helper;
-
         public Template_MainPage()
         {
             InitializeComponent();
         }
 
-        public Template_MainPage(PageNavigator navigate_helper)
-        {
-            InitializeComponent();
-            this.navigate_helper = navigate_helper;
-        }
-
         private void Bottom_HomeButton_Click(object sender, MouseButtonEventArgs e)
         {
-            navigate_helper.gotoHomePage();
+            PageNavigator.gotoHomePage();
 
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCalendar();
+            PageNavigator.gotoCalendar();
         }
 
         private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)

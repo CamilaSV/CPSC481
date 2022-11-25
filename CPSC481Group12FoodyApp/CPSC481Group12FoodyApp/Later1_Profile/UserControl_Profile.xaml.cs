@@ -53,7 +53,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddFriend_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoAddFriend();
+            PageNavigator.gotoAddFriend();
         }
 
         private void editBtn(object sender, RoutedEventArgs e)
