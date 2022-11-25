@@ -46,7 +46,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void initializeChatList()
         {
             currentChatList = Logic_CreateLoadChat.loadChatList(currentUserEmail);
-            currentChatList.Sort(delegate (Tuple<string, string, TupleEachMsg> msg1, Tuple<string, string, TupleEachMsg> msg2) { return long.Parse(msg1.Item3.getTime()).CompareTo(long.Parse(msg2.Item3.getTime())); });
+            currentChatList.Sort(delegate (Tuple<string, string, TupleEachMsg> msg1, Tuple<string, string, TupleEachMsg> msg2) { return long.Parse(msg2.Item3.getTime()).CompareTo(long.Parse(msg1.Item3.getTime())); });
             ComponentFunctions.refreshAll();
         }
 
