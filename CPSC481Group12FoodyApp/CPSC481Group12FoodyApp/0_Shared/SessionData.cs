@@ -47,23 +47,27 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             currentChatList = Logic_CreateLoadChat.loadChatList(currentUserEmail);
             currentChatList.Sort(delegate (Tuple<string, string, TupleEachMsg> msg1, Tuple<string, string, TupleEachMsg> msg2) { return long.Parse(msg1.Item3.getTime()).CompareTo(long.Parse(msg2.Item3.getTime())); });
+            ComponentFunctions.refreshAll();
         }
 
         public static void initializeChatInvitesReceived()
         {
             currentChatInv_Id = File.ReadAllLines(PathFinder.getAccChatInvId(currentUserEmail)).ToList();
             currentChatInv_SenderEmail = File.ReadAllLines(PathFinder.getAccChatInvSender(currentUserEmail)).ToList();
+            ComponentFunctions.refreshAll();
         }
 
         public static void initializeChatInvitesToSend()
         {
             friendsInvitedToChat.Clear();
+            ComponentFunctions.refreshAll();
         }
 
         public static void initializeChat(string chatId)
         {
             // not finished
             currentChatId = chatId;
+            ComponentFunctions.refreshAll();
         }
 
         public static string getCurrentEmail()
@@ -114,37 +118,44 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addFriendToList(string item)
         {
             currentFriendList.Add(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void addFriendReqToList(string item)
         {
             currentFriendReq.Add(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void addInvToList(string email, string chatId)
         {
             currentChatInv_Id.Add(chatId);
             currentChatInv_SenderEmail.Add(email);
+            ComponentFunctions.refreshAll();
         }
 
         public static void addNewChatToList(Tuple<string, string, TupleEachMsg> item)
         {
             currentChatList.Add(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void addChatLogToList(TupleEachMsg item)
         {
             currentChatLog.Add(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void remFriendFromList(string item)
         {
             currentFriendList.Remove(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void remFriendReqFromList(string item)
         {
             currentFriendReq.Remove(item);
+            ComponentFunctions.refreshAll();
         }
 
         public static void remOneInvFromList(string email, string chatId)
@@ -163,6 +174,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                 }
             }
+
+            ComponentFunctions.refreshAll();
         }
 
         public static void remAllInvFromList(string chatId)
@@ -176,6 +189,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     currentChatInv_SenderEmail.RemoveAt(i);
                 }
             }
+
+            ComponentFunctions.refreshAll();
         }
 
         public static void remOneInvFromList(string email, int chatId)

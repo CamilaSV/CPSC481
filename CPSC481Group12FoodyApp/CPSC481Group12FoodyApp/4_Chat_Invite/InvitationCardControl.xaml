@@ -34,11 +34,11 @@
 
         <Border Grid.Column="2" VerticalAlignment="Center" >
             <StackPanel>
-                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName}" Padding="0,0,0,0"/>
-                <TextBlock x:Name="UserNameTextBlock" FontFamily="Segoe UI Light" FontSize="15" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding SenderName}"/>
+                <TextBlock FontFamily="Segoe UI SemiBold" FontSize="20" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding GroupName, TargetNullValue=''}" Padding="0,0,0,0"/>
+                <TextBlock x:Name="UserNameTextBlock" FontFamily="Segoe UI Light" FontSize="15" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding SenderName, TargetNullValue=''}"/>
             </StackPanel>
         </Border>
-        <TextBlock x:Name="ChatIdTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding ChatId}"/>
-        <TextBlock x:Name="SenderEmailTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding SenderEmail}"/>
+        <TextBlock x:Name="ChatIdTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding ChatId, TargetNullValue=''}"/>
+        <TextBlock x:Name="SenderEmailTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding SenderEmail, TargetNullValue=''}"/>
     </Grid>
 </UserControl>

@@ -20,14 +20,12 @@ namespace CPSC481Group12FoodyApp
         {
             Logic_ChatInvites.removeAllChatInvites(SessionData.getCurrentEmail(), chatId);
             SessionData.remAllInvFromList(chatId);
-            ComponentFunctions.refreshAll();
         }
 
         public static void removeOneChatInvite(string emailSender, string chatId)
         {
             Logic_ChatInvites.removeOneChatInvite(SessionData.getCurrentEmail(), emailSender, chatId);
             SessionData.remOneInvFromList(emailSender, chatId);
-            ComponentFunctions.refreshAll();
         }
 
         public static void acceptChatInvite(int chatId)

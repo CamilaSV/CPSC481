@@ -27,27 +27,23 @@ namespace CPSC481Group12FoodyApp
         public static void loadChatList()
         {
             SessionData.initializeChatList();
-            ComponentFunctions.refreshAll();
         }
 
         public static void enterOneChat(UserControl_ChatList chatListPage, string chatId)
         {
             SessionData.initializeChat(chatId);
-            ComponentFunctions.refreshAll();
         }
 
         public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
         {
             Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
             SessionData.remFriendFromList(emailTarget);
-            ComponentFunctions.refreshAll();
             profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(SessionData.getCurrentEmail());
         }
 
         public static void enterOneChat(UserControl_ChatList chatListPage, int chatId)
         {
             SessionData.initializeChat(chatId);
-            ComponentFunctions.refreshAll();
         }
     }
 }

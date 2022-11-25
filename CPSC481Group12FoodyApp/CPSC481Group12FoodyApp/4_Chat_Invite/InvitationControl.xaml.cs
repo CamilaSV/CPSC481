@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -21,19 +22,19 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for InvitationControl.xaml
     /// </summary>
-    public partial class InvitationControl : UserControl
+    public partial class InvitationControl : UserControl, Interface_ChatInvComponent
     {
-
         public InvitationControl()
         {
 
             InitializeComponent();
             this.DataContext = this;
-            
+            ComponentFunctions.addComponentToList(this);
         }
 
+        public void refreshComponent()
+        {
+            ListControl.Items.Refresh();
+        }
     }
-
-        
-    
 }

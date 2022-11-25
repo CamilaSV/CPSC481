@@ -12,7 +12,7 @@
 
     <Grid DataContext="{x:Static local:InvitationControlDesignModel.Instance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Chats}">
+            <ItemsControl x:Name="ListControl" ItemsSource="{Binding Invites}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:InvitationCardControl/>

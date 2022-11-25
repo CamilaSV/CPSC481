@@ -57,8 +57,15 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void removeOneChatInvite(string emailUser, string emailSender, string chatId)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInvId(emailUser), chatId);
-            SharedFunctions.removeLineFromFile(PathFinder.getAccChatInvSender(emailUser), emailSender);
+            List<string> filepaths = new List<string>()
+            {
+                PathFinder.getAccChatInvId(emailUser),
+                PathFinder.getAccChatInvSender(emailUser)
+            };
+
+            List<string> linesToRemove = new List<string>() { emailSender, chatId };
+
+            SharedFunctions.removeLinesOnMatchAll(filepaths, linesToRemove);
         }
 
         public static void acceptChatInvite(string emailUser, int chatId)

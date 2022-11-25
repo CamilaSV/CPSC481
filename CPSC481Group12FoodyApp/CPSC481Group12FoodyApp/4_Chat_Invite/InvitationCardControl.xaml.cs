@@ -29,6 +29,7 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("Chat ID is: " + ChatIdTextBlock.Text);
             API_ChatInvites.acceptChatInvite(ChatIdTextBlock.Text);
         }
 

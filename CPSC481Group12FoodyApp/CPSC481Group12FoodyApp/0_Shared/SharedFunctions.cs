@@ -57,6 +57,47 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
+        // remove a line only if every linesToRemove match every corresponding file on the same line
+        // filepaths and linesToRemove must have same length
+        public static void removeLinesOnMatchAll(List<string> filepaths, List<string> linesToRemove)
+        {
+            List<string[]> allLinesItems = new List<string[]>();
+            List<StreamWriter> fileWriters = new List<StreamWriter>();
+            for (int i = 0; i < filepaths.Count; i++)
+            {
+                allLinesItems.Add(File.ReadAllLines(filepaths[i]));
+                fileWriters.Add(File.CreateText(filepaths[i]));
+            }
+
+            Boolean matchedAll;
+            // traverse in reverse so it doesn't mess with the line numbers
+            for (int i = allLinesItems[0].Length - 1; i >= 0; i--)
+            {
+                matchedAll = true;
+                for (int j = 0; j < filepaths.Count; j++)
+                {
+                    if (!allLinesItems[j][i].Equals(linesToRemove[j]))
+                    {
+                        matchedAll = false;
+                        break;
+                    }
+                }
+
+                if (matchedAll)
+                {
+                    for (int j = 0; j < filepaths.Count; j++)
+                    {
+                        fileWriters[j].WriteLine(allLinesItems[j][i]);
+                    }
+                }
+            }
+
+            foreach (StreamWriter fileWriter in fileWriters)
+            {
+                fileWriter.Close();
+            }
+        }
+
         // append target line to file
         public static void appendLineToFile(string filePath, string lineToAppend)
         {
