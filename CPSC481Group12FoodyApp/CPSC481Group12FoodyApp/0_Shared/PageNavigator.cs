@@ -96,5 +96,10 @@ namespace CPSC481Group12FoodyApp
         {
             targetWindow.Content = invitationsPage;
         }
+
+        public static ChatScreen getChatScreen()
+        {
+            return chatScreenPage;
+        }
     }
 }

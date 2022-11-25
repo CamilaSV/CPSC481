@@ -16,10 +16,10 @@
     <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_OneChat\ChatMsgCardControl.xaml">
+    <Page Update="3_Create_Enter_Chat\ChatMsgCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_OneChat\ChatScreen.xaml">
+    <Page Update="3_Create_Enter_Chat\ChatScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="7_ChatEvent\ChatAddCustomTime.xaml">

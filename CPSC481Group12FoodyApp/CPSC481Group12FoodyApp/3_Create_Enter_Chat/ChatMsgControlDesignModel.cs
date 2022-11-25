@@ -29,12 +29,12 @@ namespace CPSC481Group12FoodyApp
         public ChatMsgControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-//            Invites = Logic_ChatInvites.displayUsersGroupInviteList();
+            Messages = Logic_ChatScreen.displayChatMsgList();
         }
 
         public void refreshComponent()
         {
-//            Invites = Logic_ChatInvites.displayUsersGroupInviteList();
+            Messages = Logic_ChatScreen.displayChatMsgList();
         }
     }
 }

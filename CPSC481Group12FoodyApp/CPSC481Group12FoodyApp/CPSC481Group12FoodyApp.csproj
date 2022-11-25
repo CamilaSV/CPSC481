@@ -50,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="6_ChatInfo\ChatEditCriteria.xaml">
+    <Content Include="5_ChatInfo\ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Content>
   </ItemGroup>
@@ -65,22 +65,22 @@
     <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_OneChat\ChatScreen.xaml">
+    <Page Update="3_Create_Enter_Chat\ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="6_ChatInfo\ChatEditMembersRemove.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="6_ChatInfo\ChatEditMembers.xaml">
+    <Page Update="5_ChatInfo\ChatEditMembersRemove.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatInfo\ChatEditRestaurantRemove.xaml">
+    <Page Update="5_ChatInfo\ChatEditMembers.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatInfo\ChatInfoScreen.xaml">
+    <Page Update="5_ChatInfo\ChatEditRestaurantRemove.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\ChatInfoScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -91,7 +91,7 @@
     <Page Update="Unused\ChatScreen_Unused.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="6_ChatInfo\ChatEditRestaurant.xaml">
+    <Page Update="5_ChatInfo\ChatEditRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -149,10 +149,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="5_OneChat\ChatMsgCardControl.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\ChatMsgCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="5_OneChat\ChatScreen.xaml.cs">
+    <Compile Update="3_Create_Enter_Chat\ChatScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Unused\InvitationControl.xaml.cs">

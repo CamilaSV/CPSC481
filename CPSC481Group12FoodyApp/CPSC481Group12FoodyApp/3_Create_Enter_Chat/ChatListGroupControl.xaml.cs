@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void EnterChat_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            API_ChatScreen.enterOneChat(PageNavigator.getChatScreen(), SessionData.getCurrentEmail(), chatIdBlock.Text);
         }
     }
 }

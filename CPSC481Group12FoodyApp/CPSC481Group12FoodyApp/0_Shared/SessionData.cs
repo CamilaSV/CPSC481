@@ -22,10 +22,11 @@ namespace CPSC481Group12FoodyApp.Logic
 
         // chat data
         private static string currentChatId;
+        private static string currentChatName;
         private static List<Tuple<string, string, TupleEachMsg>> currentChatList = new List<Tuple<string, string, TupleEachMsg>>(); // chat id, chat name, last message Tuple
 
         // data for one chat
-        private static TupleOneChatLog currentChatLog;
+        private static List<TupleEachMsg> currentChatLog;
 
         // data when creating chat
         private static List<string> friendsInvitedToChat = new List<string>(); // gets invitation to be sent to other users
@@ -95,7 +96,12 @@ namespace CPSC481Group12FoodyApp.Logic
             return currentChatId;
         }
 
-        public static TupleOneChatLog getCurrentChatLog()
+        public static string getCurrentChatName()
+        {
+            return currentChatName;
+        }
+
+        public static List<TupleEachMsg> getCurrentChatLog()
         {
             return currentChatLog;
         }
