@@ -53,5 +53,10 @@ namespace CPSC481Group12FoodyApp
         {
             navigate_helper.gotoProfile();
         }
+
+        private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            navigate_helper.gotoChatList();
+        }
     }
 }

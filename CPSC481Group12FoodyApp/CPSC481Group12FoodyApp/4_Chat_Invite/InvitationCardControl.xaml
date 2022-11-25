@@ -38,7 +38,7 @@
                 <TextBlock x:Name="UserNameTextBlock" FontFamily="Segoe UI Light" FontSize="15" Width = "150" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding SenderName, TargetNullValue=''}"/>
             </StackPanel>
         </Border>
-        <TextBlock x:Name="ChatIdTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding ChatId, TargetNullValue=''}"/>
+        <TextBlock x:Name="ChatIdTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding GroupId, TargetNullValue=''}"/>
         <TextBlock x:Name="SenderEmailTextBlock"  FontFamily="Segoe UI Light" FontSize="15" TextTrimming="CharacterEllipsis" Grid.Column="3" Margin="0,40,0,2" Visibility="Hidden" Text="{Binding SenderEmail, TargetNullValue=''}"/>
     </Grid>
 </UserControl>

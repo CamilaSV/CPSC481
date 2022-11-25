@@ -146,7 +146,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="4_Chat_Invite\InvitationControl.xaml.cs">
+    <Compile Update="Unused\InvitationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="4_Chat_Invite\InvitationCardControl.xaml.cs">

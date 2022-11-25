@@ -9,7 +9,18 @@
     <Grid>
 
         <Border Padding="0,75,0,110">
-            <local:InvitationControl/>
+            <Grid DataContext="{x:Static local:InvitationControlDesignModel.Instance}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="ListControl" ItemsSource="{Binding Invites}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:InvitationCardControl>
+                                </local:InvitationCardControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
         </Border>
         
         <Border Height="1" Margin="2,752,2,100" Background="#000000"/>
@@ -18,6 +29,7 @@
         <Button x:Name="List_HomeButton" Content="Home" HorizontalAlignment="Left" Height="52" Margin="40,776,0,0" VerticalAlignment="Top" Width="76" FontFamily="Times New Roman" FontSize="16" Click="List_HomeButton_Click"/>
         <Button x:Name="List_CalButton" Content="Calendar" HorizontalAlignment="Center" Height="52" Margin="0,776,0,0" VerticalAlignment="Top" Width="76" FontFamily="Times New Roman" FontSize="16" RenderTransformOrigin="0.562,-0.107" Click="List_CalButton_Click"/>
         <Button x:Name="List_ChatButton" Content="Chats" HorizontalAlignment="Right" Height="52" Margin="0,776,43,0" VerticalAlignment="Top" Width="76" FontFamily="Times New Roman" FontSize="16" RenderTransformOrigin="0.419,0.027" Click="List_ChatButton_Click"/>
-        <Button x:Name="List_Profile" Content="👤" HorizontalAlignment="Left" Height="38" Margin="408,24,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontSize="30" Click="List_Profile_Click"/>
+        <Button x:Name="List_Profile" Content="👤" HorizontalAlignment="Left" Height="38" Margin="408,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontSize="30" Click="List_Profile_Click"/>
+        <TextBlock x:Name="BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="BackButton_MouseUp"/>
     </Grid>
 </UserControl>
