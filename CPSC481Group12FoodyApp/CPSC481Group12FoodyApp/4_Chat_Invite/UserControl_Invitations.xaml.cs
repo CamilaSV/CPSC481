@@ -22,23 +22,20 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_Invitations : UserControl, Interface_ChatInvComponent
     {
-        internal PageNavigator navigate_helper;
-
-        public UserControl_Invitations(PageNavigator navigate_helper)
+        public UserControl_Invitations()
         {
             InitializeComponent();
-            this.navigate_helper= navigate_helper;
             ComponentFunctions.addComponentToList(this);
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoHomePage();
+            PageNavigator.gotoHomePage();
         }
 
         private void List_CalButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCalendar();
+            PageNavigator.gotoCalendar();
         }
 
         private void List_ChatButton_Click(object sender, RoutedEventArgs e)
@@ -48,17 +45,17 @@ namespace CPSC481Group12FoodyApp
 
         private void List_CreateGroup_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCreateGroup();
+            PageNavigator.gotoCreateGroup();
         }
 
         private void List_Profile_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoProfile();
+            PageNavigator.gotoProfile();
         }
 
         private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         public void refreshComponent()

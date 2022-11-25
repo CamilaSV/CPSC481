@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditMembersRemove : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatEditMembersRemove(PageNavigator navigate_helper)
+        public ChatEditMembersRemove()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)

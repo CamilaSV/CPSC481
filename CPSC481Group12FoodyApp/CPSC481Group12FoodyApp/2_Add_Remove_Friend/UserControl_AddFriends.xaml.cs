@@ -21,12 +21,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_AddFriends : UserControl
     {
-        internal PageNavigator navigate_helper;
-
-        public UserControl_AddFriends(PageNavigator navigate_helper)
+        public UserControl_AddFriends()
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
         }
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)

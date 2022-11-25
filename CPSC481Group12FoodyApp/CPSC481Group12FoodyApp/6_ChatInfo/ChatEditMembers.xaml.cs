@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditMembers : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatEditMembers(PageNavigator navigate_helper)
+        public ChatEditMembers()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)

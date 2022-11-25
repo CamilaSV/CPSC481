@@ -4,106 +4,95 @@ using System.Windows.Controls;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class PageNavigator
+    public static class PageNavigator
     {
-        private Window_Single targetWindow;
-        
-        private UserControl_Start startPage;
-        private UserControl_Login loginPage;
-        private UserControl_Register registerPage;
-        private UserControl_ChatList chatListPage;
-        private UserControl_Profile profilePage;
-        private UserControl_Invitations invitationsPage;
-        private UserControl_AddFriends addFriendPage;
-        private UserControl_CreateNewChat createChatPage;
-        private ChatScreen chatScreenPage;
-        private HomePage homePage;
+        private static Window_Single targetWindow;
 
-        public PageNavigator(Window_Single target)
+        private static ChatScreen chatScreenPage = new ChatScreen();
+
+        private static UserControl_Start startPage = new UserControl_Start();
+        private static UserControl_Login loginPage = new UserControl_Login();
+        private static UserControl_Register registerPage = new UserControl_Register();
+        private static UserControl_ChatList chatListPage = new UserControl_ChatList();
+        private static UserControl_Profile profilePage = new UserControl_Profile();
+        private static UserControl_Invitations invitationsPage = new UserControl_Invitations();
+        private static UserControl_AddFriends addFriendPage = new UserControl_AddFriends();
+        private static UserControl_CreateNewChat createChatPage = new UserControl_CreateNewChat();
+        private static HomePage homePage = new HomePage();
+
+        public static void initializeProgram(Window_Single target)
         {
             targetWindow = target;
-            
-            startPage = new UserControl_Start(this);
-            loginPage = new UserControl_Login(this);
-            registerPage = new UserControl_Register(this);
-            chatListPage = new UserControl_ChatList(this);
-            profilePage = new UserControl_Profile(this);    
-            invitationsPage = new UserControl_Invitations(this);
-            addFriendPage = new UserControl_AddFriends(this);
-            createChatPage = new UserControl_CreateNewChat(this);
-            chatScreenPage = new ChatScreen(this);
-            homePage = new HomePage(this);
             targetWindow.Content = startPage;
-            
         }
 
-        public void gotoStart()
+        public static void gotoStart()
         {
             targetWindow.Content = startPage;
         }
 
-        public void gotoLogin()
+        public static void gotoLogin()
         {
             targetWindow.Content = loginPage;
         }
 
-        public void gotoRegister()
+        public static void gotoRegister()
         {
             targetWindow.Content = registerPage;
         }
 
-        public void gotoProfile()
+        public static void gotoProfile()
         {
             targetWindow.Content = profilePage;
         }
 
-        public void gotoAddFriend()
+        public static void gotoAddFriend()
         {
             targetWindow.Content = addFriendPage;
         }
 
         // below 3 are bottom navigator options
-        public void gotoCalendar()
+        public static void gotoCalendar()
         {
 
         }
 
-        public void gotoHomePage()
+        public static void gotoHomePage()
         {
             targetWindow.Content = homePage;
         }
 
-        public void gotoChatList()
+        public static void gotoChatList()
         {
             targetWindow.Content = chatListPage;
         }
 
-        public void gotoCreateGroup()
+        public static void gotoCreateGroup()
         {
             targetWindow.Content = createChatPage;
         }
 
-        public void gotoOneChat()
+        public static void gotoOneChat()
         {
             targetWindow.Content = chatScreenPage;
         }
 
-        public void gotoChatMember()
+        public static void gotoChatMember()
         {
 
         }
 
-        public void gotoChatInfo()
+        public static void gotoChatInfo()
         {
 
         }
 
-        public void gotoGroupCalendar()
+        public static void gotoGroupCalendar()
         {
 
         }
 
-        public void gotoInvitation()
+        public static void gotoInvitation()
         {
             targetWindow.Content = invitationsPage;
         }

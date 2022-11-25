@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatScheduler : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatScheduler(PageNavigator navigate_helper)
+        public ChatScheduler()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void AddTimeButton_Click(object sender, RoutedEventArgs e)

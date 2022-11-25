@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class CreateEventScreen : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public CreateEventScreen(PageNavigator navigate_helper)
+        public CreateEventScreen()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void CreateEventButton_Click(object sender, RoutedEventArgs e)

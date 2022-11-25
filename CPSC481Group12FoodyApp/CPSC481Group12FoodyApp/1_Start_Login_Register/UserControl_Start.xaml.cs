@@ -20,22 +20,19 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_Start : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public UserControl_Start(PageNavigator navigate_helper)
+        public UserControl_Start()
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoLogin();
+            PageNavigator.gotoLogin();
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoRegister();
+            PageNavigator.gotoRegister();
         }
     }
 }

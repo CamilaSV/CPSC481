@@ -22,23 +22,20 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatScreen : UserControl, Interface_ChatMsgComponent
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatScreen(PageNavigator navigate_helper)
+        public ChatScreen()
         {
             InitializeComponent();
-            this.navigate_helper= navigate_helper;
             ComponentFunctions.addComponentToList(this);
         }
 
         private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatInfo();
+            PageNavigator.gotoChatInfo();
         }
 
         public void refreshComponent()

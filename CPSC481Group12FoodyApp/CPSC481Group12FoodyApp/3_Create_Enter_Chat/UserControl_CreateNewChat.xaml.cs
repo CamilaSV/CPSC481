@@ -21,37 +21,34 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class UserControl_CreateNewChat : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public UserControl_CreateNewChat(PageNavigator navigate_helper)
+        public UserControl_CreateNewChat()
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
         }
 
         private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCalendar();
+            PageNavigator.gotoCalendar();
         }
 
         private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoHomePage();
+            PageNavigator.gotoHomePage();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoProfile();
+            PageNavigator.gotoProfile();
         }
 
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)

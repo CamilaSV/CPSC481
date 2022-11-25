@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditRestaurant : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatEditRestaurant(PageNavigator navigate_helper)
+        public ChatEditRestaurant()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void DeleteButton1_Click(object sender, RoutedEventArgs e)

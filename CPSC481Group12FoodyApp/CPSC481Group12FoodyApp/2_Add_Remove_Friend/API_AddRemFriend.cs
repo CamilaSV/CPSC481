@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp
             {
                 SessionData.addFriendToList(emailTarget);
                 ComponentFunctions.refreshAll();
-                addPage.navigate_helper.gotoProfile();
+                PageNavigator.gotoProfile();
             }
             else
             {

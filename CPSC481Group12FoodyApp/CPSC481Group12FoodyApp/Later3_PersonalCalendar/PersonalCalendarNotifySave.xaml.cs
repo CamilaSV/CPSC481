@@ -20,27 +20,24 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class PersonalCalendarNotifySave : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public PersonalCalendarNotifySave(PageNavigator navigate_helper)
+        public PersonalCalendarNotifySave()
         {
             InitializeComponent();
-            this.navigate_helper = navigate_helper;
         }
 
         private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoHomePage();
+            PageNavigator.gotoHomePage();
         }
 
         private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoCalendar();
+            PageNavigator.gotoCalendar();
         }
 
         private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+            PageNavigator.gotoChatList();
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)

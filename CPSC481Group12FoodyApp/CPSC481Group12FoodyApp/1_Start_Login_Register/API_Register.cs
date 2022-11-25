@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp
             if (result.Equals("true"))
             {
                 SessionData.initializeUser(registerWindow.Register_EmailTextBox.Text);
-                registerWindow.navigate_helper.gotoChatList();
+                PageNavigator.gotoChatList();
             }
             else
             {

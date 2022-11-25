@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatInfoScreen : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public ChatInfoScreen(PageNavigator navigate_helper)
+        public ChatInfoScreen()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void Members_ShowMoreButton_Click(object sender, RoutedEventArgs e)

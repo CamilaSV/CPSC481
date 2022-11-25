@@ -23,10 +23,7 @@ namespace CPSC481Group12FoodyApp
         public Window_Single()
         {
             InitializeComponent();
-            new PageNavigator(this); // create a new PageNavigator object which takes care of changing content
-            this.DataContext = new ChatListControlDesignModel();
-            this.DataContext = new InvitationControlDesignModel();
-            this.DataContext = new FriendRequestControlDesignModel();
+            PageNavigator.initializeProgram(this);
         }
     }
 }

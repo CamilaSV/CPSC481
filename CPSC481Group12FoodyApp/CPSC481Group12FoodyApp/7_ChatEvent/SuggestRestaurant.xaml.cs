@@ -20,11 +20,9 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class SuggestRestaurant : Page
     {
-        internal PageNavigator navigate_helper;
-
-        public SuggestRestaurant(PageNavigator navigate_helper)
+        public SuggestRestaurant()
         {
-            this.navigate_helper = navigate_helper;
+            InitializeComponent();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
