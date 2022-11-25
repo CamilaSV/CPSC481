@@ -8,7 +8,7 @@
              d:DesignHeight="853" d:DesignWidth="480">
     <Grid>
 
-        <Border Padding="0,75,0,110">
+        <Border Padding="0,75,0,0">
             <Grid DataContext="{x:Static local:ChatMsgControlDesignModel.Instance}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ItemsControl x:Name="ListControl" ItemsSource="{Binding Messages}">
