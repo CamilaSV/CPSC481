@@ -170,12 +170,11 @@ namespace CPSC481Group12FoodyApp.Logic
                         currentChatInv_Id.RemoveAt(i);
                         currentChatInv_SenderEmail.RemoveAt(i);
 
+                        ComponentFunctions.refreshAll();
                         return;
                     }
                 }
             }
-
-            ComponentFunctions.refreshAll();
         }
 
         public static void remAllInvFromList(string chatId)
