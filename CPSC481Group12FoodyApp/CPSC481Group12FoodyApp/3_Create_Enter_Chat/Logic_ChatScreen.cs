@@ -21,22 +21,22 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     chatMsgCollection.Add(new propertyChange_ChatScreen
                     {
-                        IsUser_abbreviation = null,
-                        IsUser_chatSenderEmail = null,
-                        IsUser_chatSenderName = null,
-                        IsUser_chatMsg = null,
-                        IsUser_chatTime = null,
+                        IsUser_abbreviation = oneMsg.getEmail().Substring(0, 1),
+                        IsUser_chatSenderEmail = oneMsg.getEmail(),
+                        IsUser_chatSenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(oneMsg.getEmail())),
+                        IsUser_chatMsg = oneMsg.getMessage(),
+                        IsUser_chatTime = oneMsg.getTime(),
                     } );
                 }
                 else
                 {
                     chatMsgCollection.Add(new propertyChange_ChatScreen
                     {
-                        NotUser_abbreviation = null,
-                        NotUser_chatSenderEmail = null,
-                        NotUser_chatSenderName = null,
-                        NotUser_chatMsg = null,
-                        NotUser_chatTime = null,
+                        NotUser_abbreviation = oneMsg.getEmail().Substring(0, 1),
+                        NotUser_chatSenderEmail = oneMsg.getEmail(),
+                        NotUser_chatSenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(oneMsg.getEmail())),
+                        NotUser_chatMsg = oneMsg.getMessage(),
+                        NotUser_chatTime = oneMsg.getTime(),
                     });
                 }
             }

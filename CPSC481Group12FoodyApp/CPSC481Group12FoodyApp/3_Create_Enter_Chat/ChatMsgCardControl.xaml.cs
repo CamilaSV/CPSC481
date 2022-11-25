@@ -24,15 +24,5 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
-
-        private void addBtn(object sender, RoutedEventArgs e)
-        {
-//            API_ChatInvites.acceptChatInvite(ChatIdTextBlock.Text);
-        }
-
-        private void minusBtn(object sender, RoutedEventArgs e)
-        {
-//            API_ChatInvites.removeOneChatInvite(SenderEmailTextBlock.Text, ChatIdTextBlock.Text);
-        }
     }
 }
