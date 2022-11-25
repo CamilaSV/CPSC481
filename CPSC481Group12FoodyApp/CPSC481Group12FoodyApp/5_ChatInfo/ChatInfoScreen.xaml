@@ -24,7 +24,7 @@
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}">
+        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/backbutton.png"/>
             </Button.Background>
@@ -36,7 +36,7 @@
 
             <Label x:Name="MembersLabel" Content="Members" FontSize="30" FontWeight="Bold"/>
             <Grid Height="121" Width="410" Background="LightGray">
-                <TextBlock x:Name="MembersTextBlock" Margin="10" HorizontalAlignment="Left" TextWrapping="Wrap"  FontSize="24" Width="188" Height="96"><Run Text="Me"/><LineBreak/><Run Text="Alice"/><LineBreak/><Run Text="Jane"/><LineBreak/></TextBlock>
+                <TextBlock x:Name="MembersTextBlock" Margin="10,12,0,13" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="24" Width="275" Height="96" Text=""></TextBlock>
                 <Button x:Name="Members_ShowMoreButton" Content="Show More" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="20" Height="40" Width="110" BorderBrush="{x:Null}" Background="LightGray" Click="Members_ShowMoreButton_Click"/>
             </Grid>
 
@@ -46,7 +46,7 @@
                     <Button x:Name="SchedulerDateButton" Height="38" VerticalAlignment="Center" FontSize="24" Content="Click here to see times..." BorderBrush="{x:Null}" Background="{x:Null}" Click="SchedulerDateButton_Click" />
                 </Grid>
             </Grid>
-            
+
             <Grid HorizontalAlignment="Center" Height="166" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray" Margin="0,50,0,0">
                     <TextBlock HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Language="en-ca" Text="Tacos"/><LineBreak/><Run Language="en-ca" Text="Sushi"/><LineBreak/><Run Language="en-ca" Text="$-$$"/></TextBlock>

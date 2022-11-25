@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
 
-            foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentChatList())
+            foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentUserChatList())
             {
                 propertyChange_Chat chatItem = new propertyChange_Chat
                 {

@@ -8,16 +8,19 @@ namespace CPSC481Group12FoodyApp
     {
         private static Window_Single targetWindow;
 
-        private static ChatScreen chatScreenPage = new ChatScreen();
-
         private static UserControl_Start startPage = new UserControl_Start();
         private static UserControl_Login loginPage = new UserControl_Login();
         private static UserControl_Register registerPage = new UserControl_Register();
         private static UserControl_ChatList chatListPage = new UserControl_ChatList();
+        private static UserControl_CreateNewChat createChatPage = new UserControl_CreateNewChat();
+
         private static UserControl_Profile profilePage = new UserControl_Profile();
         private static UserControl_Invitations invitationsPage = new UserControl_Invitations();
         private static UserControl_AddFriends addFriendPage = new UserControl_AddFriends();
-        private static UserControl_CreateNewChat createChatPage = new UserControl_CreateNewChat();
+
+        private static ChatScreen chatScreenPage = new ChatScreen();
+        private static ChatInfoScreen chatInfoPage = new ChatInfoScreen();
+
         private static HomePage homePage = new HomePage();
 
         public static void initializeProgram(Window_Single target)
@@ -100,6 +103,11 @@ namespace CPSC481Group12FoodyApp
         public static ChatScreen getChatScreen()
         {
             return chatScreenPage;
+        }
+
+        public static ChatInfoScreen getChatInfoScreen()
+        {
+            return chatInfoPage;
         }
     }
 }

@@ -223,6 +223,11 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatDir(chatId) + chat_log_time;
         }
 
+        public static string getChatSavedCriteria(string chatId)
+        {
+            return getChatDir(chatId) + chat_criteria;
+        }
+
         public static string getChatSavedRestaurants(string chatId)
         {
             return getChatDir(chatId) + chat_restaurants;
@@ -275,6 +280,7 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string chat_log_sender = "chat_log_sender.dat";
         private const string chat_log_message = "chat_log_message.dat";
         private const string chat_log_time = "chat_log_time.dat";
+        private const string chat_criteria = "saved_criteria.dat";
         private const string chat_restaurants = "saved_res.dat";
 
         private const string scheduleEventDir = "Events\\Schedule\\";
@@ -509,6 +515,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getChatLogTime(int chatId)
         {
             return getChatLogTime(chatId.ToString());
+        }
+
+        public static string getChatSavedCriteria(int chatId)
+        {
+            return getChatSavedRestaurants(chatId.ToString());
         }
 
         public static string getChatSavedRestaurants(int chatId)

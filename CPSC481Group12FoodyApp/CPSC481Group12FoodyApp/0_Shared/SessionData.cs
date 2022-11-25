@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -11,56 +12,58 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         // user data
         private static string currentUserEmail;
-        private static List<string> currentFriendList = new List<string>();
-        private static List<string> currentFriendReq = new List<string>();
-
+        private static List<string> currentUserFriendList;
+        private static List<string> currentUserFriendReq;
+        private static List<Tuple<string, string, TupleEachMsg>> currentUserChatList; // chat id, chat name, last message Tuple
         // chat invitations from other users; shares same index
-        private static List<string> currentChatInv_Id = new List<string>(); // chat id invitations
-        private static List<string> currentChatInv_SenderEmail = new List<string>(); // whoever sent the invite
-
-        private static List<Tuple<string, string>> currentEventList = new List<Tuple<string, string>>();
-
-        // chat data
-        private static string currentChatId;
-        private static string currentChatName;
-        private static List<Tuple<string, string, TupleEachMsg>> currentChatList = new List<Tuple<string, string, TupleEachMsg>>(); // chat id, chat name, last message Tuple
-
-        // data for one chat
-        private static List<TupleEachMsg> currentChatLog;
+        private static List<string> currentUserChatInv_Id; // chat id invitations
+        private static List<string> currentUserChatInv_SenderEmail; // whoever sent the invite
+        // event list used for personal calendar
+        private static List<Tuple<string, string>> currentEventList;
 
         // data when creating chat
-        private static List<string> friendsInvitedToChat = new List<string>(); // gets invitation to be sent to other users
+        private static List<string> friendsInvitedToChat; // gets invitation to be sent to other users
 
-        // data when creating event under here?
+        // data for one chat's information
+        private static string currentChatId;
+        private static string currentChatName;
+        private static List<TupleEachMsg> currentChatLog;
+        // chat info
+        private static List<string> currentChatMembers;
+        private static List<string> currentChatCriteria;
+        private static List<string> currentChatRestaurants;
+        private static List<string> currentChatEventList;
+
 
 
         public static void initializeUser(string email)
         {
             currentUserEmail = email;
-            currentFriendList = File.ReadAllLines(PathFinder.getAccFriends(currentUserEmail)).ToList();
-            currentFriendReq = File.ReadAllLines(PathFinder.getAccFriendReq(currentUserEmail)).ToList();
+            currentUserFriendList = File.ReadAllLines(PathFinder.getAccFriends(currentUserEmail)).ToList();
+            currentUserFriendReq = File.ReadAllLines(PathFinder.getAccFriendReq(currentUserEmail)).ToList();
             initializeChatInvitesReceived();
             initializeChatList();
             initializeChatInvitesToSend();
+            initializeChatInfo();
         }
 
         public static void initializeChatList()
         {
-            currentChatList = Logic_CreateLoadChat.loadChatList(currentUserEmail);
-            currentChatList.Sort(delegate (Tuple<string, string, TupleEachMsg> msg1, Tuple<string, string, TupleEachMsg> msg2) { return long.Parse(msg2.Item3.getTime()).CompareTo(long.Parse(msg1.Item3.getTime())); });
+            currentUserChatList = Logic_CreateLoadChat.loadChatList(currentUserEmail);
+            currentUserChatList.Sort(delegate (Tuple<string, string, TupleEachMsg> msg1, Tuple<string, string, TupleEachMsg> msg2) { return long.Parse(msg2.Item3.getTime()).CompareTo(long.Parse(msg1.Item3.getTime())); });
             ComponentFunctions.refreshAll();
         }
 
         public static void initializeChatInvitesReceived()
         {
-            currentChatInv_Id = File.ReadAllLines(PathFinder.getAccChatInvId(currentUserEmail)).ToList();
-            currentChatInv_SenderEmail = File.ReadAllLines(PathFinder.getAccChatInvSender(currentUserEmail)).ToList();
+            currentUserChatInv_Id = File.ReadAllLines(PathFinder.getAccChatInvId(currentUserEmail)).ToList();
+            currentUserChatInv_SenderEmail = File.ReadAllLines(PathFinder.getAccChatInvSender(currentUserEmail)).ToList();
             ComponentFunctions.refreshAll();
         }
 
         public static void initializeChatInvitesToSend()
         {
-            friendsInvitedToChat.Clear();
+            friendsInvitedToChat = new List<string>();
             ComponentFunctions.refreshAll();
         }
 
@@ -71,24 +74,32 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
+        public static void initializeChatInfo()
+        {
+            currentChatMembers = File.ReadAllLines(PathFinder.getChatMembers(currentUserEmail)).ToList();
+            currentChatCriteria = File.ReadAllLines(PathFinder.getChatSavedCriteria(currentUserEmail)).ToList();
+            currentChatRestaurants = File.ReadAllLines(PathFinder.getChatSavedRestaurants(currentUserEmail)).ToList();
+            ComponentFunctions.refreshAll();
+        }
+
         public static string getCurrentEmail()
         {
             return currentUserEmail;
         }
 
-        public static List<string> getCurrentFriends()
+        public static List<string> getCurrentUserFriends()
         {
-            return currentFriendList;
+            return currentUserFriendList;
         }
 
-        public static List<string> getCurrentFriendReq()
+        public static List<string> getCurrentUserFriendReq()
         {
-            return currentFriendReq;
+            return currentUserFriendReq;
         }
 
-        public static List<Tuple<string, string, TupleEachMsg>> getCurrentChatList()
+        public static List<Tuple<string, string, TupleEachMsg>> getCurrentUserChatList()
         {
-            return currentChatList;
+            return currentUserChatList;
         }
 
         public static string getCurrentChatId()
@@ -106,14 +117,14 @@ namespace CPSC481Group12FoodyApp.Logic
             return currentChatLog;
         }
 
-        public static List<string> getCurrentChatInvId()
+        public static List<string> getCurrentUserChatInvId()
         {
-            return currentChatInv_Id;
+            return currentUserChatInv_Id;
         }
 
-        public static List<string> getCurrentChatInvSender()
+        public static List<string> getCurrentUserChatInvSender()
         {
-            return currentChatInv_SenderEmail;
+            return currentUserChatInv_SenderEmail;
         }
 
         public static List<string> getfriendsInvitedToChat()
@@ -123,26 +134,26 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void addFriendToList(string item)
         {
-            currentFriendList.Add(item);
+            currentUserFriendList.Add(item);
             ComponentFunctions.refreshAll();
         }
 
         public static void addFriendReqToList(string item)
         {
-            currentFriendReq.Add(item);
+            currentUserFriendReq.Add(item);
             ComponentFunctions.refreshAll();
         }
 
         public static void addInvToList(string email, string chatId)
         {
-            currentChatInv_Id.Add(chatId);
-            currentChatInv_SenderEmail.Add(email);
+            currentUserChatInv_Id.Add(chatId);
+            currentUserChatInv_SenderEmail.Add(email);
             ComponentFunctions.refreshAll();
         }
 
         public static void addNewChatToList(Tuple<string, string, TupleEachMsg> item)
         {
-            currentChatList.Add(item);
+            currentUserChatList.Add(item);
             ComponentFunctions.refreshAll();
         }
 
@@ -154,27 +165,27 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void remFriendFromList(string item)
         {
-            currentFriendList.Remove(item);
+            currentUserFriendList.Remove(item);
             ComponentFunctions.refreshAll();
         }
 
         public static void remFriendReqFromList(string item)
         {
-            currentFriendReq.Remove(item);
+            currentUserFriendReq.Remove(item);
             ComponentFunctions.refreshAll();
         }
 
         public static void remOneInvFromList(string email, string chatId)
         {
             // removes one matching invite
-            for (var i = 0; i < currentChatInv_Id.Count; i++)
+            for (var i = 0; i < currentUserChatInv_Id.Count; i++)
             {
-                if (currentChatInv_Id[i].Equals(chatId))
+                if (currentUserChatInv_Id[i].Equals(chatId))
                 {
-                    if (currentChatInv_SenderEmail[i].Equals(email))
+                    if (currentUserChatInv_SenderEmail[i].Equals(email))
                     {
-                        currentChatInv_Id.RemoveAt(i);
-                        currentChatInv_SenderEmail.RemoveAt(i);
+                        currentUserChatInv_Id.RemoveAt(i);
+                        currentUserChatInv_SenderEmail.RemoveAt(i);
 
                         ComponentFunctions.refreshAll();
                         return;
@@ -186,12 +197,12 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void remAllInvFromList(string chatId)
         {
             // removes all invites from the same group; traverse in reverse so that it doesn't affect index number
-            for (var i = currentChatInv_Id.Count - 1; i >= 0; i--)
+            for (var i = currentUserChatInv_Id.Count - 1; i >= 0; i--)
             {
-                if (currentChatInv_Id[i].Equals(chatId))
+                if (currentUserChatInv_Id[i].Equals(chatId))
                 {
-                    currentChatInv_Id.RemoveAt(i);
-                    currentChatInv_SenderEmail.RemoveAt(i);
+                    currentUserChatInv_Id.RemoveAt(i);
+                    currentUserChatInv_SenderEmail.RemoveAt(i);
                 }
             }
 

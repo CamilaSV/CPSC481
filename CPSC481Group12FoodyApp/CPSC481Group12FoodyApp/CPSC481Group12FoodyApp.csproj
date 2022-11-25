@@ -84,7 +84,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_ChatEvent\ChatScreenEventNotify.xaml">
+    <Page Update="6_ChatEvent\ChatScreenEventNotify.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -95,10 +95,10 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_ChatEvent\CreateEventScreen.xaml">
+    <Page Update="6_ChatEvent\CreateEventScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_ChatEvent\SuggestRestaurant.xaml">
+    <Page Update="6_ChatEvent\SuggestRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -170,7 +170,7 @@
     <Compile Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Later1_Profile\UserControl_Profile.xaml.cs">
+    <Compile Update="7_Profile\UserControl_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_Create_Enter_Chat\UserControl_ChatList.xaml.cs">
@@ -188,7 +188,7 @@
     <Page Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="Later1_Profile\UserControl_Profile.xaml">
+    <Page Update="7_Profile\UserControl_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="3_Create_Enter_Chat\UserControl_ChatList.xaml">

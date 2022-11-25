@@ -27,17 +27,25 @@ namespace CPSC481Group12FoodyApp
 
         private void Members_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Members_ShowMoreButton.IsEnabled) {
+                
+            }
         }
 
         private void Criteria_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
+            if (Criteria_ShowMoreButton.IsEnabled)
+            {
 
+            }
         }
 
         private void Restaurants_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
+            if (Restaurants_ShowMoreButton.IsEnabled)
+            {
 
+            }
         }
 
         private void SchedulerDateButton_Click(object sender, RoutedEventArgs e)
@@ -53,6 +61,11 @@ namespace CPSC481Group12FoodyApp
         private void CreateEventButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigator.getChatScreen();
         }
     }
 }

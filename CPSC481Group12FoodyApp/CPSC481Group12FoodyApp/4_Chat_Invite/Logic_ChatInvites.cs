@@ -15,14 +15,14 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_ChatInvite> invListCollection = new ObservableCollection<propertyChange_ChatInvite>();
 
-            for (int i = 0; i < SessionData.getCurrentChatInvId().Count; i++)
+            for (int i = 0; i < SessionData.getCurrentUserChatInvId().Count; i++)
             {
                 propertyChange_ChatInvite invItem = new propertyChange_ChatInvite
                 {
-                    GroupId = SessionData.getCurrentChatInvId()[i],
-                    GroupName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentChatInvId()[i])),
-                    SenderEmail = SessionData.getCurrentChatInvSender()[i],
-                    SenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentChatInvSender()[i])),
+                    GroupId = SessionData.getCurrentUserChatInvId()[i],
+                    GroupName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentUserChatInvId()[i])),
+                    SenderEmail = SessionData.getCurrentUserChatInvSender()[i],
+                    SenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentUserChatInvSender()[i])),
                 };
                 invListCollection.Add(invItem);
             }

@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp.Logic
             ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
 
             string name;
-            foreach (string line in SessionData.getCurrentFriendReq())
+            foreach (string line in SessionData.getCurrentUserFriendReq())
             {
                 name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
                 propertyChange_Friend requestItem = new propertyChange_Friend
@@ -35,7 +35,7 @@ namespace CPSC481Group12FoodyApp.Logic
             ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
 
             string name;
-            foreach (string line in SessionData.getCurrentFriends())
+            foreach (string line in SessionData.getCurrentUserFriends())
             {
                 name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
                 propertyChange_Friend listItem = new propertyChange_Friend

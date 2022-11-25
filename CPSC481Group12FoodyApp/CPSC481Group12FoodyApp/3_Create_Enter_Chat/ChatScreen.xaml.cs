@@ -35,7 +35,7 @@ namespace CPSC481Group12FoodyApp
 
         private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigator.gotoChatInfo();
+            API_ChatInfo.loadChatInfo(PageNavigator.getChatInfoScreen());
         }
 
         public void refreshComponent()
