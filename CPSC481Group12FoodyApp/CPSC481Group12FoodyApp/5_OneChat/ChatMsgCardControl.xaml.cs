@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for InvitationCardControl.xaml
+    /// Interaction logic for ChatMsgCardControl.xaml
     /// </summary>
-    public partial class InvitationCardControl : UserControl
+    public partial class ChatMsgCardControl : UserControl
     {
         internal PageNavigator navigator_helper;
-        public InvitationCardControl()
+        public ChatMsgCardControl()
         {
             InitializeComponent();
             this.navigator_helper = navigator_helper;
@@ -29,12 +29,12 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
-            API_ChatInvites.acceptChatInvite(ChatIdTextBlock.Text);
+//            API_ChatInvites.acceptChatInvite(ChatIdTextBlock.Text);
         }
 
         private void minusBtn(object sender, RoutedEventArgs e)
         {
-            API_ChatInvites.removeOneChatInvite(SenderEmailTextBlock.Text, ChatIdTextBlock.Text);
+//            API_ChatInvites.removeOneChatInvite(SenderEmailTextBlock.Text, ChatIdTextBlock.Text);
         }
     }
 }

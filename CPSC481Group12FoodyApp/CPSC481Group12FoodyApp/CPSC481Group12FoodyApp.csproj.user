@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="5_OneChat\ChatAddCustomTime.xaml.cs">
+    <Compile Update="7_ChatEvent\ChatAddCustomTime.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -16,7 +16,13 @@
     <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_OneChat\ChatAddCustomTime.xaml">
+    <Page Update="5_OneChat\ChatMsgCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_OneChat\ChatScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="7_ChatEvent\ChatAddCustomTime.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dictionaries\MainStylesDictionary.xaml">

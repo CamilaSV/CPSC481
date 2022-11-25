@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_Invitations : UserControl
+    public partial class UserControl_Invitations : UserControl, Interface_ChatInvComponent
     {
         internal PageNavigator navigate_helper;
 
@@ -27,6 +28,7 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
             this.navigate_helper= navigate_helper;
+            ComponentFunctions.addComponentToList(this);
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -57,6 +59,11 @@ namespace CPSC481Group12FoodyApp
         private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             navigate_helper.gotoChatList();
+        }
+
+        public void refreshComponent()
+        {
+            ListControl.Items.Refresh();
         }
     }
 }

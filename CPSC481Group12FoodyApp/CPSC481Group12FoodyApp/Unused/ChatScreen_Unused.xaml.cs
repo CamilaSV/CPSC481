@@ -1,7 +1,5 @@
-﻿using CPSC481Group12FoodyApp.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,32 +16,30 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatScreen.xaml
+    /// Interaction logic for ChatScreen_Unused.xaml
     /// </summary>
-    public partial class ChatScreen : UserControl, Interface_ChatMsgComponent
+    public partial class ChatScreen_Unused : Page
     {
         internal PageNavigator navigate_helper;
 
-        public ChatScreen(PageNavigator navigate_helper)
+        public ChatScreen_Unused(PageNavigator navigate_helper)
         {
-            InitializeComponent();
-            this.navigate_helper= navigate_helper;
-            ComponentFunctions.addComponentToList(this);
+            this.navigate_helper = navigate_helper;
         }
 
-        private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatList();
+
         }
 
         private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            navigate_helper.gotoChatInfo();
+
         }
 
-        public void refreshComponent()
+        private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            ListControl.Items.Refresh();
+
         }
     }
 }

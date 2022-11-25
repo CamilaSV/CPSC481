@@ -90,23 +90,6 @@ namespace CPSC481Group12FoodyApp.Logic
             return result;
         }
 
-        public static TupleOneChatLog enterOneChat(string emailUser, string chatId)
-        {
-            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
-            string[] emails = File.ReadAllLines(PathFinder.getChatLogSender(chatId));
-            string[] messages = File.ReadAllLines(PathFinder.getChatLogMessage(chatId));
-            string[] times = File.ReadAllLines(PathFinder.getChatLogTime(chatId));
-
-            List<TupleEachMsg> msgs = new List<TupleEachMsg>();
-
-            for (int i = 0; i < emails.Length; i++)
-            {
-                msgs.Add(new TupleEachMsg(emails[i], messages[i], times[i]));
-            }
-
-            return new TupleOneChatLog(emailUser, chatName, msgs);
-        }
-
         public static void sendChatInvite(string emailUser, string emailTarget, string chatId)
         {
             SharedFunctions.appendLineToFile(PathFinder.getAccChatInvId(emailTarget), chatId);
@@ -134,11 +117,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static Tuple<string, string, TupleEachMsg> previewOneChat(int chatId)
         {
             return previewOneChat(chatId.ToString());
-        }
-
-        public static TupleOneChatLog enterOneChat(string emailUser, int chatId)
-        {
-            return enterOneChat(emailUser, chatId.ToString());
         }
 
         public static void sendChatInvite(string emailUser, string emailTarget, int chatId)
