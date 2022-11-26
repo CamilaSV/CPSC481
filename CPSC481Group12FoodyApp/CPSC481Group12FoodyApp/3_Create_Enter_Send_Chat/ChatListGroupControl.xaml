@@ -11,9 +11,10 @@
              Height="70"
              d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
              
+             MouseUp="EnterChat_MouseUp"
              d:DesignHeight="70" d:DesignWidth="480">
 
-    <Grid x:Name="ChatGrid" MouseUp="EnterChat_MouseUp" >
+    <Grid x:Name="ChatGrid" MouseUp="EnterChat_MouseUp">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="auto"/>
@@ -22,21 +23,21 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="1" Padding="5">
-            <Grid>
+            <Grid MouseUp="EnterChat_MouseUp">
                 <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
                 <TextBlock FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Abbreviation}"/>
             </Grid>
         </Border>
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0"/>
-        <DockPanel Margin="10,45,0,3" Grid.Column="2">
+        <DockPanel Margin="10,45,0,3" Grid.Column="2" MouseUp="EnterChat_MouseUp">
             <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatLastMsg, TargetNullValue=''}"/>
         </DockPanel>
-        <DockPanel Grid.Column="2" Margin="5,8,10,29" Grid.ColumnSpan="2">
+        <DockPanel Grid.Column="2" Margin="5,8,10,29" Grid.ColumnSpan="2" MouseUp="EnterChat_MouseUp">
             <TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="14" TextTrimming="CharacterEllipsis" Text="{Binding ChatLastTime, TargetNullValue=''}" Width="80"/>
             <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="24" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatName, TargetNullValue=''}"/>
         </DockPanel>
-        <DockPanel Margin="375,45,6,3" Grid.Column="2" Grid.ColumnSpan="2" Visibility="Hidden">
+        <DockPanel Margin="375,45,6,3" Grid.Column="2" Grid.ColumnSpan="2" Visibility="Hidden" MouseUp="EnterChat_MouseUp">
             <TextBlock x:Name="chatIdBlock" DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding ChatId, TargetNullValue=''}"/>
         </DockPanel>
     </Grid>
