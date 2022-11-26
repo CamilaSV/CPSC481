@@ -32,17 +32,34 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void acceptChatInvite(string emailUser, string chatId)
         {
+            // create necessary files and directories for the chat group
+            Directory.CreateDirectory(PathFinder.getChatMsgDir(chatId));
+            Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
+            Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
+
+            SharedFunctions.createFileWithText(PathFinder.getChatName(chatId), SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId)));
             SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
-            removeAllChatInvites(emailUser, chatId);
+
+            File.AppendText(PathFinder.getChatAdmin(chatId));
+            File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
+            File.Create(PathFinder.getChatSavedCriteria(chatId)).Close();
+
+            int firstNonExistingDir = SharedFunctions.findFirstNonExistingMsgDirNumber(chatId);
+
+            Directory.CreateDirectory(PathFinder.getChatOneMsgDir(chatId, firstNonExistingDir));
+
+            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), "");
+            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), SharedFunctions.getCurrentEpochTime());
+            // newline must not be made here
+            StreamWriter fileWriter = File.CreateText(PathFinder.getChatOneMsgMessage(chatId, firstNonExistingDir));
+            fileWriter.Write(SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
+            fileWriter.Close();
 
             SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
             Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
 
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogSender(chatId), "");
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogMessage(chatId),
-                SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
-            SharedFunctions.appendLineToFile(PathFinder.getChatLogTime(chatId), SharedFunctions.getCurrentEpochTime());
+            removeAllChatInvites(emailUser, chatId);
         }
 
         public static void removeAllChatInvites(string emailUser, string chatId)

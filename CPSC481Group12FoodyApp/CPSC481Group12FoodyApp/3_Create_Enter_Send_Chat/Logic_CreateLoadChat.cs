@@ -45,29 +45,39 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 chatName = chatName.TrimEnd(); // remove whitespaces in the end
 
-                int chatId;
-
-                for (chatId = 0; Directory.Exists(PathFinder.getChatDir(chatId)); chatId++) ; // find a unique chat id
+                int chatId = SharedFunctions.findFirstNonExistingChatDirNumber();
 
                 // create necessary files and directories for the chat group
-                Directory.CreateDirectory(PathFinder.getChatDir(chatId));
+                Directory.CreateDirectory(PathFinder.getChatMsgDir(chatId));
+                Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
+                Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
 
                 SharedFunctions.createFileWithText(PathFinder.getChatName(chatId), chatName);
                 SharedFunctions.createFileWithText(PathFinder.getChatAdmin(chatId), emailCreator);
+                SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailCreator);
 
-                File.Create(PathFinder.getChatLogSender(chatId)).Close();
-                File.Create(PathFinder.getChatLogMessage(chatId)).Close();
-                File.Create(PathFinder.getChatLogTime(chatId)).Close();
                 File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
-                Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
-                Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
+                File.Create(PathFinder.getChatSavedCriteria(chatId)).Close();
+
+                int firstNonExistingDir = SharedFunctions.findFirstNonExistingMsgDirNumber(chatId);
+
+                Directory.CreateDirectory(PathFinder.getChatOneMsgDir(chatId, firstNonExistingDir));
+
+                SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), "");
+                SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), SharedFunctions.getCurrentEpochTime());
+                // newline must not be made here
+                StreamWriter fileWriter = File.CreateText(PathFinder.getChatOneMsgMessage(chatId, firstNonExistingDir));
+                fileWriter.Write(SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailCreator)) + " has created the group.");
+                fileWriter.Close();
+
+                SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailCreator), chatId);
+                Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailCreator, chatId));
+                Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailCreator, chatId));
 
                 foreach (var eachEmail in emailsToInvite)
                 {
                     sendChatInvite(emailCreator, eachEmail, chatId);
                 }
-
-                Logic_ChatInvites.acceptChatInvite(emailCreator, chatId); // the creator automatically accepts the invitation
 
                 result = "true";
             }
@@ -99,16 +109,16 @@ namespace CPSC481Group12FoodyApp.Logic
         public static Tuple<string, string, TupleEachMsg> previewOneChat(string chatId)
         {
             string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
-            List<string> tester = File.ReadAllLines(PathFinder.getChatLogSender(chatId)).ToList();
+            List<string> sender = SharedFunctions.getAllSendersInOneChat(chatId);
 
             string lastSender = "";
             string lastMsg = "";
             string lastTime = "";
-            if (tester.Any())
+            if (sender.Any())
             {
-                lastSender = File.ReadLines(PathFinder.getChatLogSender(chatId)).Last();
-                lastMsg = File.ReadLines(PathFinder.getChatLogMessage(chatId)).Last();
-                lastTime = File.ReadLines(PathFinder.getChatLogTime(chatId)).Last();
+                lastSender = SharedFunctions.getFirstLineFromFile(PathFinder.getChatOneMsgSender(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
+                lastMsg = File.ReadAllText(PathFinder.getChatOneMsgMessage(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
+                lastTime = SharedFunctions.getFirstLineFromFile(PathFinder.getChatOneMsgTime(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
             }
 
             return new Tuple<string, string, TupleEachMsg>(chatId, chatName, new TupleEachMsg(lastSender, lastMsg, lastTime));

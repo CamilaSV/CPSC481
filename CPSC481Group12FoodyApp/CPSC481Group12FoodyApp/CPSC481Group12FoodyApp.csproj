@@ -65,7 +65,7 @@
     <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Enter_Chat\ChatScreen.xaml">
+    <Page Update="3_Create_Enter_Send_Chat\ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="5_ChatInfo\ChatEditMembersRemove.xaml">
@@ -149,10 +149,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="3_Create_Enter_Chat\ChatMsgCardControl.xaml.cs">
+    <Compile Update="3_Create_Enter_Send_Chat\ChatMsgCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Enter_Chat\ChatScreen.xaml.cs">
+    <Compile Update="3_Create_Enter_Send_Chat\ChatScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Unused\InvitationControl.xaml.cs">
@@ -167,13 +167,13 @@
     <Compile Update="4_Chat_Invite\UserControl_Invitations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml.cs">
+    <Compile Update="3_Create_Enter_Send_Chat\UserControl_CreateNewChat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="7_Profile\UserControl_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Enter_Chat\UserControl_ChatList.xaml.cs">
+    <Compile Update="3_Create_Enter_Send_Chat\UserControl_ChatList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="1_Start_Login_Register\UserControl_Register.xaml.cs">
@@ -185,13 +185,13 @@
     <Page Update="4_Chat_Invite\UserControl_Invitations.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Enter_Chat\UserControl_CreateNewChat.xaml">
+    <Page Update="3_Create_Enter_Send_Chat\UserControl_CreateNewChat.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="7_Profile\UserControl_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Enter_Chat\UserControl_ChatList.xaml">
+    <Page Update="3_Create_Enter_Send_Chat\UserControl_ChatList.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="1_Start_Login_Register\UserControl_Register.xaml">

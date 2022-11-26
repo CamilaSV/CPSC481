@@ -188,5 +188,88 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return dateOrTime;
         }
+
+        public static int findFirstNonExistingChatDirNumber()
+        {
+            // assumes no directory with id will be deleted
+            return Directory.GetDirectories(PathFinder.getTopChatDir(), "*", SearchOption.TopDirectoryOnly).Length;
+        }
+
+        public static int findFirstNonExistingMsgDirNumber(string chatId)
+        {
+            return Directory.GetDirectories(PathFinder.getChatMsgDir(chatId), "*", SearchOption.TopDirectoryOnly).Length;
+        }
+
+        public static int findLastExistingDirNumber(string chatId)
+        {
+            return findFirstNonExistingMsgDirNumber(chatId) - 1;
+        }
+
+        public static List<string> getAllSendersInOneChat(string chatId)
+        {
+            List<string> list = new List<string>();
+
+            int firstNonExistId = findFirstNonExistingMsgDirNumber(chatId);
+                        
+            for (int i = 0; i < firstNonExistId; i++)
+            {
+                list.Add(File.ReadAllText(PathFinder.getChatOneMsgSender(chatId, i)).TrimEnd());
+            }
+
+            return list;
+        }
+
+        public static List<string> getAllMsgsInOneChat(string chatId)
+        {
+            List<string> list = new List<string>();
+
+            int firstNonExistId = findFirstNonExistingMsgDirNumber(chatId);
+
+            for (int i = 0; i < firstNonExistId; i++)
+            {
+                list.Add(File.ReadAllText(PathFinder.getChatOneMsgMessage(chatId, i)).TrimEnd());
+            }
+
+            return list;
+        }
+
+        public static List<string> getAllTimesInOneChat(string chatId)
+        {
+            List<string> list = new List<string>();
+
+            int firstNonExistId = findFirstNonExistingMsgDirNumber(chatId);
+
+            for (int i = 0; i < firstNonExistId; i++)
+            {
+                list.Add(File.ReadAllText(PathFinder.getChatOneMsgTime(chatId, i)).TrimEnd());
+            }
+
+            return list;
+        }
+
+        public static int findFirstNonExistingMsgDirNumber(int chatId)
+        {
+            return findFirstNonExistingMsgDirNumber(chatId.ToString());
+        }
+
+        public static int findLastExistingDirNumber(int chatId)
+        {
+            return findLastExistingDirNumber(chatId.ToString());
+        }
+
+        public static List<string> getAllSendersInOneChat(int chatId)
+        {
+            return getAllSendersInOneChat(chatId.ToString());
+        }
+
+        public static List<string> getAllMsgsInOneChat(int chatId)
+        {
+            return getAllMsgsInOneChat(chatId.ToString());
+        }
+
+        public static List<string> getAllTimesInOneChat(int chatId)
+        {
+            return getAllTimesInOneChat(chatId.ToString());
+        }
     }
 }

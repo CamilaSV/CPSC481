@@ -11,11 +11,6 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_ChatInfo
     {
-        public static void loadChatInfo()
-        {
-
-        }
-
         public static void addGroupMember()
         {
 

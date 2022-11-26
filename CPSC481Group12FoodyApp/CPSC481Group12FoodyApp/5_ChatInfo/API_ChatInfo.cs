@@ -13,8 +13,37 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public static void loadChatInfo(ChatInfoScreen infoScreen)
         {
-
             PageNavigator.gotoChatInfo();
+        }
+
+        public static void addGroupMember()
+        {
+
+        }
+
+        public static void removeGroupMember()
+        {
+
+        }
+
+        public static void addGroupCriteria()
+        {
+
+        }
+
+        public static void removeGroupCriteria()
+        {
+
+        }
+
+        public static void addRestaurant()
+        {
+
+        }
+
+        public static void removeRestaurant()
+        {
+
         }
     }
 }

@@ -32,7 +32,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 }
                 catch (DirectoryNotFoundException dnfe)
                 {
-                    Directory.CreateDirectory(PathFinder.getAccDir(email));
                     result = createUser(email, password);
                 }
                 catch (Exception e)
@@ -51,6 +50,8 @@ namespace CPSC481Group12FoodyApp.Logic
         private static string createUser(string email, string password)
         {
             // the account does not exist, so register the account
+            Directory.CreateDirectory(PathFinder.getAccDir(email));
+
             SharedFunctions.createFileWithText(PathFinder.getAccEmail(email), email);
             SharedFunctions.createFileWithText(PathFinder.getAccPw(email), password);
             SharedFunctions.createFileWithText(PathFinder.getAccName(email), email);
@@ -65,6 +66,7 @@ namespace CPSC481Group12FoodyApp.Logic
             Directory.CreateDirectory(PathFinder.getAccCatDir(email));
             Directory.CreateDirectory(PathFinder.getAccFutSchDir(email));
             Directory.CreateDirectory(PathFinder.getAccCompSchDir(email));
+            Directory.CreateDirectory(PathFinder.getTopChatDir());
 
             return "true";
         }

@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp
 
             if (result.Equals("true"))
             {
-                SessionData.initializeChatList();
+                SessionData.initializeUserChatList();
                 PageNavigator.gotoChatList();
             }
             else
@@ -24,11 +24,9 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        public static void deleteFriend(UserControl_Profile profilePage, string emailTarget)
+        public static void deleteFriendFromInviteList(UserControl_CreateNewChat createPage, string emailTarget)
         {
-            Logic_AddRemFriend.deleteFriend(SessionData.getCurrentEmail(), emailTarget);
-            SessionData.remFriendFromList(emailTarget);
-            profilePage.FriendListTextBlock.Text = Logic_AddRemFriend.getAllFriends(SessionData.getCurrentEmail());
+            // not finished
         }
     }
 }

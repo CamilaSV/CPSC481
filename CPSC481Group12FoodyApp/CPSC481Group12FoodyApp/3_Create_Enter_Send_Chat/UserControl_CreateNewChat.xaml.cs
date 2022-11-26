@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_CreateNewChat.xaml
     /// </summary>
-    public partial class UserControl_CreateNewChat : Page
+    public partial class UserControl_CreateNewChat : Page, Interface_FriendListComponent
     {
         public UserControl_CreateNewChat()
         {
@@ -54,6 +55,11 @@ namespace CPSC481Group12FoodyApp
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
             API_CreateLoadChat.createChat(this);
+        }
+
+        public void refreshComponent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

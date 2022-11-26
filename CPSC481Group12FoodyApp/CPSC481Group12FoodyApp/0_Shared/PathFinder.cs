@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
+using System.Windows.Interop;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -71,10 +72,25 @@ namespace CPSC481Group12FoodyApp.Logic
             return getAccCompSchDir(email) + chatId + "\\";
         }
 
+        public static string getTopChatDir()
+        {
+            return chatDir;
+        }
+
         // get directory path for the group
         public static string getChatDir(string chatId)
         {
             return chatDir + chatId + "\\";
+        }
+
+        public static string getChatMsgDir(string chatId)
+        {
+            return getChatDir(chatId) + chatMsgDir;
+        }
+
+        public static string getChatOneMsgDir(string chatId, string msgId)
+        {
+            return getChatMsgDir(chatId) + msgId + "\\";
         }
 
         // get directory path for the group's events folder
@@ -208,19 +224,19 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatDir(chatId) + chat_member;
         }
 
-        public static string getChatLogSender(string chatId)
+        public static string getChatOneMsgSender(string chatId, string msgId)
         {
-            return getChatDir(chatId) + chat_log_sender;
+            return getChatOneMsgDir(chatId, msgId) + chat_one_msg_sender;
         }
 
-        public static string getChatLogMessage(string chatId)
+        public static string getChatOneMsgMessage(string chatId, string msgId)
         {
-            return getChatDir(chatId) + chat_log_message;
+            return getChatOneMsgDir(chatId, msgId) + chat_one_msg_message;
         }
 
-        public static string getChatLogTime(string chatId)
+        public static string getChatOneMsgTime(string chatId, string msgId)
         {
-            return getChatDir(chatId) + chat_log_time;
+            return getChatOneMsgDir(chatId, msgId) + chat_one_msg_time;
         }
 
         public static string getChatSavedCriteria(string chatId)
@@ -277,11 +293,14 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string chat_name = "name.dat";
         private const string chat_admin = "admin.dat";
         private const string chat_member = "members.dat";
-        private const string chat_log_sender = "chat_log_sender.dat";
-        private const string chat_log_message = "chat_log_message.dat";
-        private const string chat_log_time = "chat_log_time.dat";
         private const string chat_criteria = "saved_criteria.dat";
         private const string chat_restaurants = "saved_res.dat";
+
+
+        private const string chatMsgDir = "Messages\\";
+        private const string chat_one_msg_sender = "sender.dat";
+        private const string chat_one_msg_message = "message.dat";
+        private const string chat_one_msg_time = "time.dat";
 
         private const string scheduleEventDir = "Events\\Schedule\\";
         private const string completeEventDir = "Events\\Complete\\";
@@ -350,6 +369,26 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getChatDir(int chatId)
         {
             return getChatDir(chatId.ToString());
+        }
+
+        public static string getChatMsgDir(int chatId)
+        {
+            return getChatMsgDir(chatId.ToString());
+        }
+
+        public static string getChatOneMsgDir(string chatId, int msgId)
+        {
+            return getChatOneMsgDir(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgDir(int chatId, string msgId)
+        {
+            return getChatOneMsgDir(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgDir(int chatId, int msgId)
+        {
+            return getChatOneMsgDir(chatId.ToString(), msgId.ToString());
         }
 
         public static string getChatFutSchDir(int chatId)
@@ -502,24 +541,54 @@ namespace CPSC481Group12FoodyApp.Logic
             return getChatMembers(chatId.ToString());
         }
 
-        public static string getChatLogSender(int chatId)
+        public static string getChatOneMsgSender(string chatId, int msgId)
         {
-            return getChatLogSender(chatId.ToString());
+            return getChatOneMsgSender(chatId.ToString(), msgId.ToString());
         }
 
-        public static string getChatLogMessage(int chatId)
+        public static string getChatOneMsgSender(int chatId, string msgId)
         {
-            return getChatLogMessage(chatId.ToString());
+            return getChatOneMsgSender(chatId.ToString(), msgId.ToString());
         }
 
-        public static string getChatLogTime(int chatId)
+        public static string getChatOneMsgSender(int chatId, int msgId)
         {
-            return getChatLogTime(chatId.ToString());
+            return getChatOneMsgSender(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgMessage(string chatId, int msgId)
+        {
+            return getChatOneMsgMessage(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgMessage(int chatId, string msgId)
+        {
+            return getChatOneMsgMessage(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgMessage(int chatId, int msgId)
+        {
+            return getChatOneMsgMessage(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgTime(string chatId, int msgId)
+        {
+            return getChatOneMsgTime(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgTime(int chatId, string msgId)
+        {
+            return getChatOneMsgTime(chatId.ToString(), msgId.ToString());
+        }
+
+        public static string getChatOneMsgTime(int chatId, int msgId)
+        {
+            return getChatOneMsgTime(chatId.ToString(), msgId.ToString());
         }
 
         public static string getChatSavedCriteria(int chatId)
         {
-            return getChatSavedRestaurants(chatId.ToString());
+            return getChatSavedCriteria(chatId.ToString());
         }
 
         public static string getChatSavedRestaurants(int chatId)
