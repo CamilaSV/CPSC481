@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -11,6 +12,55 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_ChatScreen
     {
+
+        public static ObservableCollection<ChatBoxDesignModel> displayChatModels()
+        {
+            ObservableCollection<ChatBoxDesignModel> chatMsgCollection = new ObservableCollection<ChatBoxDesignModel>();
+            string email;
+            string abbreviation;
+            string name;
+
+            for (int i = 0; i < SessionData.getCurrentChatLog_Sender().Count; i++)
+            {
+                email = SessionData.getCurrentChatLog_Sender()[i];
+                if (String.IsNullOrEmpty(email))
+                {
+                    abbreviation = "";
+                    name = "";
+                }
+                else
+                {
+                    abbreviation = SessionData.getCurrentChatLog_Sender()[i].Substring(0, 1);
+                    name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(email));
+                }
+
+                if (email.Equals(SessionData.getCurrentEmail()))
+                {
+                    chatMsgCollection.Add(new ChatBoxDesignModel
+                    {
+                        IsUser_abbreviation = abbreviation,
+                        IsUser_chatSenderEmail = email,
+                        IsUser_chatSenderName = name,
+                        IsUser_chatMsg = SessionData.getCurrentChatLog_Message()[i],
+                        IsUser_chatTime = SessionData.getCurrentChatLog_Time()[i],
+                    });
+                }
+                else
+                {
+                    chatMsgCollection.Add(new ChatBoxDesignModel
+                    {
+                        NotUser_abbreviation = abbreviation,
+                        NotUser_chatSenderEmail = email,
+                        NotUser_chatSenderName = name,
+                        NotUser_chatMsg = SessionData.getCurrentChatLog_Message()[i],
+                        NotUser_chatTime = SessionData.getCurrentChatLog_Time()[i],
+                    });
+                }
+            }
+
+            return chatMsgCollection;
+        }
+
         public static ObservableCollection<propertyChange_ChatScreen> displayChatMsgList()
         {
             ObservableCollection<propertyChange_ChatScreen> chatMsgCollection = new ObservableCollection<propertyChange_ChatScreen>();

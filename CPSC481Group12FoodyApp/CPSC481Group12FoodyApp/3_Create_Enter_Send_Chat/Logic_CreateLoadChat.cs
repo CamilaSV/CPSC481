@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -11,6 +12,10 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_CreateLoadChat
     {
+
+        
+
+
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
             ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
