@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="TextBox" x:Key="SendMsgTextBox">
+        <!-- can have setter properties here for e.g.Foreground-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <TextBox x:Name="SendMsgTextBox" Text="{Binding IsUser_chatMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 TextWrapping="Wrap" Foreground="Black" BorderThickness="1">
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding SendCommand}" Key="Return"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

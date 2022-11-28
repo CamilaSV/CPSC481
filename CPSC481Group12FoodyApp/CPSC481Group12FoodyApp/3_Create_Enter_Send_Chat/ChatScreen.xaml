@@ -12,17 +12,29 @@
     </UserControl.DataContext>
 
     <Grid>
-        <Border Padding="0,75,0,0">
-            <ListView ItemsSource="{Binding Messages}" 
-                      ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="BackButton_MouseUp"/>
+            <Button x:Name="ChatInfoButton" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="406,1,0,0" Click="ChatInfoButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/InfoIcon.png"/>
+                </Button.Background>
+            </Button>
+            <TextBlock x:Name="GroupNameBlock" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149"/>
+        </Grid>
+
+        <Border Grid.Row="1">
+            <ListView ItemsSource="{Binding Messages}" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
         </Border>
 
-        <TextBlock x:Name="BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="BackButton_MouseUp"/>
-        <Button x:Name="ChatInfoButton" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="406,1,0,0" Click="ChatInfoButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/InfoIcon.png"/>
-            </Button.Background>
-        </Button>
-        <TextBlock x:Name="GroupNameBlock" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149"/>
+        <Border Grid.Row="2">
+            <TextBox Height="75" Style="{StaticResource SendMsgTextBox}"/>
+        </Border>
+
     </Grid>
 </UserControl>
