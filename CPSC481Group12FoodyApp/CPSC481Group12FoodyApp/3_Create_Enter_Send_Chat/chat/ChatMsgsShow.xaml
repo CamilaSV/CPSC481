@@ -10,15 +10,15 @@
                             
                             <Grid>
                                 <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
-                                <TextBlock FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="abbreviation"/>
+                                <TextBlock FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
                             </Grid>
                             
                         </Border>
                         <StackPanel>
                             
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="name" Foreground="DeepSkyBlue" VerticalAlignment="Center"/>
-                                <Label Content="time" Foreground="LightGray" VerticalAlignment="Center"/>
+                                <Label Content="{Binding IsUser_chatSenderName}" Foreground="DeepSkyBlue" VerticalAlignment="Center"/>
+                                <Label Content="{Binding IsUser_chatTime}" Foreground="LightGray" VerticalAlignment="Center"/>
                             </StackPanel>
 
                             <Label Content="{Binding IsUser_chatMsg}" Foreground="Black" VerticalAlignment="Center"/>

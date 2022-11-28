@@ -20,6 +20,16 @@ namespace CPSC481Group12FoodyApp.Logic
             string abbreviation;
             string name;
 
+            
+                chatMsgCollection.Add(new ChatBoxDesignModel
+                {
+                    IsUser_abbreviation = "A",
+                    IsUser_chatSenderEmail = "testing.com",
+                    IsUser_chatSenderName = "bbob",
+                    IsUser_chatMsg = "gjghgjhgjhgyihuj",
+                    IsUser_chatTime = "789",
+                });
+                
             for (int i = 0; i < SessionData.getCurrentChatLog_Sender().Count; i++)
             {
                 email = SessionData.getCurrentChatLog_Sender()[i];
