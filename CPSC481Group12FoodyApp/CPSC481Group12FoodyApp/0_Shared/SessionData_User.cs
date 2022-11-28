@@ -19,6 +19,31 @@ namespace CPSC481Group12FoodyApp.Logic
             allUsers = DBFunctions.getAllUserInfo();
         }
 
+        public static void createUser(string email, string password)
+        {
+            UserInfo info = new UserInfo
+            {
+                password = password,
+                name = email,
+                bio = "",
+                friendList = new List<string>(),
+                friendReqList = new List<string>(),
+                groupList = new List<string>(),
+                eventList = new List<EventId>(),
+                categoryList = new List<string>(),
+                restaurantList = new List<UserCatResInfo>(),
+                invitationList = new List<InvitationInfo>(),
+            };
+
+            allUsers[email] = info;
+        }
+
+        public static void addUserNewGroup(string emailCreator, string groupId, string name)
+        {
+            SessionData_Group.createGroup(groupId, name, emailCreator);
+            addUserGroup(emailCreator, groupId);
+        }
+
         // getters
         public static string getUserPassword(string email)
         {
@@ -55,14 +80,14 @@ namespace CPSC481Group12FoodyApp.Logic
             return allUsers[email].invitationList;
         }
 
-        public static List<string> getUserEvents(string email)
-        {
-            return allUsers[email].eventList;
-        }
-
         public static List<string> getUserSavedCategories(string email)
         {
             return allUsers[email].categoryList;
+        }
+
+        public static List<EventId> getUserEvents(string email)
+        {
+            return allUsers[email].eventList;
         }
 
         public static List<UserCatResInfo> getUserSavedRestaurants(string email)
@@ -71,25 +96,6 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // setters
-        public static void createUser(string email, string password)
-        {
-            UserInfo info = new UserInfo
-            {
-                password = password,
-                name = email,
-                bio = "",
-                friendList = new List<string>(),
-                friendReqList = new List<string>(),
-                groupList = new List<string>(),
-                eventList = new List<string>(),
-                categoryList = new List<string>(),
-                restaurantList = new List<UserCatResInfo>(),
-                invitationList = new List<InvitationInfo>(),
-            };
-
-            allUsers.Add(email, info);
-        }
-
         public static void setUserPassword(string email, string password)
         {
             allUsers[email].name = password;
@@ -107,36 +113,72 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void addUserFriend(string emailUser, string emailTarget)
         {
-            allUsers[emailUser].friendList.Add(emailTarget);
-            removeUserFriendReq(emailUser, emailTarget);
+            if (!allUsers[emailUser].friendList.Contains(emailTarget))
+            {
+                allUsers[emailUser].friendList.Add(emailTarget);
+                removeUserFriendReq(emailUser, emailTarget);
+                addUserFriend(emailTarget, emailUser);
+            }
         }
 
         public static void removeUserFriend(string emailUser, string emailTarget)
         {
-            allUsers[emailUser].friendList.Remove(emailTarget);
+            if (allUsers[emailUser].friendList.Contains(emailTarget))
+            {
+                allUsers[emailUser].friendList.Remove(emailTarget);
+            }
         }
 
         public static void removeUserFriendReq(string emailUser, string emailTarget)
         {
-            allUsers[emailUser].friendReqList.Remove(emailTarget);
+            if (allUsers[emailUser].friendReqList.Contains(emailTarget))
+            {
+                allUsers[emailUser].friendReqList.Remove(emailTarget);
+            }
         }
 
-        public static void addGroup(string emailUser, string groupId)
+        public static void addUserGroup(string emailUser, string groupId)
         {
             if (!allUsers[emailUser].groupList.Contains(groupId))
             {
                 allUsers[emailUser].groupList.Add(groupId);
                 // delete all invitations that invites to the added groupId
                 allUsers[emailUser].invitationList.RemoveAll(invite => invite.inviteGroupId.Equals(groupId));
+                SessionData_Group.addGroupMember(emailUser, groupId);
             }
         }
 
-        public static void removeGroup(string emailUser, string groupId)
+        public static void removeUserGroup(string emailUser, string groupId)
         {
-            allUsers[emailUser].groupList.Remove(groupId);
+            if (allUsers[emailUser].groupList.Contains(groupId))
+            {
+                allUsers[emailUser].groupList.Remove(groupId);
+                SessionData_Group.removeGroupMember(emailUser, groupId);
+            }
         }
 
-        public static void addEvent(string emailUser, string eventId)
+        public static void addUserCategory(string emailUser, string categoryId, string name)
+        {
+            if (!allUsers[emailUser].categoryList.Contains(categoryId))
+            {
+                allUsers[emailUser].categoryList.Add(categoryId);
+                SessionData_Category.createCategory(emailUser, categoryId, name);
+            }
+        }
+
+        public static void removeUserCategory(string emailUser, string categoryId)
+        {
+            if (allUsers[emailUser].categoryList.Contains(categoryId))
+            {
+                allUsers[emailUser].categoryList.Remove(categoryId);
+                // delete all restaurants that belongs to the categoryId
+                allUsers[emailUser].restaurantList.RemoveAll(info => info.categoryId.Equals(categoryId));
+                SessionData_Category.deleteCategory(emailUser, categoryId);
+            }
+        }
+
+
+        public static void addUserEvent(string emailUser, EventId eventId)
         {
             if (!allUsers[emailUser].eventList.Contains(eventId))
             {
@@ -144,45 +186,36 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void removeEvent(string emailUser, string eventId)
+        public static void removeUserEvent(string emailUser, EventId eventId)
         {
-            allUsers[emailUser].eventList.Remove(eventId);
-        }
-
-        public static void addCategory(string emailUser, string categoryId)
-        {
-            if (!allUsers[emailUser].categoryList.Contains(categoryId))
+            if (allUsers[emailUser].eventList.Contains(eventId))
             {
-                allUsers[emailUser].categoryList.Add(categoryId);
+                allUsers[emailUser].eventList.Remove(eventId);
             }
         }
 
-        public static void removeCategory(string emailUser, string categoryId)
+        public static void addUserRestaurant(string emailUser, UserCatResInfo info)
         {
-            allUsers[emailUser].categoryList.Remove(categoryId);
-            // delete all restaurants that belongs to the categoryId
-            allUsers[emailUser].restaurantList.RemoveAll(info => info.categoryId.Equals(categoryId));
-        }
-
-        public static void addRestaurant(string emailUser, string categoryId, string restaurantId)
-        {
-            UserCatResInfo info = new UserCatResInfo { categoryId = categoryId, restaurantId = restaurantId };
             if (!allUsers[emailUser].restaurantList.Contains(info))
             {
                 allUsers[emailUser].restaurantList.Add(info);
             }
         }
 
-        public static void removeRestaurant(string emailUser, string categoryId, string restaurantId)
+        public static void removeUserRestaurant(string emailUser, UserCatResInfo info)
         {
-            UserCatResInfo info = new UserCatResInfo { categoryId = categoryId, restaurantId = restaurantId };
-            allUsers[emailUser].restaurantList.Remove(info);
+            if (allUsers[emailUser].restaurantList.Contains(info))
+            {
+                allUsers[emailUser].restaurantList.Remove(info);
+            }
         }
 
-        public static void removeUserGroupInvite(string emailUser, string emailTarget, string groupId)
+        public static void removeUserGroupInvite(string emailUser, InvitationInfo info)
         {
-            InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailTarget };
-            allUsers[emailUser].invitationList.Remove(info);
+            if (allUsers[emailUser].invitationList.Contains(info))
+            {
+                allUsers[emailUser].invitationList.Remove(info);
+            }
         }
 
         // these ones are different from the above that the user alters target's information
@@ -194,9 +227,8 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addUserGroupInviteToTarget(string emailUser, string emailTarget, string groupId)
+        public static void addUserGroupInviteToTarget(string emailTarget, InvitationInfo info)
         {
-            InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailUser };
             if (!allUsers[emailTarget].invitationList.Contains(info))
             {
                 allUsers[emailTarget].invitationList.Add(info);
@@ -204,74 +236,24 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // different types of arguments
-        public static void addGroup(string emailUser, int groupId)
+        public static void addUserGroup(string emailUser, int groupId)
         {
-            addGroup(emailUser, groupId.ToString());
+            addUserGroup(emailUser, groupId.ToString());
         }
 
-        public static void removeGroup(string emailUser, int groupId)
+        public static void removeUserGroup(string emailUser, int groupId)
         {
-            removeGroup(emailUser, groupId.ToString());
+            removeUserGroup(emailUser, groupId.ToString());
         }
 
-        public static void addEvent(string emailUser, int eventId)
+        public static void addUserCategory(string emailUser, int categoryId, string name)
         {
-            addEvent(emailUser, eventId.ToString());
+            addUserCategory(emailUser, categoryId.ToString(), name);
         }
 
-        public static void removeEvent(string emailUser, int eventId)
+        public static void removeUserCategory(string emailUser, int categoryId)
         {
-            removeEvent(emailUser, eventId.ToString());
-        }
-
-        public static void addCategory(string emailUser, int categoryId)
-        {
-            addCategory(emailUser, categoryId.ToString());
-        }
-
-        public static void removeCategory(string emailUser, int categoryId)
-        {
-            removeCategory(emailUser, categoryId.ToString());
-        }
-
-        public static void addRestaurant(string emailUser, string categoryId, int restaurantId)
-        {
-            addRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void addRestaurant(string emailUser, int categoryId, string restaurantId)
-        {
-            addRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void addRestaurant(string emailUser, int categoryId, int restaurantId)
-        {
-            addRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void removeRestaurant(string emailUser, string categoryId, int restaurantId)
-        {
-            removeRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void removeRestaurant(string emailUser, int categoryId, string restaurantId)
-        {
-            removeRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void removeRestaurant(string emailUser, int categoryId, int restaurantId)
-        {
-            removeRestaurant(emailUser, categoryId.ToString(), restaurantId.ToString());
-        }
-
-        public static void removeUserGroupInvite(string emailUser, string emailTarget, int groupId)
-        {
-            removeUserGroupInvite(emailUser, emailTarget, groupId.ToString());
-        }
-
-        public static void addUserGroupInviteToTarget(string emailUser, string emailTarget, int groupId)
-        {
-            addUserGroupInviteToTarget(emailUser, emailTarget, groupId.ToString());
+            removeUserCategory(emailUser, categoryId.ToString());
         }
     }
 }

@@ -18,70 +18,116 @@ namespace CPSC481Group12FoodyApp.Logic
             allEvents = DBFunctions.getAllEventInfo();
         }
 
+        public static void createEvent(string groupId, string eventId, string time, string restaurantId, string comment)
+        {
+            EventId ev = new EventId { groupId = groupId, id = eventId };
+            EventInfo info = new EventInfo 
+            { 
+                time = time,
+                restaurantId = restaurantId,
+                comment = comment,
+            };
+
+            allEvents[ev] = info;
+        }
+
+        public static void deleteEvent(EventId eventId)
+        {
+            if (allEvents.ContainsKey(eventId))
+            {
+                allEvents.Remove(eventId);
+            }
+        }
+
         // getters
-        public static string getEventTime(string groupId, string eventId)
+        public static string getEventTime(EventId eventId)
         {
-            return allEvents[new EventId { groupId = groupId, id = eventId }].time;
+            return allEvents[eventId].time;
         }
 
-        public static string getEventRestaurant(string groupId, string eventId)
+        public static string getEventRestaurant(EventId eventId)
         {
-            return allEvents[new EventId { groupId = groupId, id = eventId }].restaurantId;
+            return allEvents[eventId].restaurantId;
         }
 
-        public static string getEventComment(string groupId, string eventId)
+        public static string getEventComment(EventId eventId)
         {
-            return allEvents[new EventId { groupId = groupId, id = eventId }].comment;
+            return allEvents[eventId].comment;
         }
-
-        // setters
-
 
         // different types of arguments
-        public static string getEventTime(string groupId, int eventId)
+        public static void createEvent(string groupId, string eventId, string time, int restaurantId, string comment)
         {
-            return getEventTime(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventTime(int groupId, string eventId)
+        public static void createEvent(string groupId, string eventId, long time, string restaurantId, string comment)
         {
-            return getEventTime(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventTime(int groupId, int eventId)
+        public static void createEvent(string groupId, string eventId, long time, int restaurantId, string comment)
         {
-            return getEventTime(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventRestaurant(string groupId, int eventId)
+        public static void createEvent(string groupId, int eventId, string time, string restaurantId, string comment)
         {
-            return getEventRestaurant(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventRestaurant(int groupId, string eventId)
+        public static void createEvent(string groupId, int eventId, string time, int restaurantId, string comment)
         {
-            return getEventRestaurant(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
+        public static void createEvent(string groupId, int eventId, long time, string restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventRestaurant(int groupId, int eventId)
+        public static void createEvent(string groupId, int eventId, long time, int restaurantId, string comment)
         {
-            return getEventRestaurant(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventComment(string groupId, int eventId)
+        public static void createEvent(int groupId, string eventId, string time, string restaurantId, string comment)
         {
-            return getEventComment(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventComment(int groupId, string eventId)
+        public static void createEvent(int groupId, string eventId, string time, int restaurantId, string comment)
         {
-            return getEventComment(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
-        public static string getEventComment(int groupId, int eventId)
+        public static void createEvent(int groupId, string eventId, long time, string restaurantId, string comment)
         {
-            return getEventComment(groupId.ToString(), eventId.ToString());
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
         }
 
+        public static void createEvent(int groupId, string eventId, int time, int restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
+
+        public static void createEvent(int groupId, int eventId, string time, string restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
+
+        public static void createEvent(int groupId, int eventId, string time, int restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
+
+        public static void createEvent(int groupId, int eventId, long time, string restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
+
+        public static void createEvent(int groupId, int eventId, long time, int restaurantId, string comment)
+        {
+            createEvent(groupId.ToString(), eventId.ToString(), time.ToString(), restaurantId.ToString(), comment);
+        }
     }
 }

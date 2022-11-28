@@ -7,7 +7,7 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public class UserCatResInfo
     {
-        public string categoryId;
+        public CategoryId categoryId;
         public string restaurantId;
     }
 }

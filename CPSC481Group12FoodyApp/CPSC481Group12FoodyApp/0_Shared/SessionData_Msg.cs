@@ -18,69 +18,49 @@ namespace CPSC481Group12FoodyApp.Logic
             allMsgs = DBFunctions.getAllMessageInfo();
         }
 
+        public static void createMessage(string groupId, string msgId, string msgSender, string msgContent)
+        {
+            MsgId msg = new MsgId { groupId = groupId, id = msgId };
+            MsgInfo info = new MsgInfo { 
+                senderEmail = msgSender, 
+                content = msgContent, 
+                time = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString(),
+            };
+
+            allMsgs[msg] = info;
+        }
+
         // getters
-        public static string getMessageSender(string groupId, string msgId)
+        public static string getMessageSender(MsgId msgId)
         {
-            return allMsgs[new MsgId { groupId = groupId, id = msgId }].senderEmail;
+            return allMsgs[msgId].senderEmail;
         }
 
-        public static string getMessageContent(string groupId, string msgId)
+        public static string getMessageContent(MsgId msgId)
         {
-            return allMsgs[new MsgId { groupId = groupId, id = msgId }].content;
+            return allMsgs[msgId].content;
         }
 
-        public static string getMessageTime(string groupId, string msgId)
+        public static string getMessageTime(MsgId msgId)
         {
-            return allMsgs[new MsgId { groupId = groupId, id = msgId }].time;
+            return allMsgs[msgId].time;
         }
-
-        // setters
-
 
         // different types of arguments
-        public static string getMessageSender(string groupId, int msgId)
+        public static void createMessage(string groupId, int msgId, string msgSender, string msgContent)
         {
-            return getMessageSender(groupId.ToString(), msgId.ToString());
+            createMessage(groupId.ToString(), msgId.ToString(), msgSender, msgContent);
         }
 
-        public static string getMessageSender(int groupId, string msgId)
+        public static void createMessage(int groupId, string msgId, string msgSender, string msgContent)
         {
-            return getMessageSender(groupId.ToString(), msgId.ToString());
+            createMessage(groupId.ToString(), msgId.ToString(), msgSender, msgContent);
         }
 
-        public static string getMessageSender(int groupId, int msgId)
+        public static void createMessage(int groupId, int msgId, string msgSender, string msgContent)
         {
-            return getMessageSender(groupId.ToString(), msgId.ToString());
+            createMessage(groupId.ToString(), msgId.ToString(), msgSender, msgContent);
         }
 
-        public static string getMessageContent(string groupId, int msgId)
-        {
-            return getMessageContent(groupId.ToString(), msgId.ToString());
-        }
-
-        public static string getMessageContent(int groupId, string msgId)
-        {
-            return getMessageContent(groupId.ToString(), msgId.ToString());
-        }
-
-        public static string getMessageContent(int groupId, int msgId)
-        {
-            return getMessageContent(groupId.ToString(), msgId.ToString());
-        }
-
-        public static string getMessageTime(string groupId, int msgId)
-        {
-            return getMessageTime(groupId.ToString(), msgId.ToString());
-        }
-
-        public static string getMessageTime(int groupId, string msgId)
-        {
-            return getMessageTime(groupId.ToString(), msgId.ToString());
-        }
-
-        public static string getMessageTime(int groupId, int msgId)
-        {
-            return getMessageTime(groupId.ToString(), msgId.ToString());
-        }
     }
 }

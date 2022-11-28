@@ -19,9 +19,35 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // getters
+        public static string getRestaurantName(string restaurantId)
+        {
+            return allRestaurants[restaurantId].name;
+        }
 
-        // setters
+        public static string getRestaurantAddress(string restaurantId)
+        {
+            return allRestaurants[restaurantId].address;
+        }
+
+        public static List<string> getRestaurantCriteria(string restaurantId)
+        {
+            return allRestaurants[restaurantId].criteriaList;
+        }
 
         // different types of arguments
+        public static string getRestaurantName(int restaurantId)
+        {
+            return getRestaurantName(restaurantId.ToString());
+        }
+
+        public static string getRestaurantAddress(int restaurantId)
+        {
+            return getRestaurantAddress(restaurantId.ToString());
+        }
+
+        public static List<string> getRestaurantCriteria(int restaurantId)
+        {
+            return getRestaurantCriteria(restaurantId.ToString());
+        }
     }
 }

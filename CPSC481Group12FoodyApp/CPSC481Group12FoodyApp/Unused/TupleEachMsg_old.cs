@@ -6,7 +6,7 @@ using System.Net.Mail;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public class TupleEachMsg
+    public class TupleEachMsg_old
     {
         private Tuple<string, string, string> message;
 
