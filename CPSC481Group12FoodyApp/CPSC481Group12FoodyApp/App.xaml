@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              StartupUri="Window_Single.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./3_Create_Enter_Send_Chat/chat/ChatMsgsShow.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

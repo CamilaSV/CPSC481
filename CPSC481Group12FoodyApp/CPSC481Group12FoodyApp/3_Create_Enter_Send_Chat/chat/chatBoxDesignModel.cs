@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat
 {
-    class ChatBoxDesignModel
+    public class ChatBoxDesignModel
     {
         public string IsUser_abbreviation { get; set; }
         public string IsUser_chatSenderEmail { get; set; }
