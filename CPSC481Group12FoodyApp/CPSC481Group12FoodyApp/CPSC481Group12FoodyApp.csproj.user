@@ -22,6 +22,9 @@
     <Page Update="3_Create_Enter_Send_Chat\ChatScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="3_Create_Enter_Send_Chat\chat\ChatMsgsShow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="6_ChatEvent\ChatAddCustomTime.xaml">
       <SubType>Designer</SubType>
     </Page>
