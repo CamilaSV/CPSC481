@@ -12,10 +12,10 @@
     </UserControl.DataContext>
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition/>
-            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -28,13 +28,16 @@
             <TextBlock x:Name="GroupNameBlock" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149"/>
         </Grid>
 
-        <Border Grid.Row="1">
-            <ListView ItemsSource="{Binding Messages}" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
-        </Border>
-
-        <Border Grid.Row="2">
-            <TextBox Height="75" Style="{StaticResource SendMsgTextBox}"/>
-        </Border>
-
+        <ItemsControl Grid.Row="1" x:Name="ListControl">
+            <StackPanel Grid.Row="1">
+                <Border Height="703">
+                    <ListView ItemsSource="{Binding Messages}" IsSynchronizedWithCurrentItem="True" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+                </Border>
+                <Border>
+                    <TextBox Height="75" Style="{StaticResource SendMsgTextBox}"/>
+                </Border>
+            </StackPanel>
+        </ItemsControl>
+        
     </Grid>
 </UserControl>
