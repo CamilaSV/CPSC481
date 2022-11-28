@@ -17,6 +17,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
             SessionData.initializeChat(chatId);
             chatScreen.GroupNameBlock.Text = SessionData.getCurrentChatName();
+            chatScreen.GroupIdBlock.Text = SessionData.getCurrentChatId();
             PageNavigator.gotoOneChat();
         }
 

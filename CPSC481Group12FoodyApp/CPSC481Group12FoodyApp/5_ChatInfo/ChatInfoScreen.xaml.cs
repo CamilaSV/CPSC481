@@ -40,9 +40,9 @@ namespace CPSC481Group12FoodyApp
             }
         }
 
-        private void Restaurants_ShowMoreButton_Click(object sender, RoutedEventArgs e)
+        private void Restaurant_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Restaurants_ShowMoreButton.IsEnabled)
+            if (Restaurant_ShowMoreButton.IsEnabled)
             {
 
             }

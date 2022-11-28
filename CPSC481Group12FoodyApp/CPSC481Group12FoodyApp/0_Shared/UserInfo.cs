@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public List<string> groupList { get; set; }
         public List<string> eventList { get; set; }
         public List<string> categoryList { get; set; }
-        public List<string> restaurantList { get; set; }
+        public List<UserCatResInfo> restaurantList { get; set; }
         public List<InvitationInfo> invitationList { get; set; }
     }
 }
