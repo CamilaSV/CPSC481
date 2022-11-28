@@ -7,7 +7,7 @@ using System.Windows.Interop;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public static class PathFinder
+    public static class PathFinder_old
     {
         // get paths for restaurant data
         public static string getResDir(string restaurantId) {

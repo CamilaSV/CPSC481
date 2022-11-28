@@ -23,7 +23,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void sendMsg(ChatScreen chatScreen, string emailSender, string chatId)
         {
             // not finished
-            Logic_ChatScreen.sendMsg(emailSender, null, null, SharedFunctions.getCurrentEpochTime());
+            Logic_ChatScreen.sendMsg(emailSender, null, null, DBSetter.getCurrentEpochTime());
         }
 
         public static void enterOneChat(ChatScreen chatScreen, string emailUser, int chatId)

@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public static class SharedFunctions
+    public static class SharedFunctions_old
     {
         // remove target by reading all lines and excluding target lines
         public static void removeLineFromFile(string filePath, string lineToRemove)

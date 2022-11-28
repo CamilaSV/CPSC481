@@ -41,7 +41,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 else
                 {
                     abbreviation = SessionData.getCurrentChatLog_Sender()[i].Substring(0, 1);
-                    name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(email));
+                    name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(email));
                 }
 
                 if (email.Equals(SessionData.getCurrentEmail()))
@@ -89,7 +89,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 else
                 {
                     abbreviation = SessionData.getCurrentChatLog_Sender()[i].Substring(0, 1);
-                    name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(email));
+                    name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(email));
                 }
 
                 if (email.Equals(SessionData.getCurrentEmail()))
@@ -121,9 +121,9 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static List<TupleEachMsg> enterOneChat(string emailUser, string chatId)
         {
-            string chatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
+            string chatName = DBSetter.getFirstLineFromFile(PathFinder.getChatName(chatId));
 
-            int firstNonExistingDir = SharedFunctions.findFirstNonExistingMsgDirNumber(chatId);
+            int firstNonExistingDir = DBSetter.findFirstNonExistingMsgDirNumber(chatId);
 
             string email;
             string message;
@@ -133,9 +133,9 @@ namespace CPSC481Group12FoodyApp.Logic
 
             for (int i = 0; i < firstNonExistingDir; i++)
             {
-                email = SharedFunctions.getFirstLineFromFile(PathFinder.getChatOneMsgSender(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
-                message = File.ReadAllText(PathFinder.getChatOneMsgMessage(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
-                time = SharedFunctions.getFirstLineFromFile(PathFinder.getChatOneMsgTime(chatId, SharedFunctions.findLastExistingDirNumber(chatId)));
+                email = DBSetter.getFirstLineFromFile(PathFinder.getChatOneMsgSender(chatId, DBSetter.findLastExistingDirNumber(chatId)));
+                message = File.ReadAllText(PathFinder.getChatOneMsgMessage(chatId, DBSetter.findLastExistingDirNumber(chatId)));
+                time = DBSetter.getFirstLineFromFile(PathFinder.getChatOneMsgTime(chatId, DBSetter.findLastExistingDirNumber(chatId)));
                 msgs.Add(new TupleEachMsg(email, message, time));
             }
 
@@ -144,12 +144,12 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void sendMsg(string emailSender, string chatId, string chatMsg, string chatTime)
         {
-            int firstNonExistingDir = SharedFunctions.findFirstNonExistingMsgDirNumber(chatId);
+            int firstNonExistingDir = DBSetter.findFirstNonExistingMsgDirNumber(chatId);
 
             Directory.CreateDirectory(PathFinder.getChatOneMsgDir(chatId, firstNonExistingDir));
 
-            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), emailSender);
-            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), chatTime);
+            DBSetter.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), emailSender);
+            DBSetter.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), chatTime);
             // newline must not be made here
             StreamWriter fileWriter = File.CreateText(PathFinder.getChatOneMsgMessage(chatId, firstNonExistingDir));
             fileWriter.Write(chatMsg);

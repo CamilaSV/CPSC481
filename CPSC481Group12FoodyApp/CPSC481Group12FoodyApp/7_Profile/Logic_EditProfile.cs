@@ -10,13 +10,13 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public static void editBio(string emailUser, string bio)
         {
-            SharedFunctions.createFileWithText(PathFinder.getAccBio(emailUser), bio);
+            DBSetter.createFileWithText(PathFinder.getAccBio(emailUser), bio);
         }
 
         public static void createCategory(string emailUser, string categoryId, string categoryName)
         {
             Directory.CreateDirectory(PathFinder.getAccOneCategoryDir(emailUser, categoryId));
-            SharedFunctions.createFileWithText(PathFinder.getAccOneCategoryName(emailUser, categoryId), categoryName);
+            DBSetter.createFileWithText(PathFinder.getAccOneCategoryName(emailUser, categoryId), categoryName);
         }
 
         public static void removeCategory(string emailUser, string categoryId)
@@ -26,17 +26,17 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void editCategoryName(string emailUser, string categoryId, string categoryName)
         {
-            SharedFunctions.createFileWithText(PathFinder.getAccOneCategoryName(emailUser, categoryId), categoryName);
+            DBSetter.createFileWithText(PathFinder.getAccOneCategoryName(emailUser, categoryId), categoryName);
         }
 
         public static void addRestaurantToCategory(string emailUser, string categoryId, string restaurantId)
         {
-            SharedFunctions.appendLineToFile(PathFinder.getAccOneCategoryRestaurants(emailUser, categoryId), restaurantId);
+            DBSetter.appendLineToFile(PathFinder.getAccOneCategoryRestaurants(emailUser, categoryId), restaurantId);
         }
 
         public static void remRestaurantFromCategory(string emailUser, string categoryId, string restaurantId)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccOneCategoryRestaurants(emailUser, categoryId), restaurantId);
+            DBSetter.removeLineFromFile(PathFinder.getAccOneCategoryRestaurants(emailUser, categoryId), restaurantId);
         }
 
         // polymorphism?

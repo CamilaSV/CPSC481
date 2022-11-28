@@ -22,7 +22,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                     else
                     {
-                        SharedFunctions.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
+                        DBSetter.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
                         result = "The account already exists.";
                     }
                 }
@@ -52,9 +52,9 @@ namespace CPSC481Group12FoodyApp.Logic
             // the account does not exist, so register the account
             Directory.CreateDirectory(PathFinder.getAccDir(email));
 
-            SharedFunctions.createFileWithText(PathFinder.getAccEmail(email), email);
-            SharedFunctions.createFileWithText(PathFinder.getAccPw(email), password);
-            SharedFunctions.createFileWithText(PathFinder.getAccName(email), email);
+            DBSetter.createFileWithText(PathFinder.getAccEmail(email), email);
+            DBSetter.createFileWithText(PathFinder.getAccPw(email), password);
+            DBSetter.createFileWithText(PathFinder.getAccName(email), email);
 
             File.Create(PathFinder.getAccBio(email)).Close();
             File.Create(PathFinder.getAccChatInvId(email)).Close();

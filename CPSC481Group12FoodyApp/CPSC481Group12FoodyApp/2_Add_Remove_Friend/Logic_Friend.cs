@@ -17,7 +17,7 @@ namespace CPSC481Group12FoodyApp.Logic
             string name;
             foreach (string line in SessionData.getCurrentUserFriendReq())
             {
-                name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
+                name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(line));
                 propertyChange_Friend requestItem = new propertyChange_Friend
                 {
                     TargetEmail = line,
@@ -37,7 +37,7 @@ namespace CPSC481Group12FoodyApp.Logic
             string name;
             foreach (string line in SessionData.getCurrentUserFriends())
             {
-                name = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(line));
+                name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(line));
                 propertyChange_Friend listItem = new propertyChange_Friend
                 {
                     TargetEmail = line,

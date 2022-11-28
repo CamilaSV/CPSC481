@@ -16,8 +16,8 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 try
                 {
-                    SharedFunctions.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
-                    if (!SharedFunctions.getFirstLineFromFile(PathFinder.getAccPw(email)).Equals(password))
+                    DBSetter.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
+                    if (!DBSetter.getFirstLineFromFile(PathFinder.getAccPw(email)).Equals(password))
                     {
                         result = "Username and password combination does not match.";
                     }

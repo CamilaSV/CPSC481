@@ -20,9 +20,9 @@ namespace CPSC481Group12FoodyApp.Logic
                 propertyChange_ChatInvite invItem = new propertyChange_ChatInvite
                 {
                     GroupId = SessionData.getCurrentUserChatInvId()[i],
-                    GroupName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentUserChatInvId()[i])),
+                    GroupName = DBSetter.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentUserChatInvId()[i])),
                     SenderEmail = SessionData.getCurrentUserChatInvSender()[i],
-                    SenderName = SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentUserChatInvSender()[i])),
+                    SenderName = DBSetter.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentUserChatInvSender()[i])),
                 };
                 invListCollection.Add(invItem);
             }
@@ -37,25 +37,25 @@ namespace CPSC481Group12FoodyApp.Logic
             Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
             Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
 
-            SharedFunctions.createFileWithText(PathFinder.getChatName(chatId), SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId)));
-            SharedFunctions.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
+            DBSetter.createFileWithText(PathFinder.getChatName(chatId), DBSetter.getFirstLineFromFile(PathFinder.getChatName(chatId)));
+            DBSetter.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
 
             File.AppendText(PathFinder.getChatAdmin(chatId));
             File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
             File.Create(PathFinder.getChatSavedCriteria(chatId)).Close();
 
-            int firstNonExistingDir = SharedFunctions.findFirstNonExistingMsgDirNumber(chatId);
+            int firstNonExistingDir = DBSetter.findFirstNonExistingMsgDirNumber(chatId);
 
             Directory.CreateDirectory(PathFinder.getChatOneMsgDir(chatId, firstNonExistingDir));
 
-            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), "");
-            SharedFunctions.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), SharedFunctions.getCurrentEpochTime());
+            DBSetter.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), "");
+            DBSetter.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), DBSetter.getCurrentEpochTime());
             // newline must not be made here
             StreamWriter fileWriter = File.CreateText(PathFinder.getChatOneMsgMessage(chatId, firstNonExistingDir));
-            fileWriter.Write(SharedFunctions.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
+            fileWriter.Write(DBSetter.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
             fileWriter.Close();
 
-            SharedFunctions.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
+            DBSetter.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
             Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
             Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
 
@@ -69,7 +69,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 PathFinder.getAccChatInvId(emailUser),
                 PathFinder.getAccChatInvSender(emailUser) 
             };
-            SharedFunctions.removeLineFromMultipleFiles(filepaths, chatId);
+            DBSetter.removeLineFromMultipleFiles(filepaths, chatId);
         }
 
         public static void removeOneChatInvite(string emailUser, string emailSender, string chatId)
@@ -82,7 +82,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
             List<string> linesToRemove = new List<string>() { emailSender, chatId };
 
-            SharedFunctions.removeLinesOnMatchAll(filepaths, linesToRemove);
+            DBSetter.removeLinesOnMatchAll(filepaths, linesToRemove);
         }
 
         public static void acceptChatInvite(string emailUser, int chatId)

@@ -18,15 +18,15 @@ namespace CPSC481Group12FoodyApp.Logic
 
             Directory.CreateDirectory(PathFinder.getChatFutSchEvDir(chatId, eventId));
 
-            SharedFunctions.createFileWithText(PathFinder.getChatFutSchEvName(chatId, eventId), restaurantName);
-            SharedFunctions.createFileWithText(PathFinder.getChatFutSchEvDate(chatId, eventId), date);
+            DBSetter.createFileWithText(PathFinder.getChatFutSchEvName(chatId, eventId), restaurantName);
+            DBSetter.createFileWithText(PathFinder.getChatFutSchEvDate(chatId, eventId), date);
 
             string[] members = File.ReadAllLines(PathFinder.getChatMembers(chatId));
 
             foreach (var eachMember in members)
             {
-                SharedFunctions.createFileWithText(PathFinder.getAccFutSchGroupEvName(eachMember, chatId, eventId), restaurantName);
-                SharedFunctions.createFileWithText(PathFinder.getAccFutSchGroupEvDate(eachMember, chatId, eventId), date);
+                DBSetter.createFileWithText(PathFinder.getAccFutSchGroupEvName(eachMember, chatId, eventId), restaurantName);
+                DBSetter.createFileWithText(PathFinder.getAccFutSchGroupEvDate(eachMember, chatId, eventId), date);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace CPSC481Group12FoodyApp
             {
                 result = "You cannot add yourself as a friend.";
             }
-            else if (SharedFunctions.isLineInFile(PathFinder.getAccFriends(emailUser), emailTarget))
+            else if (DBSetter.isLineInFile(PathFinder.getAccFriends(emailUser), emailTarget))
             {
                 result = "The user is already your friend.";
             }
@@ -28,16 +28,16 @@ namespace CPSC481Group12FoodyApp
             }
             else
             {
-                SharedFunctions.appendLineToFile(PathFinder.getAccFriends(emailUser), emailTarget);
+                DBSetter.appendLineToFile(PathFinder.getAccFriends(emailUser), emailTarget);
 
                 // if the target exists in user's friend request, remove that request. Otherwise, send friend request to the target.
-                if (SharedFunctions.isLineInFile(PathFinder.getAccFriendReq(emailUser), emailTarget))
+                if (DBSetter.isLineInFile(PathFinder.getAccFriendReq(emailUser), emailTarget))
                 {
-                    SharedFunctions.removeLineFromFile(PathFinder.getAccFriendReq(emailUser), emailTarget);
+                    DBSetter.removeLineFromFile(PathFinder.getAccFriendReq(emailUser), emailTarget);
                 }
                 else
                 {
-                    SharedFunctions.appendLineToFile(PathFinder.getAccFriendReq(emailTarget), emailUser);
+                    DBSetter.appendLineToFile(PathFinder.getAccFriendReq(emailTarget), emailUser);
                 }
 
                 result = "true";
@@ -49,20 +49,20 @@ namespace CPSC481Group12FoodyApp
         // delete target from user's friends list
         public static void deleteFriend(string emailUser, string emailTarget)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccFriends(emailUser), emailTarget);
+            DBSetter.removeLineFromFile(PathFinder.getAccFriends(emailUser), emailTarget);
         }
 
         // add target to user's friends list, and delete target from user's friend requests
         public static void acceptFriendReq(string emailUser, string emailTarget)
         {
-            SharedFunctions.appendLineToFile(PathFinder.getAccFriends(emailUser), emailTarget);
+            DBSetter.appendLineToFile(PathFinder.getAccFriends(emailUser), emailTarget);
             removeFriendReq(emailUser, emailTarget);
         }
 
         // delete target from user's friend requests
         public static void removeFriendReq(string emailUser, string emailTarget)
         {
-            SharedFunctions.removeLineFromFile(PathFinder.getAccFriendReq(emailUser), emailTarget);
+            DBSetter.removeLineFromFile(PathFinder.getAccFriendReq(emailUser), emailTarget);
         }
 
         public static string getAllFriends(string emailUser)

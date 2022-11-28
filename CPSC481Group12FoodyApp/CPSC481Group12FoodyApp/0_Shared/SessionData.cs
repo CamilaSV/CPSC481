@@ -71,10 +71,10 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void initializeChat(string chatId)
         {
             currentChatId = chatId;
-            currentChatName = SharedFunctions.getFirstLineFromFile(PathFinder.getChatName(chatId));
-            currentChatLog_Sender = SharedFunctions.getAllSendersInOneChat(chatId);
-            currentChatLog_Message = SharedFunctions.getAllMsgsInOneChat(chatId);
-            currentChatLog_Time = SharedFunctions.getAllTimesInOneChat(chatId);
+            currentChatName = DBSetter.getFirstLineFromFile(PathFinder.getChatName(chatId));
+            currentChatLog_Sender = DBSetter.getAllSendersInOneChat(chatId);
+            currentChatLog_Message = DBSetter.getAllMsgsInOneChat(chatId);
+            currentChatLog_Time = DBSetter.getAllTimesInOneChat(chatId);
             initializeChatInfo();
         }
 
