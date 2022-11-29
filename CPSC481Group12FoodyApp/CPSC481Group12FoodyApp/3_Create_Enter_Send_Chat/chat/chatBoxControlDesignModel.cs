@@ -13,21 +13,6 @@ namespace CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat
         public RelayCommand SendCommand { get; set; }
         public ObservableCollection<ChatBoxDesignModel> Messages { get; set; }
 
-
-        private string isUser_chatMsg;
-        public string IsUser_chatMsg
-        {
-            get { return isUser_chatMsg; }
-            set
-            {
-                if (value != isUser_chatMsg)
-                {
-                    isUser_chatMsg = value;
-                    OnPropertyChanged(nameof(IsUser_chatMsg));
-                }
-            }
-        }
-
         public ChatBoxControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
@@ -37,9 +22,16 @@ namespace CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat
             {
                 Messages.Add(new ChatBoxDesignModel
                 {
+                    IsUser_abbreviation = "B",
+                    IsUser_chatSenderName = "Bob",
+                    IsUser_chatTime = "now",
                     IsUser_chatMsg = IsUser_chatMsg,
                 });
+                IsUser_abbreviation = "";
+                IsUser_chatSenderName = "";
+                IsUser_chatTime = "";
                 IsUser_chatMsg = "";
+
             });
 
             Messages.Add(new ChatBoxDesignModel
@@ -55,27 +47,11 @@ namespace CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat
 
         public void refreshComponent()
         {
-            Messages = Logic_ChatScreen.displayChatModels();
-            SendCommand = new RelayCommand(o =>
-            {
-                Messages.Add(new ChatBoxDesignModel
-                {
-                    IsUser_chatMsg = IsUser_chatMsg,
-                });
-                IsUser_chatMsg = "";
-            });
-
-            Messages.Add(new ChatBoxDesignModel
-            {
-                IsUser_abbreviation = "B",
-                IsUser_chatSenderName = "Bob",
-                IsUser_chatTime = "now",
-                IsUser_chatMsg = "TESTING",
-            });
-            /*Messages.Add(new ChatBoxDesignModel
-            {
-                IsUser_chatMsg = "TESTING TESTING TESTING "
-            });*/
+            /*
+             * This breaks the code for some reason. 
+             * I think it makes a new collection of the same name
+             * no way for wpf to reference the current Messages object.
+             */
         }
     }
 }

@@ -5,26 +5,40 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Border Padding="8">
-                            
-                            <Grid>
-                                <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
-                                <TextBlock FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
-                            </Grid>
-                            
-                        </Border>
-                        <StackPanel>
-                            
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding IsUser_chatSenderName}" Foreground="DeepSkyBlue" VerticalAlignment="Center"/>
-                                <Label Content="{Binding IsUser_chatTime}" Foreground="LightGray" VerticalAlignment="Center"/>
+                    <Border BorderThickness="0,5,0,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                <Border Padding="4">
+                                    <Grid>
+                                        <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                                        <TextBlock FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
+                                    </Grid>
+                                </Border>
                             </StackPanel>
-
-                            <Label Content="{Binding IsUser_chatMsg}" Foreground="Black" VerticalAlignment="Center"/>
-                            
-                        </StackPanel>
-                    </StackPanel>
+                            <Border Grid.Column="2" Padding="5,0,0,0" VerticalAlignment="Center" >
+                                <StackPanel VerticalAlignment="Center">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
+                                            <TextBlock Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <TextBlock Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

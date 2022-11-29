@@ -23,6 +23,7 @@ namespace CPSC481Group12FoodyApp
         public Window_Single()
         {
             InitializeComponent();
+            this.DataContext = this;
             PageNavigator.initializeProgram(this);
         }
     }

@@ -40,7 +40,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.Items.Refresh();
+            //ListControl.Items.Refresh();
         }
     }
 }

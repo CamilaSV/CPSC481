@@ -8,7 +8,7 @@
                 <ControlTemplate TargetType="TextBox">
                     <Grid>
                         <TextBox x:Name="SendMsgTextBox" Text="{Binding IsUser_chatMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                 TextWrapping="Wrap" Foreground="Black" BorderThickness="1">
+                                 TextWrapping="Wrap"  Foreground="Black" BorderThickness="2">
                             <TextBox.InputBindings>
                                 <KeyBinding Command="{Binding SendCommand}" Key="Return"/>
                             </TextBox.InputBindings>
