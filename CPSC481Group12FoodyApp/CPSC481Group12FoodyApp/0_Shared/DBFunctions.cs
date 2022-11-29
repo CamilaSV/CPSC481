@@ -16,9 +16,9 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createNecessaryFiles()
         {
             Directory.CreateDirectory(dbDir);
-            File.Create(getAccountsPath()).Close();
-            File.Create(getGroupsPath()).Close();
-            File.Create(getRestaurantsPath()).Close();
+            File.AppendText(getAccountsPath()).Close();
+            File.AppendText(getGroupsPath()).Close();
+            File.AppendText(getRestaurantsPath()).Close();
         }
 
         private static string getAccountsPath()
@@ -39,18 +39,31 @@ namespace CPSC481Group12FoodyApp.Logic
         public static Dictionary<string, UserInfo> getAllUserInfo()
         {
             string json = File.ReadAllText(getAccountsPath());
+            if (string.IsNullOrEmpty(json)) {
+                return new Dictionary<string, UserInfo>();
+            }
+            
             return new Dictionary<string, UserInfo>(JsonSerializer.Deserialize<Dictionary<string, UserInfo>>(json));
         }
 
         public static Dictionary<int, GroupInfo> getAllGroupInfo()
         {
             string json = File.ReadAllText(getGroupsPath());
+            if (string.IsNullOrEmpty(json))
+            {
+                return new Dictionary<int, GroupInfo>();
+            }
+
             return new Dictionary<int, GroupInfo>(JsonSerializer.Deserialize<Dictionary<int, GroupInfo>>(json));
         }
 
         public static Dictionary<int, RestaurantInfo> getAllRestaurantInfo()
         {
             string json = File.ReadAllText(getRestaurantsPath());
+            if (string.IsNullOrEmpty(json)) {
+                return new Dictionary<int, RestaurantInfo>();
+            }
+
             return new Dictionary<int, RestaurantInfo>(JsonSerializer.Deserialize<Dictionary<int, RestaurantInfo>>(json));
         }
 
@@ -64,6 +77,5 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             File.WriteAllText(getGroupsPath(), JsonSerializer.Serialize(allInfo, new JsonSerializerOptions { WriteIndented = true }));
         }
-
     }
 }

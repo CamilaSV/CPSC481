@@ -4,14 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using CPSC481Group12FoodyApp.Logic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CPSC481Group12FoodyApp
 {
     public static class Logic_AddRemFriend
     {
         // add target to user's friends list, and add user to target user's friend requests
-        public static void addFriend(UserControl_AddFriends addPage, string emailTarget)
+        public static void addFriend(UserControl_AddFriends addPage)
         {
+            string emailTarget = addPage.AddFriendTextBox.Text;
             if (emailTarget.Equals(SessionData.getCurrentUser()))
             {
                 addPage.ErrorTextBlock.Text = "You cannot add yourself as a friend.";
@@ -27,6 +29,7 @@ namespace CPSC481Group12FoodyApp
             else
             {
                 SessionData.addUserFriendReqToTarget(SessionData.getCurrentUser(), emailTarget);
+                PageNavigator.gotoProfile();
             }
         }
 

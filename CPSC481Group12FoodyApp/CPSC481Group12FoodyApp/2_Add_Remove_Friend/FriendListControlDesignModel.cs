@@ -30,7 +30,6 @@ namespace CPSC481Group12FoodyApp
         public FriendListControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            FriendListCollection = Logic_Friend.displayUsersFriendList();
         }
 
         public void refreshComponent()

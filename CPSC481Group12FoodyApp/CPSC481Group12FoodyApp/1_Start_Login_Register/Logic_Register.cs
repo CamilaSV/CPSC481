@@ -11,38 +11,24 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             string email = registerWindow.Register_EmailTextBox.Text;
             string password = registerWindow.Register_PasswordBox.Password;
-            string result = "true";
 
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))
             {
-                try
+                if (String.IsNullOrWhiteSpace(password))
                 {
-                    if (String.IsNullOrWhiteSpace(password))
-                    {
-                        registerWindow.ErrorTextBlock.Text = "The password must not be empty.";
-                    }
-                    else if (SessionData.getUserExist(email))
-                    {
+                    registerWindow.ErrorTextBlock.Text = "The password must not be empty.";
+                }
+                else if (SessionData.getUserExist(email))
+                {
 
-                        registerWindow.ErrorTextBlock.Text = "The account already exists.";
-                    }
+                    registerWindow.ErrorTextBlock.Text = "The account already exists.";
                 }
-                catch (FileNotFoundException fnfe)
+                else
                 {
                     SessionData.createUser(email, password);
                     SessionData.loginUser(email);
                     PageNavigator.gotoChatList();
-                }
-                catch (DirectoryNotFoundException dnfe)
-                {
-                    SessionData.createUser(email, password);
-                    SessionData.loginUser(email);
-                    PageNavigator.gotoChatList();
-                }
-                catch (Exception e)
-                {
-                    registerWindow.ErrorTextBlock.Text = "Something is wrong. Please contact support.";
                 }
             }
             else

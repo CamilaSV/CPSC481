@@ -15,29 +15,18 @@ namespace CPSC481Group12FoodyApp.Logic
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))
             {
-                try
-                {
-                    if (!SessionData.getUserPassword(email).Equals(password))
-                    {
-                        loginWindow.ErrorTextBlock.Text = "Username and password combination does not match.";
-                    }
-                    else
-                    {
-                        SessionData.loginUser(email);
-                        PageNavigator.gotoChatList();
-                    }
-                }
-                catch (FileNotFoundException fnfe)
+                if (!SessionData.getUserExist(email)) 
                 {
                     loginWindow.ErrorTextBlock.Text = "User does not exist.";
                 }
-                catch (DirectoryNotFoundException dnfe)
+                else if (!SessionData.getUserPassword(email).Equals(password))
                 {
-                    loginWindow.ErrorTextBlock.Text = "User does not exist.";
+                    loginWindow.ErrorTextBlock.Text = "Username and password combination does not match.";
                 }
-                catch (Exception e)
+                else 
                 {
-                    loginWindow.ErrorTextBlock.Text = "Something is wrong. Please contact support.";
+                    SessionData.loginUser(email);
+                    PageNavigator.gotoChatList();
                 }
             }
             else

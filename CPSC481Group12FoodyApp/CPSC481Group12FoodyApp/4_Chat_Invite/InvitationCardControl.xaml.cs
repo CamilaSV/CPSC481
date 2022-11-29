@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,12 +28,12 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
-            API_ChatInvites.acceptChatInvite(ChatIdTextBlock.Text);
+            Logic_ChatInvites.acceptGroupInvite(Int32.Parse(ChatIdTextBlock.Text));
         }
 
         private void minusBtn(object sender, RoutedEventArgs e)
         {
-            API_ChatInvites.removeOneChatInvite(SenderEmailTextBlock.Text, ChatIdTextBlock.Text);
+            Logic_ChatInvites.removeOneGroupInvite(SessionData.getCurrentUser(), Int32.Parse(ChatIdTextBlock.Text), SenderEmailTextBlock.Text);
         }
     }
 }

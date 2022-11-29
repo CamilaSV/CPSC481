@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.addFriend(this, AddFriendTextBox.Text);
+            Logic_AddRemFriend.addFriend(this);
         }
     }
 }

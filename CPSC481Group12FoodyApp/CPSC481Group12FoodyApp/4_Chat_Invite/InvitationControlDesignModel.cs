@@ -29,7 +29,6 @@ namespace CPSC481Group12FoodyApp
         public InvitationControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            Invites = Logic_ChatInvites.displayUsersGroupInviteList();
         }
 
         public void refreshComponent()

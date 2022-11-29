@@ -29,7 +29,6 @@ namespace CPSC481Group12FoodyApp
         public ChatListControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            Chats = Logic_CreateLoadChat.displayUsersChatList();
         }
 
         public void refreshComponent()

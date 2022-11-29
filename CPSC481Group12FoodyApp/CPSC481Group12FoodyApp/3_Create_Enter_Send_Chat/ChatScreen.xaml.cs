@@ -35,7 +35,6 @@ namespace CPSC481Group12FoodyApp
 
         private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            API_ChatInfo.loadChatInfo(PageNavigator.getChatInfoScreen(), GroupIdBlock.Text);
         }
 
         public void refreshComponent()

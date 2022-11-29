@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Printing;
+using System.Windows;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -15,14 +16,15 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_ChatInvite> invListCollection = new ObservableCollection<propertyChange_ChatInvite>();
 
-            for (int i = 0; i < SessionData.getCurrentUserChatInvId().Count; i++)
+            propertyChange_ChatInvite invItem;
+            foreach (var invite in SessionData.getUserGroupInvitations(SessionData.getCurrentUser()))
             {
-                propertyChange_ChatInvite invItem = new propertyChange_ChatInvite
+                invItem = new propertyChange_ChatInvite
                 {
-                    GroupId = SessionData.getCurrentUserChatInvId()[i],
-                    GroupName = DBSetter.getFirstLineFromFile(PathFinder.getChatName(SessionData.getCurrentUserChatInvId()[i])),
-                    SenderEmail = SessionData.getCurrentUserChatInvSender()[i],
-                    SenderName = DBSetter.getFirstLineFromFile(PathFinder.getAccName(SessionData.getCurrentUserChatInvSender()[i])),
+                    GroupId = invite.inviteGroupId.ToString(),
+                    GroupName = SessionData.getGroupName(invite.inviteGroupId),
+                    SenderEmail = invite.inviteSenderEmail,
+                    SenderName = SessionData.getUserDisplayName(invite.inviteSenderEmail),
                 };
                 invListCollection.Add(invItem);
             }
@@ -30,75 +32,14 @@ namespace CPSC481Group12FoodyApp.Logic
             return invListCollection;
         }
 
-        public static void acceptChatInvite(string emailUser, string chatId)
+        public static void acceptGroupInvite(int groupId)
         {
-            // create necessary files and directories for the chat group
-            Directory.CreateDirectory(PathFinder.getChatMsgDir(chatId));
-            Directory.CreateDirectory(PathFinder.getChatFutSchDir(chatId));
-            Directory.CreateDirectory(PathFinder.getChatCompSchDir(chatId));
-
-            DBSetter.createFileWithText(PathFinder.getChatName(chatId), DBSetter.getFirstLineFromFile(PathFinder.getChatName(chatId)));
-            DBSetter.appendLineToFile(PathFinder.getChatMembers(chatId), emailUser);
-
-            File.AppendText(PathFinder.getChatAdmin(chatId));
-            File.Create(PathFinder.getChatSavedRestaurants(chatId)).Close();
-            File.Create(PathFinder.getChatSavedCriteria(chatId)).Close();
-
-            int firstNonExistingDir = DBSetter.findFirstNonExistingMsgDirNumber(chatId);
-
-            Directory.CreateDirectory(PathFinder.getChatOneMsgDir(chatId, firstNonExistingDir));
-
-            DBSetter.appendLineToFile(PathFinder.getChatOneMsgSender(chatId, firstNonExistingDir), "");
-            DBSetter.appendLineToFile(PathFinder.getChatOneMsgTime(chatId, firstNonExistingDir), DBSetter.getCurrentEpochTime());
-            // newline must not be made here
-            StreamWriter fileWriter = File.CreateText(PathFinder.getChatOneMsgMessage(chatId, firstNonExistingDir));
-            fileWriter.Write(DBSetter.getFirstLineFromFile(PathFinder.getAccName(emailUser)) + " has joined the group.");
-            fileWriter.Close();
-
-            DBSetter.appendLineToFile(PathFinder.getAccChats(emailUser), chatId);
-            Directory.CreateDirectory(PathFinder.getAccFutSchGroupDir(emailUser, chatId));
-            Directory.CreateDirectory(PathFinder.getAccCompSchGroupDir(emailUser, chatId));
-
-            removeAllChatInvites(emailUser, chatId);
+            SessionData.addUserGroup(SessionData.getCurrentUser(), groupId);
         }
 
-        public static void removeAllChatInvites(string emailUser, string chatId)
+        public static void removeOneGroupInvite(string emailUser, int groupId, string emailSender)
         {
-            List<string> filepaths = new List<string>()
-            {   
-                PathFinder.getAccChatInvId(emailUser),
-                PathFinder.getAccChatInvSender(emailUser) 
-            };
-            DBSetter.removeLineFromMultipleFiles(filepaths, chatId);
+            SessionData.removeUserGroupInvite(emailUser, groupId, emailSender);
         }
-
-        public static void removeOneChatInvite(string emailUser, string emailSender, string chatId)
-        {
-            List<string> filepaths = new List<string>()
-            {
-                PathFinder.getAccChatInvId(emailUser),
-                PathFinder.getAccChatInvSender(emailUser)
-            };
-
-            List<string> linesToRemove = new List<string>() { emailSender, chatId };
-
-            DBSetter.removeLinesOnMatchAll(filepaths, linesToRemove);
-        }
-
-        public static void acceptChatInvite(string emailUser, int chatId)
-        {
-            acceptChatInvite(emailUser, chatId.ToString());
-        }
-
-        public static void removeAllChatInvites(string emailUser, int chatId)
-        {
-            removeAllChatInvites(emailUser, chatId.ToString());
-        }
-
-        public static void removeOneChatInvite(string emailUser, string emailSender, int chatId)
-        {
-            removeOneChatInvite(emailUser, emailSender, chatId.ToString());
-        }
-
     }
 }

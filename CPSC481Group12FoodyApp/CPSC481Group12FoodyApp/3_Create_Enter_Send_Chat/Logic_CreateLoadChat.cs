@@ -19,15 +19,27 @@ namespace CPSC481Group12FoodyApp.Logic
             ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
 
             MsgInfo msg;
-            string name;
+            string name, abbreviation;
             propertyChange_Chat chatItem;
             foreach (var groupId in SessionData.getUserGroups(SessionData.getCurrentUser()))
             {
+                // testing
+                System.Diagnostics.Debug.WriteLine(groupId);
+
                 msg = SessionData.getGroupLastMsgInfo(groupId);
-                name = SessionData.getUserDisplayName(msg.senderEmail);
+                if (string.IsNullOrEmpty(msg.senderEmail))
+                {
+                    name = "";
+                    abbreviation = "";
+                }
+                else
+                {
+                    name = SessionData.getUserDisplayName(msg.senderEmail);
+                    abbreviation = name.Substring(0, 1);
+                }
                 chatItem = new propertyChange_Chat
                 {
-                    Abbreviation = name.Substring(0, 1),
+                    Abbreviation = abbreviation,
                     ChatId = groupId.ToString(),
                     ChatName = SessionData.getGroupName(groupId),
                     ChatLastSender = msg.senderEmail,
@@ -44,7 +56,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createChat(UserControl_CreateNewChat createPage)
         {
             string groupName = createPage.GroupNameText.Text;
-            int groupId;
+            int groupId, msgId;
 
             if (String.IsNullOrWhiteSpace(groupName))
             {
@@ -52,14 +64,13 @@ namespace CPSC481Group12FoodyApp.Logic
             }
             else
             {
-                for (groupId = 0; SessionData.getGroupExist(groupId); groupId++) ;
-                SessionData.createGroup(groupId, groupName, SessionData.getCurrentUser());
+                groupId = SessionData.getFirstAvailableGroupId();
+                SessionData.addUserNewGroup(SessionData.getCurrentUser(), groupId, groupName);
 
                 foreach (var eachEmail in SessionData.getTargetsToInviteToGroup())
                 {
                     SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
                 }
-
                 PageNavigator.gotoChatList();
             }
         }

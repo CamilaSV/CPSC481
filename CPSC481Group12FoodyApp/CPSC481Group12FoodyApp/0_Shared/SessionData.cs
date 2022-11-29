@@ -31,6 +31,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void loginUser(string emailUser)
         {
             currentUser = emailUser;
+            ComponentFunctions.refreshAll();
         }
 
         public static string getCurrentUser()
@@ -62,7 +63,8 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             createGroup(groupId, name, emailCreator);
             addUserGroup(emailCreator, groupId);
-            DBFunctions.saveInfo(allUsers);
+            addGroupMsg(groupId, 0, "", getCurrentUser() + " has joined the group.");
+            ComponentFunctions.refreshAll();
         }
 
         public static void addUserFriend(string emailUser, string emailTarget)
@@ -81,6 +83,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].friendList.Remove(emailTarget);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -90,6 +93,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].friendReqList.Remove(emailTarget);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -106,6 +110,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 allUsers[emailUser].categoryList.Add(info);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -116,6 +121,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].categoryList.RemoveAt(index);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -149,6 +155,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].eventList.Add(eventInfo);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -160,6 +167,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].eventList.Remove(eventInfo);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -170,6 +178,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Add(resId);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -180,6 +189,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Remove(resId);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -190,6 +200,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].invitationList.Remove(info);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -200,6 +211,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailTarget].friendReqList.Add(emailUser);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -210,46 +222,54 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailTarget].invitationList.Add(info);
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
         public static void addTargetToInviteGroupList(string emailTarget)
         {
             currentInviteTargets.Add(emailTarget);
+            ComponentFunctions.refreshAll();
         }
 
         public static void removeTargetFromInviteGroupList(string emailTarget)
         {
             currentInviteTargets.Remove(emailTarget);
+            ComponentFunctions.refreshAll();
         }
 
         public static void removeInviteTargetList()
         {
             currentInviteTargets.Clear();
+            ComponentFunctions.refreshAll();
         }
 
         public static void setUserPassword(string email, string password)
         {
             allUsers[email].name = password;
             DBFunctions.saveInfo(allUsers);
+            ComponentFunctions.refreshAll();
         }
 
         public static void setUserDisplayName(string email, string name)
         {
             allUsers[email].name = name;
             DBFunctions.saveInfo(allUsers);
+            ComponentFunctions.refreshAll();
         }
 
         public static void setUserBio(string email, string bio)
         {
             allUsers[email].bio = bio;
             DBFunctions.saveInfo(allUsers);
+            ComponentFunctions.refreshAll();
         }
 
         public static void setCategoryName(string email, int catId, string name)
         {
             allUsers[email].categoryList[catId].name = name;
             DBFunctions.saveInfo(allUsers);
+            ComponentFunctions.refreshAll();
         }
 
         // setters for group/event
@@ -267,7 +287,6 @@ namespace CPSC481Group12FoodyApp.Logic
             };
 
             allGroups[groupId] = info;
-            DBFunctions.saveInfo(allGroups);
         }
 
         public static void deleteGroup(int groupId)
@@ -283,6 +302,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     user.Value.eventList.RemoveAll(ev => ev.groupId.Equals(groupId));
                 }
                 DBFunctions.saveInfo(allUsers);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -300,6 +320,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 allGroups[groupId].msgList.Add(msg);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -309,6 +330,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].adminList.Add(emailTarget);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -318,6 +340,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].adminList.Remove(emailTarget);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -327,6 +350,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].memberList.Add(emailTarget);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -336,6 +360,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].memberList.Remove(emailTarget);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -345,6 +370,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].customCriteriaList.Add(criterion);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -354,6 +380,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].customCriteriaList.Remove(criterion);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -363,6 +390,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].restaurantList.Add(restaurantId);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -372,6 +400,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].restaurantList.Remove(restaurantId);
                 DBFunctions.saveInfo(allGroups);
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -391,6 +420,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     allGroups[groupId].eventList.Add(info);
                     DBFunctions.saveInfo(allGroups);
+                    ComponentFunctions.refreshAll();
                 }
             }
         }
@@ -408,6 +438,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     removeUserEvent(memberEmail, groupId, eventId);
                 }
+                ComponentFunctions.refreshAll();
             }
         }
 
@@ -667,5 +698,28 @@ namespace CPSC481Group12FoodyApp.Logic
             return dateOrTime;
         }
 
+        public static int getFirstAvailableGroupId()
+        {
+            int index = 0;
+            for (index = 0; allGroups.ContainsKey(index); index++) ;
+
+            return index;
+        }
+
+        public static int getFirstAvailableMsgId(int groupId)
+        {
+            int index;
+            int msgId = 0;
+
+            for (index = 0; index < allGroups[groupId].msgList.Count; index++)
+            {
+                if (allGroups[groupId].msgList[index].id == msgId)
+                {
+                    msgId++;
+                }
+            }
+
+            return msgId;
+        }
     }
 }
