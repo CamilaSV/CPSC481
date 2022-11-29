@@ -88,9 +88,6 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Unused\ChatScreen_Unused.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
     <Page Update="5_ChatInfo\ChatEditRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -153,9 +150,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_Create_Enter_Send_Chat\ChatScreen.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Unused\InvitationControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="4_Chat_Invite\InvitationCardControl.xaml.cs">

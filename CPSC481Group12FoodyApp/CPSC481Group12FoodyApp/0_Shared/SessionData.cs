@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -15,6 +16,7 @@ namespace CPSC481Group12FoodyApp.Logic
     public static class SessionData
     {
         private static string currentUser = "";
+        private static List<string> currentInviteTargets = new List<string>();
         private static Dictionary<string, UserInfo> allUsers;
         private static Dictionary<int, GroupInfo> allGroups;
         private static Dictionary<int, RestaurantInfo> allRestaurants;
@@ -201,7 +203,7 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addUserGroupInviteToTarget(string emailTarget, int groupId, string emailSender)
+        public static void sendGroupInviteToTarget(string emailTarget, int groupId, string emailSender)
         {
             InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailSender };
             if (!allUsers[emailTarget].invitationList.Contains(info))
@@ -209,6 +211,21 @@ namespace CPSC481Group12FoodyApp.Logic
                 allUsers[emailTarget].invitationList.Add(info);
                 DBFunctions.saveInfo(allUsers);
             }
+        }
+
+        public static void addTargetToInviteGroupList(string emailTarget)
+        {
+            currentInviteTargets.Add(emailTarget);
+        }
+
+        public static void removeTargetFromInviteGroupList(string emailTarget)
+        {
+            currentInviteTargets.Remove(emailTarget);
+        }
+
+        public static void removeInviteTargetList()
+        {
+            currentInviteTargets.Clear();
         }
 
         public static void setUserPassword(string email, string password)
@@ -451,6 +468,11 @@ namespace CPSC481Group12FoodyApp.Logic
             return allUsers[email].categoryList[getCategoryExist(email, catId)].restaurantList;
         }
 
+        public static List<string> getTargetsToInviteToGroup()
+        {
+            return currentInviteTargets;
+        }
+
         // getters for group
         public static string getGroupName(int groupId)
         {
@@ -624,5 +646,26 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return -1;
         }
+
+        public static string getDateOrTimefromEpoch(long epochTime)
+        {
+            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeMilliseconds(epochTime);
+
+            DateTime epochDateTime = timeoff.DateTime.ToLocalTime();
+            string dateOrTime;
+
+            if ((int)(DateTime.Now - epochDateTime).TotalDays > 0)
+            {
+                // at least 1 day has passed; only show date
+                dateOrTime = epochDateTime.ToString("MM-dd", new CultureInfo("en-US"));
+            }
+            else
+            {
+                dateOrTime = epochDateTime.ToString("hh:mm tt", new CultureInfo("en-US"));
+            }
+
+            return dateOrTime;
+        }
+
     }
 }

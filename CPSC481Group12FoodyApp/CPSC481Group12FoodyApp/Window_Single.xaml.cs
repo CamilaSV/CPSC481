@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,8 @@ namespace CPSC481Group12FoodyApp
         public Window_Single()
         {
             InitializeComponent();
+            DBFunctions.createNecessaryFiles();
             SessionData.initializeStartup();
-            SessionData_Group.initializeStartup();
-            SessionData_Msg.initializeStartup();
-            SessionData_Event.initializeStartup();
-            SessionData_Category.initializeStartup();
-            SessionData_Restaurant.initializeStartup();
             PageNavigator.initializeProgram(this);
         }
     }

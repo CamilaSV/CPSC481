@@ -13,6 +13,14 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string restaurants = "Restaurants.json";
 
         // getters
+        public static void createNecessaryFiles()
+        {
+            Directory.CreateDirectory(dbDir);
+            File.Create(getAccountsPath()).Close();
+            File.Create(getGroupsPath()).Close();
+            File.Create(getRestaurantsPath()).Close();
+        }
+
         private static string getAccountsPath()
         {
             return dbDir + accounts;
