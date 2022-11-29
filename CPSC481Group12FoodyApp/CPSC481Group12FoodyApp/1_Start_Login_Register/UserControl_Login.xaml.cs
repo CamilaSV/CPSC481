@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace CPSC481Group12FoodyApp
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            API_Login.login(this);
+            Logic_Login.login(this);
         }
 
         private void Login_BackButton_MouseUp(object sender, MouseButtonEventArgs e)

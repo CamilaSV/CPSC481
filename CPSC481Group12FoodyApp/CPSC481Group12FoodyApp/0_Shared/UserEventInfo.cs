@@ -5,9 +5,9 @@ using System.IO;
 using System.Net.Mail;
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public class UserCatResInfo
+    public class UserEventInfo
     {
-        public int categoryId;
-        public int restaurantId;
+        public int groupId;
+        public int eventId;
     }
 }

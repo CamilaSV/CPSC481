@@ -27,12 +27,12 @@ namespace CPSC481Group12FoodyApp
 
         private void Decline_Button_Click(object sender, RoutedEventArgs e)
         {
-            API_AddRemFriend.denyFriendReq(EmailText.Text);
+            Logic_AddRemFriend.denyFriendReq(EmailText.Text);
         }
 
         private void Accept_Button_Click(object sender, RoutedEventArgs e)
         {
-            API_AddRemFriend.acceptFriendReq(EmailText.Text);
+            Logic_AddRemFriend.acceptFriendReq(EmailText.Text);
         }
     }
 }

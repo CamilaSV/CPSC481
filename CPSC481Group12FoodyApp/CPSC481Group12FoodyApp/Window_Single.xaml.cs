@@ -24,7 +24,7 @@ namespace CPSC481Group12FoodyApp
         public Window_Single()
         {
             InitializeComponent();
-            SessionData_User.initializeStartup();
+            SessionData.initializeStartup();
             SessionData_Group.initializeStartup();
             SessionData_Msg.initializeStartup();
             SessionData_Event.initializeStartup();

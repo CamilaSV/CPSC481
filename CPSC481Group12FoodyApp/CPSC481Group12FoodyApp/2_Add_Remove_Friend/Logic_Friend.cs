@@ -15,12 +15,13 @@ namespace CPSC481Group12FoodyApp.Logic
             ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
 
             string name;
-            foreach (string line in SessionData.getCurrentUserFriendReq())
+            propertyChange_Friend requestItem;
+            foreach (string email in SessionData.getUserFriendRequests(SessionData.getCurrentUser()))
             {
-                name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(line));
-                propertyChange_Friend requestItem = new propertyChange_Friend
+                name = SessionData.getUserDisplayName(email);
+                requestItem = new propertyChange_Friend
                 {
-                    TargetEmail = line,
+                    TargetEmail = email,
                     TargetUserName = name,
                     Abbreviation = name.Substring(0, 1),
                 };
@@ -35,12 +36,13 @@ namespace CPSC481Group12FoodyApp.Logic
             ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
 
             string name;
-            foreach (string line in SessionData.getCurrentUserFriends())
+            propertyChange_Friend listItem;
+            foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
             {
-                name = DBSetter.getFirstLineFromFile(PathFinder.getAccName(line));
-                propertyChange_Friend listItem = new propertyChange_Friend
+                name = SessionData.getUserDisplayName(email);
+                listItem = new propertyChange_Friend
                 {
-                    TargetEmail = line,
+                    TargetEmail = email,
                     TargetUserName = name,
                     Abbreviation = name.Substring(0, 1),
                 };

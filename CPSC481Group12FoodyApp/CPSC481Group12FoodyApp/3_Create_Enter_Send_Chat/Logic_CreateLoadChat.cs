@@ -7,32 +7,37 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Printing;
+using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_CreateLoadChat
     {
-
-        
-
-
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
             ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
 
-            foreach (Tuple<string, string, TupleEachMsg> lastmsg in SessionData.getCurrentUserChatList())
+            MsgInfo msg;
+            string name;
+            propertyChange_Chat chatItem;
+            foreach (var groupId in SessionData.getUserGroups(SessionData.getCurrentUser()))
             {
-                propertyChange_Chat chatItem = new propertyChange_Chat
+                msg = SessionData.getGroupLastMsgInfo(groupId);
+                name = SessionData.getUserDisplayName(msg.senderEmail);
+                chatItem = new propertyChange_Chat
                 {
-                    Abbreviation = lastmsg.Item2.Substring(0, 1),
-                    ChatId = lastmsg.Item1,
-                    ChatName = lastmsg.Item2,
-                    ChatLastSender = lastmsg.Item3.getEmail(),
-                    ChatLastMsg = lastmsg.Item3.getMessage(),
+                    Abbreviation = name.Substring(0, 1),
+                    ChatId = groupId,
+                    ChatName = SessionData.getGroupName(groupId),
+                    ChatLastSender = msg.senderEmail,
+                    ChatLastMsg = msg.content,
 
                     ChatLastTime = DBSetter.getDateOrTimefromEpoch(lastmsg.Item3.getTime()),
                 };
                 chatListCollection.Add(chatItem);
+            }
+            {
             }
 
             return chatListCollection;
@@ -48,6 +53,8 @@ namespace CPSC481Group12FoodyApp.Logic
             }
             else
             {
+                for (int i = 0; SessionData.getGroupExist(i); i++) ;
+
                 chatName = chatName.TrimEnd(); // remove whitespaces in the end
 
                 int chatId = DBSetter.findFirstNonExistingChatDirNumber();

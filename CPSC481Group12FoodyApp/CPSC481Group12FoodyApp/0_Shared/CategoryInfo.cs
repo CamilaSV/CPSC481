@@ -5,7 +5,8 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public class CategoryInfo
     {
+        public int id { get; set; }
         public string name { get; set; }
-        public List<string> restaurantList { get; set; }
+        public List<int> restaurantList { get; set; }
     }
 }

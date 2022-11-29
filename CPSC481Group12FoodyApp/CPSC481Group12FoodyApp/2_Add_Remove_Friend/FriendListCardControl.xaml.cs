@@ -25,19 +25,9 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Decline_Button_Click(object sender, RoutedEventArgs e)
-        {
-            API_AddRemFriend.denyFriendReq(EmailText.Text);
-        }
-
-        private void Accept_Button_Click(object sender, RoutedEventArgs e)
-        {
-            API_AddRemFriend.acceptFriendReq(EmailText.Text);
-        }
-
         private void Delete_Friend_Click(object sender, RoutedEventArgs e)
         {
-            API_AddRemFriend.deleteFriend(EmailText.Text);
+            Logic_AddRemFriend.deleteFriend(EmailText.Text);
         }
     }
 }

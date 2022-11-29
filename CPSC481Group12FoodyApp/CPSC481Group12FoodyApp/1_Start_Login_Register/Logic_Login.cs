@@ -4,47 +4,46 @@ using System.Net.Mail;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public static class Login_Login
+    public static class Logic_Login
     {
         // check if the user-entered information validates logging in (Matching email and password)
-        public static string login(string email, string password)
+        public static void login(UserControl_Login loginWindow)
         {
-            string result;
+            string email = loginWindow.Login_EmailTextBox.Text;
+            string password = loginWindow.Login_PasswordBox.Password;
 
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))
             {
                 try
                 {
-                    DBSetter.getFirstLineFromFile(PathFinder.getAccEmail(email)); // try reading email to see if it raises an exception
-                    if (!DBSetter.getFirstLineFromFile(PathFinder.getAccPw(email)).Equals(password))
+                    if (!SessionData.getUserPassword(email).Equals(password))
                     {
-                        result = "Username and password combination does not match.";
+                        loginWindow.ErrorTextBlock.Text = "Username and password combination does not match.";
                     }
                     else
                     {
-                        result = "true";
+                        SessionData.loginUser(email);
+                        PageNavigator.gotoChatList();
                     }
                 }
                 catch (FileNotFoundException fnfe)
                 {
-                    result = "User does not exist.";
+                    loginWindow.ErrorTextBlock.Text = "User does not exist.";
                 }
                 catch (DirectoryNotFoundException dnfe)
                 {
-                    result = "User does not exist.";
+                    loginWindow.ErrorTextBlock.Text = "User does not exist.";
                 }
                 catch (Exception e)
                 {
-                    result = "Something is wrong. Please contact support.";
+                    loginWindow.ErrorTextBlock.Text = "Something is wrong. Please contact support.";
                 }
             }
             else
             {
-                result = "An invalid email address was given.";
+                loginWindow.ErrorTextBlock.Text = "An invalid email address was given.";
             }
-
-            return result;
         }
     }
 }

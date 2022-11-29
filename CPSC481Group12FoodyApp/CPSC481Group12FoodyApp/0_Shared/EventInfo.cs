@@ -3,8 +3,9 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public class EventInfo
     {
-        public string time { get; set; }
-        public string restaurantId { get; set; }
+        public int id { get; set; }
+        public long time { get; set; }
+        public int restaurantId { get; set; }
         public string comment { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class InvitationInfo
     {
-        public string inviteGroupId { get; set; }
+        public int inviteGroupId { get; set; }
         public string inviteSenderEmail { get; set; }
     }
 }

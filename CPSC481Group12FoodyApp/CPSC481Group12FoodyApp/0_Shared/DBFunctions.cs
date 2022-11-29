@@ -10,17 +10,9 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string dbDir = "DB\\";
         private const string accounts = "Accounts.json";
         private const string groups = "Groups.json";
-        private const string messages = "Messages.json";
-        private const string events = "Events.json";
-        private const string categories = "Categories.json";
         private const string restaurants = "Restaurants.json";
 
         // getters
-        private static string getDBDir()
-        {
-            return dbDir;
-        }
-
         private static string getAccountsPath()
         {
             return dbDir + accounts;
@@ -29,21 +21,6 @@ namespace CPSC481Group12FoodyApp.Logic
         private static string getGroupsPath()
         {
             return dbDir + groups;
-        }
-
-        private static string getMessagesPath()
-        {
-            return dbDir + messages;
-        }
-
-        private static string getEventsPath()
-        {
-            return dbDir + events;
-        }
-
-        private static string getCategoriesPath()
-        {
-            return dbDir + categories;
         }
 
         private static string getRestaurantsPath()
@@ -57,58 +34,28 @@ namespace CPSC481Group12FoodyApp.Logic
             return new Dictionary<string, UserInfo>(JsonSerializer.Deserialize<Dictionary<string, UserInfo>>(json));
         }
 
-        public static Dictionary<string, GroupInfo> getAllGroupInfo()
+        public static Dictionary<int, GroupInfo> getAllGroupInfo()
         {
             string json = File.ReadAllText(getGroupsPath());
-            return new Dictionary<string, GroupInfo>(JsonSerializer.Deserialize<Dictionary<string, GroupInfo>>(json));
+            return new Dictionary<int, GroupInfo>(JsonSerializer.Deserialize<Dictionary<int, GroupInfo>>(json));
         }
 
-        public static Dictionary<MsgId, MsgInfo> getAllMessageInfo()
-        {
-            string json = File.ReadAllText(getMessagesPath());
-            return new Dictionary<MsgId, MsgInfo>(JsonSerializer.Deserialize<Dictionary<MsgId, MsgInfo>>(json));
-        }
-
-        public static Dictionary<EventId, EventInfo> getAllEventInfo()
-        {
-            string json = File.ReadAllText(getEventsPath());
-            return new Dictionary<EventId, EventInfo>(JsonSerializer.Deserialize<Dictionary<EventId, EventInfo>>(json));
-        }
-
-        public static Dictionary<CategoryId, CategoryInfo> getAllCategoryInfo()
-        {
-            string json = File.ReadAllText(getCategoriesPath());
-            return new Dictionary<CategoryId, CategoryInfo>(JsonSerializer.Deserialize<Dictionary<CategoryId, CategoryInfo>>(json));
-        }
-
-        public static Dictionary<string, RestaurantInfo> getAllRestaurantInfo()
+        public static Dictionary<int, RestaurantInfo> getAllRestaurantInfo()
         {
             string json = File.ReadAllText(getRestaurantsPath());
-            return new Dictionary<string, RestaurantInfo>(JsonSerializer.Deserialize<Dictionary<string, RestaurantInfo>>(json));
+            return new Dictionary<int, RestaurantInfo>(JsonSerializer.Deserialize<Dictionary<int, RestaurantInfo>>(json));
         }
 
         // setters
-        public static string createUserInfo(string email, string password)
+        public static void saveInfo(Dictionary<string, UserInfo> allInfo)
         {
-            return null;
+            File.WriteAllText(getAccountsPath(), JsonSerializer.Serialize(allInfo, new JsonSerializerOptions { WriteIndented = true }));
         }
 
-        public static void setUserName(string email, string newName)
+        public static void saveInfo(Dictionary<int, GroupInfo> allInfo)
         {
+            File.WriteAllText(getGroupsPath(), JsonSerializer.Serialize(allInfo, new JsonSerializerOptions { WriteIndented = true }));
         }
 
-        public static void setUserBio(string email, string newBio)
-        {
-        }
-
-        public static void addUserFriend(string emailUser, string emailTarget)
-        {
-
-        }
-
-        public static void removeUserFriend(string emailUser, string emailTarget)
-        {
-
-        }
     }
 }
