@@ -27,7 +27,9 @@ namespace CPSC481Group12FoodyApp.Logic
                 else
                 {
                     SessionData.createUser(email, password);
+                    SessionData.saveUserInfoToDB();
                     SessionData.loginUser(email);
+                    ComponentFunctions.refreshAll();
                     PageNavigator.gotoChatList();
                 }
             }

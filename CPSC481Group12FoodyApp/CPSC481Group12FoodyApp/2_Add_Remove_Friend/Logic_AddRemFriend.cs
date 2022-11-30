@@ -29,6 +29,7 @@ namespace CPSC481Group12FoodyApp
             else
             {
                 SessionData.addUserFriendReqToTarget(SessionData.getCurrentUser(), emailTarget);
+                SessionData.saveUserInfoToDB();
                 PageNavigator.gotoProfile();
             }
         }
@@ -36,16 +37,23 @@ namespace CPSC481Group12FoodyApp
         public static void acceptFriendReq(string emailTarget)
         {
             SessionData.addUserFriend(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriends();
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void denyFriendReq(string emailTarget)
         {
             SessionData.removeUserFriendReq(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriendsReq();
         }
 
         public static void deleteFriend(string emailTarget)
         {
             SessionData.removeUserFriend(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriends();
         }
     }
 }

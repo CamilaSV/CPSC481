@@ -32,7 +32,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void loginUser(string emailUser)
         {
             currentUser = emailUser;
-            ComponentFunctions.refreshAll();
         }
 
         public static string getCurrentUser()
@@ -67,7 +66,6 @@ namespace CPSC481Group12FoodyApp.Logic
             };
 
             allUsers[emailUser] = info;
-            DBFunctions.saveInfo(allUsers);
         }
 
         public static void addUserNewGroup(string emailCreator, int groupId, string name)
@@ -76,7 +74,6 @@ namespace CPSC481Group12FoodyApp.Logic
             addGroupMemberToAdmin(groupId, emailCreator);
             addUserGroup(emailCreator, groupId);
             addGroupMember(groupId, emailCreator);
-            ComponentFunctions.refreshAll();
         }
 
         public static void addUserFriend(string emailUser, string emailTarget)
@@ -94,8 +91,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].friendList.Contains(emailTarget))
             {
                 allUsers[emailUser].friendList.Remove(emailTarget);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -104,8 +99,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].friendReqList.Contains(emailTarget))
             {
                 allUsers[emailUser].friendReqList.Remove(emailTarget);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -121,8 +114,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 };
 
                 allUsers[emailUser].categoryList.Add(info);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -132,8 +123,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (index != -1)
             {
                 allUsers[emailUser].categoryList.RemoveAt(index);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -144,7 +133,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 allUsers[emailUser].groupList.Add(groupId);
                 // delete all invitations that invites to the added groupId
                 allUsers[emailUser].invitationList.RemoveAll(invite => invite.inviteGroupId.Equals(groupId));
-                DBFunctions.saveInfo(allUsers);
             }
         }
 
@@ -154,7 +142,6 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].groupList.Remove(groupId);
                 removeGroupMember(groupId, emailUser);
-                DBFunctions.saveInfo(allUsers);
             }
         }
 
@@ -165,8 +152,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Add(eventInfo);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -177,8 +162,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Remove(eventInfo);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -188,8 +171,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if ((index.Item1 != -1) && (index.Item2 == false))
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Add(resId);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -199,8 +180,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (index.Item2 == true)
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Remove(resId);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -210,8 +189,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].invitationList.Contains(info))
             {
                 allUsers[emailUser].invitationList.Remove(info);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -221,8 +198,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allUsers[emailTarget].friendReqList.Contains(emailUser))
             {
                 allUsers[emailTarget].friendReqList.Add(emailUser);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -234,8 +209,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 if (!allUsers[emailTarget].invitationList.Contains(info))
                 {
                     allUsers[emailTarget].invitationList.Add(info);
-                    DBFunctions.saveInfo(allUsers);
-                    ComponentFunctions.refreshAll();
                 }
             }
         }
@@ -243,47 +216,36 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addTargetToInviteGroupList(string emailTarget)
         {
             currentInviteTargets.Add(emailTarget);
-            ComponentFunctions.refreshAll();
         }
 
         public static void removeTargetFromInviteGroupList(string emailTarget)
         {
             currentInviteTargets.Remove(emailTarget);
-            ComponentFunctions.refreshAll();
         }
 
         public static void removeInviteTargetList()
         {
             currentInviteTargets.Clear();
-            ComponentFunctions.refreshAll();
         }
 
         public static void setUserPassword(string email, string password)
         {
             allUsers[email].name = password;
-            DBFunctions.saveInfo(allUsers);
-            ComponentFunctions.refreshAll();
         }
 
         public static void setUserDisplayName(string email, string name)
         {
             allUsers[email].name = name;
-            DBFunctions.saveInfo(allUsers);
-            ComponentFunctions.refreshAll();
         }
 
         public static void setUserBio(string email, string bio)
         {
             allUsers[email].bio = bio;
-            DBFunctions.saveInfo(allUsers);
-            ComponentFunctions.refreshAll();
         }
 
         public static void setCategoryName(string email, int catId, string name)
         {
             allUsers[email].categoryList[catId].name = name;
-            DBFunctions.saveInfo(allUsers);
-            ComponentFunctions.refreshAll();
         }
 
         // setters for group/event
@@ -308,15 +270,12 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allGroups.ContainsKey(groupId))
             {
                 allGroups.Remove(groupId);
-                DBFunctions.saveInfo(allGroups);
 
                 // delete all events in each user?
                 foreach (var user in allUsers)
                 {
                     user.Value.eventList.RemoveAll(ev => ev.groupId.Equals(groupId));
                 }
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -333,8 +292,6 @@ namespace CPSC481Group12FoodyApp.Logic
 
             allGroups[groupId].msgList.Add(msg);
             allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
-            DBFunctions.saveInfo(allGroups);
-            ComponentFunctions.refreshAll();
         }
 
         public static void addGroupMemberToAdmin(int groupId, string emailTarget)
@@ -342,8 +299,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].adminList.Contains(emailTarget))
             {
                 allGroups[groupId].adminList.Add(emailTarget);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -352,8 +307,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allGroups[groupId].adminList.Contains(emailTarget))
             {
                 allGroups[groupId].adminList.Remove(emailTarget);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -363,8 +316,6 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allGroups[groupId].memberList.Add(emailTarget);
                 addGroupMsg(groupId, "", emailTarget + " has joined the group.");
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -373,8 +324,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allGroups[groupId].memberList.Contains(emailTarget))
             {
                 allGroups[groupId].memberList.Remove(emailTarget);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -383,8 +332,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].customCriteriaList.Contains(criterion))
             {
                 allGroups[groupId].customCriteriaList.Add(criterion);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -393,8 +340,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allGroups[groupId].customCriteriaList.Contains(criterion))
             {
                 allGroups[groupId].customCriteriaList.Remove(criterion);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -403,8 +348,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].restaurantList.Contains(restaurantId))
             {
                 allGroups[groupId].restaurantList.Add(restaurantId);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -413,8 +356,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allGroups[groupId].restaurantList.Contains(restaurantId))
             {
                 allGroups[groupId].restaurantList.Remove(restaurantId);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -434,8 +375,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     allGroups[groupId].eventList.Add(info);
                     allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
-                    DBFunctions.saveInfo(allGroups);
-                    ComponentFunctions.refreshAll();
                 }
             }
         }
@@ -447,13 +386,11 @@ namespace CPSC481Group12FoodyApp.Logic
             if (index != -1)
             {
                 allGroups[groupId].eventList.RemoveAt(index);
-                DBFunctions.saveInfo(allGroups);
 
                 foreach (var memberEmail in allGroups[groupId].memberList)
                 {
                     removeUserEvent(memberEmail, groupId, eventId);
                 }
-                ComponentFunctions.refreshAll();
             }
         }
 
@@ -738,6 +675,16 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void setCurrentGroupId(string groupId)
         {
             setCurrentGroupId(Int32.Parse(groupId));
+        }
+
+        public static void saveUserInfoToDB()
+        {
+            DBFunctions.saveInfo(allUsers);
+        }
+
+        public static void saveGroupInfoToDB()
+        {
+            DBFunctions.saveInfo(allGroups);
         }
     }
 }
