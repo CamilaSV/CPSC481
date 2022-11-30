@@ -217,5 +217,33 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return collection;
         }
+
+        public static ObservableCollection<propertyChange_Member> displayGroupMemberList()
+        {
+            ObservableCollection<propertyChange_Member> collection = new ObservableCollection<propertyChange_Member>();
+
+            if (SessionData.getCurrentGroupId() != -1)
+            {
+                string name;
+                Boolean isAdmin;
+                foreach (string email in SessionData.getGroupMembers(SessionData.getCurrentGroupId()))
+                {
+                    if (!email.Equals(SessionData.getCurrentUser()))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_Member
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                            TargetIsAdmin = SessionData.getTargetIsGroupAdmin(SessionData.getCurrentGroupId(), email),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
+        }
     }
 }

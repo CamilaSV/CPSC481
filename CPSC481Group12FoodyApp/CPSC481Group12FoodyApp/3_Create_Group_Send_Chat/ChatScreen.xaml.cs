@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatScreen.xaml
     /// </summary>
-    public partial class ChatScreen : UserControl, Interface_ChatMsgComponent
+    public partial class ChatScreen : UserControl, Interface_Component
     {
         public ChatScreen()
         {
@@ -35,6 +35,7 @@ namespace CPSC481Group12FoodyApp
 
         private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
+            PageNavigator.gotoChatInfo();
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)

@@ -15,7 +15,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             SessionData.addGroupMsg(groupId, emailSender, chatMsg);
             SessionData.saveGroupInfoToDB();
-            ComponentFunctions.refreshChatMsgs();
+            ComponentFunctions.refreshAll();
         }
 
         public static void sendMsg(string emailSender, string groupId, string chatMsg)

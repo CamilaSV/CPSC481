@@ -17,7 +17,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createGroup(UserControl_CreateNewChat createPage)
         {
             string groupName = createPage.GroupNameText.Text;
-            int groupId, msgId;
+            int groupId;
 
             if (String.IsNullOrWhiteSpace(groupName))
             {
@@ -36,8 +36,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 SessionData.saveUserInfoToDB();
                 SessionData.saveGroupInfoToDB();
                 SessionData.removeInviteTargetList();
-                ComponentFunctions.refreshChats();
-                ComponentFunctions.refreshChatCreate();
+                ComponentFunctions.refreshAll();
                 PageNavigator.gotoChatList();
             }
         }
@@ -45,39 +44,44 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void acceptGroupInvite(int groupId)
         {
             SessionData.addUserGroup(SessionData.getCurrentUser(), groupId);
-            SessionData.saveUserInfoToDB();
-            SessionData.saveGroupInfoToDB();
-            ComponentFunctions.refreshChatsInv();
-            ComponentFunctions.refreshChats();
+            addGroupMember(groupId, SessionData.getCurrentUser());
+            ComponentFunctions.refreshAll();
         }
 
         public static void removeOneGroupInvite(string emailUser, int groupId, string emailSender)
         {
             SessionData.removeUserGroupInvite(emailUser, groupId, emailSender);
             SessionData.saveUserInfoToDB();
-            ComponentFunctions.refreshChatsInv();
+            ComponentFunctions.refreshAll();
         }
 
         public static void addTargetToInviteList(string emailTarget)
         {
             SessionData.addTargetToInviteGroupList(emailTarget);
-            ComponentFunctions.refreshChatCreate();
+            ComponentFunctions.refreshAll();
         }
 
         public static void removeTargetFromInviteList(string emailTarget)
         {
             SessionData.removeTargetFromInviteGroupList(emailTarget);
-            ComponentFunctions.refreshChatCreate();
+            ComponentFunctions.refreshAll();
         }
 
-        public static void addGroupMember()
+        public static void addGroupMember(int groupId, string emailTarget)
         {
-
+            SessionData.addGroupMember(groupId, emailTarget);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
         }
 
-        public static void removeGroupMember()
+        public static void removeGroupMember(int groupId, string emailTarget)
         {
-
+            SessionData.removeGroupMember(groupId, emailTarget);
+            SessionData.removeUserGroup(emailTarget, groupId);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
         }
 
         public static void addGroupCriteria()
@@ -103,5 +107,16 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createEvent(string chatId, string restaurantName, DateTime date)
         {
         }
+
+        public static void addGroupMember(string groupId, string emailTarget)
+        {
+            addGroupMember(Int32.Parse(groupId), emailTarget);
+        }
+
+        public static void removeGroupMember(string groupId, string emailTarget)
+        {
+            removeGroupMember(Int32.Parse(groupId), emailTarget);
+        }
+
     }
 }

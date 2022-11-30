@@ -22,7 +22,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class FriendRequestListControl : UserControl, Interface_FriendReqComponent
+    public partial class FriendRequestListControl : UserControl, Interface_Component
     {
         public FriendRequestListControl()
         {

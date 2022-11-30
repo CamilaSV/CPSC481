@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_ChatInvite
+    public class propertyChange_Member
     {
-        public string GroupName { get; set; }
-        public string SenderName { get; set; }
-        public string GroupId { get; set; }
-        public string SenderEmail { get; set; }
+        public string Abbreviation { get; set; }
+        public string TargetUserName { get; set; }
+        public string TargetEmail { get; set; }
+        public Boolean TargetIsAdmin { get; set; }
     }
 }

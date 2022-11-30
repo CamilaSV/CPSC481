@@ -1,7 +1,10 @@
 ﻿using CPSC481Group12FoodyApp.Logic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,20 +20,19 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatListControl.xaml
+    /// Interaction logic for MemberListControl.xaml
     /// </summary>
-    public partial class ChatListGroupControl : UserControl
+    public partial class MemberListControl : UserControl, Interface_Component
     {
-        public ChatListGroupControl()
+        public MemberListControl()
         {
             InitializeComponent();
+            ComponentFunctions.addComponentToList(this);
         }
 
-        private void EnterChat_MouseUp(object sender, MouseButtonEventArgs e)
+        public void refreshComponent()
         {
-            SessionData.setCurrentGroupId(chatIdBlock.Text);
-            ComponentFunctions.refreshAll();
-            PageNavigator.gotoOneChat();
+            ListControl.ItemsSource = GetObservableCollection.displayGroupMemberList();
         }
     }
 }

@@ -73,6 +73,7 @@ namespace CPSC481Group12FoodyApp.Logic
             createGroup(groupId, name, emailCreator);
             addGroupMemberToAdmin(groupId, emailCreator);
             addUserGroup(emailCreator, groupId);
+            addGroupMember(groupId, emailCreator);
         }
 
         public static void addUserFriend(string emailUser, string emailTarget)
@@ -132,7 +133,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 allUsers[emailUser].groupList.Add(groupId);
                 // delete all invitations that invites to the added groupId
                 allUsers[emailUser].invitationList.RemoveAll(invite => invite.inviteGroupId.Equals(groupId));
-                addGroupMember(groupId, emailUser);
             }
         }
 
@@ -141,7 +141,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].groupList.Contains(groupId))
             {
                 allUsers[emailUser].groupList.Remove(groupId);
-                removeGroupMember(groupId, emailUser);
             }
         }
 
@@ -670,6 +669,16 @@ namespace CPSC481Group12FoodyApp.Logic
             }
 
             return msgId;
+        }
+
+        public static Boolean getTargetIsGroupAdmin(int groupId, string email)
+        {
+            return allGroups[groupId].adminList.Contains(email);
+        }
+
+        public static Boolean getTargetIsGroupAdmin(string groupId, string email)
+        {
+            return getTargetIsGroupAdmin(Int32.Parse(groupId), email);
         }
 
         public static void setCurrentGroupId(string groupId)

@@ -6,7 +6,7 @@ using System.Net.Mail;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
-    public interface Interface_FriendReqComponent
+    public interface Interface_Component
     {
         void refreshComponent();
     }

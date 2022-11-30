@@ -19,6 +19,12 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteListControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="5_ChatInfo\MemberCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\MemberListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="7_Profile\FriendListCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -89,7 +89,7 @@ namespace CPSC481Group12FoodyApp
 
         public static void gotoChatInfo()
         {
-
+            targetWindow.Content = chatInfoPage;
         }
 
         public static void gotoGroupCalendar()

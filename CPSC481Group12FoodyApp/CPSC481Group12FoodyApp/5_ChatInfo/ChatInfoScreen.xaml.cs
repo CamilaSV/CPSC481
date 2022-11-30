@@ -25,13 +25,6 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Members_ShowMoreButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (Members_ShowMoreButton.IsEnabled) {
-                
-            }
-        }
-
         private void Criteria_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
             if (Criteria_ShowMoreButton.IsEnabled)

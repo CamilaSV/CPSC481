@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_Invitations : UserControl, Interface_ChatInvComponent
+    public partial class UserControl_Invitations : UserControl, Interface_Component
     {
         public UserControl_Invitations()
         {
