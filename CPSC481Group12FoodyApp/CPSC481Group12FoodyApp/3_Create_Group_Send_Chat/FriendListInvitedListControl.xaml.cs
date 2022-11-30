@@ -20,11 +20,11 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for FriendListListControl.xaml
+    /// Interaction logic for FriendListInvitedListControl.xaml
     /// </summary>
-    public partial class FriendListListControl : UserControl, Interface_FriendListComponent
+    public partial class FriendListInvitedListControl : UserControl, Interface_ChatCreateComponent
     {
-        public FriendListListControl()
+        public FriendListInvitedListControl()
         {
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
@@ -32,7 +32,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendList();
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendListWithInvite();
         }
     }
 }

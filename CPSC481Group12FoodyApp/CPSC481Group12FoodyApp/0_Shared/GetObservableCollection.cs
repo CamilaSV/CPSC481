@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -12,53 +13,51 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public static ObservableCollection<propertyChange_Friend> displayUsersFriendRequest()
         {
-            ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
-                propertyChange_Friend requestItem;
                 foreach (string email in SessionData.getUserFriendRequests(SessionData.getCurrentUser()))
                 {
                     name = SessionData.getUserDisplayName(email);
-                    requestItem = new propertyChange_Friend
+                    collection.Add(new propertyChange_Friend
                     {
                         TargetEmail = email,
                         TargetUserName = name,
                         Abbreviation = name.Substring(0, 1),
-                    };
-                    friendRequestCollection.Add(requestItem);
+                    }
+                    );
                 }
             }
 
-            return friendRequestCollection;
+            return collection;
         }
 
         public static ObservableCollection<propertyChange_Friend> displayUsersFriendList()
         {
-            ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
-                propertyChange_Friend listItem;
                 foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
                 {
                     name = SessionData.getUserDisplayName(email);
-                    listItem = new propertyChange_Friend
+                    collection.Add(new propertyChange_Friend
                     {
                         TargetEmail = email,
                         TargetUserName = name,
                         Abbreviation = name.Substring(0, 1),
-                    };
-                    friendListCollection.Add(listItem);
+                    }
+                    );
                 }
             }
 
-            return friendListCollection;
+            return collection;
         }
 
         public static ObservableCollection<propertyChange_ChatScreen> displayChatModels()
         {
-            ObservableCollection<propertyChange_ChatScreen> chatMsgCollection = new ObservableCollection<propertyChange_ChatScreen>();
+            ObservableCollection<propertyChange_ChatScreen> collection = new ObservableCollection<propertyChange_ChatScreen>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -81,7 +80,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
                     if (email.Equals(SessionData.getCurrentUser()))
                     {
-                        chatMsgCollection.Add(new propertyChange_ChatScreen
+                        collection.Add(new propertyChange_ChatScreen
                         {
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
@@ -92,7 +91,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                     else
                     {
-                        chatMsgCollection.Add(new propertyChange_ChatScreen
+                        collection.Add(new propertyChange_ChatScreen
                         {
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
@@ -104,16 +103,15 @@ namespace CPSC481Group12FoodyApp.Logic
                 }
             }
 
-            return chatMsgCollection;
+            return collection;
         }
 
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
-            ObservableCollection<propertyChange_Chat> chatListCollection = new ObservableCollection<propertyChange_Chat>();
+            ObservableCollection<propertyChange_Chat> collection = new ObservableCollection<propertyChange_Chat>();
 
             MsgInfo msg;
             string name, abbreviation;
-            propertyChange_Chat chatItem;
             List<int> sortedGroups = SessionData.getUserGroups(SessionData.getCurrentUser());
             sortedGroups.Sort((m1, m2) => SessionData.getGroupLastMsgInfo(m2).time.CompareTo(SessionData.getGroupLastMsgInfo(m1).time));
 
@@ -133,7 +131,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     name = SessionData.getUserDisplayName(msg.senderEmail);
                     abbreviation = name.Substring(0, 1);
                 }
-                chatItem = new propertyChange_Chat
+
+                collection.Add(new propertyChange_Chat
                 {
                     Abbreviation = abbreviation,
                     ChatId = groupId.ToString(),
@@ -142,31 +141,81 @@ namespace CPSC481Group12FoodyApp.Logic
                     ChatLastMsg = msg.content,
 
                     ChatLastTime = SessionData.getDateOrTimefromEpoch(msg.time),
-                };
-                chatListCollection.Add(chatItem);
+                }
+                );
             }
 
-            return chatListCollection;
+            return collection;
         }
 
         public static ObservableCollection<propertyChange_ChatInvite> displayUsersGroupInviteList()
         {
-            ObservableCollection<propertyChange_ChatInvite> invListCollection = new ObservableCollection<propertyChange_ChatInvite>();
+            ObservableCollection<propertyChange_ChatInvite> collection = new ObservableCollection<propertyChange_ChatInvite>();
 
-            propertyChange_ChatInvite invItem;
             foreach (var invite in SessionData.getUserGroupInvitations(SessionData.getCurrentUser()))
             {
-                invItem = new propertyChange_ChatInvite
+                collection.Add(new propertyChange_ChatInvite
                 {
                     GroupId = invite.inviteGroupId.ToString(),
                     GroupName = SessionData.getGroupName(invite.inviteGroupId),
                     SenderEmail = invite.inviteSenderEmail,
                     SenderName = SessionData.getUserDisplayName(invite.inviteSenderEmail),
-                };
-                invListCollection.Add(invItem);
+                }
+                );
             }
 
-            return invListCollection;
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_Friend> displayUsersFriendListWithoutInvite()
+        {
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    if (!SessionData.getTargetsToInviteToGroup().Contains(email))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_Friend
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_Friend> displayUsersFriendListWithInvite()
+        {
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    if (SessionData.getTargetsToInviteToGroup().Contains(email))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_Friend
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
         }
     }
 }

@@ -61,6 +61,14 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
+        public static void addComponentToList(Interface_ChatCreateComponent component)
+        {
+            if (!chatCreateComponents.Contains(component))
+            {
+                chatCreateComponents.Add(component);
+            }
+        }
+
         public static void refreshAll()
         {
             refreshChats();
@@ -68,6 +76,7 @@ namespace CPSC481Group12FoodyApp.Logic
             refreshFriends();
             refreshFriendsReq();
             refreshChatMsgs();
+            refreshChatCreate();
         }
 
         public static void refreshChats()

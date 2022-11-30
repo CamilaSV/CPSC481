@@ -48,23 +48,16 @@
                                 <StackPanel>
                                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Invite Friend" />
                                     <TextBox x:Name="InviteeTextBox" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
-                                    <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
-                                        <StackPanel>
-                                            <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="83" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300"><Run Text="Jane - jule@mail.com"/><LineBreak/><Run Text="Jane - Jane123@mail.com"/></TextBlock>
-                                        </StackPanel>
-                                    </ScrollViewer>
+                                    <local:FriendListInviteListControl Height="70"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
 
                         <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="316">
-
-                            <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,216" >
-                                <StackPanel>
-                                    <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friends Invited" />
-                                    <TextBlock Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="73" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300"><Run Text="Jane   🗑️"/><LineBreak/><Run Text="Alice   🗑️"/><LineBreak/><Run Text="Johnd 🗑️"/><LineBreak/><Run Text="Marry 🗑️"/><LineBreak/><Run Text=" Bobby 🗑️"/><LineBreak/><Run Text="dsds 🗑️"/></TextBlock>
-                                </StackPanel>
-                            </ScrollViewer>
+                            <StackPanel>
+                                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friends Invited" />
+                                <local:FriendListInvitedListControl Height="70"/>
+                            </StackPanel>
                         </Border>
 
                         <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,170,0,170" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396" Click="CreateGroupButton_Click"/>

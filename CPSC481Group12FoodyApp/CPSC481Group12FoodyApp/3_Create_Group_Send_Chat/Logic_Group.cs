@@ -35,6 +35,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
                 SessionData.saveUserInfoToDB();
                 SessionData.saveGroupInfoToDB();
+                SessionData.removeInviteTargetList();
                 ComponentFunctions.refreshChats();
                 ComponentFunctions.refreshChatCreate();
                 PageNavigator.gotoChatList();
@@ -55,6 +56,18 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.removeUserGroupInvite(emailUser, groupId, emailSender);
             SessionData.saveUserInfoToDB();
             ComponentFunctions.refreshChatsInv();
+        }
+
+        public static void addTargetToInviteList(string emailTarget)
+        {
+            SessionData.addTargetToInviteGroupList(emailTarget);
+            ComponentFunctions.refreshChatCreate();
+        }
+
+        public static void removeTargetFromInviteList(string emailTarget)
+        {
+            SessionData.removeTargetFromInviteGroupList(emailTarget);
+            ComponentFunctions.refreshChatCreate();
         }
 
         public static void addGroupMember()

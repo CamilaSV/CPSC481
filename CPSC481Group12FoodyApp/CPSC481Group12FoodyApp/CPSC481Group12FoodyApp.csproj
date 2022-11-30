@@ -56,6 +56,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInvitedCardControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInvitedListControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInviteListControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="7_Profile\FriendListCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>

@@ -98,12 +98,12 @@
 
                     <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="316" Margin="0,20,0,0">
 
-                        <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
                             <StackPanel>
                                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friend List" />
-                                <TextBlock x:Name="FriendListTextBlock"  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="131" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="333"/>
-                            </StackPanel>
-                        </ScrollViewer>
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
+                                <local:FriendListListControl Height="126"/>
+                            </ScrollViewer>
+                        </StackPanel>
                     </Border>
                     <Border Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Center" Margin="0,20,0,0">
                         <Grid>

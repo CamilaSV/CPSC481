@@ -7,7 +7,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="2_Add_Remove_Friend\FriendListCardControl.xaml">
+    <Page Update="3_Create_Group_Send_Chat\FriendListInvitedCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInvitedListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="3_Create_Group_Send_Chat\FriendListInviteListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="7_Profile\FriendListCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="2_Add_Remove_Friend\FriendRequestListControl.xaml">
@@ -20,6 +32,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="6_ChatEvent\ChatAddCustomTime.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="7_Profile\FriendListListControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dictionaries\MainStylesDictionary.xaml">

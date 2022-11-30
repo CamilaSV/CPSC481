@@ -20,7 +20,7 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_CreateNewChat.xaml
     /// </summary>
-    public partial class UserControl_CreateNewChat : Page, Interface_FriendListComponent
+    public partial class UserControl_CreateNewChat : Page
     {
         public UserControl_CreateNewChat()
         {
@@ -55,11 +55,6 @@ namespace CPSC481Group12FoodyApp
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
             Logic_Group.createGroup(this);
-        }
-
-        public void refreshComponent()
-        {
-            throw new NotImplementedException();
         }
     }
 }
