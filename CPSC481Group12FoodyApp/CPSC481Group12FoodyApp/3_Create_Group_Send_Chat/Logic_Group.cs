@@ -56,5 +56,39 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.saveUserInfoToDB();
             ComponentFunctions.refreshChatsInv();
         }
+
+        public static void addGroupMember()
+        {
+
+        }
+
+        public static void removeGroupMember()
+        {
+
+        }
+
+        public static void addGroupCriteria()
+        {
+
+        }
+
+        public static void removeGroupCriteria()
+        {
+
+        }
+
+        public static void addRestaurant()
+        {
+
+        }
+
+        public static void removeRestaurant()
+        {
+
+        }
+
+        public static void createEvent(string chatId, string restaurantName, DateTime date)
+        {
+        }
     }
 }
