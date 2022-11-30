@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_Chat : INotifyPropertyChanged
+    public class propertyChange_Chat
     {
         private string abbreviation;
         private string chatId;
@@ -17,14 +17,6 @@ namespace CPSC481Group12FoodyApp
         private string chatLastSender;
         private string chatLastMsg;
         private string chatLastTime;
-
-
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-
-        public void OnPropertyChanged([CallerMemberName] String name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
 
         public string Abbreviation
         {
@@ -34,7 +26,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != abbreviation)
                 {
                     abbreviation = value;
-                    OnPropertyChanged(nameof(Abbreviation));
                 }
             }
         }
@@ -47,7 +38,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != chatId)
                 {
                     chatId = value;
-                    OnPropertyChanged(nameof(ChatId));
                 }
             }
         }
@@ -60,7 +50,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != chatName)
                 {
                     chatName = value;
-                    OnPropertyChanged(nameof(ChatName));
                 }
             }
         }
@@ -73,7 +62,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != chatLastSender)
                 {
                     chatLastSender = value;
-                    OnPropertyChanged(nameof(ChatLastSender));
                 }
             }
         }
@@ -86,7 +74,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != chatLastMsg)
                 {
                     chatLastMsg = value;
-                    OnPropertyChanged(nameof(ChatLastMsg));
                 }
             }
         }
@@ -99,7 +86,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != chatLastTime)
                 {
                     chatLastTime = value;
-                    OnPropertyChanged(nameof(ChatLastTime));
                 }
             }
         }

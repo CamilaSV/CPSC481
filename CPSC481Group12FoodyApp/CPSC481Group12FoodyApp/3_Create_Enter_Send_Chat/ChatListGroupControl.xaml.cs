@@ -29,6 +29,7 @@ namespace CPSC481Group12FoodyApp
         private void EnterChat_MouseUp(object sender, MouseButtonEventArgs e)
         {
             SessionData.setCurrentGroupId(chatIdBlock.Text);
+            ComponentFunctions.refreshChats();
             PageNavigator.gotoOneChat();
         }
     }

@@ -35,11 +35,17 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void acceptGroupInvite(int groupId)
         {
             SessionData.addUserGroup(SessionData.getCurrentUser(), groupId);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshChatsInv();
+            ComponentFunctions.refreshChats();
         }
 
         public static void removeOneGroupInvite(string emailUser, int groupId, string emailSender)
         {
             SessionData.removeUserGroupInvite(emailUser, groupId, emailSender);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshChatsInv();
         }
     }
 }

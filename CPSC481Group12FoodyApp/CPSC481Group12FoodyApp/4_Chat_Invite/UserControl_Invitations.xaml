@@ -9,9 +9,9 @@
     <Grid>
 
         <Border Padding="0,75,0,110">
-            <Grid DataContext="{x:Static local:InvitationControlDesignModel.Instance}">
+            <Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl x:Name="ListControl" ItemsSource="{Binding Invites}">
+                    <ItemsControl x:Name="ListControl">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <local:InvitationCardControl>

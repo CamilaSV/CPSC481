@@ -61,7 +61,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.Items.Refresh();
+            ListControl.ItemsSource = Logic_CreateLoadChat.displayUsersChatList();
         }
     }
 }

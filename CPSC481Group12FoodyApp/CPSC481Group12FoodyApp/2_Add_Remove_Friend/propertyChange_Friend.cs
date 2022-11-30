@@ -9,21 +9,11 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_Friend : INotifyPropertyChanged
+    public class propertyChange_Friend
     {
         private string abbreviation;
         private string targetUserName;
         private string targetEmail;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            { 
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
 
         public string Abbreviation
         {
@@ -33,7 +23,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != abbreviation)
                 {
                     abbreviation = value;
-                    OnPropertyChanged("Abbreviation");
                 }
             }
         }
@@ -46,7 +35,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != targetUserName)
                 {
                     targetUserName = value;
-                    OnPropertyChanged("TargetUserName");
                 }
             }
         }
@@ -59,7 +47,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != targetEmail)
                 {
                     targetEmail = value;
-                    OnPropertyChanged("TargetEmail");
                 }
             }
         }

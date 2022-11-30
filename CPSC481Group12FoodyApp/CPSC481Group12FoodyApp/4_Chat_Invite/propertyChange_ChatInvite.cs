@@ -9,19 +9,12 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_ChatInvite : INotifyPropertyChanged
+    public class propertyChange_ChatInvite
     {
         private string groupName;
         private string senderName;
         private string groupId;
         private string senderEmail;
-
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-
-        public void OnPropertyChanged([CallerMemberName] String name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
 
         public string GroupName
         {
@@ -31,7 +24,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != groupName)
                 {
                     groupName = value;
-                    OnPropertyChanged(nameof(GroupName));
                 }
             }
         }
@@ -44,7 +36,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != senderName)
                 {
                     senderName = value;
-                    OnPropertyChanged(nameof(SenderName));
                 }
             }
         }
@@ -57,7 +48,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != groupId)
                 {
                     groupId = value;
-                    OnPropertyChanged(nameof(GroupId));
                 }
             }
         }
@@ -70,7 +60,6 @@ namespace CPSC481Group12FoodyApp
                 if (value != senderEmail)
                 {
                     senderEmail = value;
-                    OnPropertyChanged(nameof(SenderEmail));
                 }
             }
         }

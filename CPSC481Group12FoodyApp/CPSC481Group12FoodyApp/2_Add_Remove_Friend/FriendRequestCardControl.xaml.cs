@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for FriendRequestCardControl.xaml
+    /// Interaction logic for FriendRequestCardView.xaml
     /// </summary>
     public partial class FriendRequestCardControl : UserControl
     {
@@ -28,6 +28,7 @@ namespace CPSC481Group12FoodyApp
         private void Decline_Button_Click(object sender, RoutedEventArgs e)
         {
             Logic_AddRemFriend.denyFriendReq(EmailText.Text);
+            
         }
 
         private void Accept_Button_Click(object sender, RoutedEventArgs e)

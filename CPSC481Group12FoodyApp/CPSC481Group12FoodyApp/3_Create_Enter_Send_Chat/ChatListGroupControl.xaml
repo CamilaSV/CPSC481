@@ -9,7 +9,6 @@
              Background="White"
              BorderBrush="black" BorderThickness="0.4"
              Height="70"
-             d:DataContext="{x:Static local:ChatListDesignModel.Instance}"
              
              MouseUp="EnterChat_MouseUp"
              d:DesignHeight="70" d:DesignWidth="480">

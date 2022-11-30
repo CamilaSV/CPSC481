@@ -9,9 +9,9 @@
     <Grid>
 
         <Border Padding="0,125,0,110">
-            <Grid DataContext="{x:Static local:ChatListControlDesignModel.Instance}">
+            <Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl x:Name="ListControl" ItemsSource="{Binding Chats}">
+                    <ItemsControl x:Name="ListControl">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <local:ChatListGroupControl >

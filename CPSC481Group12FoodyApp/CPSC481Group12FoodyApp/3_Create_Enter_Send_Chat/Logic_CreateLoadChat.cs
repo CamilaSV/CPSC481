@@ -76,6 +76,10 @@ namespace CPSC481Group12FoodyApp.Logic
                     SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
                 }
                 SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
+                SessionData.saveUserInfoToDB();
+                SessionData.saveGroupInfoToDB();
+                ComponentFunctions.refreshChats();
+                ComponentFunctions.refreshChatCreate();
                 PageNavigator.gotoChatList();
             }
         }

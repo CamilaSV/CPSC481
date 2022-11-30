@@ -73,7 +73,6 @@ namespace CPSC481Group12FoodyApp.Logic
             createGroup(groupId, name, emailCreator);
             addGroupMemberToAdmin(groupId, emailCreator);
             addUserGroup(emailCreator, groupId);
-            addGroupMember(groupId, emailCreator);
         }
 
         public static void addUserFriend(string emailUser, string emailTarget)
@@ -133,6 +132,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 allUsers[emailUser].groupList.Add(groupId);
                 // delete all invitations that invites to the added groupId
                 allUsers[emailUser].invitationList.RemoveAll(invite => invite.inviteGroupId.Equals(groupId));
+                addGroupMember(groupId, emailUser);
             }
         }
 
