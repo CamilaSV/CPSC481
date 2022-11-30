@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void Delete_Friend_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.deleteFriend(EmailText.Text);
+            Logic_Friend.deleteFriend(EmailText.Text);
         }
     }
 }

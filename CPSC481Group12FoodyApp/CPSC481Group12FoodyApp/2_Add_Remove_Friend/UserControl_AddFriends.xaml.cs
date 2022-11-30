@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddFriendSubmissionButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.addFriend(this);
+            Logic_Friend.addFriend(this);
         }
     }
 }

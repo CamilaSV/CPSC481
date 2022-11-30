@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,16 +15,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using CPSC481Group12FoodyApp.Logic;
-
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
     /// Interaction logic for UserControl_Login.xaml
     /// </summary>
-    public partial class UserControl_ChatList : UserControl, Interface_ChatListComponent
+    public partial class UserControl_Invitations : UserControl, Interface_ChatInvComponent
     {
-        public UserControl_ChatList()
+        public UserControl_Invitations()
         {
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
@@ -54,14 +53,14 @@ namespace CPSC481Group12FoodyApp
             PageNavigator.gotoProfile();
         }
 
-        private void List_Invitation_Click(object sender, RoutedEventArgs e)
+        private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            PageNavigator.gotoInvitation();
+            PageNavigator.gotoChatList();
         }
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = Logic_CreateLoadChat.displayUsersChatList();
+            ListControl.ItemsSource = GetObservableCollection.displayUsersGroupInviteList();
         }
     }
 }

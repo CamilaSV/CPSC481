@@ -39,13 +39,13 @@ namespace CPSC481Group12FoodyApp
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_ChatScreen.sendMsg(SessionData.getCurrentUser(), SessionData.getCurrentGroupId(), MsgTextBox.Text);
+            Logic_Chat.sendMsg(SessionData.getCurrentUser(), SessionData.getCurrentGroupId(), MsgTextBox.Text);
             MsgTextBox.Text = string.Empty;
         }
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = Logic_ChatScreen.displayChatModels();
+            ListControl.ItemsSource = GetObservableCollection.displayChatModels();
             ChatScroll.ScrollToBottom();
         }
     }

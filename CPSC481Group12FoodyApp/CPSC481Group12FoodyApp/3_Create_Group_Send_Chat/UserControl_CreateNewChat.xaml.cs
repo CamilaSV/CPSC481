@@ -54,7 +54,7 @@ namespace CPSC481Group12FoodyApp
 
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_CreateLoadChat.createChat(this);
+            Logic_Group.createGroup(this);
         }
 
         public void refreshComponent()

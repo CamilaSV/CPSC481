@@ -28,12 +28,12 @@ namespace CPSC481Group12FoodyApp
 
         private void addBtn(object sender, RoutedEventArgs e)
         {
-            Logic_ChatInvites.acceptGroupInvite(Int32.Parse(ChatIdTextBlock.Text));
+            Logic_Group.acceptGroupInvite(Int32.Parse(ChatIdTextBlock.Text));
         }
 
         private void minusBtn(object sender, RoutedEventArgs e)
         {
-            Logic_ChatInvites.removeOneGroupInvite(SessionData.getCurrentUser(), Int32.Parse(ChatIdTextBlock.Text), SenderEmailTextBlock.Text);
+            Logic_Group.removeOneGroupInvite(SessionData.getCurrentUser(), Int32.Parse(ChatIdTextBlock.Text), SenderEmailTextBlock.Text);
         }
     }
 }

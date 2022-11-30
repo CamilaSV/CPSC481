@@ -10,50 +10,50 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_Friend
     {
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendRequest()
+        // add target to user's friends list, and add user to target user's friend requests
+        public static void addFriend(UserControl_AddFriends addPage)
         {
-            ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
-            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            string emailTarget = addPage.AddFriendTextBox.Text;
+            if (emailTarget.Equals(SessionData.getCurrentUser()))
             {
-                string name;
-                propertyChange_Friend requestItem;
-                foreach (string email in SessionData.getUserFriendRequests(SessionData.getCurrentUser()))
-                {
-                    name = SessionData.getUserDisplayName(email);
-                    requestItem = new propertyChange_Friend
-                    {
-                        TargetEmail = email,
-                        TargetUserName = name,
-                        Abbreviation = name.Substring(0, 1),
-                    };
-                    friendRequestCollection.Add(requestItem);
-                }
+                addPage.ErrorTextBlock.Text = "You cannot add yourself as a friend.";
             }
-
-            return friendRequestCollection;
+            else if (SessionData.getTargetIsUserFriend(SessionData.getCurrentUser(), emailTarget))
+            {
+                addPage.ErrorTextBlock.Text = "The user is already your friend.";
+            }
+            else if (!SessionData.getUserExist(emailTarget))
+            {
+                addPage.ErrorTextBlock.Text = "The user does not exist.";
+            }
+            else
+            {
+                SessionData.addUserFriendReqToTarget(SessionData.getCurrentUser(), emailTarget);
+                SessionData.saveUserInfoToDB();
+                PageNavigator.gotoProfile();
+            }
         }
 
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendList()
+        public static void acceptFriendReq(string emailTarget)
         {
-            ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
-            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
-            {
-                string name;
-                propertyChange_Friend listItem;
-                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
-                {
-                    name = SessionData.getUserDisplayName(email);
-                    listItem = new propertyChange_Friend
-                    {
-                        TargetEmail = email,
-                        TargetUserName = name,
-                        Abbreviation = name.Substring(0, 1),
-                    };
-                    friendListCollection.Add(listItem);
-                }
-            }
+            SessionData.addUserFriend(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriends();
+            ComponentFunctions.refreshFriendsReq();
+        }
 
-            return friendListCollection;
+        public static void denyFriendReq(string emailTarget)
+        {
+            SessionData.removeUserFriendReq(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriendsReq();
+        }
+
+        public static void deleteFriend(string emailTarget)
+        {
+            SessionData.removeUserFriend(SessionData.getCurrentUser(), emailTarget);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshFriends();
         }
     }
 }

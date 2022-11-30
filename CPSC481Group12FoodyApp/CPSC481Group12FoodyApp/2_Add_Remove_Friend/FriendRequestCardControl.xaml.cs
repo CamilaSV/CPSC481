@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,13 +28,13 @@ namespace CPSC481Group12FoodyApp
 
         private void Decline_Button_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.denyFriendReq(EmailText.Text);
+            Logic_Friend.denyFriendReq(EmailText.Text);
             
         }
 
         private void Accept_Button_Click(object sender, RoutedEventArgs e)
         {
-            Logic_AddRemFriend.acceptFriendReq(EmailText.Text);
+            Logic_Friend.acceptFriendReq(EmailText.Text);
         }
     }
 }

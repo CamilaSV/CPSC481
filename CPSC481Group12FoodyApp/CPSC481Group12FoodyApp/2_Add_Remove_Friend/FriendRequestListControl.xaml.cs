@@ -32,7 +32,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = Logic_Friend.displayUsersFriendRequest();
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
         }
     }
 }
