@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="./3_Create_Enter_Send_Chat/chat/ChatMsgsShow.xaml"/>
+                <ResourceDictionary Source="./3_Create_Enter_Send_Chat/ChatMsgsShow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

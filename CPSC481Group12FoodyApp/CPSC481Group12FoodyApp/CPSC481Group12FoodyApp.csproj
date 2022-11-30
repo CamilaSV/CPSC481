@@ -146,9 +146,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="3_Create_Enter_Send_Chat\ChatMsgCardControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="3_Create_Enter_Send_Chat\ChatScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -192,6 +189,10 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="3_Create_Enter_Send_Chat\chat\" />
   </ItemGroup>
 
 </Project>

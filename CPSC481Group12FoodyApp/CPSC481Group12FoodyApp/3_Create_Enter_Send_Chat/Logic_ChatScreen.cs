@@ -1,5 +1,4 @@
-﻿using CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -12,9 +11,9 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class Logic_ChatScreen
     {
-        public static ObservableCollection<ChatBoxDesignModel> displayChatModels()
+        public static ObservableCollection<propertyChange_ChatScreen> displayChatModels()
         {
-            ObservableCollection<ChatBoxDesignModel> chatMsgCollection = new ObservableCollection<ChatBoxDesignModel>();
+            ObservableCollection<propertyChange_ChatScreen> chatMsgCollection = new ObservableCollection<propertyChange_ChatScreen>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -37,7 +36,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
                     if (email.Equals(SessionData.getCurrentUser()))
                     {
-                        chatMsgCollection.Add(new ChatBoxDesignModel
+                        chatMsgCollection.Add(new propertyChange_ChatScreen
                         {
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
@@ -48,7 +47,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                     else
                     {
-                        chatMsgCollection.Add(new ChatBoxDesignModel
+                        chatMsgCollection.Add(new propertyChange_ChatScreen
                         {
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
@@ -66,6 +65,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void sendMsg(string emailSender, int groupId, string chatMsg)
         {
             SessionData.addGroupMsg(groupId, emailSender, chatMsg);
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshChatMsgs();
         }
 

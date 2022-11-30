@@ -3,16 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" xmlns:chat="clr-namespace:CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <UserControl.DataContext>
-        <chat:ChatBoxControlDesignModel/>
-    </UserControl.DataContext>
-
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
@@ -38,7 +32,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" Padding="0,2,0,0">
-                    <ListView x:Name="ListControl" BorderBrush="Transparent" ItemsSource="{Binding Messages}" IsSynchronizedWithCurrentItem="True" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+                    <ScrollViewer x:Name ="ChatScroll" VerticalScrollBarVisibility="Auto">
+                        <ListView x:Name="ListControl" BorderBrush="Transparent" IsSynchronizedWithCurrentItem="True" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+                    </ScrollViewer>
                 </Border>
                 <TextBox x:Name ="MsgTextBox" Padding="10" Margin="10,15,80,10" FontFamily="Segoe UI" FontSize="16" TextWrapping="Wrap" Grid.Row="1"/>
                 <Button x:Name="SendButton" Content ="&#x2708;" HorizontalAlignment="Left" Width="64" Margin="406,5,0,0" Click="SendButton_Click" Grid.Row="1" BorderBrush="White" Background="White" FontFamily="Segoe UI" FontSize="30" />

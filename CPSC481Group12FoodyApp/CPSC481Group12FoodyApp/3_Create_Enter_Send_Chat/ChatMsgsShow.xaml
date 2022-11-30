@@ -30,7 +30,7 @@
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
-                                            <TextBlock Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                            <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                         </StackPanel>
                                     </Grid>
                                     <TextBlock Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black"/>
