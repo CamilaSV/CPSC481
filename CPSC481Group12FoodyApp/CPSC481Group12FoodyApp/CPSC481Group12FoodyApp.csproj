@@ -56,7 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="2_Add_Remove_Friend\FriendListCardControl.xaml">
+    <Page Update="7_Profile\FriendListCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="2_Add_Remove_Friend\FriendRequestListControl.xaml">
@@ -100,6 +100,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="7_Profile\FriendListListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="User_Controls\Template_WithTopBar.xaml">
