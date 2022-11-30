@@ -47,7 +47,7 @@
                             <Grid>
                                 <StackPanel>
                                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Invite Friend" />
-                                    <TextBox HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
+                                    <TextBox x:Name="InviteeTextBox" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
                                     <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,25,152" >
                                         <StackPanel>
                                             <TextBlock  Margin ="15,0,0,0" FontFamily="Segoe UI" FontSize="24" Height ="83" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Width="300"><Run Text="Jane - jule@mail.com"/><LineBreak/><Run Text="Jane - Jane123@mail.com"/></TextBlock>

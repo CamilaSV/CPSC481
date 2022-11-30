@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Printing;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input.Manipulations;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -21,7 +22,10 @@ namespace CPSC481Group12FoodyApp.Logic
             MsgInfo msg;
             string name, abbreviation;
             propertyChange_Chat chatItem;
-            foreach (var groupId in SessionData.getUserGroups(SessionData.getCurrentUser()))
+            List<int> sortedGroups = SessionData.getUserGroups(SessionData.getCurrentUser());
+            sortedGroups.Sort((m1, m2) => SessionData.getGroupLastMsgInfo(m2).time.CompareTo(SessionData.getGroupLastMsgInfo(m1).time));
+
+            foreach (var groupId in sortedGroups)
             {
                 // testing
                 System.Diagnostics.Debug.WriteLine(groupId);
@@ -71,6 +75,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
                 }
+                SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
                 PageNavigator.gotoChatList();
             }
         }

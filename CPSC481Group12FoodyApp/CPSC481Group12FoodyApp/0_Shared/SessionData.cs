@@ -73,8 +73,9 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addUserNewGroup(string emailCreator, int groupId, string name)
         {
             createGroup(groupId, name, emailCreator);
+            addGroupMemberToAdmin(groupId, emailCreator);
             addUserGroup(emailCreator, groupId);
-            addGroupMsg(groupId, "", getCurrentUser() + " has joined the group.");
+            addGroupMember(groupId, emailCreator);
             ComponentFunctions.refreshAll();
         }
 
@@ -143,7 +144,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 allUsers[emailUser].groupList.Add(groupId);
                 // delete all invitations that invites to the added groupId
                 allUsers[emailUser].invitationList.RemoveAll(invite => invite.inviteGroupId.Equals(groupId));
-                addGroupMember(groupId, emailUser);
                 DBFunctions.saveInfo(allUsers);
             }
         }
@@ -228,12 +228,15 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void sendGroupInviteToTarget(string emailTarget, int groupId, string emailSender)
         {
-            InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailSender };
-            if (!allUsers[emailTarget].invitationList.Contains(info))
+            if (getUserExist(emailTarget))
             {
-                allUsers[emailTarget].invitationList.Add(info);
-                DBFunctions.saveInfo(allUsers);
-                ComponentFunctions.refreshAll();
+                InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailSender };
+                if (!allUsers[emailTarget].invitationList.Contains(info))
+                {
+                    allUsers[emailTarget].invitationList.Add(info);
+                    DBFunctions.saveInfo(allUsers);
+                    ComponentFunctions.refreshAll();
+                }
             }
         }
 
@@ -289,8 +292,8 @@ namespace CPSC481Group12FoodyApp.Logic
             GroupInfo info = new GroupInfo
             {
                 name = groupName,
-                adminList = new List<string>() { emailCreator },
-                memberList = new List<string>() { emailCreator },
+                adminList = new List<string>(),
+                memberList = new List<string>(),
                 customCriteriaList = new List<string>(),
                 restaurantList = new List<int>(),
                 msgList = new List<MsgInfo>(),
@@ -359,6 +362,7 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].memberList.Contains(emailTarget))
             {
                 allGroups[groupId].memberList.Add(emailTarget);
+                addGroupMsg(groupId, "", emailTarget + " has joined the group.");
                 DBFunctions.saveInfo(allGroups);
                 ComponentFunctions.refreshAll();
             }
@@ -618,16 +622,7 @@ namespace CPSC481Group12FoodyApp.Logic
         // Conditionals with different types of arguments
         public static MsgInfo getGroupLastMsgInfo(int groupId)
         {
-            int index = 0;
-            for (int i = 1; i < allGroups[groupId].msgList.Count; i++)
-            {
-                if (allGroups[groupId].msgList[index].time < allGroups[groupId].msgList[i].time)
-                {
-                    index = i;
-                }
-            }
-
-            return allGroups[groupId].msgList[index];
+            return allGroups[groupId].msgList.Last();
         }
         
         private static Tuple<int, Boolean> getUserCategoryHasRes(string email, int catId, int resId)

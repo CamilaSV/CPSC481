@@ -12,27 +12,39 @@
     </UserControl.DataContext>
 
     <Grid>
-        <Border Padding="0,75,0,0">
-            <ListView ItemsSource="{Binding Messages}" 
-                      ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Black" BorderThickness="1" >
+            <Grid Grid.Row="0">
+                <TextBlock x:Name="BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="BackButton_MouseUp"/>
+                <Button x:Name="ChatInfoButton" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="406,1,0,0" Click="ChatInfoButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/InfoIcon.png"/>
+                    </Button.Background>
+                </Button>
+                <TextBlock x:Name="GroupNameBlock" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149"/>
+            </Grid>
         </Border>
 
-        <TextBlock x:Name="BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="BackButton_MouseUp"/>
-        <Button x:Name="ChatInfoButton" HorizontalAlignment="Left" Height="64" Width="64" VerticalAlignment="Top" BorderBrush="{x:Null}" Margin="406,1,0,0" Click="ChatInfoButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/InfoIcon.png"/>
-            </Button.Background>
-        </Button>
-        <TextBlock x:Name="GroupNameBlock" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149"/>
-        <TextBlock x:Name="GroupIdBlock" HorizontalAlignment="Left" Height="40" Margin="64,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" Visibility="Hidden">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
+
+        <ItemsControl Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="703"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Padding="0,2,0,0">
+                    <ListView x:Name="ListControl" BorderBrush="Transparent" ItemsSource="{Binding Messages}" IsSynchronizedWithCurrentItem="True" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
+                </Border>
+                <TextBox x:Name ="MsgTextBox" Padding="10" Margin="10,15,80,10" FontFamily="Segoe UI" FontSize="16" TextWrapping="Wrap" Grid.Row="1"/>
+                <Button x:Name="SendButton" Content ="&#x2708;" HorizontalAlignment="Left" Width="64" Margin="406,5,0,0" Click="SendButton_Click" Grid.Row="1" BorderBrush="White" Background="White" FontFamily="Segoe UI" FontSize="30" />
+
+            </Grid>
+        </ItemsControl>
+
     </Grid>
 </UserControl>
