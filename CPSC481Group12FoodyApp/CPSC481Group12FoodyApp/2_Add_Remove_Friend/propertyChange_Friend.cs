@@ -15,11 +15,14 @@ namespace CPSC481Group12FoodyApp
         private string targetUserName;
         private string targetEmail;
 
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged([CallerMemberName] String name = "")
+        private void OnPropertyChanged(string name)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            if (PropertyChanged != null)
+            { 
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         public string Abbreviation
@@ -30,7 +33,7 @@ namespace CPSC481Group12FoodyApp
                 if (value != abbreviation)
                 {
                     abbreviation = value;
-                    OnPropertyChanged(nameof(Abbreviation));
+                    OnPropertyChanged("Abbreviation");
                 }
             }
         }
@@ -43,7 +46,7 @@ namespace CPSC481Group12FoodyApp
                 if (value != targetUserName)
                 {
                     targetUserName = value;
-                    OnPropertyChanged(nameof(TargetUserName));
+                    OnPropertyChanged("TargetUserName");
                 }
             }
         }
@@ -56,7 +59,7 @@ namespace CPSC481Group12FoodyApp
                 if (value != targetEmail)
                 {
                     targetEmail = value;
-                    OnPropertyChanged(nameof(TargetEmail));
+                    OnPropertyChanged("TargetEmail");
                 }
             }
         }

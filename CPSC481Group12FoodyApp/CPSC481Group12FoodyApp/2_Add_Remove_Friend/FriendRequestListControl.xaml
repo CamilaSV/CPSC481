@@ -10,9 +10,9 @@
              d:DesignHeight="890" d:DesignWidth="492">
     <!--DataContext="{Binding RelativeSource={RelativeSource Self}}"-->
 
-    <Grid DataContext="{x:Static localchat:FriendRequestControlDesignModel.Instance}">
+    <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="ListControl" ItemsSource="{Binding FriendRequestCollection}">
+            <ItemsControl ItemsSource="{Binding FriendRequestCollection}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:FriendRequestCardControl>

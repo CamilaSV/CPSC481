@@ -13,18 +13,10 @@ namespace CPSC481Group12FoodyApp
     {
         public static FriendListControlDesignModel Instance { get; } = new FriendListControlDesignModel();
 
-        private ObservableCollection<propertyChange_Friend> friendListCollection;
         public ObservableCollection<propertyChange_Friend> FriendListCollection
         {
-            get { return friendListCollection; }
-            set
-            {
-                if (value != friendListCollection)
-                {
-                    friendListCollection = value;
-                    OnPropertyChanged(nameof(FriendListCollection));
-                }
-            }
+            get;
+            set;
         }
 
         public FriendListControlDesignModel()

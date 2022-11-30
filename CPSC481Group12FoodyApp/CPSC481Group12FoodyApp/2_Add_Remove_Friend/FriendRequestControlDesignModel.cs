@@ -9,32 +9,12 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class FriendRequestControlDesignModel : propertyChange_Friend, Interface_FriendReqComponent
+    public class FriendRequestControlDesignModel
     {
-        public static FriendRequestControlDesignModel Instance { get; } = new FriendRequestControlDesignModel();
-
-        private ObservableCollection<propertyChange_Friend> friendRequestCollection;
         public ObservableCollection<propertyChange_Friend> FriendRequestCollection
         {
-            get { return friendRequestCollection; }
-            set
-            {
-                if (value != friendRequestCollection)
-                {
-                    friendRequestCollection = value;
-                    OnPropertyChanged(nameof(FriendRequestCollection));
-                }
-            }
-        }
-
-        public FriendRequestControlDesignModel()
-        {
-            ComponentFunctions.addComponentToList(this);
-        }
-
-        public void refreshComponent()
-        {
-            FriendRequestCollection = Logic_Friend.displayUsersFriendRequest();
+            get;
+            set;
         }
     }
 }

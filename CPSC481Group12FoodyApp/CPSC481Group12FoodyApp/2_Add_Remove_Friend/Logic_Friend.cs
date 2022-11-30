@@ -13,19 +13,21 @@ namespace CPSC481Group12FoodyApp.Logic
         public static ObservableCollection<propertyChange_Friend> displayUsersFriendRequest()
         {
             ObservableCollection<propertyChange_Friend> friendRequestCollection = new ObservableCollection<propertyChange_Friend>();
-
-            string name;
-            propertyChange_Friend requestItem;
-            foreach (string email in SessionData.getUserFriendRequests(SessionData.getCurrentUser()))
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
-                name = SessionData.getUserDisplayName(email);
-                requestItem = new propertyChange_Friend
+                string name;
+                propertyChange_Friend requestItem;
+                foreach (string email in SessionData.getUserFriendRequests(SessionData.getCurrentUser()))
                 {
-                    TargetEmail = email,
-                    TargetUserName = name,
-                    Abbreviation = name.Substring(0, 1),
-                };
-                friendRequestCollection.Add(requestItem);
+                    name = SessionData.getUserDisplayName(email);
+                    requestItem = new propertyChange_Friend
+                    {
+                        TargetEmail = email,
+                        TargetUserName = name,
+                        Abbreviation = name.Substring(0, 1),
+                    };
+                    friendRequestCollection.Add(requestItem);
+                }
             }
 
             return friendRequestCollection;
@@ -34,19 +36,21 @@ namespace CPSC481Group12FoodyApp.Logic
         public static ObservableCollection<propertyChange_Friend> displayUsersFriendList()
         {
             ObservableCollection<propertyChange_Friend> friendListCollection = new ObservableCollection<propertyChange_Friend>();
-
-            string name;
-            propertyChange_Friend listItem;
-            foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
-                name = SessionData.getUserDisplayName(email);
-                listItem = new propertyChange_Friend
+                string name;
+                propertyChange_Friend listItem;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
                 {
-                    TargetEmail = email,
-                    TargetUserName = name,
-                    Abbreviation = name.Substring(0, 1),
-                };
-                friendListCollection.Add(listItem);
+                    name = SessionData.getUserDisplayName(email);
+                    listItem = new propertyChange_Friend
+                    {
+                        TargetEmail = email,
+                        TargetUserName = name,
+                        Abbreviation = name.Substring(0, 1),
+                    };
+                    friendListCollection.Add(listItem);
+                }
             }
 
             return friendListCollection;

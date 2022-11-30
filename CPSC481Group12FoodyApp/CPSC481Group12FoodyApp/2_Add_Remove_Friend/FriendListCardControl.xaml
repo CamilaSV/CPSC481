@@ -9,7 +9,6 @@
              Background="#8D6A9F"
              BorderBrush="White" BorderThickness="2"
              Height="70"
-             d:DataContext="{x:Static local:FriendListDesignModel.Instance}"
              
              d:DesignHeight="70" d:DesignWidth="480">
 

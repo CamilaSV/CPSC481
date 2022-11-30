@@ -24,16 +24,18 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class FriendRequestListControl : UserControl, Interface_FriendReqComponent
     {
+        private FriendRequestControlDesignModel model;
         public FriendRequestListControl()
         {
             InitializeComponent();
-            this.DataContext = this;
+            model = new FriendRequestControlDesignModel();
             ComponentFunctions.addComponentToList(this);
         }
 
         public void refreshComponent()
         {
-            ListControl.Items.Refresh();
+            model.FriendRequestCollection = Logic_Friend.displayUsersFriendRequest();
+            DataContext = model;
         }
     }
 }
