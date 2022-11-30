@@ -84,6 +84,20 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
+        public static void promoteGroupMember(int groupId, string emailTarget)
+        {
+            SessionData.addGroupMemberToAdmin(groupId, emailTarget);
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
+        public static void demoteGroupMember(int groupId, string emailTarget)
+        {
+            SessionData.removeGroupMemberFromAdmin(groupId, emailTarget);
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
         public static void addGroupCriteria()
         {
 

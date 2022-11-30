@@ -24,20 +24,70 @@ namespace CPSC481Group12FoodyApp
         public MemberCardControl()
         {
             InitializeComponent();
-            if (Boolean.Parse(IsAdminText.Text))
-            {
-                AdminText.Visibility = Visibility.Visible;
-
-                if (EmailText.Text.Equals(SessionData.getCurrentUser()))
-                {
-                    AdminButton.Visibility = Visibility.Visible;
-                }
-            }
         }
 
         private void Delete_Member_Click(object sender, RoutedEventArgs e)
         {
             Logic_Group.removeGroupMember(SessionData.getCurrentGroupId(), EmailText.Text);
+        }
+
+        private void Demote_Member_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_Group.demoteGroupMember(SessionData.getCurrentGroupId(), EmailText.Text);
+        }
+
+        private void Promote_Member_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_Group.promoteGroupMember(SessionData.getCurrentGroupId(), EmailText.Text);
+        }
+
+        private void CheckAdminEmail(object sender, DataTransferEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(IsAdminText.Text)) {
+                if (Boolean.Parse(IsAdminText.Text))
+                {
+                    changeVisibility();
+                }
+            }
+        }
+
+        private void CheckAdminTrue(object sender, DataTransferEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(EmailText.Text))
+            {
+                changeVisibility();
+            }
+        }
+
+        private void changeVisibility()
+        {
+            if (SessionData.getGroupAdmins(SessionData.getCurrentGroupId()).Contains(SessionData.getCurrentUser()))
+            {
+                if (Boolean.Parse(IsAdminText.Text))
+                {
+                    AdminText.Visibility = Visibility.Visible;
+
+                    if (!EmailText.Text.Equals(SessionData.getCurrentUser()))
+                    {
+                        DemoteButton.Visibility = Visibility.Visible;
+                    }
+                }
+                else
+                {
+                    if (!EmailText.Text.Equals(SessionData.getCurrentUser()))
+                    {
+                        PromoteButton.Visibility = Visibility.Visible;
+                        AdminButton.Visibility = Visibility.Visible;
+                    }
+                }
+            }
+            else
+            {
+                if (Boolean.Parse(IsAdminText.Text))
+                {
+                    AdminText.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }
