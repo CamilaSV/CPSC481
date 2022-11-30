@@ -37,30 +37,30 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Border Grid.Column="2" VerticalAlignment="Top" Height="120" Margin="0,20,0,10" >
+                        <Border Grid.Column="2" VerticalAlignment="Top" Height="110" Margin="0,20,0,10" >
                             <StackPanel HorizontalAlignment="Left" Width="415" >
                                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Group Name" Padding="0,0,0,10"/>
                                 <TextBox x:Name="GroupNameText" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"  Text="Enter a group name" Padding="8" Foreground="#FFCACACA"/>
                             </StackPanel>
                         </Border>
-                        <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="160" Margin="0,10,0,50">
+                        <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Height="230">
                             <Grid>
                                 <StackPanel>
                                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Invite Friend" />
                                     <TextBox x:Name="InviteeTextBox" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
-                                    <local:FriendListInviteListControl Height="70"/>
+                                    <local:FriendListInviteListControl Height="76"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
 
-                        <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="316">
+                        <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="220">
                             <StackPanel>
-                                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friends Invited" />
+                                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friends Invited" Height="40" />
                                 <local:FriendListInvitedListControl Height="70"/>
                             </StackPanel>
                         </Border>
 
-                        <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,170,0,170" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396" Click="CreateGroupButton_Click"/>
+                        <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,233,0,84" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396" Click="CreateGroupButton_Click"/>
                     </Grid>
                 </Grid>
             </Grid>

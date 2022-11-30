@@ -255,7 +255,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 name = groupName,
                 adminList = new List<string>(),
                 memberList = new List<string>(),
-                customCriteriaList = new List<string>(),
+                customCriteriaList = new Dictionary<string, string>(),
                 restaurantList = new List<int>(),
                 msgList = new List<MsgInfo>(),
                 eventList = new List<EventInfo>(),
@@ -326,19 +326,19 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addGroupCriterion(int groupId, string criterion)
+        public static void addGroupCriterion(int groupId, string email, string criterion)
         {
-            if (!allGroups[groupId].customCriteriaList.Contains(criterion))
+            if (!allGroups[groupId].customCriteriaList.ContainsKey(email))
             {
-                allGroups[groupId].customCriteriaList.Add(criterion);
+                allGroups[groupId].customCriteriaList.Add(email, criterion);
             }
         }
 
-        public static void removeGroupCriterion(int groupId, string criterion)
+        public static void removeGroupCriterion(int groupId, string email)
         {
-            if (allGroups[groupId].customCriteriaList.Contains(criterion))
+            if (allGroups[groupId].customCriteriaList.ContainsKey(email))
             {
-                allGroups[groupId].customCriteriaList.Remove(criterion);
+                allGroups[groupId].customCriteriaList.Remove(email);
             }
         }
 
@@ -471,7 +471,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return allGroups[groupId].memberList;
         }
 
-        public static List<string> getGroupCustomCriteria(int groupId)
+        public static Dictionary<string, string> getGroupCustomCriteria(int groupId)
         {
             return allGroups[groupId].customCriteriaList;
         }

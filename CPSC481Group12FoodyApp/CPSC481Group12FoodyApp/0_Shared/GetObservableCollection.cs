@@ -245,6 +245,8 @@ namespace CPSC481Group12FoodyApp.Logic
         public static ObservableCollection<propertyChange_Criteria> displayGroupCriteriaList()
         {
             ObservableCollection<propertyChange_Criteria> collection = new ObservableCollection<propertyChange_Criteria>();
+
+            return collection;
         }
     }
 }

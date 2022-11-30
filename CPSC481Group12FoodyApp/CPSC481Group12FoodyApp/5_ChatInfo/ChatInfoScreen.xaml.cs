@@ -27,18 +27,10 @@ namespace CPSC481Group12FoodyApp
 
         private void Criteria_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Criteria_ShowMoreButton.IsEnabled)
-            {
-
-            }
         }
 
         private void Restaurant_ShowMoreButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Restaurant_ShowMoreButton.IsEnabled)
-            {
-
-            }
         }
 
         private void SchedulerDateButton_Click(object sender, RoutedEventArgs e)
