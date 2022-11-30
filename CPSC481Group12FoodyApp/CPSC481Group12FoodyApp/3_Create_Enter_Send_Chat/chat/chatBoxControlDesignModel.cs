@@ -16,31 +16,42 @@ namespace CPSC481Group12FoodyApp._3_Create_Enter_Send_Chat.chat
         public ChatBoxControlDesignModel()
         {
             ComponentFunctions.addComponentToList(this);
-            Messages = new ObservableCollection<ChatBoxDesignModel>();
-//            Messages = Logic_ChatScreen.displayChatModels();
+            Messages = Logic_ChatScreen.displayChatModels();
 
-            /*SendCommand = new RelayCommand(o =>
+            SendCommand = new RelayCommand(o =>
             {
                 Messages.Add(new ChatBoxDesignModel
                 {
+                    IsUser_abbreviation = "B",
+                    IsUser_chatSenderName = "Bob",
+                    IsUser_chatTime = "now",
                     IsUser_chatMsg = IsUser_chatMsg,
                 });
+                IsUser_abbreviation = "";
+                IsUser_chatSenderName = "";
+                IsUser_chatTime = "";
                 IsUser_chatMsg = "";
-            });*/
+
+            });
+
             Messages.Add(new ChatBoxDesignModel
             {
-                IsUser_chatMsg = "TESTING TESTING TESTING "
+                IsUser_abbreviation = "B",
+                IsUser_chatSenderName = "Bob",
+                IsUser_chatTime = "now",
+                IsUser_chatMsg = "TESTING",
             });
+
         }
 
 
         public void refreshComponent()
         {
-//            Messages = Logic_ChatScreen.displayChatModels();
-            Messages.Add(new ChatBoxDesignModel
-            {
-                IsUser_chatMsg = "TESTING TESTING TESTING "
-            });
+            /*
+             * This breaks the code for some reason. 
+             * I think it makes a new collection of the same name
+             * no way for wpf to reference the current Messages object.
+             */
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿// helps the app navigate the page
 
+using CPSC481Group12FoodyApp.Logic;
 using System.Windows.Controls;
 
 namespace CPSC481Group12FoodyApp
@@ -76,7 +77,8 @@ namespace CPSC481Group12FoodyApp
         }
 
         public static void gotoOneChat()
-        {
+        {            
+            chatScreenPage.GroupNameBlock.Text = SessionData.getGroupName(SessionData.getCurrentGroupId());
             targetWindow.Content = chatScreenPage;
         }
 

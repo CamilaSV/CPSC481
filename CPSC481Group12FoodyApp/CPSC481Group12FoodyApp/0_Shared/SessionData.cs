@@ -16,6 +16,7 @@ namespace CPSC481Group12FoodyApp.Logic
     public static class SessionData
     {
         private static string currentUser = "";
+        private static int currentGroupId = -1;
         private static List<string> currentInviteTargets = new List<string>();
         private static Dictionary<string, UserInfo> allUsers;
         private static Dictionary<int, GroupInfo> allGroups;
@@ -37,6 +38,16 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getCurrentUser()
         {
             return currentUser;
+        }
+
+        public static void setCurrentGroupId(int groupId)
+        {
+            currentGroupId = groupId;
+        }
+
+        public static int getCurrentGroupId()
+        {
+            return currentGroupId;
         }
 
         // setters for user
@@ -63,7 +74,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             createGroup(groupId, name, emailCreator);
             addUserGroup(emailCreator, groupId);
-            addGroupMsg(groupId, 0, "", getCurrentUser() + " has joined the group.");
+            addGroupMsg(groupId, "", getCurrentUser() + " has joined the group.");
             ComponentFunctions.refreshAll();
         }
 
@@ -306,22 +317,21 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addGroupMsg(int groupId, int msgId, string msgSender, string msgContent)
+        public static void addGroupMsg(int groupId, string msgSender, string msgContent)
         {
-            if (getGroupMsgExist(groupId, msgId) == -1)
+            int msgId = getFirstAvailableMsgId(groupId);
+            MsgInfo msg = new MsgInfo
             {
-                MsgInfo msg = new MsgInfo
-                {
-                    id = msgId,
-                    senderEmail = msgSender,
-                    content = msgContent,
-                    time = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
-                };
+                id = msgId,
+                senderEmail = msgSender,
+                content = msgContent,
+                time = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+            };
 
-                allGroups[groupId].msgList.Add(msg);
-                DBFunctions.saveInfo(allGroups);
-                ComponentFunctions.refreshAll();
-            }
+            allGroups[groupId].msgList.Add(msg);
+            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
+            DBFunctions.saveInfo(allGroups);
+            ComponentFunctions.refreshAll();
         }
 
         public static void addGroupMemberToAdmin(int groupId, string emailTarget)
@@ -419,6 +429,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 if (!allGroups[groupId].eventList.Contains(info))
                 {
                     allGroups[groupId].eventList.Add(info);
+                    allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
                     DBFunctions.saveInfo(allGroups);
                     ComponentFunctions.refreshAll();
                 }
@@ -700,7 +711,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static int getFirstAvailableGroupId()
         {
-            int index = 0;
+            int index;
             for (index = 0; allGroups.ContainsKey(index); index++) ;
 
             return index;
@@ -708,18 +719,30 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static int getFirstAvailableMsgId(int groupId)
         {
-            int index;
-            int msgId = 0;
+            SortedSet<int> allIds = new SortedSet<int>();
 
-            for (index = 0; index < allGroups[groupId].msgList.Count; index++)
+            foreach (var id in allGroups[groupId].msgList)
             {
-                if (allGroups[groupId].msgList[index].id == msgId)
+                allIds.Add(id.id);
+            }
+
+            int msgId = 0;
+            foreach (var id in allIds)
+            {
+                if (id != msgId)
                 {
-                    msgId++;
+                    break;
                 }
+
+                msgId++;
             }
 
             return msgId;
+        }
+
+        public static void setCurrentGroupId(string groupId)
+        {
+            setCurrentGroupId(Int32.Parse(groupId));
         }
     }
 }
