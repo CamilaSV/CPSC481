@@ -191,8 +191,4 @@
     </Page>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="3_Create_Enter_Send_Chat\chat\" />
-  </ItemGroup>
-
 </Project>
