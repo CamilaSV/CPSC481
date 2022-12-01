@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_Criteria
+    public class propertyChange_GroupCriteria
     {
-        public string Criterion { get; set; }
+        public string CriterionId { get; set; }
+        public string CriterionContent { get; set; }
         public string TargetUserNameAndEmail { get; set; }
     }
 }

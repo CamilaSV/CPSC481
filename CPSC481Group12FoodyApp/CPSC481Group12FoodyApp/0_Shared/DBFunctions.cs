@@ -11,6 +11,7 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string accounts = "Accounts.json";
         private const string groups = "Groups.json";
         private const string restaurants = "Restaurants.json";
+        private const string criteria = "Criteria.json";
 
         // getters
         public static void createNecessaryFiles()
@@ -19,6 +20,7 @@ namespace CPSC481Group12FoodyApp.Logic
             File.AppendText(getAccountsPath()).Close();
             File.AppendText(getGroupsPath()).Close();
             File.AppendText(getRestaurantsPath()).Close();
+            File.AppendText(getCriteriaPath()).Close();
         }
 
         private static string getAccountsPath()
@@ -34,6 +36,11 @@ namespace CPSC481Group12FoodyApp.Logic
         private static string getRestaurantsPath()
         {
             return dbDir + restaurants;
+        }
+
+        private static string getCriteriaPath()
+        {
+            return dbDir + criteria;
         }
 
         public static Dictionary<string, UserInfo> getAllUserInfo()
@@ -65,6 +72,17 @@ namespace CPSC481Group12FoodyApp.Logic
             }
 
             return new Dictionary<int, RestaurantInfo>(JsonSerializer.Deserialize<Dictionary<int, RestaurantInfo>>(json));
+        }
+
+        public static Dictionary<int, PresetCriteriaInfo> getAllCriteriaInfo()
+        {
+            string json = File.ReadAllText(getCriteriaPath());
+            if (string.IsNullOrEmpty(json))
+            {
+                return new Dictionary<int, PresetCriteriaInfo>();
+            }
+
+            return new Dictionary<int, PresetCriteriaInfo>(JsonSerializer.Deserialize<Dictionary<int, PresetCriteriaInfo>>(json));
         }
 
         // setters

@@ -21,6 +21,7 @@ namespace CPSC481Group12FoodyApp
 
         private static ChatScreen chatScreenPage = new ChatScreen();
         private static ChatInfoScreen chatInfoPage = new ChatInfoScreen();
+        private static ChatEditMembers groupMemberEditPage = new ChatEditMembers();
 
         private static HomePage homePage = new HomePage();
 
@@ -102,14 +103,9 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = invitationsPage;
         }
 
-        public static ChatScreen getChatScreen()
+        public static void gotoGroupEditMembers()
         {
-            return chatScreenPage;
-        }
-
-        public static ChatInfoScreen getChatInfoScreen()
-        {
-            return chatInfoPage;
+            targetWindow.Content = groupMemberEditPage;
         }
     }
 }

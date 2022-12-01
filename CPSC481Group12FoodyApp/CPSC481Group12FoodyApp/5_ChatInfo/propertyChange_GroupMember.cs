@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_Member
+    public class propertyChange_GroupMember
     {
         public string Abbreviation { get; set; }
         public string TargetUserName { get; set; }

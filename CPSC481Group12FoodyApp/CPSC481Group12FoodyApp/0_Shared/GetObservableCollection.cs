@@ -55,57 +55,6 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_ChatScreen> displayChatModels()
-        {
-            ObservableCollection<propertyChange_ChatScreen> collection = new ObservableCollection<propertyChange_ChatScreen>();
-
-            if (SessionData.getCurrentGroupId() != -1)
-            {
-                string email;
-                string abbreviation;
-                string name;
-                foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
-                {
-                    email = msgInfo.senderEmail;
-                    if (String.IsNullOrEmpty(email))
-                    {
-                        name = "";
-                        abbreviation = "";
-                    }
-                    else
-                    {
-                        name = SessionData.getUserDisplayName(email);
-                        abbreviation = name.Substring(0, 1);
-                    }
-
-                    if (email.Equals(SessionData.getCurrentUser()))
-                    {
-                        collection.Add(new propertyChange_ChatScreen
-                        {
-                            IsUser_abbreviation = abbreviation,
-                            IsUser_chatSenderEmail = email,
-                            IsUser_chatSenderName = name,
-                            IsUser_chatMsg = msgInfo.content,
-                            IsUser_chatTime = msgInfo.time.ToString(),
-                        });
-                    }
-                    else
-                    {
-                        collection.Add(new propertyChange_ChatScreen
-                        {
-                            IsUser_abbreviation = abbreviation,
-                            IsUser_chatSenderEmail = email,
-                            IsUser_chatSenderName = name,
-                            IsUser_chatMsg = msgInfo.content,
-                            IsUser_chatTime = msgInfo.time.ToString(),
-                        });
-                    }
-                }
-            }
-
-            return collection;
-        }
-
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
             ObservableCollection<propertyChange_Chat> collection = new ObservableCollection<propertyChange_Chat>();
@@ -144,6 +93,20 @@ namespace CPSC481Group12FoodyApp.Logic
                 }
                 );
             }
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_Restaurant> displayUserRestaurantList()
+        {
+            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_UserEvent> displayUserEventList()
+        {
+            ObservableCollection<propertyChange_UserEvent> collection = new ObservableCollection<propertyChange_UserEvent>();
 
             return collection;
         }
@@ -218,9 +181,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Member> displayGroupMemberList()
+        public static ObservableCollection<propertyChange_GroupMember> displayGroupMemberList()
         {
-            ObservableCollection<propertyChange_Member> collection = new ObservableCollection<propertyChange_Member>();
+            ObservableCollection<propertyChange_GroupMember> collection = new ObservableCollection<propertyChange_GroupMember>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -228,7 +191,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 foreach (string email in SessionData.getGroupMembers(SessionData.getCurrentGroupId()))
                 {
                     name = SessionData.getUserDisplayName(email);
-                    collection.Add(new propertyChange_Member
+                    collection.Add(new propertyChange_GroupMember
                     {
                         TargetEmail = email,
                         TargetUserName = name,
@@ -242,9 +205,74 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Criteria> displayGroupCriteriaList()
+        public static ObservableCollection<propertyChange_ChatScreen> displayChatModels()
         {
-            ObservableCollection<propertyChange_Criteria> collection = new ObservableCollection<propertyChange_Criteria>();
+            ObservableCollection<propertyChange_ChatScreen> collection = new ObservableCollection<propertyChange_ChatScreen>();
+
+            if (SessionData.getCurrentGroupId() != -1)
+            {
+                string email;
+                string abbreviation;
+                string name;
+                foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
+                {
+                    email = msgInfo.senderEmail;
+                    if (String.IsNullOrEmpty(email))
+                    {
+                        name = "";
+                        abbreviation = "";
+                    }
+                    else
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        abbreviation = name.Substring(0, 1);
+                    }
+
+                    if (email.Equals(SessionData.getCurrentUser()))
+                    {
+                        collection.Add(new propertyChange_ChatScreen
+                        {
+                            IsUser_abbreviation = abbreviation,
+                            IsUser_chatSenderEmail = email,
+                            IsUser_chatSenderName = name,
+                            IsUser_chatMsg = msgInfo.content,
+                            IsUser_chatTime = msgInfo.time.ToString(),
+                        });
+                    }
+                    else
+                    {
+                        collection.Add(new propertyChange_ChatScreen
+                        {
+                            IsUser_abbreviation = abbreviation,
+                            IsUser_chatSenderEmail = email,
+                            IsUser_chatSenderName = name,
+                            IsUser_chatMsg = msgInfo.content,
+                            IsUser_chatTime = msgInfo.time.ToString(),
+                        });
+                    }
+                }
+            }
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_GroupCriteria> displayGroupCriteriaList()
+        {
+            ObservableCollection<propertyChange_GroupCriteria> collection = new ObservableCollection<propertyChange_GroupCriteria>();
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_Restaurant> displayGroupRestaurantList()
+        {
+            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_GroupEvent> displayGroupEventList()
+        {
+            ObservableCollection<propertyChange_GroupEvent> collection = new ObservableCollection<propertyChange_GroupEvent>();
 
             return collection;
         }

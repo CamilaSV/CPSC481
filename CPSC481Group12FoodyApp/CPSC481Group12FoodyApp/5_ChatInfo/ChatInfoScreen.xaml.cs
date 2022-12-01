@@ -50,7 +50,12 @@ namespace CPSC481Group12FoodyApp
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigator.getChatScreen();
+            PageNavigator.gotoOneChat();
+        }
+
+        private void MemberShowMore_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

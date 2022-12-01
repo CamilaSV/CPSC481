@@ -6,7 +6,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public string name { get; set; }
         public List<string> adminList { get; set; }
         public List<string> memberList { get; set; }
-        public Dictionary<string, string> customCriteriaList { get; set; } // email, criterion
+        public Dictionary<string, int> customCriteriaList { get; set; } // email, criterionId
         public List<int> restaurantList { get; set; }
         public List<MsgInfo> msgList { get; set; }
         public List<EventInfo> eventList { get; set; }

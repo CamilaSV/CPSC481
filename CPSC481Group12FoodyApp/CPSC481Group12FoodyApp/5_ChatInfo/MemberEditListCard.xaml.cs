@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for MemberCardControl.xaml
+    /// Interaction logic for MemberEditListCard.xaml
     /// </summary>
-    public partial class MemberCardControl : UserControl
+    public partial class MemberEditListCard : UserControl
     {
-        public MemberCardControl()
+        public MemberEditListCard()
         {
             InitializeComponent();
         }

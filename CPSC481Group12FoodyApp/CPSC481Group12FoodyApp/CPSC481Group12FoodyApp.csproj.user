@@ -19,13 +19,25 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteListControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="5_ChatInfo\GroupRestaurantCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="5_ChatInfo\GroupCriteriaCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\MemberCardControl.xaml">
+    <Page Update="5_ChatInfo\GroupRestaurantListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\MemberEditListCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\MemberListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="5_ChatInfo\GroupCriteriaListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\MemberEditListControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="5_ChatInfo\MemberListControl.xaml">

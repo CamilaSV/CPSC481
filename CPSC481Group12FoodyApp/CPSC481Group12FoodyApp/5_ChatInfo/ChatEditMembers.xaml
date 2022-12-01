@@ -34,42 +34,7 @@
             <!-- Members -->
             
             <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-            <ListBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
-                <ListBoxItem>
-                    <TextBlock Text="Me (Admin)" FontSize="30" />
-                </ListBoxItem>
-                <ListBoxItem Selected="ListBoxItem_Selected">
-                    <ListBox BorderBrush="{x:Null}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBoxItem>
-                            <TextBlock Text="Jane" Width="75" FontSize="30" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <Button x:Name="RemoveButton1" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
-                        </ListBoxItem>
-                    </ListBox>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <ListBox BorderBrush="{x:Null}">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBoxItem>
-                            <TextBlock Text="Alice"  Width="75" FontSize="30" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <Button x:Name="RemoveButton2" Style="{StaticResource Delete}" Click="RemoveButton_Click"/>
-                        </ListBoxItem>
-                    </ListBox>
-                </ListBoxItem>
-            </ListBox>
-            
+            <local:MemberEditListControl Height="250" />
             <!-- Invite Members -->
             
             <StackPanel Orientation="Horizontal">
