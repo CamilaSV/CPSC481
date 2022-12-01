@@ -10,36 +10,30 @@
              BorderBrush="White" BorderThickness="2"
              Height="140"
              
-             d:DesignHeight="140" d:DesignWidth="480">
+             d:DesignHeight="155" d:DesignWidth="480">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="10">
             <StackPanel>
-
-
+                <DockPanel>
+                    <TextBlock x:Name="RestaurantName" Text="Taco Bell" FontSize="35" FontWeight="Bold" Width="235" TextTrimming="CharacterEllipsis"/>
+                    <Button DockPanel.Dock="Right" Content="Vote" FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="100" Click="Delete_Friend_Click"/>
+                    <Button Margin="0,0,25,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="35" HorizontalAlignment="Right" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Delete_Friend_Click" />
+                </DockPanel>
+                <StackPanel>
+                    <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" Text="Vegeterian Veegan" VerticalAlignment="Center" Width="139" HorizontalAlignment="Left"/>
                     <DockPanel>
-                        <TextBlock x:Name="RestaurantName" Text="Taco Bell" FontSize="32" FontWeight="SemiBold"/>
-                        <Button DockPanel.Dock="Left" Content="⨉" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Decline_Button_Click" />
-                        <!--<TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>-->
+                        <TextBlock HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="225" FontStyle="Italic"><Run Language="en-ca" Text="Click to show more..."/></TextBlock>
                     </DockPanel>
-
-                <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
-                    <DockPanel>
-                        <!--<TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>-->
-                        <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetUserName}" VerticalAlignment="Center"/>
-                    </DockPanel>
-                </Border>
-                <TextBlock x:Name="EmailText" FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetEmail}" VerticalAlignment="Top" Grid.Column="2" Margin="0,53,0,0" />
+                </StackPanel>
             </StackPanel>
         </Border>
-        
-        
     </Grid>
 </UserControl>
