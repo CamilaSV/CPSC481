@@ -34,7 +34,7 @@
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                         </StackPanel>
                                     </Grid>
-                                    <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black"/>
+                                    <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black" MaxWidth="330"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -78,7 +78,7 @@
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                             <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
                                         </StackPanel>
-                                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black"/>
+                                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black" MaxWidth="330"/>
                                     </StackPanel>
                                 </Grid>
                             </DockPanel>
@@ -118,7 +118,7 @@
                                         <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                     </StackPanel>
                                 </Grid>
-                                <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray"/>
+                                <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray" MaxWidth="330"/>
                             </StackPanel>
                         </Border>
                     </Grid>

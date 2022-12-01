@@ -229,7 +229,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     else
                     {
                         name = SessionData.getUserDisplayName(email);
-                        abbreviation = name.Substring(0, 1);
+                        abbreviation = name.Substring(0, 1).ToUpper();
                         isUserJoined = false;
                     }
 
