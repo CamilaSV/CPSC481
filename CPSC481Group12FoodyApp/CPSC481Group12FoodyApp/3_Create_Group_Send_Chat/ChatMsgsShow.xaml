@@ -47,7 +47,6 @@
             
 
         <Style.Resources>
-            
             <!-- Sender Model -->
             <ControlTemplate x:Key="SenderModel">
                 <Border BorderThickness="0,5,0,10">
@@ -77,7 +76,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
-                                            <TextBlock Text="{Binding IsUser_chatMsg}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
+                                            <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
                                         </StackPanel>
                                         <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black"/>
                                     </StackPanel>

@@ -214,6 +214,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 string email;
                 string abbreviation;
                 string name;
+                bool isSender;
                 bool isUserJoined;
                 foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
                 {
