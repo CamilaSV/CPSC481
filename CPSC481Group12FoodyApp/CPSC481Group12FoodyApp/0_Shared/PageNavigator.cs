@@ -22,6 +22,7 @@ namespace CPSC481Group12FoodyApp
         private static ChatScreen chatScreenPage = new ChatScreen();
         private static ChatInfoScreen chatInfoPage = new ChatInfoScreen();
         private static ChatEditMembers groupMemberEditPage = new ChatEditMembers();
+        private static ChatEditMembersRemoveNew removeConfirmPage = new ChatEditMembersRemoveNew();
 
         private static HomePage homePage = new HomePage();
 
@@ -106,6 +107,12 @@ namespace CPSC481Group12FoodyApp
         public static void gotoGroupEditMembers()
         {
             targetWindow.Content = groupMemberEditPage;
+        }
+
+        public static void gotoMemberDeleteConfirm(string email)
+        {
+            removeConfirmPage.setRemoveEmail(email);
+            targetWindow.Content = removeConfirmPage;
         }
     }
 }

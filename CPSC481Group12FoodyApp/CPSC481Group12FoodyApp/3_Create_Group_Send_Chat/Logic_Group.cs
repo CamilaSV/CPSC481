@@ -28,17 +28,22 @@ namespace CPSC481Group12FoodyApp.Logic
                 groupId = SessionData.getFirstAvailableGroupId();
                 SessionData.addUserNewGroup(SessionData.getCurrentUser(), groupId, groupName);
 
-                foreach (var eachEmail in SessionData.getTargetsToInviteToGroup())
-                {
-                    SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
-                }
                 SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
-                SessionData.saveUserInfoToDB();
+                sendInvites(groupId);
                 SessionData.saveGroupInfoToDB();
-                SessionData.removeInviteTargetList();
                 ComponentFunctions.refreshAll();
                 PageNavigator.gotoChatList();
             }
+        }
+
+        public static void sendInvites(int groupId)
+        {
+            foreach (var eachEmail in SessionData.getTargetsToInviteToGroup())
+            {
+                SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
+            }
+            SessionData.removeInviteTargetList();
+            SessionData.saveUserInfoToDB();
         }
 
         public static void acceptGroupInvite(int groupId)

@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void Delete_Member_Click(object sender, RoutedEventArgs e)
         {
-            Logic_Group.removeGroupMember(SessionData.getCurrentGroupId(), EmailText.Text);
+            PageNavigator.gotoMemberDeleteConfirm(EmailText.Text);
         }
 
         private void Demote_Member_Click(object sender, RoutedEventArgs e)

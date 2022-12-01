@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,29 +26,9 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        private void InviteButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RemoveButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Checkbox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
+            Logic_Group.sendInvites(SessionData.getCurrentGroupId());
         }
     }
 }

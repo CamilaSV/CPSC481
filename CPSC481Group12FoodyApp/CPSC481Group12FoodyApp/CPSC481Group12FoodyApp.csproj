@@ -62,6 +62,9 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="5_ChatInfo\ChatEditMembersRemoveNew.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="5_ChatInfo\FriendListInviteMoreListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
