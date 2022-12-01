@@ -55,6 +55,56 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        public static ObservableCollection<propertyChange_Friend> displayUsersFriendNoPendingInviteOnly()
+        {
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    if (!SessionData.getTargetIsPendingInvite(SessionData.getCurrentGroupId(), SessionData.getCurrentUser(), email))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_Friend
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
+        }
+
+        public static ObservableCollection<propertyChange_Friend> displayUsersFriendPendingInviteOnly()
+        {
+            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    if (SessionData.getTargetIsPendingInvite(SessionData.getCurrentGroupId(), SessionData.getCurrentUser(), email))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_Friend
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
+        }
+
         public static ObservableCollection<propertyChange_FriendInvite> displayUsersFriendInviteList()
         {
             ObservableCollection<propertyChange_FriendInvite> collection = new ObservableCollection<propertyChange_FriendInvite>();

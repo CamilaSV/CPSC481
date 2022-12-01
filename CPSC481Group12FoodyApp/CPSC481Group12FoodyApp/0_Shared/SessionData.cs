@@ -706,6 +706,17 @@ namespace CPSC481Group12FoodyApp.Logic
             return msgId;
         }
 
+        public static Boolean getTargetIsPendingInvite(int groupId, string emailUser, string emailTarget)
+        {
+            InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailUser };
+            return allUsers[emailTarget].invitationList.Contains(info);
+        }
+
+        public static Boolean getTargetIsPendingInvite(string groupId, string emailUser, string emailTarget)
+        {
+            return getTargetIsPendingInvite(Int32.Parse(groupId), emailUser, emailTarget);
+        }
+
         public static Boolean getTargetIsGroupAdmin(int groupId, string email)
         {
             return allGroups[groupId].adminList.Contains(email);
