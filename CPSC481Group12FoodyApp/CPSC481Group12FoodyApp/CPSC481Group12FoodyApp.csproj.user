@@ -31,6 +31,12 @@
     <Page Update="5_ChatInfo\MemberEditListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="5_ChatInfo\RestaurantListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="5_ChatInfo\RestaurantListCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="5_ChatInfo\MemberListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
