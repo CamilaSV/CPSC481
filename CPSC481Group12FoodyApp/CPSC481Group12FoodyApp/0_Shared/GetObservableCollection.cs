@@ -55,6 +55,29 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        public static ObservableCollection<propertyChange_FriendInvite> displayUsersFriendInviteList()
+        {
+            ObservableCollection<propertyChange_FriendInvite> collection = new ObservableCollection<propertyChange_FriendInvite>();
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    name = SessionData.getUserDisplayName(email);
+                    collection.Add(new propertyChange_FriendInvite
+                    {
+                        TargetEmail = email,
+                        TargetUserName = name,
+                        Abbreviation = name.Substring(0, 1),
+                        IsInvited = SessionData.getTargetsToInviteToGroup().Contains(email),
+                    }
+                    );
+                }
+            }
+
+            return collection;
+        }
+
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
             ObservableCollection<propertyChange_Chat> collection = new ObservableCollection<propertyChange_Chat>();
@@ -66,9 +89,6 @@ namespace CPSC481Group12FoodyApp.Logic
 
             foreach (var groupId in sortedGroups)
             {
-                // testing
-                System.Diagnostics.Debug.WriteLine(groupId);
-
                 msg = SessionData.getGroupLastMsgInfo(groupId);
                 if (string.IsNullOrEmpty(msg.senderEmail))
                 {
@@ -125,57 +145,6 @@ namespace CPSC481Group12FoodyApp.Logic
                     SenderName = SessionData.getUserDisplayName(invite.inviteSenderEmail),
                 }
                 );
-            }
-
-            return collection;
-        }
-
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendListWithoutInvite()
-        {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
-            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
-            {
-                string name;
-                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
-                {
-                    if (!SessionData.getTargetsToInviteToGroup().Contains(email))
-                    {
-                        name = SessionData.getUserDisplayName(email);
-                        collection.Add(new propertyChange_Friend
-                        {
-                            TargetEmail = email,
-                            TargetUserName = name,
-                            Abbreviation = name.Substring(0, 1),
-                        }
-                        );
-                    }
-                }
-            }
-
-            return collection;
-        }
-
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendListWithInvite()
-        {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
-
-            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
-            {
-                string name;
-                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
-                {
-                    if (SessionData.getTargetsToInviteToGroup().Contains(email))
-                    {
-                        name = SessionData.getUserDisplayName(email);
-                        collection.Add(new propertyChange_Friend
-                        {
-                            TargetEmail = email,
-                            TargetUserName = name,
-                            Abbreviation = name.Substring(0, 1),
-                        }
-                        );
-                    }
-                }
             }
 
             return collection;

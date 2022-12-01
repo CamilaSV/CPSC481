@@ -26,9 +26,16 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Invite_Button_Click(object sender, RoutedEventArgs e)
+        private void Invite_Clicked(object sender, RoutedEventArgs e)
         {
-            Logic_Group.addTargetToInviteList(EmailText.Text);
+            if ((bool)InviteCheck.IsChecked)
+            {
+                Logic_Group.addTargetToInviteList(EmailText.Text);
+            }
+            else
+            {
+                Logic_Group.removeTargetFromInviteList(EmailText.Text);
+            }
         }
     }
 }

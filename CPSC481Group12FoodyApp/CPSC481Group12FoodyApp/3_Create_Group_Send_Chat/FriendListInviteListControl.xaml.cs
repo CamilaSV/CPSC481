@@ -32,7 +32,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendListWithoutInvite();
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteList();
         }
     }
 }

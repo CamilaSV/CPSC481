@@ -43,24 +43,17 @@
                                 <TextBox x:Name="GroupNameText" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"  Text="Enter a group name" Padding="8" Foreground="#FFCACACA"/>
                             </StackPanel>
                         </Border>
-                        <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Height="230">
+                        <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Height="350">
                             <Grid>
                                 <StackPanel>
                                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Invite Friend" />
                                     <TextBox x:Name="InviteeTextBox" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
-                                    <local:FriendListInviteListControl Height="76"/>
+                                    <local:FriendListInviteListControl Height="250"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
 
-                        <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="220">
-                            <StackPanel>
-                                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friends Invited" Height="40" />
-                                <local:FriendListInvitedListControl Height="70"/>
-                            </StackPanel>
-                        </Border>
-
-                        <Button Grid.Column="2" Grid.Row="3" Content="Create Group" Margin="12,233,0,84" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="396" Click="CreateGroupButton_Click"/>
+                        <Button Content="Create Group" Margin="15,25,0,179" FontSize="32" FontFamily="Segoe UI Semibold" HorizontalAlignment="Left" Width="390" Height="70" Click="CreateGroupButton_Click" Grid.Column="2" Grid.Row="3"/>
                     </Grid>
                 </Grid>
             </Grid>
