@@ -34,7 +34,7 @@
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                         </StackPanel>
                                     </Grid>
-                                    <TextBlock Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black"/>
+                                    <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black" MaxWidth="330"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -43,6 +43,98 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
+            
+
+        <Style.Resources>
+            <!-- Sender Model -->
+            <ControlTemplate x:Key="SenderModel">
+                <Border BorderThickness="0,5,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <Border Padding="4">
+                                <Grid>
+                                    <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                                    <TextBlock FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <Border Grid.Column="1" Padding="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <DockPanel VerticalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                            <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                            <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
+                                        </StackPanel>
+                                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black" MaxWidth="330"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+            
+            <!--User Joined Msg Model-->
+            <ControlTemplate x:Key="UserJoinedMsgModel">
+                <Border BorderThickness="0,5,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Border Padding="4">
+                                <Grid>
+                                    <Ellipse Fill="Transparent" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                                    <TextBlock FontSize="25" Foreground="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <Border Grid.Column="2" Padding="5,0,0,0" VerticalAlignment="Center" >
+                            <StackPanel VerticalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
+                                        <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                        <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray" MaxWidth="330"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Style.Resources>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsSender}" Value="true">
+                <Setter Property="Template" Value="{StaticResource SenderModel}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsUserJoined}" Value="true">
+                <Setter Property="Template" Value="{StaticResource UserJoinedMsgModel}"/>
+            </DataTrigger>
+        </Style.Triggers>
+
     </Style>
     
 </ResourceDictionary>

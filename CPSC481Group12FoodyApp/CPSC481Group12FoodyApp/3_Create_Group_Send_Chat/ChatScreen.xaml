@@ -36,8 +36,22 @@
                         <ListView x:Name="ListControl" BorderBrush="Transparent" IsSynchronizedWithCurrentItem="True" ItemContainerStyle="{StaticResource ChatMsgsShow}"/>
                     </ScrollViewer>
                 </Border>
-                <TextBox x:Name ="MsgTextBox" Padding="10" Margin="10,15,80,10" FontFamily="Segoe UI" FontSize="16" TextWrapping="Wrap" Grid.Row="1"/>
+
+                <TextBox  BorderBrush="Black" x:Name ="MsgTextBox" Padding="10" Margin="10,15,80,10" FontFamily="Segoe UI" FontSize="16" TextWrapping="Wrap" Grid.Row="1"/>
                 <Button x:Name="SendButton" Content ="&#x2708;" HorizontalAlignment="Left" Width="64" Margin="406,5,0,0" Click="SendButton_Click" Grid.Row="1" BorderBrush="White" Background="White" FontFamily="Segoe UI" FontSize="30" />
+
+                <TextBlock Foreground="DarkGray" Text="Enter your chat message here: Todo: fix msgbox scaling " FontWeight="SemiBold" FontSize="15" IsHitTestVisible="False" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="10" Margin="10,17,0,0" Width="390" >
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=MsgTextBox}" Value="" >
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
 
             </Grid>
         </ItemsControl>

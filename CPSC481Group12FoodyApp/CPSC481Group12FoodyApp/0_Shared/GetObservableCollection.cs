@@ -259,6 +259,8 @@ namespace CPSC481Group12FoodyApp.Logic
                 string email;
                 string abbreviation;
                 string name;
+                bool isSender;
+                bool isUserJoined;
                 foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
                 {
                     email = msgInfo.senderEmail;
@@ -266,11 +268,14 @@ namespace CPSC481Group12FoodyApp.Logic
                     {
                         name = "";
                         abbreviation = "";
+                        isUserJoined = true;
+                        
                     }
                     else
                     {
                         name = SessionData.getUserDisplayName(email);
-                        abbreviation = name.Substring(0, 1);
+                        abbreviation = name.Substring(0, 1).ToUpper();
+                        isUserJoined = false;
                     }
 
                     if (email.Equals(SessionData.getCurrentUser()))
@@ -282,6 +287,8 @@ namespace CPSC481Group12FoodyApp.Logic
                             IsUser_chatSenderName = name,
                             IsUser_chatMsg = msgInfo.content,
                             IsUser_chatTime = msgInfo.time.ToString(),
+
+                            IsSender = true,
                         });
                     }
                     else
@@ -293,7 +300,12 @@ namespace CPSC481Group12FoodyApp.Logic
                             IsUser_chatSenderName = name,
                             IsUser_chatMsg = msgInfo.content,
                             IsUser_chatTime = msgInfo.time.ToString(),
+
+                            IsSender = false,
+                            IsUserJoined = isUserJoined,
                         });
+                       
+                        
                     }
                 }
             }
