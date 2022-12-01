@@ -16,10 +16,17 @@ namespace CPSC481Group12FoodyApp
         public string IsUser_chatSenderName { get; set; }
         public string IsUser_chatMsg { get; set; }
         public string IsUser_chatTime { get; set; }
+
+        public bool IsSender { get; set; }
+        public bool IsUserJoined { get; set; }
+
+        // not used, perhapse remove?
+        /*
         public string NotUser_abbreviation { get; set; }
         public string NotUser_chatSenderEmail { get; set; }
         public string NotUser_chatSenderName { get; set; }
         public string NotUser_chatMsg { get; set; }
         public string NotUser_chatTime { get; set; }
+        */
     }
 }
