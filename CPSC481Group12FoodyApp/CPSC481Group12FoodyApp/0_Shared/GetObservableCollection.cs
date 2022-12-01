@@ -78,6 +78,32 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        public static ObservableCollection<propertyChange_FriendInvite> displayUsersFriendInviteMoreList()
+        {
+            ObservableCollection<propertyChange_FriendInvite> collection = new ObservableCollection<propertyChange_FriendInvite>();
+            if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
+            {
+                string name;
+                foreach (string email in SessionData.getUserFriends(SessionData.getCurrentUser()))
+                {
+                    if (!SessionData.getGroupMembers(SessionData.getCurrentGroupId()).Contains(email))
+                    {
+                        name = SessionData.getUserDisplayName(email);
+                        collection.Add(new propertyChange_FriendInvite
+                        {
+                            TargetEmail = email,
+                            TargetUserName = name,
+                            Abbreviation = name.Substring(0, 1),
+                            IsInvited = SessionData.getTargetsToInviteToGroup().Contains(email),
+                        }
+                        );
+                    }
+                }
+            }
+
+            return collection;
+        }
+
         public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
         {
             ObservableCollection<propertyChange_Chat> collection = new ObservableCollection<propertyChange_Chat>();

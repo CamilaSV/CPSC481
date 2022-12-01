@@ -55,7 +55,7 @@ namespace CPSC481Group12FoodyApp
 
         private void MemberShowMore_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoGroupEditMembers();
         }
     }
 }

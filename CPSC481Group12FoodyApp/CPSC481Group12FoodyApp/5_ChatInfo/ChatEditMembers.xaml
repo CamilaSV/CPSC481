@@ -41,15 +41,7 @@
                 <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 <Button FontSize ="28" Content="Confirm"/>
             </StackPanel>
-
-            <CheckBox x:Name="SallyCheckBox" Content="Sally" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="JessicaCheckBox" Content="Jessica" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="AlexCheckBox" Content="Alex" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="KayCheckBox" Content="Kay" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="KyloCheckBox" Content="Kylo" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="ReyCheckBox" Content="Rey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="ChelseyCheckBox" Content="Chelsey" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
-            <CheckBox x:Name="MaggieCheckBox" Content="Maggie" Style="{StaticResource LargeCheckBoxStyle}" Checked="Checkbox_Checked"/>
+            <local:FriendListInviteMoreListControl Height="250"/>
         </StackPanel>
 
         <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>

@@ -465,36 +465,64 @@ namespace CPSC481Group12FoodyApp.Logic
         // getters for group
         public static string getGroupName(int groupId)
         {
+            if (groupId == -1)
+            {
+                return "";
+            }
             return allGroups[groupId].name;
         }
 
         public static List<string> getGroupAdmins(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new List<string>();
+            }
             return allGroups[groupId].adminList;
         }
 
         public static List<string> getGroupMembers(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new List<string>();
+            }
             return allGroups[groupId].memberList;
         }
 
         public static Dictionary<string, int> getGroupCustomCriteria(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new Dictionary<string, int>();
+            }
             return allGroups[groupId].customCriteriaList;
         }
 
         public static List<int> getGroupSavedRestaurants(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new List<int>();
+            }
             return allGroups[groupId].restaurantList;
         }
 
         public static List<MsgInfo> getGroupMessages(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new List<MsgInfo>();
+            }
             return allGroups[groupId].msgList;
         }
 
         public static List<EventInfo> getGroupEvents(int groupId)
         {
+            if (groupId == -1)
+            {
+                return new List<EventInfo>();
+            }
             return allGroups[groupId].eventList;
         }
 
