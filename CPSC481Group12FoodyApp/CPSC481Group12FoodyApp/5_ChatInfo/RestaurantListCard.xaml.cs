@@ -25,5 +25,15 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void Delete_Restaurant_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Vote_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

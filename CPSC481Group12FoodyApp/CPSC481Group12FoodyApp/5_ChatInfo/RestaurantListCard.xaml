@@ -12,7 +12,7 @@
              
              d:DesignHeight="155" d:DesignWidth="480">
 
-    <Grid>
+    <Grid MouseDown="Grid_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="auto"/>
@@ -20,17 +20,21 @@
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="2" VerticalAlignment="Center" Padding="10">
+        <Border MouseDown="Grid_MouseDown" Grid.Column="2" VerticalAlignment="Center" Padding="10">
             <StackPanel>
                 <DockPanel>
-                    <TextBlock x:Name="RestaurantName" Text="Taco Bell" FontSize="35" FontWeight="Bold" Width="235" TextTrimming="CharacterEllipsis"/>
-                    <Button DockPanel.Dock="Right" Content="Vote" FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="100" Click="Delete_Friend_Click"/>
-                    <Button Margin="0,0,25,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="35" HorizontalAlignment="Right" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Delete_Friend_Click" />
+                    <TextBlock x:Name="RestaurantName"  Text="Taco Bell"  MouseDown="Grid_MouseDown"  FontSize="35" FontWeight="Bold" Width="235" TextTrimming="CharacterEllipsis"/>
+                    <Button Click="Delete_Restaurant_Click" DockPanel.Dock="Right" Content="Vote" FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="125" />
+                    <Button Click="Vote_Click" Margin="0,0,25,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="35" HorizontalAlignment="Right" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"  />
                 </DockPanel>
                 <StackPanel>
-                    <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" Text="Vegeterian Veegan" VerticalAlignment="Center" Width="139" HorizontalAlignment="Left"/>
+                    <DockPanel Margin="0,5,0,15">
+                        <TextBlock Text="Vegeterian Veegan"  MouseDown="Grid_MouseDown" DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" Width="144" HorizontalAlignment="Left"/>
+
+                        <TextBlock Text="Votes: 4/5" MouseDown="Grid_MouseDown" DockPanel.Dock="Right" FontWeight="Black" FontSize="25" Foreground="LimeGreen" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="150"/>
+                    </DockPanel>
                     <DockPanel>
-                        <TextBlock HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="225" FontStyle="Italic"><Run Language="en-ca" Text="Click to show more..."/></TextBlock>
+                        <TextBlock  MouseDown="Grid_MouseDown" Foreground="#7FA9A9A9" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="222" FontStyle="Italic"><Run Language="en-ca" Text="Click to show more..."/></TextBlock>
                     </DockPanel>
                 </StackPanel>
             </StackPanel>
