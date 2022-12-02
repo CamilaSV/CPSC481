@@ -24,13 +24,18 @@
             <StackPanel>
                 <DockPanel>
                     <TextBlock x:Name="RestaurantName"  Text="Taco Bell"  MouseDown="Grid_MouseDown"  FontSize="35" FontWeight="Bold" Width="235" TextTrimming="CharacterEllipsis"/>
-                    <Button Click="Delete_Restaurant_Click" DockPanel.Dock="Right" Content="Vote" FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="125" />
+                    <ToggleButton Click="Delete_Restaurant_Click" DockPanel.Dock="Right" Content="Vote" FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="125">
+                        
+                        
+                        
+                    </ToggleButton>
+                    
+                    
                     <Button Click="Vote_Click" Margin="0,0,25,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="35" HorizontalAlignment="Right" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"  />
                 </DockPanel>
                 <StackPanel>
                     <DockPanel Margin="0,5,0,15">
                         <TextBlock Text="Vegeterian Veegan"  MouseDown="Grid_MouseDown" DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" Width="144" HorizontalAlignment="Left"/>
-
                         <TextBlock Text="Votes: 4/5" MouseDown="Grid_MouseDown" DockPanel.Dock="Right" FontWeight="Black" FontSize="25" Foreground="LimeGreen" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="150"/>
                     </DockPanel>
                     <DockPanel>
@@ -40,4 +45,7 @@
             </StackPanel>
         </Border>
     </Grid>
+
+    
+    
 </UserControl>
