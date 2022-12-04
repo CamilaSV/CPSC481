@@ -7,8 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
-    <Grid ShowGridLines="False" x:Name="ExpandCategoryGrid" Background="White">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
+    <Grid ShowGridLines="False" x:Name="ExpandCategoryGrid" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -25,13 +32,13 @@
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/user_icon.png"/>
+                <ImageBrush ImageSource="/Images/user_icon.png"/>
             </Button.Background>
         </Button>
         <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
         <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/back_button.png"/>
+                <ImageBrush ImageSource="/Images/back_button.png"/>
             </Button.Background>
         </Button>
 
@@ -43,17 +50,17 @@
 
         <Button x:Name="Bottom_HomeButton" Content="" Grid.Row="3" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_HomeButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/home.png"/>
+                <ImageBrush ImageSource="/Images/home.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="Bottom_CalButton" Content="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_CalButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/calendar.png"/>
+                <ImageBrush ImageSource="/Images/calendar.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="Bottom_ChatButton" Content="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/chat.png"/>
+                <ImageBrush ImageSource="/Images/chat.png"/>
             </Button.Background>
         </Button>
 
@@ -81,7 +88,7 @@
 
             <Button x:Name="Filter"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="Filter_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/filter.png"/>
+                    <ImageBrush ImageSource="/Images/filter.png"/>
                 </Button.Background>
             </Button>
 
@@ -91,7 +98,7 @@
 
             <Image Grid.Row="1" Grid.Column="1" Margin="320,0,0,0" Width="50">
                 <Image.Source>
-                    <BitmapImage DecodePixelWidth="50" UriSource="/images/search.png" />
+                    <BitmapImage DecodePixelWidth="50" UriSource="/Images/search.png" />
                 </Image.Source>
             </Image>
 
@@ -120,13 +127,13 @@
 
             <Button x:Name="star1" Grid.Row="2" Grid.Column="1" Margin="372,33,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star1_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/star.png"/>
+                    <ImageBrush ImageSource="/Images/star.png"/>
                 </Button.Background>
             </Button>
 
             <Button x:Name="send1" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/send.png"/>
+                    <ImageBrush ImageSource="/Images/send.png"/>
                 </Button.Background>
             </Button>
 
@@ -155,13 +162,13 @@
 
             <Button x:Name="star2" Grid.Row="3" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star2_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/star.png"/>
+                    <ImageBrush ImageSource="/Images/star.png"/>
                 </Button.Background>
             </Button>
 
             <Button x:Name="send2" Grid.Row="3" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send2_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/send.png"/>
+                    <ImageBrush ImageSource="/Images/send.png"/>
                 </Button.Background>
             </Button>
 
@@ -190,13 +197,13 @@
 
             <Button x:Name="heart1" Grid.Row="4" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="heart1_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/heart.png"/>
+                    <ImageBrush ImageSource="/Images/heart.png"/>
                 </Button.Background>
             </Button>
 
             <Button x:Name="send3" Grid.Row="4" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send3_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/send.png"/>
+                    <ImageBrush ImageSource="/Images/send.png"/>
                 </Button.Background>
             </Button>
 
@@ -225,13 +232,13 @@
 
             <Button x:Name="forlater1" Grid.Row="6" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="forlater1_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/forlater.png"/>
+                    <ImageBrush ImageSource="/Images/forlater.png"/>
                 </Button.Background>
             </Button>
 
             <Button x:Name="send4" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send4_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/send.png"/>
+                    <ImageBrush ImageSource="/Images/send.png"/>
                 </Button.Background>
             </Button>
 
@@ -241,7 +248,7 @@
 
         <Button x:Name="Bottom_CreateButton" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/add.png"/>
+                <ImageBrush ImageSource="/Images/add.png"/>
             </Button.Background>
         </Button>
     </Grid>

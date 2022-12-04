@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
+    
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -29,6 +30,8 @@
 
         <!-- Top Bar -->
 
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+
         <StackPanel Grid.Row="1" Grid.Column="1">
 
             <!-- Members -->
@@ -44,8 +47,6 @@
             <local:FriendListInviteMoreListControl Height="250"/>
         </StackPanel>
 
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
-        
         <Rectangle Grid.RowSpan="3" Grid.ColumnSpan="3" Height="853" Width="480" Opacity="0.7"  Fill="Black" />
         <Grid HorizontalAlignment="Center" Height="220" Width="340" Grid.Row="1" Grid.Column="1" Background="LightGray">
             <StackPanel>

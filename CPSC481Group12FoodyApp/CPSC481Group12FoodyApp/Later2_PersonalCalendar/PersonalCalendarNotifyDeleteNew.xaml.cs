@@ -16,13 +16,16 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ExpandRestaraunt.xaml
+    /// Interaction logic for PersonalCalendarNotifyDeleteNew.xaml
     /// </summary>
-    public partial class ExpandRestaraunt: UserControl
+    public partial class PersonalCalendarNotifyDeleteNew : Page
     {
-        public ExpandRestaraunt()
+        private int idRemove;
+
+        public PersonalCalendarNotifyDeleteNew(int idRemove)
         {
             InitializeComponent();
+            this.idRemove = idRemove;
         }
 
         private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -40,27 +43,17 @@ namespace CPSC481Group12FoodyApp
             PageNavigator.gotoChatList();
         }
 
-        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Bottom_TrashButton_Click(object sender, RoutedEventArgs e)
+        private void NoButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void StarButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void YesButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

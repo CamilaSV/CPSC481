@@ -569,7 +569,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return allRestaurants[restaurantId].address;
         }
 
-        public static List<string> getRestaurantCriteria(int restaurantId)
+        public static List<int> getRestaurantCriteria(int restaurantId)
         {
             return allRestaurants[restaurantId].criteriaList;
         }

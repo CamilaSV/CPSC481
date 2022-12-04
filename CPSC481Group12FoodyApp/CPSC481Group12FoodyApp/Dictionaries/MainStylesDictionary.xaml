@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Class="CPSC481Group12FoodyApp.MainStylesDictionary">
 
     <!-- Theme Colours -->
     <SolidColorBrush x:Key="msbrown" Color="#DCC48E"/>
@@ -39,7 +40,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Image Name="backicon" Source="/Images/backbutton.png" />
+                    <Button Click="BackButton_Click" BorderThickness="0" Background="{x:Null}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Image Name="backicon" Source="/Images/backbutton.png" />
+                    </Button>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -52,7 +56,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Image Name="homeicon" Source="/Images/home.png" />
+                    <Button Click="HomeButton_Click" BorderThickness="0" Background="{x:Null}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Image Name="homeicon" Source="/Images/home.png" />
+                    </Button>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -64,8 +71,11 @@
         <Setter Property="Margin" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Image Name="icon" Source="/Images/calendar.png" />
+                <ControlTemplate>
+                    <Button Click="CalendarButton_Click" BorderThickness="0" Background="{x:Null}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Image Name="icon" Source="/Images/calendar.png" />
+                    </Button>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -77,8 +87,11 @@
         <Setter Property="Margin" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Image Name="chaticon" Source="/Images/chat.png" />
+                <ControlTemplate>
+                    <Button Click="ChatlistButton_Click" BorderThickness="0" Background="{x:Null}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Image Name="chaticon" Source="/Images/chat.png" />
+                    </Button>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -90,8 +103,11 @@
         <Setter Property="Margin" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Image Name="usericon" Source="/Images/user_icon.png" />
+                <ControlTemplate>
+                    <Button Click="ProfileButton_Click" BorderThickness="0" Background="{x:Null}"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Image Name="usericon" Source="/Images/user_icon.png" />
+                    </Button>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

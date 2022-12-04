@@ -6,8 +6,16 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    <Grid ShowGridLines="False" x:Name="ChatScreenEventNotifyGrid" Background="White">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid ShowGridLines="False" x:Name="ChatScreenEventNotifyGrid" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
@@ -25,7 +33,7 @@
                     <Image x:Name="Message1" Source="/Images/MessageBubble.png" Stretch="Fill" Height="163" Canvas.Top="48" Width="230" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     <Ellipse x:Name="User2" Width="48" Height="48">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/FemaleAvatar.png"/>
+                            <ImageBrush ImageSource="/Images/FemaleAvatar.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
                     <Label x:Name="User2NameLabel" Content="Jane" Canvas.Left="53" Canvas.Top="6" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -55,7 +63,7 @@
                 <TextBox x:Name="TypeMessageLabel" Height="45" Width="400" HorizontalAlignment="Left" Margin="42,778,0,0" VerticalAlignment="Top" BorderBrush="Black"/>
                 <Button x:Name="SendButton" HorizontalAlignment="Left" Height="45" Margin="396,778,0,0" VerticalAlignment="Top" Width="45" BorderBrush="{x:Null}" Click="SendButton_Click">
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/SendButtonIcon.png"/>
+                        <ImageBrush ImageSource="/Images/SendButtonIcon.png"/>
                     </Button.Background>
                 </Button>
             </Grid>

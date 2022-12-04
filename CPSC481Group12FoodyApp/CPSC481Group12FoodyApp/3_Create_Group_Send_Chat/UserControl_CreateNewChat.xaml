@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid ShowGridLines="False" x:Name="ChatScreenEventNotify" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

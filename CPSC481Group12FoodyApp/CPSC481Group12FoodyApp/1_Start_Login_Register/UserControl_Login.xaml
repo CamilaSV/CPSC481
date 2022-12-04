@@ -6,6 +6,15 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid Background="White">
         <Label Content="Food App" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="64"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="180,200,0,0" VerticalAlignment="Top" Width="100" Source="/4053442_bowl_food_health_healthy_salad_icon.png"/>
@@ -14,9 +23,9 @@
         <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Margin="0,589,0,0" VerticalAlignment="Top" FontSize="34" Height="80" Width="200" Click="LoginButton_Click"/>
         <PasswordBox x:Name="Login_PasswordBox" HorizontalAlignment="Center" Height="40" Margin="0,511,0,0" VerticalAlignment="Top" Width="334" FontFamily="Times New Roman" FontSize="24"/>
         <TextBox x:Name="Login_EmailTextBox" HorizontalAlignment="Center" Height="40" Margin="0,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" RenderTransformOrigin="-0.464,0.165" FontFamily="Times New Roman" FontSize="24"/>
-        <TextBlock x:Name="Login_RegisterText" HorizontalAlignment="Left" Height="23" Margin="240,718,0,0" VerticalAlignment="Top" Width="87" FontFamily="Times New Roman" FontSize="16" Foreground="#FF000064" TextDecorations="Underline" MouseUp="Login_RegisterText_MouseUp"><Run Text="Sign up here"/></TextBlock>
+        <TextBlock x:Name="Login_RegisterText" HorizontalAlignment="Left" Height="23" Margin="240,718,0,0" VerticalAlignment="Top" Width="87" FontFamily="Times New Roman" FontSize="16" Foreground="#FF000064" TextDecorations="Underline" PreviewMouseLeftButtonUp="Login_RegisterText_MouseUp"><Run Text="Sign up here"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="23" Margin="68,718,0,0" VerticalAlignment="Top" Width="167" FontFamily="Times New Roman" FontSize="16"><Run Language="ko-kr" Text="Doesn't have an account?"/></TextBlock>
-        <TextBlock x:Name="Login_BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" MouseUp="Login_BackButton_MouseUp"/>
+        <TextBlock x:Name="Login_BackButton" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" TextWrapping="Wrap" Text="&#x21a9;" VerticalAlignment="Top" Width="40" FontFamily="Times New Roman" FontSize="40" RenderTransformOrigin="0.248,0.149" PreviewMouseLeftButtonUp="Login_BackButton_MouseUp"/>
         <TextBlock x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" Margin="0,785,0,0" VerticalAlignment="Center" Width="460" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center"/>
     </Grid>
 </Page>

@@ -1,5 +1,4 @@
-﻿using CPSC481Group12FoodyApp.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,27 +16,26 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatEditMembersRemoveNew.xaml
+    /// Interaction logic for ChatEditRestaurantRemoveNew.xaml
     /// </summary>
-    public partial class ChatEditMembersRemoveNew : Page
+    public partial class ChatEditRestaurantRemoveNew : Page
     {
-        private string emailRemove;
+        private int idRemove;
 
-        public ChatEditMembersRemoveNew(string email)
+        public ChatEditRestaurantRemoveNew(int idRemove)
         {
             InitializeComponent();
-            this.emailRemove = email;
+            this.idRemove = idRemove;
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_Group.removeGroupMember(SessionData.getCurrentGroupId(), emailRemove);
-            PageNavigator.gotoGroupEditMembers();
+
         }
 
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigator.gotoGroupEditMembers();
+
         }
     }
 }

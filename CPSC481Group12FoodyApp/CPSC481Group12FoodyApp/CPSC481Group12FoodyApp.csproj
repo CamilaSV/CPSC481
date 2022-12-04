@@ -65,6 +65,9 @@
     <Page Update="5_ChatInfo\ChatEditMembersRemoveNew.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="5_ChatInfo\ChatEditRestaurantRemoveNew.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="5_ChatInfo\FriendListInviteMoreListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
@@ -207,6 +210,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="1_Start_Login_Register\UserControl_Register.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dictionaries\MainStylesDictionary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -28,6 +28,7 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
         }
 
         public void refreshComponent()

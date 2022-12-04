@@ -28,16 +28,6 @@ namespace CPSC481Group12FoodyApp
             ComponentFunctions.addComponentToList(this);
         }
 
-        private void BackButton_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
-        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatInfo();
-        }
-
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
             Logic_Chat.sendMsg(SessionData.getCurrentUser(), SessionData.getCurrentGroupId(), MsgTextBox.Text);

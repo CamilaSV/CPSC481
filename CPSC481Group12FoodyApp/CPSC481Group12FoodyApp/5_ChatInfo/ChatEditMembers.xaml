@@ -29,6 +29,8 @@
 
         <!-- Top Bar -->
 
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+
         <StackPanel Grid.Row="1" Grid.Column="1">
 
             <!-- Members -->
@@ -43,8 +45,6 @@
             </StackPanel>
             <local:FriendListInviteMoreListControl Height="250"/>
         </StackPanel>
-
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
 
     </Grid>
 </Page>

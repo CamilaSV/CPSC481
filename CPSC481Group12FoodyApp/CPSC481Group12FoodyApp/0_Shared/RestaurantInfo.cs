@@ -6,6 +6,9 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public string name { get; set; }
         public string address { get; set; }
-        public List<string> criteriaList { get; set; }
+        public string city { get; set; }
+        public string province { get; set; }
+        public string postal_code { get; set; }
+        public List<int> criteriaList { get; set; }
     }
 }

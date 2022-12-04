@@ -31,11 +31,11 @@ namespace CPSC481Group12FoodyApp
             Logic_Register.register(this);
         }
 
-        private void Register_LoginText_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Register_LoginText_MouseUp(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoLogin();
         }
-        private void Register_BackButton_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Register_BackButton_MouseUp(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoStart();
         }
