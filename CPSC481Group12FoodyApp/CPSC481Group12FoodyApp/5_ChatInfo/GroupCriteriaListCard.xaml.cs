@@ -79,7 +79,6 @@ namespace CPSC481Group12FoodyApp
             {
                 if (UserNameBlock.Text.Equals("Me"))
                 {
-                    System.Diagnostics.Debug.WriteLine("ID is: " + CriterionIdTextBlock.Text);
                     if (CriterionIdTextBlock.Text.Equals("none"))
                     {
                         selectModeOn();
