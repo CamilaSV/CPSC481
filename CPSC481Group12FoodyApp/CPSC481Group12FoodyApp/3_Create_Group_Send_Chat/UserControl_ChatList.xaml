@@ -42,5 +42,7 @@
         </ScrollViewer>
 
         <Button x:Name="List_Invitation" Background="LightPink" BorderBrush="red" BorderThickness="2"  Content="Chat Requests" HorizontalAlignment="Left" Height="40" Margin="10,0,0,0" VerticalAlignment="Center" Width="94" RenderTransformOrigin="1.116,0.367" FontFamily="Times New Roman" FontWeight="Bold" FontSize="14" Click="List_Invitation_Click"  />
+
+        <Button x:Name="Bottom_CreateButton" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Create}" Click="CreateButton_Click" />
     </Grid>
 </UserControl>

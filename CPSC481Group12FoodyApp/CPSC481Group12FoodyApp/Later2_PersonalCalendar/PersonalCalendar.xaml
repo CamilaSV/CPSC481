@@ -33,24 +33,24 @@
 
         <Button x:Name="Bottom_HomeButton" Content="" Grid.Row="3" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_HomeButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/home.png"/>
+                <ImageBrush ImageSource="/Images/home.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="Bottom_CalButton" Content="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_CalButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/calendar.png"/>
+                <ImageBrush ImageSource="/Images/calendar.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="Bottom_ChatButton" Content="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="Images/chat.png"/>
+                <ImageBrush ImageSource="/Images/chat.png"/>
             </Button.Background>
         </Button>
 
         <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
         <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images/user_icon.png"/>
+                <ImageBrush ImageSource="/Images/user_icon.png"/>
             </Button.Background>
         </Button>
         <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
