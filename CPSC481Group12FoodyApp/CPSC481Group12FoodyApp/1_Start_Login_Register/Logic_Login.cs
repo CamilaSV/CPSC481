@@ -9,8 +9,8 @@ namespace CPSC481Group12FoodyApp.Logic
         // check if the user-entered information validates logging in (Matching email and password)
         public static void login(UserControl_Login loginWindow)
         {
-            string email = loginWindow.Login_EmailTextBox.Text;
-            string password = loginWindow.Login_PasswordBox.Password;
+            string email = loginWindow.EmailTextBox.Text;
+            string password = loginWindow.PasswordBox.Password;
 
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))

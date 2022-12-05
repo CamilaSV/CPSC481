@@ -8,7 +8,6 @@
              Background="LightGray"
              BorderBrush="White" BorderThickness="4"
              Height="70"
-             d:DataContext="{x:Static local:InvitationDesignModel.Instance}"
              d:DesignHeight="70" d:DesignWidth="480">
 
     <Grid>

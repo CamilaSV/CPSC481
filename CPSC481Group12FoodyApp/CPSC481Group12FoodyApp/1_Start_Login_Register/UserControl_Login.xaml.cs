@@ -26,7 +26,7 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Login_RegisterText_MouseUp(object sender, RoutedEventArgs e)
+        private void RegisterText_MouseUp(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoRegister();
         }
@@ -34,11 +34,6 @@ namespace CPSC481Group12FoodyApp
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             Logic_Login.login(this);
-        }
-
-        private void Login_BackButton_MouseUp(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoStart();
         }
     }
 }

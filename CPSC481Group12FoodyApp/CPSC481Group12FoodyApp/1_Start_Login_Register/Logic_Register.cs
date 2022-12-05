@@ -9,8 +9,8 @@ namespace CPSC481Group12FoodyApp.Logic
         // check if the user-entered information validates register (No duplicate emails)
         public static void register(UserControl_Register registerWindow)
         {
-            string email = registerWindow.Register_EmailTextBox.Text;
-            string password = registerWindow.Register_PasswordBox.Password;
+            string email = registerWindow.EmailTextBox.Text;
+            string password = registerWindow.PasswordBox.Password;
 
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))

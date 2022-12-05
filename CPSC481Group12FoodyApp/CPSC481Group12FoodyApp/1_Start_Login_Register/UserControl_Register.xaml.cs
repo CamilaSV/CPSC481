@@ -26,18 +26,14 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Register_SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             Logic_Register.register(this);
         }
 
-        private void Register_LoginText_MouseUp(object sender, RoutedEventArgs e)
+        private void LoginText_MouseUp(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoLogin();
-        }
-        private void Register_BackButton_MouseUp(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoStart();
         }
     }
 }
