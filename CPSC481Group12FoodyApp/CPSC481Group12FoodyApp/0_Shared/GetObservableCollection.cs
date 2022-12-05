@@ -193,20 +193,6 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Restaurant> displayUserRestaurantList()
-        {
-            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
-
-            return collection;
-        }
-
-        public static ObservableCollection<propertyChange_UserEvent> displayUserEventList()
-        {
-            ObservableCollection<propertyChange_UserEvent> collection = new ObservableCollection<propertyChange_UserEvent>();
-
-            return collection;
-        }
-
         public static ObservableCollection<propertyChange_ChatInvite> displayUsersGroupInviteList()
         {
             ObservableCollection<propertyChange_ChatInvite> collection = new ObservableCollection<propertyChange_ChatInvite>();
@@ -317,9 +303,73 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             ObservableCollection<propertyChange_GroupCriteria> collection = new ObservableCollection<propertyChange_GroupCriteria>();
 
+            if (SessionData.getCurrentGroupId() != -1)
+            {
+                string criterionId;
+                string targetEmail;
+
+                var allInfo = SessionData.getGroupCustomCriteria(SessionData.getCurrentGroupId());
+
+                if (allInfo.ContainsKey(SessionData.getCurrentUser()))
+                {
+                    criterionId = allInfo[SessionData.getCurrentUser()].ToString();
+                    collection.Add(new propertyChange_GroupCriteria
+                    {
+                        CriterionId = criterionId,
+                        CriterionContent = SessionData.getCriterionName(criterionId),
+                        TargetUserName = "Me",
+                        TargetEmail = SessionData.getCurrentUser(),
+                    });
+                }
+                else
+                {
+                    collection.Add(new propertyChange_GroupCriteria
+                    {
+                        CriterionId = "none",
+                        CriterionContent = "",
+                        TargetUserName = "Me",
+                        TargetEmail = SessionData.getCurrentUser(),
+                    });
+                }
+
+                foreach (var info in allInfo)
+                {
+                    targetEmail = info.Key;
+                    criterionId = info.Value.ToString();
+
+                    if (!targetEmail.Equals(SessionData.getCurrentUser()))
+                    {
+                        collection.Add(new propertyChange_GroupCriteria
+                        {
+                            CriterionId = criterionId,
+                            CriterionContent = SessionData.getCriterionName(criterionId),
+                            TargetUserName = SessionData.getUserDisplayName(targetEmail),
+                            TargetEmail = targetEmail,
+                        });
+                    }
+                }
+            }
+
             return collection;
         }
 
+        // To do
+        public static ObservableCollection<propertyChange_Restaurant> displayUserRestaurantList()
+        {
+            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
+
+            return collection;
+        }
+
+        // To do
+        public static ObservableCollection<propertyChange_UserEvent> displayUserEventList()
+        {
+            ObservableCollection<propertyChange_UserEvent> collection = new ObservableCollection<propertyChange_UserEvent>();
+
+            return collection;
+        }
+
+        // To do
         public static ObservableCollection<propertyChange_Restaurant> displayGroupRestaurantList()
         {
             ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
@@ -327,6 +377,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        // To do
         public static ObservableCollection<propertyChange_GroupEvent> displayGroupEventList()
         {
             ObservableCollection<propertyChange_GroupEvent> collection = new ObservableCollection<propertyChange_GroupEvent>();

@@ -50,7 +50,16 @@
                                 <StackPanel>
                                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Invite Friend" />
                                     <TextBox x:Name="InviteeTextBox" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow"  Text="Search name" Padding="8" Foreground="#FFCACACA" Width="415"/>
-                                    <local:FriendListInviteListControl Height="250"/>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+                                        <ItemsControl x:Name="ListControl">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <local:FriendListInviteCardControl>
+                                                    </local:FriendListInviteCardControl>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
                                 </StackPanel>
                             </Grid>
                         </Border>

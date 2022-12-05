@@ -19,14 +19,15 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatEditMembersRemoveNew.xaml
     /// </summary>
-    public partial class ChatEditMembersRemoveNew : Page
+    public partial class ChatEditMembersRemoveNew : Page, Interface_Component
     {
         private string emailRemove;
 
         public ChatEditMembersRemoveNew(string email)
         {
             InitializeComponent();
-            this.emailRemove = email;
+            emailRemove = email;
+            ComponentFunctions.addComponentToList(this);
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +39,12 @@ namespace CPSC481Group12FoodyApp
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoGroupEditMembers();
+        }
+
+        public void refreshComponent()
+        {
+            MemberListControl.ItemsSource = GetObservableCollection.displayGroupMemberList(); ;
+            InviteListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteMoreList();
         }
     }
 }

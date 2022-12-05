@@ -16,36 +16,17 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addComponentToList(Interface_Component newComponent)
         {
             component = newComponent;
-            refreshAll();
         }
 
         public static void refreshAll()
         {
-            if (component != null) 
+            if (component != null)
             {
                 component.refreshComponent();
             }
         }
 
-        /*
-        private static List<Interface_Component> components = new List<Interface_Component>();
-
-        public static void addComponentToList(Interface_Component component)
-        {
-            if (!components.Contains(component))
-            {
-                components.Add(component);
-            }
-        }
-        public static void refreshAll()
-        {
-            foreach (var component in components)
-            {
-                component.refreshComponent();
-            }
-        }
-        */
-
+        // Source: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-find-datatemplate-generated-elements
         public static void setLabel(ContentPresenter thing)
         {
             Label lb = FindVisualChild<Label>(thing);

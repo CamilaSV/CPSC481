@@ -344,6 +344,11 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
+        public static Dictionary<int, PresetCriteriaInfo> getAllPresetCriteria()
+        {
+            return allPresetCriteria;
+        }
+
         public static string getCriterionName(int criterionId)
         {
             return allPresetCriteria[criterionId].criteria;

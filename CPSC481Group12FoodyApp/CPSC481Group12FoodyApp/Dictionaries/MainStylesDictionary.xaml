@@ -197,7 +197,6 @@
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
-            <Label x:Name="GroupChatNameLabel_HTB" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
         </Grid>
     </DataTemplate>
 
@@ -206,7 +205,6 @@
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
             <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
-            <Label x:Name="GroupChatNameLabel_HTBB" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
         </Grid>
     </DataTemplate>
 
@@ -214,7 +212,7 @@
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource ChatInfo}" BorderBrush="{x:Null}" />
-            <Label x:Name="GroupChatNameLabel_CTB" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <Label x:Name="GroupChatNameLabel" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </Grid>
     </DataTemplate>
 
@@ -222,7 +220,7 @@
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
-            <Label x:Name="GroupChatNameLabel_CTBB" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <Label x:Name="GroupChatNameLabel" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </Grid>
     </DataTemplate>
 
@@ -231,7 +229,7 @@
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource ChatInfo}" BorderBrush="{x:Null}" />
             <Button x:Name="BackButton" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8" Style="{StaticResource Back}" BorderBrush="{x:Null}" />
-            <Label x:Name="GroupChatNameLabel_CTBB" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" />
+            <Label x:Name="GroupChatNameLabel" Foreground="White" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </Grid>
     </DataTemplate>
 

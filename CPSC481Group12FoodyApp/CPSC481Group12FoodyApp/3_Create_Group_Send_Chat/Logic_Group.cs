@@ -103,28 +103,31 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
-        public static void addGroupCriteria()
+        public static void addGroupCriteria(int criterionId, string targetEmail)
         {
-
+            SessionData.addGroupCriterion(SessionData.getCurrentGroupId(), targetEmail, criterionId);
+            ComponentFunctions.refreshAll();
         }
 
-        public static void removeGroupCriteria()
+        public static void removeGroupCriteria(string targetEmail)
         {
-
+            SessionData.removeGroupCriterion(SessionData.getCurrentGroupId(), targetEmail);
+            ComponentFunctions.refreshAll();
         }
 
-        public static void addRestaurant()
+        public static void addGroupRestaurant(int restaurantId)
         {
-
+            ComponentFunctions.refreshAll();
         }
 
-        public static void removeRestaurant()
+        public static void removeGroupRestaurant(int restaurantId)
         {
-
+            ComponentFunctions.refreshAll();
         }
 
-        public static void createEvent(string chatId, string restaurantName, DateTime date)
+        public static void createGroupEvent(int groupId, string restaurantName, DateTime date)
         {
+            ComponentFunctions.refreshAll();
         }
 
         public static void addGroupMember(string groupId, string emailTarget)
@@ -137,5 +140,24 @@ namespace CPSC481Group12FoodyApp.Logic
             removeGroupMember(Int32.Parse(groupId), emailTarget);
         }
 
+        public static void addGroupCriteria(string criterionId, string targetEmail)
+        {
+            addGroupCriteria(Int32.Parse(criterionId), targetEmail);
+        }
+
+        public static void createGroupEvent(string groupId, string restaurantName, DateTime date)
+        {
+            createGroupEvent(Int32.Parse(groupId), restaurantName, date);
+        }
+
+        public static void addGroupRestaurant(string restaurantId)
+        {
+            addGroupRestaurant(Int32.Parse(restaurantId));
+        }
+
+        public static void removeGroupRestaurant(string restaurantId)
+        {
+            removeGroupRestaurant(Int32.Parse(restaurantId));
+        }
     }
 }

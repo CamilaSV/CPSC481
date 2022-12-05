@@ -19,11 +19,18 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatEditMembers.xaml
     /// </summary>
-    public partial class ChatEditMembers : Page
+    public partial class ChatEditMembers : Page, Interface_Component
     {
         public ChatEditMembers()
         {
             InitializeComponent();
+            ComponentFunctions.addComponentToList(this);
+        }
+
+        public void refreshComponent()
+        {
+            MemberListControl.ItemsSource = GetObservableCollection.displayGroupMemberList(); ;
+            InviteListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteMoreList();
         }
 
         private void InviteButton_Click(object sender, RoutedEventArgs e)

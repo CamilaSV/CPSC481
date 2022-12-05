@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,11 +20,12 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for UserControl_Profile.xaml
     /// </summary>
-    public partial class UserControl_Profile : Page
+    public partial class UserControl_Profile : Page, Interface_Component
     {
         public UserControl_Profile()
         {
             InitializeComponent();
+            ComponentFunctions.addComponentToList(this);
         }
 
         private void List_HomeButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +61,11 @@ namespace CPSC481Group12FoodyApp
         private void editBtn(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void refreshComponent()
+        {
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendList();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,35 +19,17 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatEditCriteria.xaml
     /// </summary>
-    public partial class ChatEditCriteria : Page
+    public partial class ChatEditCriteria : Page, Interface_Component
     {
         public ChatEditCriteria()
         {
+            InitializeComponent();
+            ComponentFunctions.addComponentToList(this);
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        public void refreshComponent()
         {
-
-        }
-
-        private void DeleteButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            ListControl.ItemsSource = GetObservableCollection.displayGroupCriteriaList();
         }
     }
 }

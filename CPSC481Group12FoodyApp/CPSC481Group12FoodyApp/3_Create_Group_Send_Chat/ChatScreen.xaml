@@ -20,12 +20,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="Black" BorderThickness="1" >
-            <Grid Grid.Row="0">
-                <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource ChatTopBarBackInfo}" Loaded="TopBar_Loaded"/>
-            </Grid>
-        </Border>
-
+        <ContentPresenter Grid.Row="0" x:Name="TopBar" Grid.ColumnSpan="3" ContentTemplate="{StaticResource ChatTopBarBackInfo}" Loaded="TopBar_Loaded"/>
 
         <ItemsControl Grid.Row="1">
             <Grid>

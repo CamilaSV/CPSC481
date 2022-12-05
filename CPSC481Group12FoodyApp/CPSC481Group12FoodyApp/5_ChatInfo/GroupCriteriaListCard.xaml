@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CPSC481Group12FoodyApp.GroupCriteriaListCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
+             mc:Ignorable="d" 
+                          
+             d:DesignHeight="230" d:DesignWidth="480">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="UserNameBlock" FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding TargetUserName, NotifyOnTargetUpdated=True}" Height="38" Width="476" TargetUpdated="CheckUserName" />
+        <TextBlock x:Name="CriterionTextBlock" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Text="{Binding CriterionContent}" Height="38" Width="238" />
+        <Button x:Name="DeleteButton" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Content="Delete" Click="DeleteButton_Click" Height="38" Width="50" Visibility="Hidden" />
+        <Button x:Name="SelectButton" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Content="Select" Click="SelectButton_Click" Height="38" Width="50" Visibility="Hidden" />
+
+        <TextBlock x:Name="CriterionIdTextBlock" Text="{Binding CriterionId, NotifyOnTargetUpdated=True}" Visibility="Hidden" TargetUpdated="CheckCritId" />
+        <TextBlock x:Name="TargetEmailTextBlock" Text="{Binding TargetEmail}" Visibility="Hidden" />
+        <ComboBox x:Name="CriteriaSelectBox" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="124" Loaded="ComboBox_Loaded" Visibility="Hidden" SelectionChanged="ComboBox_SelectionChanged" Margin="0,38,0,0" Grid.RowSpan="2" />
+    </Grid>
+</UserControl>

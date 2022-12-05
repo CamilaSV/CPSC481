@@ -1,7 +1,10 @@
 ﻿using CPSC481Group12FoodyApp.Logic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,24 +20,18 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for FriendRequestCardView.xaml
+    /// Interaction logic for FriendListInviteListControl.xaml
     /// </summary>
-    public partial class GroupRestaurantCardControl : UserControl
+    public partial class FriendListInviteListControl : UserControl, Interface_Component
     {
-        public GroupRestaurantCardControl()
+        public FriendListInviteListControl()
         {
             InitializeComponent();
         }
 
-        private void Decline_Button_Click(object sender, RoutedEventArgs e)
+        public void refreshComponent()
         {
-            Logic_Friend.denyFriendReq(EmailText.Text);
-            
-        }
-
-        private void Accept_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Logic_Friend.acceptFriendReq(EmailText.Text);
+            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteList();
         }
     }
 }

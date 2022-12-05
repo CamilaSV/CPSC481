@@ -36,7 +36,11 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,10,0,0">
 
-            <Label x:Name="MembersLabel" HorizontalAlignment="Left" Content="Members" FontSize="30" FontWeight="Bold"/>
+            <DockPanel>
+                <Label x:Name="MembersLabel" HorizontalAlignment="Left" Content="Members" FontSize="30" FontWeight="Bold"/>
+                <Button FontSize="20" Content="Edit" Click="MemberShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+            </DockPanel>
+            
             <Grid Height="140" Width="410">
                 <Grid Background="LightGray">
                     <TextBlock x:Name="MemberTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Width="410" Height="140" Loaded="MemberTextBlock_Loaded"/>
@@ -51,7 +55,11 @@
                 </Grid>
             </Grid>
 
-            <Label Content="Criteria" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30" FontWeight="Bold"/>
+            <DockPanel>
+                <Label HorizontalAlignment="Left" Content="Criteria" FontSize="30" FontWeight="Bold"/>
+                <Button FontSize="20" Content="Edit" Click="Criteria_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+            </DockPanel>
+
             <Grid HorizontalAlignment="Center" Height="140" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray">
                     <TextBlock x:Name="CriteriaTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Width="410" Height="140" Loaded="CriteriaTextBlock_Loaded"/>
@@ -59,7 +67,11 @@
                 </Grid>
             </Grid>
 
-            <Label Content="Restaurants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="30"/>
+            <DockPanel>
+                <Label HorizontalAlignment="Left" Content="Restaurants" FontSize="30" FontWeight="Bold"/>
+                <Button FontSize="20" Content="Edit" Click="Restaurant_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+            </DockPanel>
+
             <Grid Height="140" HorizontalAlignment="Center" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray">
                     <TextBlock x:Name="RestaurantTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Width="410" Height="140" Loaded="RestaurantTextBlock_Loaded"/>

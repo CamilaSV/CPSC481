@@ -37,14 +37,33 @@
             <!-- Members -->
             
             <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-            <local:MemberEditListControl Height="250" />
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+                <ItemsControl x:Name="MemberListControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:MemberEditListCard>
+                            </local:MemberEditListCard>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
             <!-- Invite Members -->
             
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 <Button FontSize ="28" Content="Confirm"/>
             </StackPanel>
-            <local:FriendListInviteMoreListControl Height="250"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+                <ItemsControl x:Name="InviteListControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:FriendListInviteCardControl>
+                            </local:FriendListInviteCardControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
 
         <Rectangle Grid.RowSpan="3" Grid.ColumnSpan="3" Height="853" Width="480" Opacity="0.7"  Fill="Black" />

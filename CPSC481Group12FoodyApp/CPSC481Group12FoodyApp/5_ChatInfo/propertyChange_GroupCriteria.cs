@@ -13,6 +13,7 @@ namespace CPSC481Group12FoodyApp
     {
         public string CriterionId { get; set; }
         public string CriterionContent { get; set; }
-        public string TargetUserNameAndEmail { get; set; }
+        public string TargetUserName { get; set; }
+        public string TargetEmail { get; set; }
     }
 }

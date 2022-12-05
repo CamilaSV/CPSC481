@@ -20,20 +20,18 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatListControl.xaml
+    /// Interaction logic for GroupCriteriaListControl.xaml
     /// </summary>
-    public partial class FriendRequestListControl : UserControl, Interface_Component
+    public partial class GroupCriteriaListControl : UserControl, Interface_Component
     {
-        public FriendRequestListControl()
+        public GroupCriteriaListControl()
         {
             InitializeComponent();
-            ComponentFunctions.addComponentToList(this);
-            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
         }
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
+            ListControl.ItemsSource = GetObservableCollection.displayGroupCriteriaList();
         }
     }
 }

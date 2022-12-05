@@ -26,14 +26,6 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void Criteria_ShowMoreButton_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void Restaurant_ShowMoreButton_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void SchedulerDateButton_Click(object sender, RoutedEventArgs e)
         {
 

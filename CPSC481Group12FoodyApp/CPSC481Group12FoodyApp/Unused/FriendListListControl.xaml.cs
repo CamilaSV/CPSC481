@@ -27,7 +27,6 @@ namespace CPSC481Group12FoodyApp
         public FriendListListControl()
         {
             InitializeComponent();
-            ComponentFunctions.addComponentToList(this);
         }
 
         public void refreshComponent()
