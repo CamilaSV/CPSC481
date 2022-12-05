@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
 using System.Text.Json;
@@ -67,18 +68,51 @@ namespace CPSC481Group12FoodyApp.Logic
             createOneRestaurant(dummyRestaurants, ref i, "barBURRITO", "61 Crowfoot Terrace NW", "Calgary", "Alberta", "T3G 4J8", createCriteriaList(0, 7, 13)); // 8
             createOneRestaurant(dummyRestaurants, ref i, "Chicken On The Way", "1443 Kensington Rd NW", "Calgary", "Alberta", "T2N 3P9", createCriteriaList(3, 12, 13)); // 9
             createOneRestaurant(dummyRestaurants, ref i, "Mary Brown's Chicken", "163 Quarry Park Blvd SE #103", "Calgary", "Alberta", "T2C 5E1", createCriteriaList(3, 12, 13)); // 10
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant11", "Address11", "Calgary", "Alberta", "Post11", createCriteriaList(1, 2, 3, 7, 14)); // 11
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant12", "Address12", "Calgary", "Alberta", "Post12", createCriteriaList(6, 8)); // 12
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant13", "Address13", "Calgary", "Alberta", "Post13", createCriteriaList(1, 4, 11, 15)); // 13
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant14", "Address14", "Calgary", "Alberta", "Post14", createCriteriaList()); // 14
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant15", "Address15", "Calgary", "Alberta", "Post15", createCriteriaList(5)); // 15
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant16", "Address16", "Calgary", "Alberta", "Post16", createCriteriaList(8, 9, 10)); // 16
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant17", "Address17", "Calgary", "Alberta", "Post17", createCriteriaList(11)); // 17
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant18", "Address18", "Calgary", "Alberta", "Post18", createCriteriaList(13)); // 18
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant19", "Address19", "Calgary", "Alberta", "Post19", createCriteriaList(14)); // 19
-            createOneRestaurant(dummyRestaurants, ref i, "Restaurant20", "Address20", "Calgary", "Alberta", "Post20", createCriteriaList(15)); // 20
+
+            do
+            {
+                createOneRestaurant(dummyRestaurants, ref i, "Restaurant" + i, "Address" + i, "Calgary", "Alberta", "PostalCode" + i, createCriteriaListRandom());
+            } while (i < 100);
 
             File.WriteAllText(getRestaurantsPath(), JsonSerializer.Serialize(dummyRestaurants, new JsonSerializerOptions { WriteIndented = true }));
+        }
+
+        private static List<int> createCriteriaListRandom()
+        {
+            List<int> result = new List<int>();
+            Random random = new Random();
+            int success;
+            int criteria;
+            List<int> alreadyChosenCriteria = new List<int>();
+
+            for (int i = 0; i < 8; i++)
+            {
+                success = random.Next(0, 10);
+                if (success < (8 - i))
+                {
+                    do
+                    {
+                        criteria = random.Next(0, 16);
+                    } while (alreadyChosenCriteria.Contains(criteria));
+
+                    if ((criteria >= 13) && (criteria <= 15))
+                    {
+                        alreadyChosenCriteria.Add(13);
+                        alreadyChosenCriteria.Add(14);
+                        alreadyChosenCriteria.Add(15);
+                    }
+                    else
+                    {
+                        alreadyChosenCriteria.Add(criteria);
+                    }
+
+                    result.Add(criteria);
+                }
+            }
+
+            result.Sort();
+
+            return result;
         }
 
         private static List<int> createCriteriaList(int one, int two, int three, int four, int five, int six)

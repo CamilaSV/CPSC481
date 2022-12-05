@@ -15,11 +15,14 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void createNecessaryFiles()
         {
-            Directory.CreateDirectory(dbDir);
-            CreateMock.createPresetCriteria();
-            CreateMock.createRestaurants();
-            File.AppendText(getAccountsPath()).Close();
-            File.AppendText(getGroupsPath()).Close();
+            if (!Directory.Exists(dbDir))
+            {
+                Directory.CreateDirectory(dbDir);
+                CreateMock.createPresetCriteria();
+                CreateMock.createRestaurants();
+                File.AppendText(getAccountsPath()).Close();
+                File.AppendText(getGroupsPath()).Close();
+            }
         }
 
         private static string getAccountsPath()
