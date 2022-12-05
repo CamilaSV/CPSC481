@@ -27,6 +27,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+
         <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Text="Add Friend"/>
         <StackPanel Grid.Column="1" Grid.Row="3" Margin="0,0,0,350" VerticalAlignment="Center">
             <TextBlock Grid.Column="1" Grid.Row="3" Text="Find Friend: " FontWeight="Bold" HorizontalAlignment="Left"/>

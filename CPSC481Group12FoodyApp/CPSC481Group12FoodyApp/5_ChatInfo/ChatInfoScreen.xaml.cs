@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,11 @@ namespace CPSC481Group12FoodyApp
         private void MemberShowMore_Click(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoGroupEditMembers();
+        }
+
+        private void TopBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            ComponentFunctions.setLabel(TopBar);
         }
     }
 }

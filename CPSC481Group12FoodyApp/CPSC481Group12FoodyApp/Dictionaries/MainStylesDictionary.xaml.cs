@@ -42,28 +42,9 @@ namespace CPSC481Group12FoodyApp
             PageNavigator.gotoProfile();
         }
 
-        private void GroupChatNameLabel_Loaded_HTB(object sender, RoutedEventArgs e)
+        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
-//            var label = Application.Current.Resources.FindName("GroupChatNameLabel_HTB") as Label;
-//            label.Content = SessionData.getGroupName(SessionData.getCurrentGroupId());
-        }
-
-        private void GroupChatNameLabel_Loaded_HTBB(object sender, RoutedEventArgs e)
-        {
-//            var label = Application.Current.Resources.FindName("GroupChatNameLabel_HTBB") as Label;
-//            label.Content = SessionData.getGroupName(SessionData.getCurrentGroupId());
-        }
-
-        private void GroupChatNameLabel_Loaded_CTB(object sender, RoutedEventArgs e)
-        {
-//            var label = Application.Current.Resources.FindName("GroupChatNameLabel_CTB") as Label;
-//            label.Content = SessionData.getGroupName(SessionData.getCurrentGroupId());
-        }
-
-        private void GroupChatNameLabel_Loaded_CTBB(object sender, RoutedEventArgs e)
-        {
-//            var label = Application.Current.Resources.FindName("GroupChatNameLabel_CTBB") as Label;
-//            label.Content = SessionData.getGroupName(SessionData.getCurrentGroupId());
+            PageNavigator.gotoChatInfo();
         }
     }
 }

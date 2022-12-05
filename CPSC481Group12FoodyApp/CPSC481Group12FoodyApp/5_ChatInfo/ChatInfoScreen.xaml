@@ -30,7 +30,7 @@
 
         <!-- Top Bar -->
 
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}" Loaded="TopBar_Loaded"/>
 
         <!-- Content -->
 
