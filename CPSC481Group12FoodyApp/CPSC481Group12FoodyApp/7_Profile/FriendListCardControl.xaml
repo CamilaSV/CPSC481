@@ -10,7 +10,7 @@
              BorderBrush="White" BorderThickness="2"
              Height="70"
              
-             d:DesignHeight="70" d:DesignWidth="480">
+             d:DesignHeight="70" d:DesignWidth="440">
 
     <Grid>
         <Grid.ColumnDefinitions>

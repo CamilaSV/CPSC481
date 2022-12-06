@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp"
              mc:Ignorable="d" 
              d:DesignHeight="853" d:DesignWidth="480">
-    
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,8 +14,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
-    <Grid ShowGridLines="False" x:Name="UserControl_ProfileGrid" Background="White">
+
+    <Grid ShowGridLines="True" x:Name="UserControl_ProfileGrid" Background="White">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -23,110 +23,58 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <Grid Grid.ColumnSpan="3" Grid.RowSpan="2">
-            <Grid>
-                <Grid Background="White"  Height="120" Width="480" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="20"/>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Column="3" HorizontalAlignment="Center" Padding="0,20,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Row="0" x:Name="Edit" Background="White" FontWeight="ExtraBlack" FontSize="12" Content=" ✏️ " Padding="6" VerticalAlignment="Top" Click="editBtn"/>
-                        </Grid>
-                    </Border>
 
-                    <Border Grid.Column="1" Padding="20">
-                        <Grid>
-                            <Ellipse Fill="LightGray" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
-                            <TextBlock FontSize="50" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="S"/>
-                        </Grid>
-                    </Border>
-                    <Border Grid.Column="2" VerticalAlignment="Center" Height="100">
-                        <StackPanel>
-                            <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Shanna" Padding="0,0,0,5"/>
-                            <TextBlock  FontFamily="Segoe UI" FontSize="12" Width = "100" Height ="50" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="Food enthusist!        love my dog and          I love sushi."/>
-                        </StackPanel>
-                    </Border>
-                    <Rectangle Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="2" Margin="0,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="480"/>
-                </Grid>
+        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="2" ContentTemplate="{StaticResource HomeBottomBar}"/>
 
-                <Grid Background="White"  Height="654" Width="480" VerticalAlignment="Top" Margin="0,120,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="20"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Border Grid.Column="2" VerticalAlignment="Top" Height="150" Margin="0,20,0,10" >
-                        <StackPanel HorizontalAlignment="Left" >
-                            <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" Padding="0,0,0,10"/>
-                            <CheckBox Content="Vegetarian" Style="{StaticResource SmallCheckBoxStyle}"/>
-                            <CheckBox Content="Vegan" Style="{StaticResource SmallCheckBoxStyle}"/>
-                            <CheckBox Content="Gluten Free" Style="{StaticResource SmallCheckBoxStyle}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Height="140" >
-                        <Grid>
-                            <StackPanel>
-                                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,10" Text="Friend Request" />
-                                <local:FriendRequestListControl Height="70"/>
-                                <!--<TextBlock  Background="LightGray"  FontFamily="Segoe UI" FontSize="28" TextWrapping="WrapWithOverflow" VerticalAlignment="Center"  Text=" Anne" Padding="8"/>-->
-                            </StackPanel>
-                            <!--<DockPanel HorizontalAlignment="Right" Margin="0,62,25,0">
-                                <Button Grid.Row="0" x:Name="Plus1" FontWeight="ExtraBlack" FontSize="15" Content=" ✓ " Padding="2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="checkButton"/>
-                                <Button x:Name="Minus" FontWeight="ExtraBlack" FontSize="15" Content=" ✘ " Margin="10,0,0,0" Padding="2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="declineButton"/>
-                            </DockPanel>-->
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="250" Margin="0,20,0,0">
-
-                        <StackPanel>
-                            <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" Text="Friend List" />
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="213">
-                                <ItemsControl x:Name="ListControl">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <local:FriendListCardControl>
-                                            </local:FriendListCardControl>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </ScrollViewer>
-                        </StackPanel>
-                    </Border>
-                    <Border Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Row="1" x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Top" HorizontalAlignment="Left" Click="AddFriend_Click"/>
-                        </Grid>
-                    </Border>
-                    <Button Background="White"  Grid.Column="2" FontSize="15" Content="✏️" HorizontalAlignment="Left" Height="29" Margin="300,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="36" Click="editBtn"/>
-                </Grid>
-            </Grid>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" Margin="10,0,10,0">
+            <Ellipse Fill="LightGray" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="AbbreviationText" FontSize="50" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Margin="33,0,0,0"/>
+            <DockPanel Margin="109,0,0,0">
+                <StackPanel>
+                    <TextBlock x:Name="UserNameText" DockPanel.Dock="Left" FontFamily="Segoe UI Bold" FontSize="24" Width="200" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,5"/>
+                    <TextBlock x:Name="UserBioText" FontFamily="Segoe UI" FontSize="12" Width="200" Height="57" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+            </DockPanel>
+            <Button x:Name="Edit" Background="White" FontWeight="ExtraBlack" FontSize="12" Content=" ✏️ " Padding="6" VerticalAlignment="Center" HorizontalAlignment="Left" Click="editBtn" Margin="411,0,0,0"/>
         </Grid>
-        
-        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"/>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" Width="440" Margin="10,30,0,0">
+            <StackPanel HorizontalAlignment="Left" >
+                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" Height="50"/>
+                <CheckBox Content="Vegetarian" Style="{StaticResource SmallCheckBoxStyle}"/>
+                <CheckBox Content="Vegan" Style="{StaticResource SmallCheckBoxStyle}"/>
+                <CheckBox Content="Gluten Free" Style="{StaticResource SmallCheckBoxStyle}" Height="30"/>
+                <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend Request" Height="50"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="RequestControl" Height="140" Width="440">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:FriendRequestCardControl>
+                                </local:FriendRequestCardControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                <DockPanel>
+                    <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend List" Height="50"/>
+                    <Button x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Center" HorizontalAlignment="Right" Click="AddFriend_Click"/>
+                </DockPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200" Width="440">
+                    <ItemsControl x:Name="ListControl">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:FriendListCardControl>
+                                </local:FriendListCardControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>

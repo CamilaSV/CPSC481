@@ -43,10 +43,14 @@
                 <Label Content="Scheduler" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="34"/>
                 <Label Content="Suggested Times" HorizontalAlignment="Left" Margin="10,481,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
                 <Button x:Name="AddTimeButton" Content="Click to add custom time..." Height="46" Margin="0,770,0,30" Width="460" HorizontalAlignment="Center" FontSize="24" Click="AddTimeButton_Click"/>
-                <TextBlock HorizontalAlignment="Left" Margin="42,528,0,0" TextWrapping="Wrap" Text=" November 13, 2022 @ 6:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
-                <TextBlock HorizontalAlignment="Left" Margin="42,570,0,0" TextWrapping="Wrap" Text=" November 18, 2022 @ 5:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
-                <TextBlock HorizontalAlignment="Left" Margin="42,612,0,0" TextWrapping="Wrap" Text=" November 18, 2022 @ 6:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
-                <TextBlock HorizontalAlignment="Left" Margin="42,654,0,0" TextWrapping="Wrap" Text=" November 19, 2022 @ 5:30PM" VerticalAlignment="Top" FontSize="24" Foreground="Black" Background="#54000000" Height="39" Width="377"/>
+                <ItemsControl x:Name="ListControl" Margin="42,528,61,96">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ChatScheduleListCard>
+                            </local:ChatScheduleListCard>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Grid>
         </Grid>
 

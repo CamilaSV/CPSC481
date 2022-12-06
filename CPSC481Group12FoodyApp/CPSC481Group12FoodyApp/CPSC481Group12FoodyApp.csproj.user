@@ -10,6 +10,9 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="6_ChatEvent\ChatScheduleListCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="7_Profile\UserEventListCard.xaml">
       <SubType>Designer</SubType>
     </Page>

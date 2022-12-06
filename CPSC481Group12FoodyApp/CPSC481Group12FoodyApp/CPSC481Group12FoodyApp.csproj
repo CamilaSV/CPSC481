@@ -53,6 +53,9 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="6_ChatEvent\ChatScheduleListCard.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="7_Profile\UserEventListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
