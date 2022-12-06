@@ -776,6 +776,66 @@ namespace CPSC481Group12FoodyApp.Logic
             addUserCategory(emailUser, Int32.Parse(categoryId), name);
         }
 
+        public static void addUserEvent(string emailUser, int groupId, string eventId)
+        {
+            addUserEvent(emailUser, groupId, Int32.Parse(eventId));
+        }
+
+        public static void addUserEvent(string emailUser, string groupId, int eventId)
+        {
+            addUserEvent(emailUser, Int32.Parse(groupId), eventId);
+        }
+
+        public static void addUserEvent(string emailUser, string groupId, string eventId)
+        {
+            addUserEvent(emailUser, Int32.Parse(groupId), Int32.Parse(eventId));
+        }
+
+        public static void removeUserEvent(string emailUser, int groupId, string eventId)
+        {
+            removeUserEvent(emailUser, groupId, Int32.Parse(eventId));
+        }
+
+        public static void removeUserEvent(string emailUser, string groupId, int eventId)
+        {
+            removeUserEvent(emailUser, Int32.Parse(groupId), eventId);
+        }
+
+        public static void removeUserEvent(string emailUser, string groupId, string eventId)
+        {
+            removeUserEvent(emailUser, Int32.Parse(groupId), Int32.Parse(eventId));
+        }
+
+        public static void addUserRestaurant(string emailUser, int catId, string resId)
+        {
+            addUserRestaurant(emailUser, catId, Int32.Parse(resId));
+        }
+
+        public static void addUserRestaurant(string emailUser, string catId, int resId)
+        {
+            addUserRestaurant(emailUser, Int32.Parse(catId), resId);
+        }
+
+        public static void addUserRestaurant(string emailUser, string catId, string resId)
+        {
+            addUserRestaurant(emailUser, Int32.Parse(catId), Int32.Parse(resId));
+        }
+
+        public static void removeUserRestaurant(string emailUser, int catId, string resId)
+        {
+            removeUserRestaurant(emailUser, catId, Int32.Parse(resId));
+        }
+
+        public static void removeUserRestaurant(string emailUser, string catId, int resId)
+        {
+            removeUserRestaurant(emailUser, Int32.Parse(catId), resId);
+        }
+
+        public static void removeUserRestaurant(string emailUser, string catId, string resId)
+        {
+            removeUserRestaurant(emailUser, Int32.Parse(catId), Int32.Parse(resId));
+        }
+
         public static void setCurrentGroupId(string groupId)
         {
             setCurrentGroupId(Int32.Parse(groupId));
