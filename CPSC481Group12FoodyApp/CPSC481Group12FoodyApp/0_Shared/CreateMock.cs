@@ -77,6 +77,21 @@ namespace CPSC481Group12FoodyApp.Logic
             File.WriteAllText(getRestaurantsPath(), JsonSerializer.Serialize(dummyRestaurants, new JsonSerializerOptions { WriteIndented = true }));
         }
 
+        public static void createEvents()
+        {
+
+        }
+
+        public static void createGroups()
+        {
+
+        }
+
+        public static void createUsers()
+        {
+
+        }
+
         private static List<int> createCriteriaListRandom()
         {
             List<int> result = new List<int>();

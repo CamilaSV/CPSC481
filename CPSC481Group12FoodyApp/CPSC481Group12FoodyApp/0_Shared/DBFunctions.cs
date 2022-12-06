@@ -22,6 +22,11 @@ namespace CPSC481Group12FoodyApp.Logic
                 CreateMock.createRestaurants();
                 File.AppendText(getAccountsPath()).Close();
                 File.AppendText(getGroupsPath()).Close();
+
+                // create and fill user data
+                CreateMock.createUsers();
+                CreateMock.createGroups();
+                CreateMock.createEvents();
             }
         }
 
