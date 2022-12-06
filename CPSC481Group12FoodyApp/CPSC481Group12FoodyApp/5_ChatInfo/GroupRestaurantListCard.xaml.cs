@@ -25,5 +25,24 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
         }
+
+        private void vote_Restaurant_Click(object sender, RoutedEventArgs e)
+        {
+            if (voteButton.IsChecked == true) 
+            {
+                voteButton.Background = new SolidColorBrush(Colors.DarkGreen);
+                voteButton.Content = "Unvote";
+            }
+            else
+            {
+                voteButton.Background = new SolidColorBrush(Colors.Green);
+                voteButton.Content = "Voted";
+            }
+        }
+
+        private void Vote_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
