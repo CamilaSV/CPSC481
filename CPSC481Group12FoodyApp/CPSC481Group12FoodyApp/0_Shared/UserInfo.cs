@@ -16,5 +16,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public List<CategoryInfo> categoryList { get; set; }
         public List<UserEventInfo> eventList { get; set; }
         public List<InvitationInfo> invitationList { get; set; }
+        public List<CustomEventTimeInfo> suggestedTimes { get; set; }
     }
 }

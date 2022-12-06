@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows.Interop;
+using System.Xml.Linq;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -869,6 +870,73 @@ namespace CPSC481Group12FoodyApp.Logic
         public static int getEventRestaurant(string groupId, string eventId)
         {
             return getEventRestaurant(Int32.Parse(groupId), Int32.Parse(eventId));
+        }
+
+        public static void addEventCustomTime(string email, int groupId, long eventTime)
+        {
+            allUsers[email].suggestedTimes.Add(new CustomEventTimeInfo
+            {
+                groupId = groupId,
+                time = eventTime,
+            });
+        }
+
+        public static void addEventCustomTime(string email, int groupId, string eventTime)
+        {
+            addEventCustomTime(email, groupId, long.Parse(eventTime));
+        }
+
+        public static void addEventCustomTime(string email, string groupId, long eventTime)
+        {
+            addEventCustomTime(email, Int32.Parse(groupId), eventTime);
+        }
+
+        public static void addEventCustomTime(string email, string groupId, string eventTime)
+        {
+            addEventCustomTime(email, Int32.Parse(groupId), long.Parse(eventTime));
+        }
+
+        public static void removeEventCustomTime(string email, int groupId, long eventTime)
+        {
+            allUsers[email].suggestedTimes.Remove(new CustomEventTimeInfo 
+            { 
+                groupId = groupId, time = eventTime 
+            });
+        }
+
+        public static void removeEventCustomTime(string email, int groupId, string eventTime)
+        {
+            removeEventCustomTime(email, groupId, long.Parse(eventTime));
+        }
+
+        public static void removeEventCustomTime(string email, string groupId, long eventTime)
+        {
+            removeEventCustomTime(email, Int32.Parse(groupId), eventTime);
+        }
+
+        public static void removeEventCustomTime(string email, string groupId, string eventTime)
+        {
+            removeEventCustomTime(email, Int32.Parse(groupId), long.Parse(eventTime));
+        }
+
+        public static void addEventSuggestTime(long eventTime)
+        {
+            suggestedEventTimes.Add(eventTime);
+        }
+
+        public static void addEventSuggestTime(string eventTime)
+        {
+            addEventSuggestTime(long.Parse(eventTime));
+        }
+
+        public static void removeEventSuggestTime(long eventTime)
+        {
+            suggestedEventTimes.Remove(eventTime);
+        }
+
+        public static void removeEventSuggestTime(string eventTime)
+        {
+            removeEventSuggestTime(long.Parse(eventTime));
         }
 
         public static void saveUserInfoToDB()
