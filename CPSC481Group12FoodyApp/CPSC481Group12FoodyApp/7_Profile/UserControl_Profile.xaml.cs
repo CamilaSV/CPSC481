@@ -35,11 +35,35 @@ namespace CPSC481Group12FoodyApp
 
         private void editBtn(object sender, RoutedEventArgs e)
         {
+            UserBioText.IsReadOnly = false;
+            UserBioText.Focus();
+            Save.Visibility = Visibility.Visible;
+            Edit.Visibility = Visibility.Hidden;
+        }
 
+        // Have to change
+        private void saveBtn(object sender, RoutedEventArgs e)
+        {
+            string newBio = UserBioText.Text;
+            if (newBio.Length > 50)
+            {
+                UserBioText.Text = "Please limit your bio to 50 characters or less.";
+            }
+            else
+            {
+                UserBioText.IsReadOnly = true;
+                Logic_EditProfile.editUserBio(SessionData.getCurrentUser(), UserBioText.Text);
+            }
+
+            Edit.Visibility = Visibility.Visible;
+            Save.Visibility = Visibility.Hidden;
         }
 
         public void refreshComponent()
         {
+            AbbreviationText.Text = SessionData.getUserDisplayName(SessionData.getCurrentUser()).Substring(0, 1);
+            UserNameText.Text = SessionData.getUserDisplayName(SessionData.getCurrentUser());
+            UserBioText.Text = SessionData.getUserBio(SessionData.getCurrentUser());
             RequestControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
             ListControl.ItemsSource = GetObservableCollection.displayUsersFriendList();
         }

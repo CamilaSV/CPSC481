@@ -58,7 +58,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 password = password,
                 name = emailUser,
-                bio = "",
+                bio = "I am a bio. Press edit button to edit me.",
                 friendList = new List<string>(),
                 friendReqList = new List<string>(),
                 groupList = new List<int>(),
