@@ -64,7 +64,7 @@
                     <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBox x:Name="CustomTimePick" TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="CustomTimePick" TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75" BorderBrush="{x:Null}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>

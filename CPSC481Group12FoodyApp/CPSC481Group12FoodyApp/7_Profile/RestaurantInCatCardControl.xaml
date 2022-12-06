@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="CPSC481Group12FoodyApp.RestaurantCatCardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="85" d:DesignWidth="390">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
+        <Grid ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="RestaurantNameText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{x:Null}" Text="{Binding RestaurantName}"/>
+            <TextBox x:Name="RestaurantCriteria1Text" Grid.Row="1" Grid.Column="0" BorderBrush="{x:Null}" Text="{Binding Criteria1}"/>
+            <TextBox x:Name="RestaurantCriteria2Text" Grid.Row="2" Grid.Column="0" BorderBrush="{x:Null}" Text="{Binding Criteria2}"/>
+
+            <Button x:Name="star" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/star.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="RestaurantShowMore" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="10" HorizontalAlignment="Right" Content="Show More" VerticalAlignment="Bottom" Height="30" Width="60" BorderBrush="{x:Null}" Click="ResShowMore_Click" />
+            <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
+        </Grid>
+    </Border>
+
+</UserControl>

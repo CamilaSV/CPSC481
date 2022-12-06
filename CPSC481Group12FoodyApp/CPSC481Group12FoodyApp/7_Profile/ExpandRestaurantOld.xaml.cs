@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ExpandRestaurant.xaml
+    /// Interaction logic for ExpandRestaurantOld.xaml
     /// </summary>
-    public partial class ExpandRestaurant : UserControl
+    public partial class ExpandRestaurantOld : UserControl
     {
         private int restaurantId;
 
-        public ExpandRestaurant(int id)
+        public ExpandRestaurantOld(int id)
         {
             restaurantId = id;
             InitializeComponent();

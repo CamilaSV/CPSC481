@@ -453,10 +453,43 @@ namespace CPSC481Group12FoodyApp.Logic
             return new Tuple<List<propertyChange_Category>, List<propertyChange_Category>>(leftCollection, rightCollection);
         }
 
-        // To do
-        public static List<propertyChange_Restaurant> displayUserRestaurantList()
+        public static List<propertyChange_RestaurantUser> displayUserCategoryRestaurantList(int catId)
         {
-            List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
+            List<propertyChange_RestaurantUser> collection = new List<propertyChange_RestaurantUser>();
+            List<int> criteria = new List<int>();
+            string criteria1, criteria2;
+            int count;
+
+            foreach (var info in SessionData.getUserCategoryRestaurants(SessionData.getCurrentUser(), catId))
+            {
+                criteria = SessionData.getRestaurantCriteria(info);
+                criteria1 = "";
+                criteria2 = "";
+                count = criteria.Count;
+
+                if (count > 0)
+                {
+                    criteria1 = "• " + SessionData.getCriterionName(criteria[0]);
+
+                    if (count > 1)
+                    {
+                        criteria2 = "• " + SessionData.getCriterionName(criteria[1]);
+
+                        if (count > 2)
+                        {
+                            criteria2 += " ...";
+                        }
+                    }
+                }
+
+                collection.Add(new propertyChange_RestaurantUser
+                {
+                    RestaurantId = info.ToString(),
+                    RestaurantName = SessionData.getRestaurantName(info),
+                    Criteria1 = criteria1,
+                    Criteria2 = criteria2,
+                });
+            }
 
             return collection;
         }

@@ -250,9 +250,9 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = expandCategoryPage;
         }
 
-        public static void gotoExpandRestaurant()
+        public static void gotoExpandRestaurant(int id)
         {
-            expandRestaurantPage = new ExpandRestaurant();
+            expandRestaurantPage = new ExpandRestaurant(id);
             ComponentFunctions.refreshAll();
             targetWindow.Content = expandRestaurantPage;
         }
@@ -302,5 +302,11 @@ namespace CPSC481Group12FoodyApp
         {
             gotoExpandCategory(Int32.Parse(id));
         }
+
+        public static void gotoExpandRestaurant(string id)
+        {
+            gotoExpandRestaurant(Int32.Parse(id));
+        }
+
     }
 }

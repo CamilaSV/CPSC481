@@ -16,36 +16,23 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ExpandRestaurant.xaml
+    /// Interaction logic for RestaurantCatCardControl.xaml
     /// </summary>
-    public partial class ExpandRestaurant : UserControl
+    public partial class RestaurantCatCardControl : UserControl
     {
-        private int restaurantId;
-
-        public ExpandRestaurant(int id)
+        public RestaurantCatCardControl()
         {
-            restaurantId = id;
             InitializeComponent();
         }
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
+        private void star_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void StarButton_Click(object sender, RoutedEventArgs e)
+        private void ResShowMore_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void EditButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Trash_Click(object sender, RoutedEventArgs e)
-        {
-
+            PageNavigator.gotoExpandRestaurant(RestaurantIdText.Text);
         }
     }
 }

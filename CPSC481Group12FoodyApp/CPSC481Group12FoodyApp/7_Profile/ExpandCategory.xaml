@@ -23,7 +23,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="7.4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -35,192 +36,29 @@
 
         <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"/>
 
-        <!-- Middle Content -->
+        <!-- Name and Search Bar -->
 
-        <Grid Grid.ColumnSpan="3" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
+        <TextBox Name="Category" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10,0,0,0"/>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="12*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <!-- Name and Search Bar -->
-
-            <TextBox Name="Category" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Mexican" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}"/>
-
-            <Button x:Name="Filter"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="Filter_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/filter.png"/>
-                </Button.Background>
-            </Button>
-
-            <Border  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Height="50" Width="auto" BorderThickness="1" BorderBrush="Black">
-                <TextBox Name="SearchBar" VerticalAlignment="Center" Text="  Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
-
-            <Image Grid.Row="1" Grid.Column="1" Margin="320,0,0,0" Width="50">
-                <Image.Source>
-                    <BitmapImage DecodePixelWidth="50" UriSource="/Images/search.png" />
-                </Image.Source>
-            </Image>
-
-            <!-- Restaraunt 1 -->
-
-            <Border Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
-                <RichTextBox Name="Rest1" Width="390" BorderBrush="{x:Null}">
-                    <RichTextBox.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </RichTextBox.Resources>
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run FontSize="20" FontWeight="Bold">Native Tongues Taqueria</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• Mexican</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• $$</Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
-            </Border>
-
-            <Button x:Name="star1" Grid.Row="2" Grid.Column="1" Margin="372,33,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star1_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/star.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="send1" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/send.png"/>
-                </Button.Background>
-            </Button>
-
-            <!-- Restaraunt 2 -->
-
-            <Border Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
-                <RichTextBox Name="Rest2" Width="390" BorderBrush="{x:Null}">
-                    <RichTextBox.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </RichTextBox.Resources>
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run FontSize="20" FontWeight="Bold">Tacos Mexico</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• Mexican</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• $$</Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
-            </Border>
-
-            <Button x:Name="star2" Grid.Row="3" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star2_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/star.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="send2" Grid.Row="3" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send2_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/send.png"/>
-                </Button.Background>
-            </Button>
-
-            <!-- Restaraunt 3 -->
-
-            <Border Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
-                <RichTextBox Name="Rest3" Width="390" BorderBrush="{x:Null}">
-                    <RichTextBox.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </RichTextBox.Resources>
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run FontSize="20" FontWeight="Bold">Spicy Amigos</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• Mexican</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• $</Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
-            </Border>
-
-            <Button x:Name="heart1" Grid.Row="4" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="heart1_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/heart.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="send3" Grid.Row="4" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send3_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/send.png"/>
-                </Button.Background>
-            </Button>
-
-            <!-- Restaraunt 4 -->
-
-            <Border Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Height="85" Width="auto" BorderThickness="1" BorderBrush="Black">
-                <RichTextBox Name="Rest4" Width="390" BorderBrush="{x:Null}">
-                    <RichTextBox.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </RichTextBox.Resources>
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run FontSize="20" FontWeight="Bold">Molcajete</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• Mexican</Run>
-                        </Paragraph>
-                        <Paragraph>
-                            <Run FontSize="20">• $</Run>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
-            </Border>
-
-            <Button x:Name="forlater1" Grid.Row="6" Grid.Column="1" Margin="0,33,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="forlater1_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/forlater.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="send4" Grid.Row="2" Grid.Column="1" Margin="0,0,10,33" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30" BorderBrush="{x:Null}" Click="send4_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Images/send.png"/>
-                </Button.Background>
-            </Button>
-
-        </Grid>
-
-        <!-- Create Button -->
-
-        <Button x:Name="Bottom_CreateButton" Content="" Margin="0,0,20,20" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" Height="60" VerticalAlignment="Bottom" Width="60" Click="Bottom_CreateButton_Click" BorderBrush="{x:Null}">
+        <Button x:Name="Filter"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="Filter_Click" Margin="0,0,10,0">
             <Button.Background>
-                <ImageBrush ImageSource="/Images/add.png"/>
+                <ImageBrush ImageSource="/Images/filter.png"/>
             </Button.Background>
         </Button>
+
+        <!-- Middle Content -->
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.ColumnSpan="3">
+            <ItemsControl x:Name="ListControl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:RestaurantCatCardControl>
+                        </local:RestaurantCatCardControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button x:Name="Bottom_CreateButton" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1" Style="{StaticResource Create}" Click="Bottom_CreateButton_Click" />
     </Grid>
 </Page>
