@@ -36,6 +36,11 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
+        public static void addUserCategory(string email)
+        {
+            SessionData.addUserCategory(email)
+        }
+
         public static void removeUserEvent(string email, string groupId, string eventId)
         {
             removeUserEvent(email, Int32.Parse(groupId), Int32.Parse(eventId));

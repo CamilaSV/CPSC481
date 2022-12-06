@@ -21,48 +21,42 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource HomeTopBar}"/>
-        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"/>
+        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="6" ContentTemplate="{StaticResource HomeBottomBar}"/>
 
-        <Grid Grid.ColumnSpan="3" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="1.5*"></RowDefinition>
-                <RowDefinition Height="1.5*"></RowDefinition>
-                <RowDefinition Height="1.5*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="0" Grid.RowSpan="3">
+            <ItemsControl x:Name="LeftListControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:CategoryCardControl>
+                        </local:CategoryCardControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
-            <Border Grid.ColumnSpan="2" VerticalAlignment="Center" Height="50" Width="400" BorderThickness="1" Background="White" BorderBrush="Black">
-                <TextBox Name="SearchBar" VerticalAlignment="Center" Text=" Search for a category here..." FontSize="20" BorderBrush="{x:Null}"/>
-            </Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
+            <ItemsControl x:Name="RightListControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:CategoryCardControl>
+                        </local:CategoryCardControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
-            <Image Grid.Row="0" Margin="135,0,55,0" Width="50" Grid.Column="1">
-                <Image.Source>
-                    <BitmapImage DecodePixelWidth="50" UriSource="/Images/search.png" />
-                </Image.Source>
-            </Image>
-
-            <Button x:Name="Cat1" Content="Favourites" Grid.Column="0" Grid.Row="1" Style="{StaticResource CategoriesButton}"/>
-            <Button Name="Cat2" Content="Pasta" Grid.Column="1" Grid.Row="1"  Style="{StaticResource CategoriesButton}"/>
-            <Button Name="Cat3" Content="Mexican" Grid.Column="1" Grid.Row="2"  Style="{StaticResource CategoriesButton}"/>
-            <Button Name="Cat4" Content="Thai" Grid.Column="0" Grid.Row="2"  Style="{StaticResource CategoriesButton}"/>
-            <Button Name="Cat5" Content="Chinese" Grid.Column="1" Grid.Row="3"  Style="{StaticResource CategoriesButton}"/>
-            <Button Name="Cat6" Content="Sushi" Grid.Column="0" Grid.Row="3"  Style="{StaticResource CategoriesButton}"/>
-        </Grid>
-
-        <Button x:Name="Bottom_CreateButton" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Create}" Click="Bottom_CreateButton_Click" />
-
+        <Button x:Name="Bottom_CreateButton" Grid.Column="1" Grid.RowSpan="2" Grid.Row="4" Style="{StaticResource Create}" Click="Bottom_CreateButton_Click" />
     </Grid>
 </Page>

@@ -104,8 +104,10 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addUserCategory(string emailUser, int categoryId, string name)
+        public static void addUserCategory(string emailUser, string name)
         {
+            int categoryId;
+
             if (getCategoryExist(emailUser, categoryId) == -1)
             {
                 CategoryInfo info = new CategoryInfo
@@ -694,6 +696,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getDateTimeStringfromEpoch(long epochTime)
         {
             return convertDateTimeToString(getDateOrTimefromEpoch(epochTime));
+        }
+
+        private static int getFirstAvailableCategoryId()
+        {
+            return 0;
         }
 
         public static int getFirstAvailableGroupId()

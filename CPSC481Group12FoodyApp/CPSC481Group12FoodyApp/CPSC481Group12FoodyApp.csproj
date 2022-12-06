@@ -56,6 +56,9 @@
     <Page Update="6_ChatEvent\ChatScheduleListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="7_Profile\UserControl_AddCategory.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="7_Profile\UserEventListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
@@ -166,6 +169,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_Create_Group_Send_Chat\UserControl_CreateNewChat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="7_Profile\UserControl_AddCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="7_Profile\UserControl_Profile.xaml.cs">

@@ -1,0 +1,21 @@
+﻿<Page x:Class="CPSC481Group12FoodyApp.CategoryCardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="213" d:DesignWidth="240">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/MainStylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid ShowGridLines="False" x:Name="HomePageGrid">
+        <Button Content="{Binding CatName}"  Style="{StaticResource CategoriesButton}"/>
+        <TextBlock x:Name="CategoryIdText" Text="{Binding CatId}" Visibility="Hidden"/>
+    </Grid>
+</Page>

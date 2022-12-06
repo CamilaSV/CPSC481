@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,9 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class GetObservableCollection
     {
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendRequest()
+        public static List<propertyChange_Friend> displayUsersFriendRequest()
         {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            List<propertyChange_Friend> collection = new List<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -33,9 +34,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendList()
+        public static List<propertyChange_Friend> displayUsersFriendList()
         {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            List<propertyChange_Friend> collection = new List<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -55,9 +56,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendNoPendingInviteOnly()
+        public static List<propertyChange_Friend> displayUsersFriendNoPendingInviteOnly()
         {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            List<propertyChange_Friend> collection = new List<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -80,9 +81,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Friend> displayUsersFriendPendingInviteOnly()
+        public static List<propertyChange_Friend> displayUsersFriendPendingInviteOnly()
         {
-            ObservableCollection<propertyChange_Friend> collection = new ObservableCollection<propertyChange_Friend>();
+            List<propertyChange_Friend> collection = new List<propertyChange_Friend>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -105,9 +106,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_FriendInvite> displayUsersFriendInviteList()
+        public static List<propertyChange_FriendInvite> displayUsersFriendInviteList()
         {
-            ObservableCollection<propertyChange_FriendInvite> collection = new ObservableCollection<propertyChange_FriendInvite>();
+            List<propertyChange_FriendInvite> collection = new List<propertyChange_FriendInvite>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -128,9 +129,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_FriendInvite> displayUsersFriendInviteMoreList()
+        public static List<propertyChange_FriendInvite> displayUsersFriendInviteMoreList()
         {
-            ObservableCollection<propertyChange_FriendInvite> collection = new ObservableCollection<propertyChange_FriendInvite>();
+            List<propertyChange_FriendInvite> collection = new List<propertyChange_FriendInvite>();
             if (!string.IsNullOrEmpty(SessionData.getCurrentUser()))
             {
                 string name;
@@ -154,9 +155,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_Chat> displayUsersChatList()
+        public static List<propertyChange_Chat> displayUsersChatList()
         {
-            ObservableCollection<propertyChange_Chat> collection = new ObservableCollection<propertyChange_Chat>();
+            List<propertyChange_Chat> collection = new List<propertyChange_Chat>();
 
             MsgInfo msg;
             string name, abbreviation;
@@ -193,9 +194,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_ChatInvite> displayUsersGroupInviteList()
+        public static List<propertyChange_ChatInvite> displayUsersGroupInviteList()
         {
-            ObservableCollection<propertyChange_ChatInvite> collection = new ObservableCollection<propertyChange_ChatInvite>();
+            List<propertyChange_ChatInvite> collection = new List<propertyChange_ChatInvite>();
 
             foreach (var invite in SessionData.getUserGroupInvitations(SessionData.getCurrentUser()))
             {
@@ -212,7 +213,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_UserEvent> displayUserUpcomingEventDate(DateTime date)
+        public static List<propertyChange_UserEvent> displayUserUpcomingEventDate(DateTime date)
         {
 
             List<propertyChange_UserEvent> list = new List<propertyChange_UserEvent>();
@@ -242,10 +243,10 @@ namespace CPSC481Group12FoodyApp.Logic
                 list.Sort((a, b) => a.EventTime.CompareTo(b.EventTime));
             }
 
-            return new ObservableCollection<propertyChange_UserEvent>(list);
+            return list;
         }
 
-        public static ObservableCollection<propertyChange_UserEvent> displayUserCompletedEventDate(DateTime date)
+        public static List<propertyChange_UserEvent> displayUserCompletedEventDate(DateTime date)
         {
             List<propertyChange_UserEvent> list = new List<propertyChange_UserEvent>();
 
@@ -274,12 +275,12 @@ namespace CPSC481Group12FoodyApp.Logic
                 list.Sort((a, b) => a.EventTime.CompareTo(b.EventTime));
             }
 
-            return new ObservableCollection<propertyChange_UserEvent>(list);
+            return list;
         }
 
-        public static ObservableCollection<propertyChange_GroupMember> displayGroupMemberList()
+        public static List<propertyChange_GroupMember> displayGroupMemberList()
         {
-            ObservableCollection<propertyChange_GroupMember> collection = new ObservableCollection<propertyChange_GroupMember>();
+            List<propertyChange_GroupMember> collection = new List<propertyChange_GroupMember>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -301,9 +302,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_ChatScreen> displayChatModels()
+        public static List<propertyChange_ChatScreen> displayChatModels()
         {
-            ObservableCollection<propertyChange_ChatScreen> collection = new ObservableCollection<propertyChange_ChatScreen>();
+            List<propertyChange_ChatScreen> collection = new List<propertyChange_ChatScreen>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -364,9 +365,9 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        public static ObservableCollection<propertyChange_GroupCriteria> displayGroupCriteriaList()
+        public static List<propertyChange_GroupCriteria> displayGroupCriteriaList()
         {
-            ObservableCollection<propertyChange_GroupCriteria> collection = new ObservableCollection<propertyChange_GroupCriteria>();
+            List<propertyChange_GroupCriteria> collection = new List<propertyChange_GroupCriteria>();
 
             if (SessionData.getCurrentGroupId() != -1)
             {
@@ -419,25 +420,59 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // To do
-        public static ObservableCollection<propertyChange_Restaurant> displayUserRestaurantList()
+        public static Tuple<List<propertyChange_Category>, List<propertyChange_Category>> displayUserCategoryList()
         {
-            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
+            List<propertyChange_Category> leftCollection = new List<propertyChange_Category>();
+            List<propertyChange_Category> rightCollection = new List<propertyChange_Category>();
+            Boolean isLeft = true;
+
+            foreach (var info in SessionData.getUserSavedCategories(SessionData.getCurrentUser()))
+            {
+                if (isLeft)
+                {
+                    isLeft = false;
+
+                    leftCollection.Add(new propertyChange_Category
+                    {
+                        CatId = info.id.ToString(),
+                        CatName = info.name,
+                    });
+                }
+                else
+                {
+                    isLeft = true;
+
+                    rightCollection.Add(new propertyChange_Category
+                    {
+                        CatId = info.id.ToString(),
+                        CatName = info.name,
+                    });
+                }
+            }
+
+            return new Tuple<List<propertyChange_Category>, List<propertyChange_Category>>(leftCollection, rightCollection);
+        }
+
+        // To do
+        public static List<propertyChange_Restaurant> displayUserRestaurantList()
+        {
+            List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
 
             return collection;
         }
 
         // To do
-        public static ObservableCollection<propertyChange_Restaurant> displayGroupRestaurantList()
+        public static List<propertyChange_Restaurant> displayGroupRestaurantList()
         {
-            ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
+            List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
 
             return collection;
         }
 
         // To do
-        public static ObservableCollection<propertyChange_GroupEvent> displayGroupEventList()
+        public static List<propertyChange_GroupEvent> displayGroupEventList()
         {
-            ObservableCollection<propertyChange_GroupEvent> collection = new ObservableCollection<propertyChange_GroupEvent>();
+            List<propertyChange_GroupEvent> collection = new List<propertyChange_GroupEvent>();
 
             return collection;
         }

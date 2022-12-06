@@ -1,6 +1,7 @@
 ﻿using CPSC481Group12FoodyApp.Logic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,27 +18,18 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for UserControl_AddCategory.xaml
     /// </summary>
-    public partial class HomePage : Page, Interface_Component
+    public partial class UserControl_AddCategory : UserControl
     {
-        public HomePage()
+        public UserControl_AddCategory()
         {
             InitializeComponent();
-            ComponentFunctions.addComponentToList(this);
         }
 
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        public void refreshComponent()
-        {
-            var allLists = GetObservableCollection.displayUserCategoryList();
-
-            LeftListControl.ItemsSource = allLists.Item1;
-            RightListControl.ItemsSource = allLists.Item2;
+            Logic_EditProfile.addFriend(this);
         }
     }
 }
