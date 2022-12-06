@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 groupId = SessionData.getFirstAvailableGroupId();
                 SessionData.addUserNewGroup(SessionData.getCurrentUser(), groupId, groupName);
 
-                SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
+//                SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
                 sendInvites(groupId);
                 SessionData.saveGroupInfoToDB();
                 PageNavigator.gotoChatList();
@@ -105,28 +105,57 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addGroupCriteria(int criterionId, string targetEmail)
         {
             SessionData.addGroupCriterion(SessionData.getCurrentGroupId(), targetEmail, criterionId);
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
         public static void removeGroupCriteria(string targetEmail)
         {
             SessionData.removeGroupCriterion(SessionData.getCurrentGroupId(), targetEmail);
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
+        public static void addGroupEventCustomTime(int groupId, DateTime dateTime)
+        {
+            SessionData.addEventCustomTime(SessionData.getCurrentUser(), groupId, SessionData.getEpochFromDateOrTime(dateTime));
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
+        public static void removeGroupEventCustomTime(int groupId, DateTime dateTime)
+        {
+            SessionData.addEventCustomTime(SessionData.getCurrentUser(), groupId, SessionData.getEpochFromDateOrTime(dateTime));
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
+        // To do
         public static void addGroupRestaurant(int restaurantId)
         {
             ComponentFunctions.refreshAll();
         }
 
+        // To do
         public static void removeGroupRestaurant(int restaurantId)
         {
             ComponentFunctions.refreshAll();
         }
 
+        // To do
         public static void createGroupEvent(int groupId, string restaurantName, DateTime date)
         {
             ComponentFunctions.refreshAll();
+        }
+
+        public static void removeGroupEventCustomTime(string groupId, DateTime dateTime)
+        {
+            removeGroupEventCustomTime(Int32.Parse(groupId), dateTime);
+        }
+
+        public static void addGroupEventCustomTime(string groupId, DateTime dateTime)
+        {
+            addGroupEventCustomTime(Int32.Parse(groupId), dateTime);
         }
 
         public static void addGroupMember(string groupId, string emailTarget)

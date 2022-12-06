@@ -24,12 +24,22 @@ namespace CPSC481Group12FoodyApp.Logic
         private static Dictionary<int, RestaurantInfo> allRestaurants;
         private static Dictionary<int, PresetCriteriaInfo> allPresetCriteria;
 
+        private static List<long> suggestedEventTimes;
+
         public static void initializeStartup()
         {
             allUsers = DBFunctions.getAllUserInfo();
             allGroups = DBFunctions.getAllGroupInfo();
             allRestaurants = DBFunctions.getAllRestaurantInfo();
             allPresetCriteria = DBFunctions.getAllCriteriaInfo();
+
+            suggestedEventTimes = new List<long>();
+        }
+
+        public static void updateSessionData()
+        {
+            allUsers = DBFunctions.getAllUserInfo();
+            allGroups = DBFunctions.getAllGroupInfo();
         }
 
         public static void loginUser(string emailUser)

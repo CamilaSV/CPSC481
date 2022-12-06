@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="True" x:Name="UserControl_ProfileGrid" Background="{StaticResource mslightgreen}">
+    <Grid ShowGridLines="False" x:Name="UserControl_ProfileGrid" Background="{StaticResource mslightgreen}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

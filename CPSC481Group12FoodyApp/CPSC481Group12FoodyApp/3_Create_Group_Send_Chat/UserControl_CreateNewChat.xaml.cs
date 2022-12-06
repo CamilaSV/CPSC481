@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace CPSC481Group12FoodyApp
 {
@@ -61,6 +63,19 @@ namespace CPSC481Group12FoodyApp
         public void refreshComponent()
         {
             ListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteList();
+        }
+
+        private void GroupNameText_GotFocus(object sender, RoutedEventArgs e)
+        {
+            GroupNameText.Text = string.Empty;
+        }
+
+        private void GroupNameText_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (GroupNameText.Text.Equals(string.Empty))
+            {
+                GroupNameText.Text = "Enter a group name";
+            }
         }
     }
 }
