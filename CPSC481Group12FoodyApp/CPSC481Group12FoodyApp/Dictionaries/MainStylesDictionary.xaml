@@ -175,6 +175,34 @@
         </Setter>
     </Style>
 
+    <Style x:Key="RectangularButtonNoWidthHeight" TargetType="{x:Type Button}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" BorderThickness="1" BorderBrush="Black" CornerRadius="20" SnapsToDevicePixels="True">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#D0AFE0" Offset="0.0" />
+                                    <GradientStop Color="#8D6A9F" Offset="0.5" />
+                                    <GradientStop Color="#7E3F9E" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="LargeCheckBoxStyle" TargetType="CheckBox">
         <Setter Property="Margin" Value="10"/>
         <Setter Property="LayoutTransform">

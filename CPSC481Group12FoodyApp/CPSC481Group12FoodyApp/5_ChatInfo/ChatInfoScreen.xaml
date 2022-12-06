@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatInfoScreenGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatInfoScreenGrid" Background="{StaticResource mslightgreen}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -38,7 +38,7 @@
 
             <DockPanel>
                 <Label x:Name="MembersLabel" HorizontalAlignment="Left" Content="Members" FontSize="30" FontWeight="Bold"/>
-                <Button FontSize="20" Content="Edit" Click="MemberShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+                <Button FontSize="20" Content="Edit" Click="MemberShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
             </DockPanel>
             
             <Grid Height="140" Width="410">
@@ -51,13 +51,13 @@
             <Label x:Name="SchedulerLabel" Content="Scheduler" FontSize="30" FontWeight="Bold"/>
             <Grid HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" Width="410">
                 <Grid Background="LightGray">
-                    <Button x:Name="SchedulerDateButton" Height="38" VerticalAlignment="Center" FontSize="24" Content="Click here to see times..." BorderBrush="{x:Null}" Background="{x:Null}" Click="SchedulerDateButton_Click" />
+                    <Button x:Name="SchedulerDateButton" Height="38" VerticalAlignment="Center" FontSize="24" Content="Click here to see times..." BorderBrush="{x:Null}" Background="{x:Null}" Click="SchedulerDateButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
                 </Grid>
             </Grid>
 
             <DockPanel>
                 <Label HorizontalAlignment="Left" Content="Criteria" FontSize="30" FontWeight="Bold"/>
-                <Button FontSize="20" Content="Edit" Click="Criteria_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+                <Button FontSize="20" Content="Edit" Click="Criteria_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
             </DockPanel>
 
             <Grid HorizontalAlignment="Center" Height="140" VerticalAlignment="Top" Width="410">
@@ -69,7 +69,7 @@
 
             <DockPanel>
                 <Label HorizontalAlignment="Left" Content="Restaurants" FontSize="30" FontWeight="Bold"/>
-                <Button FontSize="20" Content="Edit" Click="Restaurant_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30"/>
+                <Button FontSize="20" Content="Edit" Click="Restaurant_ShowMore_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="100" Height="30" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
             </DockPanel>
 
             <Grid Height="140" HorizontalAlignment="Center" VerticalAlignment="Top" Width="410">
@@ -78,8 +78,8 @@
                     <Button x:Name="RestaurantShowMore" FontSize="16" Content="Show more" Click="Restaurant_ShowMore_Click" RenderTransformOrigin="1.929,0.6" Margin="309,132,0,0" BorderBrush="{x:Null}" Background="{x:Null}" Visibility="Hidden" />
                 </Grid>
             </Grid>
-            <Button x:Name="SchedulerTimeButton" Content="Click to add custom time..." Height="35" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="SchedulerTimeButton_Click"/>
-            <Button x:Name="CreateEventButton" Content="Click to create event..." Height="35" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="CreateEventButton_Click"/>
+            <Button x:Name="SchedulerTimeButton" Content="Click to add custom time..." Height="35" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="SchedulerTimeButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
+            <Button x:Name="CreateEventButton" Content="Click to create event..." Height="35" Margin="0,10,0,0" Width="410" HorizontalAlignment="Center" FontSize="24" Click="CreateEventButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
 
         </StackPanel>
     </Grid>

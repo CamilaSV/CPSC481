@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatEditMembersGrid" Background="{StaticResource mslightgreen}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -52,7 +52,7 @@
 
             <DockPanel>
                 <TextBlock Text="Invite Members" Style="{StaticResource BaseHeaderTextBlockStyle}" DockPanel.Dock="Left" />
-                <Button FontSize="28" Content="Confirm" Click="InviteButton_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="111"/>
+                <Button FontSize="28" Style="{StaticResource RectangularButtonNoWidthHeight}" Content="Confirm" Click="InviteButton_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Height="40" Width="115"/>
             </DockPanel>
             <ScrollViewer x:Name="InviteListScroll" VerticalScrollBarVisibility="Auto" Height="250">
                 <ItemsControl x:Name="InviteListControl">

@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ExpandCategoryGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ExpandCategoryGrid" Background="{StaticResource mslightgreen}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -29,40 +29,11 @@
 
         <!-- Top Bar -->
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Button x:Name="ChatInfoButton" Margin="0,0,8,0" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ChatInfoButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/user_icon.png"/>
-            </Button.Background>
-        </Button>
-        <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Margin="8,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/back_button.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource HomeTopBarBack}"/>
 
         <!-- Bottom Navigation -->
 
-        <Border Height="1" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Top" Background="#000000"/>
-        <Border Width="1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Background="#000000"/>
-        <Border Width="1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Background="#000000"/>
-
-        <Button x:Name="Bottom_HomeButton" Content="" Grid.Row="3" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_HomeButton_Click" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/home.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Bottom_CalButton" Content="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_CalButton_Click" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/calendar.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Bottom_ChatButton" Content="" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="60" Click="Bottom_ChatButton_Click" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/chat.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"/>
 
         <!-- Middle Content -->
 

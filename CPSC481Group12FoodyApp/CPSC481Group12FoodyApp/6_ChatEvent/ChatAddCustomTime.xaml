@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="ChatAddCustomTimeGrid" Background="{StaticResource mslightgreen}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -48,39 +48,39 @@
 
             <!-- Date Picker -->
 
-            <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="1" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Date" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <DatePicker x:Name="CustomDatePick" FontSize="28"/>
+                    <DatePicker x:Name="CustomDatePick" FontSize="28" BorderBrush="{x:Null}"/>
                 </ListBoxItem>
             </ListBox>
 
             <!-- Time Picker -->
 
-            <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <ListBox Grid.Row="2" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}">
                 <ListBoxItem>
                     <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBox x:Name="CustomTimePick" TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75"/>
+                    <TextBox x:Name="CustomTimePick" TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <ListBox BorderBrush="{x:Null}">
+                    <ListBox BorderBrush="{x:Null}" Background="{x:Null}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                         <ListBoxItem>
-                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Click="AM_Button_Click"/>
+                            <Button x:Name="AM_Button" Content="AM" FontSize="30" Width="76" Click="AM_Button_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
                         </ListBoxItem>
                         <ListBoxItem>
-                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Click="PM_Button_Click"/>
+                            <Button x:Name="PM_Button" Content="PM" FontSize="30" Width="76" Click="PM_Button_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
                         </ListBoxItem>
                     </ListBox>
                 </ListBoxItem>
@@ -88,7 +88,7 @@
 
             <!-- Submit -->
 
-            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click"/>
+            <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
 
         </Grid>
     </Grid>

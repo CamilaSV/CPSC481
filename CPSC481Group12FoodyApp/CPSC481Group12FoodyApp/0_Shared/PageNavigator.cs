@@ -58,7 +58,6 @@ namespace CPSC481Group12FoodyApp
 
         private static UserControl_AddFriends addFriendPage;
 
-
         public static void goBack()
         {
             if ((targetWindow.Content == loginPage) ||
@@ -91,7 +90,7 @@ namespace CPSC481Group12FoodyApp
             }
             else if (targetWindow.Content == expandRestaurantPage)
             {
-                // go to expand category page
+                gotoExpandCategory();
             }
             else if (targetWindow.Content == addFriendPage)
             {

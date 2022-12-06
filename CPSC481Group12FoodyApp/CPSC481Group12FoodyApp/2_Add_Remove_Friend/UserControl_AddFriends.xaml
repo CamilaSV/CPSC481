@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="{StaticResource mslightgreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
@@ -58,7 +58,7 @@
             </Border>
         </StackPanel>
 
-        <Button x:Name="AddFriendSubmissionButton" Content="Add" FontWeight="Medium" Margin="0,0,0,350" Grid.Column="1" Grid.Row="3"  VerticalAlignment="Bottom" Height="60" Click="AddFriendSubmissionButton_Click"/>
+        <Button x:Name="AddFriendSubmissionButton" Content="Add" FontWeight="Medium" Margin="0,0,0,350" Grid.Column="1" Grid.Row="3"  VerticalAlignment="Bottom" Height="60" Click="AddFriendSubmissionButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
         <TextBlock x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" Margin="0,705,0,0" VerticalAlignment="Top" Width="411" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.Column="1" Grid.Row="1"/>
 
     </Grid>

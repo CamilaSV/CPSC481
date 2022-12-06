@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="CreateEventScreenGrid" Background="White">
+    <Grid ShowGridLines="False" x:Name="CreateEventScreenGrid" Background="{StaticResource mslightgreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
@@ -27,7 +27,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="10,10,10,7" Background="White">
+        <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="10,10,10,7">
 
             <Grid HorizontalAlignment="Center" Height="667" Margin="0,80,0,0" VerticalAlignment="Top" Width="460">
                 <Label x:Name="CreateEventLabel" Content="Create Event" FontSize="32" FontWeight="Bold" VerticalAlignment="Top" Margin="10,10,-10,0"/>
@@ -47,7 +47,7 @@
                         <ComboBoxItem Content="Dec 10 2022 @ 5:30PM"/>
                     </ComboBox>
                 </StackPanel>
-                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,566,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204" Click="CreateEventButton_Click"/>
+                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,566,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204" Click="CreateEventButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" />
             </Grid>
         </Grid>
 
