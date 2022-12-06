@@ -21,5 +21,24 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.saveUserInfoToDB();
             ComponentFunctions.refreshAll();
         }
+
+        public static void removeUserEvent(string email, int groupId, int eventId)
+        {
+            SessionData.removeUserEvent(email, groupId, eventId);
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
+        public static void saveUserRestaurant(string email, int restaurantId)
+        {
+            // To do: add catId selection to PersonalCalendar page
+            SessionData.saveUserInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+
+        public static void removeUserEvent(string email, string groupId, string eventId)
+        {
+            removeUserEvent(email, Int32.Parse(groupId), Int32.Parse(eventId));
+        }
     }
 }

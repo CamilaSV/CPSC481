@@ -53,13 +53,16 @@
     <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="7_Profile\UserEventListCard.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Unused\FriendListInviteListControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="5_ChatInfo\ChatEditCriteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditMembersRemoveNew.xaml">
+    <Page Update="Unused\ChatEditMembersRemoveNew.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="5_ChatInfo\ChatEditRestaurantRemoveNew.xaml">

@@ -54,16 +54,6 @@
 
         <!-- Top Bar -->
 
-        <Button x:Name="ProfileButton" Grid.ColumnSpan="3" Margin="0,0,8,0"  HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Center" BorderBrush="{x:Null}" Click="ProfileButton_Cick">
-             <Button.Background>
-                 <ImageBrush ImageSource="/Images/user_icon.png"/>
-             </Button.Background>
-         </Button>
-         <Label x:Name="GroupChatNameLabel" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="64" Width ="64" BorderBrush="{x:Null}" Click="BackButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/backbutton.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}" Loaded="TopBar_Loaded"/>
     </Grid>
 </Page>

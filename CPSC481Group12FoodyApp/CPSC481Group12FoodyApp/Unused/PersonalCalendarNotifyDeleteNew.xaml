@@ -1,4 +1,4 @@
-﻿<Page x:Class="CPSC481Group12FoodyApp.PersonalCalendar"
+﻿<Page x:Class="CPSC481Group12FoodyApp.PersonalCalendarNotifyDeleteNew"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid ShowGridLines="False" x:Name="ExpandCategory" Background="White">
+    <Grid ShowGridLines="False" x:Name="PersonalCalendarNotifyDeleteGrid" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -27,11 +27,11 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource HomeTopBar}"/>
-        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"/>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource HomeTopBar}" IsHitTestVisible="False" />
+        <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="3" ContentTemplate="{StaticResource HomeBottomBar}"  IsHitTestVisible="False" />
 
         <Label Content="Personal Calendar" HorizontalAlignment="Right" Margin="0,82,118,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Width="244" Height="47" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-        <Calendar x:Name="EventCalendar" Margin="0,86,153,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="174" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" SelectedDatesChanged="Calendar_SelectedDatesChanged">
+        <Calendar x:Name="EventCalendar" Margin="0,86,153,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="174" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" IsHitTestVisible="False">
             <Calendar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
@@ -43,7 +43,7 @@
         </Calendar>
         <Grid HorizontalAlignment="Right" Height="168" Margin="0,301,10,0" Grid.Row="1" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="3">
             <Label Content="Upcoming Events" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="208"/>
-            <ScrollViewer x:Name="UpcomingEventScroll" Margin="0,42,0,0" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="0,42,0,0" VerticalScrollBarVisibility="Auto" IsHitTestVisible="False">
                 <ItemsControl x:Name="UpcomingEventControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -56,7 +56,7 @@
         </Grid>
         <Grid HorizontalAlignment="Right" Height="168" Margin="0,474,8,0" Grid.Row="1" VerticalAlignment="Top" Width="460" Grid.ColumnSpan="3">
             <Label Content="Completed Events" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="230"/>
-            <ScrollViewer x:Name="CompleteEventScroll" Margin="0,42,0,0" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="0,42,0,0" VerticalScrollBarVisibility="Auto" IsHitTestVisible="False">
                 <ItemsControl x:Name="CompleteEventControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -68,14 +68,12 @@
             </ScrollViewer>
         </Grid>
 
-        <Rectangle x:Name="ConfirmRectangle" HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3" Visibility="Hidden" />
-        <Grid x:Name="ConfirmGrid" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1" Visibility="Hidden">
-            <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" Visibility="Hidden" />
-            <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" Visibility="Hidden" />
-            <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" Visibility="Hidden" />
-            <Button x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" Visibility="Hidden" />
-            <Button x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" Visibility="Hidden" />
+        <Rectangle HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3"/>
+        <Grid HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1">
+            <Button x:Name="YesButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesButton_Click"/>
+            <Button x:Name="NoButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoButton_Click"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68"><Run Language="en-ca" Text="Confirm deleting upcoming event? This will remove you from the event."/></TextBlock>
         </Grid>
-
     </Grid>
 </Page>
+    

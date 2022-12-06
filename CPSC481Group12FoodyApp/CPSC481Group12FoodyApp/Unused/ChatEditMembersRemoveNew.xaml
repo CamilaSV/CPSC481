@@ -30,14 +30,14 @@
 
         <!-- Top Bar -->
 
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}" IsHitTestVisible="False" />
 
         <StackPanel Grid.Row="1" Grid.Column="1">
 
             <!-- Members -->
             
             <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+            <ScrollViewer x:Name="MemberListScroll" VerticalScrollBarVisibility="Auto" Height="250" IsHitTestVisible="False">
                 <ItemsControl x:Name="MemberListControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -51,10 +51,10 @@
             <!-- Invite Members -->
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-                <Button FontSize ="28" Content="Confirm"/>
+                <TextBlock Text="Invite Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
+                <Button FontSize ="28" Content="Confirm" IsHitTestVisible="False" />
             </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250" IsHitTestVisible="False">
                 <ItemsControl x:Name="InviteListControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>

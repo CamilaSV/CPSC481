@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,12 +26,12 @@ namespace CPSC481Group12FoodyApp
             InitializeComponent();
         }
 
-        private void AddTimeButton_Click(object sender, RoutedEventArgs e)
+        private void TopBar_Loaded(object sender, RoutedEventArgs e)
         {
-
+            ComponentFunctions.setLabel(TopBar);
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void AddTimeButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

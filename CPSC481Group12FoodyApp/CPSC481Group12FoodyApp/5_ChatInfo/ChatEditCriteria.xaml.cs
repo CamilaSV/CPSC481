@@ -27,6 +27,11 @@ namespace CPSC481Group12FoodyApp
             ComponentFunctions.addComponentToList(this);
         }
 
+        private void TopBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            ComponentFunctions.setLabel(TopBar);
+        }
+
         public void refreshComponent()
         {
             ListControl.ItemsSource = GetObservableCollection.displayGroupCriteriaList();

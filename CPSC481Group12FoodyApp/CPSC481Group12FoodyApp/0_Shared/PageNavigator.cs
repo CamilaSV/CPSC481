@@ -1,6 +1,7 @@
 ﻿// helps the app navigate the page
 
 using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -28,7 +29,6 @@ namespace CPSC481Group12FoodyApp
         private static ChatInfoScreen chatInfoPage;
 
         private static ChatEditMembers groupMemberEditPage;
-        private static ChatEditMembersRemoveNew removeConfirmPage;
 
         private static ChatScheduler groupSchedulerPage;
 
@@ -52,10 +52,6 @@ namespace CPSC481Group12FoodyApp
 
         // user schedule & related navigation
         private static PersonalCalendar personalCalendarPage;
-
-        private static PersonalCalendarNotifyDeleteNew personalEventDeletePage;
-
-        private static PersonalCalendarNotifySaveNew personalEventSavePage;
 
         // user profile & related navigation
         private static UserControl_Profile profilePage;
@@ -176,9 +172,7 @@ namespace CPSC481Group12FoodyApp
 
         public static void gotoMemberDeleteConfirm(string email)
         {
-            removeConfirmPage = new ChatEditMembersRemoveNew(email);
-            ComponentFunctions.refreshAll();
-            targetWindow.Content = removeConfirmPage;
+            groupMemberEditPage.loadRemove(email);
         }
 
         public static void gotoGroupCalendar()
@@ -258,18 +252,14 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = personalCalendarPage;
         }
 
-        public static void gotoPersonalEventDeleteConfirm(int id)
+        public static void gotoPersonalEventDeleteConfirm(int groupId, int eventId)
         {
-            personalEventDeletePage = new PersonalCalendarNotifyDeleteNew(id);
-            ComponentFunctions.refreshAll();
-            targetWindow.Content = personalEventDeletePage;
+            personalCalendarPage.loadRemove(groupId, eventId);
         }
 
-        public static void gotoPersonalEventSaveConfirm(int id)
+        public static void gotoPersonalEventSaveConfirm(int restaurantId)
         {
-            personalEventSavePage = new PersonalCalendarNotifySaveNew(id);
-            ComponentFunctions.refreshAll();
-            targetWindow.Content = personalEventSavePage;
+            personalCalendarPage.loadSave(restaurantId);
         }
 
         public static void gotoProfile()
@@ -285,5 +275,16 @@ namespace CPSC481Group12FoodyApp
             ComponentFunctions.refreshAll();
             targetWindow.Content = addFriendPage;
         }
+
+        public static void gotoPersonalEventDeleteConfirm(string groupId, string eventId)
+        {
+            gotoPersonalEventDeleteConfirm(Int32.Parse(groupId), Int32.Parse(eventId));
+        }
+
+        public static void gotoPersonalEventSaveConfirm(string id)
+        {
+            gotoPersonalEventSaveConfirm(Int32.Parse(id));
+        }
+
     }
 }

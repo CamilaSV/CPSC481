@@ -17,23 +17,23 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatEventScreen.xaml
+    /// Interaction logic for UserEventListCard.xaml
     /// </summary>
-    public partial class CreateEventScreen : Page
+    public partial class UserEventListCard : UserControl
     {
-        public CreateEventScreen()
+        public UserEventListCard()
         {
             InitializeComponent();
         }
 
-        private void CreateEventButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteEventButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoPersonalEventDeleteConfirm(GroupIdText.Text, EventIdText.Text);
         }
 
-        private void TopBar_Loaded(object sender, RoutedEventArgs e)
+        private void SaveResButton_Click(object sender, RoutedEventArgs e)
         {
-            ComponentFunctions.setLabel(TopBar);
+            PageNavigator.gotoPersonalEventSaveConfirm(SessionData.getEventRestaurant(GroupIdText.Text, EventIdText.Text));
         }
     }
 }

@@ -29,15 +29,15 @@
 
         <!-- Top Bar -->
 
-        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}" Loaded="TopBar_Loaded"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
 
             <!-- Members -->
-            
+
             <TextBlock Text="Members" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+            <ScrollViewer x:Name="MemberListScroll" VerticalScrollBarVisibility="Auto" Height="250">
                 <ItemsControl x:Name="MemberListControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -47,14 +47,14 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-            
+
             <!-- Invite Members -->
-            
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Invite Members   " Style="{StaticResource BaseHeaderTextBlockStyle}"/>
-                <Button FontSize ="28" Content="Confirm" Click="InviteButton_Click"/>
-            </StackPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="250">
+
+            <DockPanel>
+                <TextBlock Text="Invite Members" Style="{StaticResource BaseHeaderTextBlockStyle}" DockPanel.Dock="Left" />
+                <Button FontSize="28" Content="Confirm" Click="InviteButton_Click" HorizontalAlignment="Right" DockPanel.Dock="Right" Width="111"/>
+            </DockPanel>
+            <ScrollViewer x:Name="InviteListScroll" VerticalScrollBarVisibility="Auto" Height="250">
                 <ItemsControl x:Name="InviteListControl">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -66,5 +66,15 @@
             </ScrollViewer>
         </StackPanel>
 
+        <Rectangle x:Name="ConfirmRectangle" Grid.RowSpan="3" Grid.ColumnSpan="3" Height="853" Width="480" Opacity="0.7"  Fill="Black" Visibility="Hidden" />
+        <Grid x:Name="ConfirmGrid" HorizontalAlignment="Center" Height="220" Width="340" Grid.Row="1" Grid.Column="1" Background="LightGray" Visibility="Hidden">
+            <StackPanel>
+                <TextBlock FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Text="Confirm removing &quot;Jane&quot; from &quot;Foodies!&quot;?" />
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button x:Name="YesButton" Content="Yes" FontSize="28" Width="100" Height="50" Margin="10,0,0,0" Click="YesButton_Click"/>
+                    <Button x:Name="NoButton" Content="No" FontSize="28" Width="100" Height="50" Margin="120,0,0,0" Click="NoButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

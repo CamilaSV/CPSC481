@@ -185,7 +185,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     ChatLastSender = msg.senderEmail,
                     ChatLastMsg = msg.content,
 
-                    ChatLastTime = SessionData.getDateOrTimefromEpoch(msg.time),
+                    ChatLastTime = SessionData.getDateTimeStringfromEpoch(msg.time),
                 }
                 );
             }
@@ -210,6 +210,71 @@ namespace CPSC481Group12FoodyApp.Logic
             }
 
             return collection;
+        }
+
+        public static ObservableCollection<propertyChange_UserEvent> displayUserUpcomingEventDate(DateTime date)
+        {
+
+            List<propertyChange_UserEvent> list = new List<propertyChange_UserEvent>();
+
+            foreach (var info in SessionData.getUserEvents(SessionData.getCurrentUser()))
+            {
+                var eventDate = SessionData.getDateOrTimefromEpoch(SessionData.getEventTime(info.groupId, info.eventId));
+
+                if (eventDate.Date == date.Date)
+                {
+                    if (eventDate < date)
+                    {
+                        list.Add(new propertyChange_UserEvent
+                        {
+                            GroupId = info.groupId.ToString(),
+                            EventId = info.eventId.ToString(),
+                            EventTime = SessionData.convertDateTimeToString(eventDate),
+                            RestaurantName = SessionData.getRestaurantName(SessionData.getEventRestaurant(info.groupId, info.eventId)),
+                            TextToShow = "On " + eventDate.Date + "\n" + "with" + SessionData.getGroupName(info.groupId),
+                        });
+                    }
+                }
+            }
+
+            if (list.Count > 1)
+            {
+                list.Sort((a, b) => a.EventTime.CompareTo(b.EventTime));
+            }
+
+            return new ObservableCollection<propertyChange_UserEvent>(list);
+        }
+
+        public static ObservableCollection<propertyChange_UserEvent> displayUserCompletedEventDate(DateTime date)
+        {
+            List<propertyChange_UserEvent> list = new List<propertyChange_UserEvent>();
+
+            foreach (var info in SessionData.getUserEvents(SessionData.getCurrentUser()))
+            {
+                var eventDate = SessionData.getDateOrTimefromEpoch(SessionData.getEventTime(info.groupId, info.eventId));
+
+                if (eventDate.Date == date.Date)
+                {
+                    if (eventDate >= date)
+                    {
+                        list.Add(new propertyChange_UserEvent
+                        {
+                            GroupId = info.groupId.ToString(),
+                            EventId = info.eventId.ToString(),
+                            EventTime = SessionData.convertDateTimeToString(eventDate),
+                            RestaurantName = SessionData.getRestaurantName(SessionData.getEventRestaurant(info.groupId, info.eventId)),
+                            TextToShow = "On " + eventDate.Date + "\n" + "with" + SessionData.getGroupName(info.groupId),
+                        });
+                    }
+                }
+            }
+
+            if (list.Count > 1)
+            {
+                list.Sort((a, b) => a.EventTime.CompareTo(b.EventTime));
+            }
+
+            return new ObservableCollection<propertyChange_UserEvent>(list);
         }
 
         public static ObservableCollection<propertyChange_GroupMember> displayGroupMemberList()
@@ -357,14 +422,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static ObservableCollection<propertyChange_Restaurant> displayUserRestaurantList()
         {
             ObservableCollection<propertyChange_Restaurant> collection = new ObservableCollection<propertyChange_Restaurant>();
-
-            return collection;
-        }
-
-        // To do
-        public static ObservableCollection<propertyChange_UserEvent> displayUserEventList()
-        {
-            ObservableCollection<propertyChange_UserEvent> collection = new ObservableCollection<propertyChange_UserEvent>();
 
             return collection;
         }

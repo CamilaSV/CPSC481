@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,51 +19,122 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for PersonalCalendar.xaml
     /// </summary>
-    public partial class PersonalCalendar : Page
+    public partial class PersonalCalendar : Page, Interface_Component
     {
+        private DateTime selected_date;
+        private int groupId_Remove;
+        private int eventId_Remove;
+        private int restaurantId_Save;
+
         public PersonalCalendar()
         {
             InitializeComponent();
+            EventCalendar.SelectedDate = DateTime.Now;
+            ComponentFunctions.addComponentToList(this);
         }
 
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            PageNavigator.gotoHomePage();
+            selected_date = EventCalendar.SelectedDate.Value;
         }
 
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
+        private void changeConfirmVisibility()
         {
-            PageNavigator.gotoCalendar();
+            TopBar.IsHitTestVisible = false;
+            BottomBar.IsHitTestVisible = false;
+            EventCalendar.IsHitTestVisible = false;
+            UpcomingEventScroll.IsHitTestVisible = false;
+            CompleteEventScroll.IsHitTestVisible = false;
+
+            ConfirmRectangle.Visibility = Visibility.Visible;
+            ConfirmGrid.Visibility = Visibility.Visible;
+            ConfirmText.Visibility = Visibility.Visible;
         }
 
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
+        private void exitConfirmVisibility()
         {
-            PageNavigator.gotoChatList();
+            ConfirmRectangle.Visibility = Visibility.Hidden;
+            ConfirmGrid.Visibility = Visibility.Hidden;
+            ConfirmText.Visibility = Visibility.Hidden;
+
+            TopBar.IsHitTestVisible = true;
+            BottomBar.IsHitTestVisible = true;
+            EventCalendar.IsHitTestVisible = true;
+            UpcomingEventScroll.IsHitTestVisible = true;
+            CompleteEventScroll.IsHitTestVisible = true;
         }
 
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
+        public void loadRemove(int groupId, int eventId)
         {
+            ConfirmText.Text = "Delete the event?";
+            groupId_Remove = groupId;
+            eventId_Remove = eventId;
 
+            changeConfirmVisibility();
+            YesDelButton.Visibility = Visibility.Visible;
+            NoDelButton.Visibility = Visibility.Visible;
         }
 
-        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
+        private void exitRemove()
         {
-
+            YesDelButton.Visibility = Visibility.Hidden;
+            NoDelButton.Visibility = Visibility.Hidden;
+            exitConfirmVisibility();
         }
 
-        private void DeleteEventButton_Click(object sender, RoutedEventArgs e)
+        public void loadSave(int id)
         {
+            ConfirmText.Text = "";
+            restaurantId_Save = id;
 
+            changeConfirmVisibility();
+            YesSaveButton.Visibility = Visibility.Visible;
+            NoSaveButton.Visibility = Visibility.Visible;
         }
 
-        private void SaveRestaurantButton_Click(object sender, RoutedEventArgs e)
+        private void exitSave()
         {
-
+            YesSaveButton.Visibility = Visibility.Hidden;
+            NoSaveButton.Visibility = Visibility.Hidden;
+            exitConfirmVisibility();
         }
 
-        private void SaveRestraurant_Click(object sender, RoutedEventArgs e)
+        public void loadRemove(string groupId, string eventId)
         {
+            loadRemove(Int32.Parse(groupId), Int32.Parse(eventId));
+        }
 
+        public void loadSave(string id)
+        {
+            loadSave(Int32.Parse(id));
+        }
+
+        public void refreshComponent()
+        {
+            UpcomingEventControl.ItemsSource = GetObservableCollection.displayUserUpcomingEventDate(selected_date);
+            CompleteEventControl.ItemsSource = GetObservableCollection.displayUserCompletedEventDate(selected_date);
+        }
+
+        private void YesDelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_EditProfile.removeUserEvent(SessionData.getCurrentUser(), groupId_Remove, eventId_Remove);
+            exitRemove();
+        }
+
+        private void NoDelButton_Click(object sender, RoutedEventArgs e)
+        {
+            exitRemove();
+        }
+
+        private void YesSaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_EditProfile.saveUserRestaurant(SessionData.getCurrentUser(), restaurantId_Save);
+            exitSave();
+        }
+
+        private void NoSaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            exitSave();
         }
     }
 }

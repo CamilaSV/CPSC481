@@ -28,17 +28,17 @@ namespace CPSC481Group12FoodyApp
 
         private void SchedulerDateButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoGroupCalendar();
         }
 
         private void SchedulerTimeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoCustomEventTime();
         }
 
         private void CreateEventButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoCreateGroupEvent();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

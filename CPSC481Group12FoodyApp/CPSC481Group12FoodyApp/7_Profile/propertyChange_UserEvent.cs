@@ -11,11 +11,10 @@ namespace CPSC481Group12FoodyApp
 {
     public class propertyChange_UserEvent
     {
-        public string groupId { get; set; }
-        public string groupName { get; set; }
+        public string GroupId { get; set; }
         public string EventId { get; set; }
         public string EventTime { get; set; }
         public string RestaurantName { get; set; }
-        public string RestaurantCriterion { get; set; }
+        public string TextToShow { get; set; }
     }
 }

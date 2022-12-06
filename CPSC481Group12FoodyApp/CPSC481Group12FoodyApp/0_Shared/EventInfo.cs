@@ -7,5 +7,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public long time { get; set; }
         public int restaurantId { get; set; }
         public string comment { get; set; }
+        public List<string> attendees { get; set; }
     }
 }

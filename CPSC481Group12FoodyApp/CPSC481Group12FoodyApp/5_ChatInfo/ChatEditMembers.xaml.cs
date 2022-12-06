@@ -21,10 +21,55 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditMembers : Page, Interface_Component
     {
+        private string emailRemove;
+
         public ChatEditMembers()
         {
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
+        }
+
+        private void TopBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            ComponentFunctions.setLabel(TopBar);
+        }
+
+        public void loadRemove(string email)
+        {
+            emailRemove = email;
+
+            setRemoveVisibilities();
+        }
+
+        private void setRemoveVisibilities()
+        {
+            TopBar.IsHitTestVisible = false;
+            MemberListScroll.IsHitTestVisible = false;
+            InviteListScroll.IsHitTestVisible = false;
+
+            ConfirmRectangle.Visibility = Visibility.Visible;
+            ConfirmGrid.Visibility = Visibility.Visible;
+        }
+
+        private void exitRemove()
+        {
+            TopBar.IsHitTestVisible = true;
+            MemberListScroll.IsHitTestVisible = true;
+            InviteListScroll.IsHitTestVisible = true;
+
+            ConfirmRectangle.Visibility = Visibility.Hidden;
+            ConfirmGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_Group.removeGroupMember(SessionData.getCurrentGroupId(), emailRemove);
+            exitRemove();
+        }
+
+        private void NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            exitRemove();
         }
 
         public void refreshComponent()

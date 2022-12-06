@@ -28,26 +28,6 @@ namespace CPSC481Group12FoodyApp
             this.idSave = idSave;
         }
 
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoHomePage();
-        }
-
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoCalendar();
-        }
-
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
 

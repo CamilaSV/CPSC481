@@ -27,7 +27,6 @@ namespace CPSC481Group12FoodyApp
         {
             InitializeComponent();
             emailRemove = email;
-            ComponentFunctions.addComponentToList(this);
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)

@@ -29,7 +29,7 @@
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
             <DockPanel x:Name="ThePanel">
-                <Viewbox DockPanel.Dock="Right" Margin="10,0,0,0" Width="170">
+                <Viewbox DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="10,0,0,0" Width="170">
                     <CheckBox x:Name="InviteCheck" IsChecked="{Binding IsInvited}" Click="Invite_Clicked" />
                 </Viewbox>
                 <!--<TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>-->

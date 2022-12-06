@@ -288,7 +288,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 id = msgId,
                 senderEmail = msgSender,
                 content = msgContent,
-                time = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+                time = getEpochFromDateOrTime(DateTime.Now),
             };
 
             allGroups[groupId].msgList.Add(msg);
@@ -660,11 +660,15 @@ namespace CPSC481Group12FoodyApp.Logic
             return -1;
         }
 
-        public static string getDateOrTimefromEpoch(long epochTime)
+        public static long getEpochFromDateOrTime(DateTime date)
         {
-            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeMilliseconds(epochTime);
+            DateTimeOffset offset = new DateTimeOffset(date);
 
-            DateTime epochDateTime = timeoff.DateTime.ToLocalTime();
+            return offset.ToUnixTimeMilliseconds();
+        }
+
+        public static string convertDateTimeToString(DateTime epochDateTime)
+        {
             string dateOrTime;
 
             if ((int)(DateTime.Now - epochDateTime).TotalDays > 0)
@@ -678,6 +682,18 @@ namespace CPSC481Group12FoodyApp.Logic
             }
 
             return dateOrTime;
+        }
+
+        public static DateTime getDateOrTimefromEpoch(long epochTime)
+        {
+            DateTimeOffset timeoff = DateTimeOffset.FromUnixTimeMilliseconds(epochTime);
+
+            return timeoff.DateTime.ToLocalTime();
+        }
+
+        public static string getDateTimeStringfromEpoch(long epochTime)
+        {
+            return convertDateTimeToString(getDateOrTimefromEpoch(epochTime));
         }
 
         public static int getFirstAvailableGroupId()
@@ -760,6 +776,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static string getCriterionName(string criterionId)
         {
             return getCriterionName(Int32.Parse(criterionId));
+        }
+
+        public static int getEventRestaurant(string groupId, string eventId)
+        {
+            return getEventRestaurant(Int32.Parse(groupId), Int32.Parse(eventId));
         }
 
         public static void saveUserInfoToDB()

@@ -30,7 +30,6 @@
         <Grid Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,10,0,0" Background="White">
 
             <Grid>
-                <Label x:Name="ChatNameLabel" Content="Foodies!" HorizontalAlignment="Left" Margin="79,1,0,0" VerticalAlignment="Top" FontSize="48"/>
                 <Calendar HorizontalAlignment="Left" Margin="148,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                     <Calendar.RenderTransform>
                         <TransformGroup>
@@ -51,12 +50,6 @@
             </Grid>
         </Grid>
 
-        <Rectangle x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" Fill="White"/>
-        <Label x:Name="GroupChatNameLabel" Content="Foodies!" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
-        <Button x:Name="BackButton" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Height="64" Width ="64" BorderBrush="{x:Null}" Margin="0,0,0,10" Click="BackButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/backbutton.png"/>
-            </Button.Background>
-        </Button>
+        <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}" Loaded="TopBar_Loaded"/>
     </Grid>
 </Page>

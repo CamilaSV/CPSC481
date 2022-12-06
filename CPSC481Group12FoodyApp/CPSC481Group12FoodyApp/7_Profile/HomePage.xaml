@@ -62,7 +62,7 @@
             <Button Name="Cat6" Content="Sushi" Grid.Column="0" Grid.Row="3"  Style="{StaticResource CategoriesButton}"/>
         </Grid>
 
-        <Button x:Name="Bottom_CreateButton" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Create}" />
+        <Button x:Name="Bottom_CreateButton" Grid.ColumnSpan="3" Grid.Row="1" Style="{StaticResource Create}" Click="Bottom_CreateButton_Click" />
 
     </Grid>
 </Page>
