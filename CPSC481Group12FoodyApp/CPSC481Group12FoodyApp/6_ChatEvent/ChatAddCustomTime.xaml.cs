@@ -68,7 +68,7 @@ namespace CPSC481Group12FoodyApp
 
                 Logic_Group.addGroupEventCustomTime(SessionData.getCurrentGroupId(), date);
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 // print on error textblock
             }
