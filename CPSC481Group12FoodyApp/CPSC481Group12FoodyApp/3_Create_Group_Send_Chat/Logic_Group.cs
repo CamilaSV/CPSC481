@@ -32,7 +32,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 sendInvites(groupId);
                 SessionData.saveGroupInfoToDB();
                 PageNavigator.gotoChatList();
-                ComponentFunctions.refreshAll();
             }
         }
 

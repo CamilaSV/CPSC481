@@ -4,6 +4,7 @@ using CPSC481Group12FoodyApp.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Windows.Controls;
 
 namespace CPSC481Group12FoodyApp
@@ -45,6 +46,7 @@ namespace CPSC481Group12FoodyApp
 
         // user home page & related navigation
         private static HomePage homePage;
+        private static UserControl_AddCategory addCategoryPage;
 
         private static ExpandCategory expandCategoryPage;
 
@@ -57,6 +59,8 @@ namespace CPSC481Group12FoodyApp
         private static UserControl_Profile profilePage;
 
         private static UserControl_AddFriends addFriendPage;
+
+        private static int currentCatId;
 
         public static void goBack()
         {
@@ -84,13 +88,14 @@ namespace CPSC481Group12FoodyApp
             {
                 gotoChatInfo();
             }
-            else if (targetWindow.Content == expandCategoryPage)
+            else if ((targetWindow.Content == expandCategoryPage) ||
+                (targetWindow.Content == addCategoryPage))
             {
                 gotoHomePage();
             }
             else if (targetWindow.Content == expandRestaurantPage)
             {
-                gotoExpandCategory();
+                gotoExpandCategory(currentCatId);
             }
             else if (targetWindow.Content == addFriendPage)
             {
@@ -230,9 +235,17 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = homePage;
         }
 
-        public static void gotoExpandCategory()
+        public static void gotoAddCategory()
         {
-            expandCategoryPage = new ExpandCategory();
+            addCategoryPage = new UserControl_AddCategory();
+            ComponentFunctions.refreshAll();
+            targetWindow.Content = addCategoryPage;
+        }
+
+        public static void gotoExpandCategory(int id)
+        {
+            currentCatId = id;
+            expandCategoryPage = new ExpandCategory(currentCatId);
             ComponentFunctions.refreshAll();
             targetWindow.Content = expandCategoryPage;
         }
@@ -285,5 +298,9 @@ namespace CPSC481Group12FoodyApp
             gotoPersonalEventSaveConfirm(Int32.Parse(id));
         }
 
+        public static void gotoExpandCategory(string id)
+        {
+            gotoExpandCategory(Int32.Parse(id));
+        }
     }
 }

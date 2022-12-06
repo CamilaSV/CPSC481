@@ -29,7 +29,7 @@ namespace CPSC481Group12FoodyApp
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoAddCategory();
         }
 
         public void refreshComponent()

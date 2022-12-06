@@ -104,10 +104,8 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        public static void addUserCategory(string emailUser, string name)
+        public static void addUserCategory(string emailUser, int categoryId, string name)
         {
-            int categoryId;
-
             if (getCategoryExist(emailUser, categoryId) == -1)
             {
                 CategoryInfo info = new CategoryInfo
@@ -698,9 +696,27 @@ namespace CPSC481Group12FoodyApp.Logic
             return convertDateTimeToString(getDateOrTimefromEpoch(epochTime));
         }
 
-        private static int getFirstAvailableCategoryId()
+        public static int getFirstAvailableCategoryId(string email)
         {
-            return 0;
+            SortedSet<int> allIds = new SortedSet<int>();
+
+            foreach (var id in allUsers[email].categoryList)
+            {
+                allIds.Add(id.id);
+            }
+
+            int catId = 0;
+            foreach (var id in allIds)
+            {
+                if (id != catId)
+                {
+                    break;
+                }
+
+                catId++;
+            }
+
+            return catId;
         }
 
         public static int getFirstAvailableGroupId()
@@ -753,6 +769,11 @@ namespace CPSC481Group12FoodyApp.Logic
         public static Boolean getTargetIsGroupAdmin(string groupId, string email)
         {
             return getTargetIsGroupAdmin(Int32.Parse(groupId), email);
+        }
+
+        public static void addUserCategory(string emailUser, string categoryId, string name)
+        {
+            addUserCategory(emailUser, Int32.Parse(categoryId), name);
         }
 
         public static void setCurrentGroupId(string groupId)

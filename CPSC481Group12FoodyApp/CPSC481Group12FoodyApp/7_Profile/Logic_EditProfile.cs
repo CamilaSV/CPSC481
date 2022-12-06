@@ -36,9 +36,12 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
-        public static void addUserCategory(string email)
+        public static void addUserCategory(string catName)
         {
-            SessionData.addUserCategory(email)
+            int catId = SessionData.getFirstAvailableCategoryId(SessionData.getCurrentUser());
+            SessionData.addUserCategory(SessionData.getCurrentUser(), catId, catName);
+            SessionData.saveUserInfoToDB();
+            PageNavigator.gotoHomePage();
         }
 
         public static void removeUserEvent(string email, string groupId, string eventId)

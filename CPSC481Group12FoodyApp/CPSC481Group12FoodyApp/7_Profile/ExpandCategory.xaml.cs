@@ -20,37 +20,14 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ExpandCategory: Page
     {
-        public ExpandCategory()
+        private int catId;
+        public ExpandCategory(int id)
         {
+            catId = id;
             InitializeComponent();
         }
 
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoHomePage();
-        }
-
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoCalendar();
-        }
-
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
-        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Filter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ChatInfoButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -86,6 +63,11 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void forlater1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

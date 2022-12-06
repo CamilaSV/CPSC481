@@ -31,7 +31,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 SessionData.addUserFriendReqToTarget(SessionData.getCurrentUser(), emailTarget);
                 SessionData.saveUserInfoToDB();
                 PageNavigator.gotoProfile();
-                ComponentFunctions.refreshAll();
             }
         }
 

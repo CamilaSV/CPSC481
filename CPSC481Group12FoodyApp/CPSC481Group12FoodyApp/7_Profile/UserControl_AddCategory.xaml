@@ -29,10 +29,10 @@
 
         <ContentPresenter x:Name="TopBar" Grid.ColumnSpan="3" Grid.Row="0" ContentTemplate="{StaticResource ChatTopBarBack}"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Text="Add Friend"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Text="Add a Category"/>
         <StackPanel Grid.Column="1" Grid.Row="3" Margin="0,0,0,350" VerticalAlignment="Center">
-            <TextBlock Grid.Column="1" Grid.Row="3" Text="Find Friend: " FontWeight="Bold" HorizontalAlignment="Left"/>
-            <TextBox x:Name="AddFriendTextBox"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="Enter Category Name: " FontWeight="Bold" HorizontalAlignment="Left"/>
+            <TextBox x:Name="AddCategoryTextBox"/>
             <Border Grid.Column="1" Grid.Row="4" BorderBrush="Black" BorderThickness="0.5">
                 <!--<Grid Grid.Row="4" Height="60" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
@@ -59,7 +59,5 @@
         </StackPanel>
 
         <Button x:Name="AddCategoryButton" Content="Add" FontWeight="Medium" Margin="0,0,0,350" Grid.Column="1" Grid.Row="3"  VerticalAlignment="Bottom" Height="60" Click="AddCategoryButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
-        <TextBlock x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" Margin="0,705,0,0" VerticalAlignment="Top" Width="411" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.Column="1" Grid.Row="1"/>
-
     </Grid>
 </UserControl>
