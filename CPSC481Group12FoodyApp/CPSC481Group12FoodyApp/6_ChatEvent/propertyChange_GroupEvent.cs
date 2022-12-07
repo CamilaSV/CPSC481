@@ -15,5 +15,6 @@ namespace CPSC481Group12FoodyApp
         public string EventTime { get; set; }
         public string RestaurantName { get; set; }
         public string RestaurantCriterion { get; set; }
+        public string TimeText { get; set; }
     }
 }

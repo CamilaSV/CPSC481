@@ -64,7 +64,7 @@
                     <TextBlock Text="Time" Style="{StaticResource BaseHeaderTextBlockStyle}"/>
                 </ListBoxItem>
                 <ListBoxItem>
-                    <TextBox x:Name="CustomTimePick" TextWrapping="Wrap" Text="Enter time in format hh:mm" Width="355" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75" BorderBrush="{x:Null}" GotFocus="CustomTimePick_GotFocus"/>
+                    <TextBox x:Name="CustomTimePick" TextWrapping="NoWrap" Text="Enter time in format hh:mm" Width="390" FontSize="28" FontStretch="SemiCondensed" Opacity="0.75" BorderBrush="{x:Null}" GotFocus="CustomTimePick_GotFocus" LostFocus="CustomTimePick_LostFocus"/>
                 </ListBoxItem>
                 <ListBoxItem>
                     <TextBlock Text="&#x0a;Select time of day below:" Style="{StaticResource BaseBodyTextBlockStyle}"/>
@@ -88,8 +88,7 @@
 
             <!-- Submit -->
 
-            <TextBlock Grid.Row="4" x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" VerticalAlignment="Top" Width="460" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.Column="1" Margin="0,188,0,0"/>
-
+            <TextBlock Grid.Row="3" x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" VerticalAlignment="Top" Width="460" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.Column="1"/>
             <Button x:Name="SubmitButton" Grid.Row="3" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="36" Height="77" Width="152" Click="SubmitButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
 
         </Grid>

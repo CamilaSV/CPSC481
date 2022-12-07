@@ -222,9 +222,9 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 var eventDate = SessionData.getDateOrTimefromEpoch(SessionData.getEventTime(info.groupId, info.eventId));
 
-                if (eventDate.Date == date.Date)
+                if (eventDate < date)
                 {
-                    if (eventDate < date)
+                    if (eventDate.Date == date.Date)
                     {
                         list.Add(new propertyChange_UserEvent
                         {
@@ -419,7 +419,6 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        // To do
         public static Tuple<List<propertyChange_Category>, List<propertyChange_Category>> displayUserCategoryList()
         {
             List<propertyChange_Category> leftCollection = new List<propertyChange_Category>();
@@ -488,6 +487,38 @@ namespace CPSC481Group12FoodyApp.Logic
                     RestaurantName = SessionData.getRestaurantName(info),
                     Criteria1 = criteria1,
                     Criteria2 = criteria2,
+                });
+            }
+
+            return collection;
+        }
+
+        public static List<propertyChange_GroupEvent> displayGroupSuggestTimeList(DateTime date)
+        {
+            List<propertyChange_GroupEvent> collection = new List<propertyChange_GroupEvent>();
+
+            if (SessionData.getCurrentGroupId() != -1)
+            {
+                var infos = SessionData.getEventCustomTimesOnGroupDate(SessionData.getCurrentGroupId());
+                long chosenDate;
+                foreach (var info in infos)
+                {
+                    chosenDate = SessionData.getEpochFromDateOrTime(date);
+                    if (chosenDate <= info)
+                    {
+                        if (date.Date == SessionData.getDateOrTimefromEpoch(info).Date)
+                        {
+                            collection.Add(new propertyChange_GroupEvent
+                            {
+                                TimeText = SessionData.getDateOrTimefromEpoch(chosenDate).ToString("MMMM dd, yyyy @ hh:mm tt")
+                            });
+                        }
+                    }
+                }
+
+                collection.Add(new propertyChange_GroupEvent
+                {
+                    TimeText = null,
                 });
             }
 

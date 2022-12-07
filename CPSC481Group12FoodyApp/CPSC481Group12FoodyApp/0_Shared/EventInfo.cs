@@ -8,5 +8,10 @@ namespace CPSC481Group12FoodyApp.Logic
         public int restaurantId { get; set; }
         public string comment { get; set; }
         public List<string> attendees { get; set; }
+
+        public EventInfo()
+        {
+            attendees = new List<string>();
+        }
     }
 }

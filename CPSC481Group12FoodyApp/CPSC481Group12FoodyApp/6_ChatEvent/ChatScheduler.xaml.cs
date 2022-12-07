@@ -33,7 +33,12 @@ namespace CPSC481Group12FoodyApp
 
         private void AddTimeButton_Click(object sender, RoutedEventArgs e)
         {
+            PageNavigator.gotoCustomEventTime();
+        }
 
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListControl.ItemsSource = GetObservableCollection.displayGroupSuggestTimeList((DateTime)SchedulerCalendar.SelectedDate);
         }
     }
 }

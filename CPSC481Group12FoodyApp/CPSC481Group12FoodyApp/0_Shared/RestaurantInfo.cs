@@ -10,5 +10,10 @@ namespace CPSC481Group12FoodyApp.Logic
         public string province { get; set; }
         public string postal_code { get; set; }
         public List<int> criteriaList { get; set; }
+
+        public RestaurantInfo()
+        {
+            criteriaList = new List<int>();
+        }
     }
 }

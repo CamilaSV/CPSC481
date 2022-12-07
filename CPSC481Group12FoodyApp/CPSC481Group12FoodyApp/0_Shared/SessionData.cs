@@ -682,7 +682,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             string dateOrTime;
 
-            if ((int)(DateTime.Now - epochDateTime).TotalDays > 0)
+            if (epochDateTime.Date < DateTime.Now.Date)
             {
                 // at least 1 day has passed; only show date
                 dateOrTime = epochDateTime.ToString("MM-dd", new CultureInfo("en-US"));
@@ -707,6 +707,18 @@ namespace CPSC481Group12FoodyApp.Logic
             return convertDateTimeToString(getDateOrTimefromEpoch(epochTime));
         }
 
+        public static int getFirstAvailableEventId(int groupId)
+        {
+            SortedSet<int> allIds = new SortedSet<int>();
+
+            foreach(var id in allGroups[groupId].eventList)
+            {
+                allIds.Add(id.id);
+            }
+
+            return getFirstAvailableId(allIds);
+        }
+
         public static int getFirstAvailableCategoryId(string email)
         {
             SortedSet<int> allIds = new SortedSet<int>();
@@ -716,26 +728,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 allIds.Add(id.id);
             }
 
-            int catId = 0;
-            foreach (var id in allIds)
-            {
-                if (id != catId)
-                {
-                    break;
-                }
-
-                catId++;
-            }
-
-            return catId;
-        }
-
-        public static int getFirstAvailableGroupId()
-        {
-            int index;
-            for (index = 0; allGroups.ContainsKey(index); index++) ;
-
-            return index;
+            return getFirstAvailableId(allIds);
         }
 
         public static int getFirstAvailableMsgId(int groupId)
@@ -747,18 +740,57 @@ namespace CPSC481Group12FoodyApp.Logic
                 allIds.Add(id.id);
             }
 
-            int msgId = 0;
+            return getFirstAvailableId(allIds);
+        }
+
+        public static int getFirstAvailableGroupId()
+        {
+            int index;
+            for (index = 0; allGroups.ContainsKey(index); index++) ;
+
+            return index;
+        }
+
+        private static int getFirstAvailableId(SortedSet<int> allIds)
+        {
+            int returnId = 0;
             foreach (var id in allIds)
             {
-                if (id != msgId)
+                if (id != returnId)
                 {
                     break;
                 }
 
-                msgId++;
+                returnId++;
             }
 
-            return msgId;
+            return returnId;
+        }
+
+        public static void addEventCustomTime(int groupId, long eventTime)
+        {
+            if (!allGroups[groupId].suggestedTimes.Contains(eventTime))
+            {
+                allGroups[groupId].suggestedTimes.Add(eventTime);
+            }
+        }
+
+        public static void removeEventCustomTime(int groupId, long eventTime)
+        {
+            if (allGroups[groupId].suggestedTimes.Contains(eventTime))
+            {
+                allGroups[groupId].suggestedTimes.RemoveAll(a => (a == eventTime));
+            }
+        }
+
+        public static void addEventSuggestTime(long eventTime)
+        {
+            suggestedEventTimes.Add(eventTime);
+        }
+
+        public static void removeEventSuggestTime(long eventTime)
+        {
+            suggestedEventTimes.Remove(eventTime);
         }
 
         public static Boolean getTargetIsPendingInvite(int groupId, string emailUser, string emailTarget)
@@ -767,14 +799,44 @@ namespace CPSC481Group12FoodyApp.Logic
             return allUsers[emailTarget].invitationList.Contains(info);
         }
 
-        public static Boolean getTargetIsPendingInvite(string groupId, string emailUser, string emailTarget)
-        {
-            return getTargetIsPendingInvite(Int32.Parse(groupId), emailUser, emailTarget);
-        }
-
         public static Boolean getTargetIsGroupAdmin(int groupId, string email)
         {
             return allGroups[groupId].adminList.Contains(email);
+        }
+
+        public static List<long> getEventCustomTimesOnGroupDate(int groupId)
+        {
+            return allGroups[groupId].suggestedTimes;
+        }
+
+        public static List<int> getAllRestaurantsNotSaved(int groupId)
+        {
+            List<int> restaurantsNotSaved = new List<int>();
+
+            for (int i = 0; i < allRestaurants.Count; i++)
+            {
+                if (!allGroups[groupId].restaurantList.Contains(i))
+                {
+                    restaurantsNotSaved.Add(i);
+                }
+            }
+
+            return restaurantsNotSaved;
+        }
+
+        public static List<int> getAllRestaurantsNotSaved(string groupId)
+        {
+            return getAllRestaurantsNotSaved(Int32.Parse(groupId));
+        }
+
+        public static List<long> getEventCustomTimesOnGroupDate(string groupId)
+        {
+            return getEventCustomTimesOnGroupDate(Int32.Parse(groupId));
+        }
+
+        public static Boolean getTargetIsPendingInvite(string groupId, string emailUser, string emailTarget)
+        {
+            return getTargetIsPendingInvite(Int32.Parse(groupId), emailUser, emailTarget);
         }
 
         public static Boolean getTargetIsGroupAdmin(string groupId, string email)
@@ -882,66 +944,39 @@ namespace CPSC481Group12FoodyApp.Logic
             return getEventRestaurant(Int32.Parse(groupId), Int32.Parse(eventId));
         }
 
-        public static void addEventCustomTime(string email, int groupId, long eventTime)
+        public static void addEventCustomTime(int groupId, string eventTime)
         {
-            allUsers[email].suggestedTimes.Add(new CustomEventTimeInfo
-            {
-                groupId = groupId,
-                time = eventTime,
-            });
+            addEventCustomTime(groupId, long.Parse(eventTime));
         }
 
-        public static void addEventCustomTime(string email, int groupId, string eventTime)
+        public static void addEventCustomTime(string groupId, long eventTime)
         {
-            addEventCustomTime(email, groupId, long.Parse(eventTime));
+            addEventCustomTime(Int32.Parse(groupId), eventTime);
         }
 
-        public static void addEventCustomTime(string email, string groupId, long eventTime)
+        public static void addEventCustomTime(string groupId, string eventTime)
         {
-            addEventCustomTime(email, Int32.Parse(groupId), eventTime);
+            addEventCustomTime(Int32.Parse(groupId), long.Parse(eventTime));
         }
 
-        public static void addEventCustomTime(string email, string groupId, string eventTime)
+        public static void removeEventCustomTime(int groupId, string eventTime)
         {
-            addEventCustomTime(email, Int32.Parse(groupId), long.Parse(eventTime));
+            removeEventCustomTime(groupId, long.Parse(eventTime));
         }
 
-        public static void removeEventCustomTime(string email, int groupId, long eventTime)
+        public static void removeEventCustomTime(string groupId, long eventTime)
         {
-            allUsers[email].suggestedTimes.Remove(new CustomEventTimeInfo 
-            { 
-                groupId = groupId, time = eventTime 
-            });
+            removeEventCustomTime(Int32.Parse(groupId), eventTime);
         }
 
-        public static void removeEventCustomTime(string email, int groupId, string eventTime)
+        public static void removeEventCustomTime(string groupId, string eventTime)
         {
-            removeEventCustomTime(email, groupId, long.Parse(eventTime));
-        }
-
-        public static void removeEventCustomTime(string email, string groupId, long eventTime)
-        {
-            removeEventCustomTime(email, Int32.Parse(groupId), eventTime);
-        }
-
-        public static void removeEventCustomTime(string email, string groupId, string eventTime)
-        {
-            removeEventCustomTime(email, Int32.Parse(groupId), long.Parse(eventTime));
-        }
-
-        public static void addEventSuggestTime(long eventTime)
-        {
-            suggestedEventTimes.Add(eventTime);
+            removeEventCustomTime(Int32.Parse(groupId), long.Parse(eventTime));
         }
 
         public static void addEventSuggestTime(string eventTime)
         {
             addEventSuggestTime(long.Parse(eventTime));
-        }
-
-        public static void removeEventSuggestTime(long eventTime)
-        {
-            suggestedEventTimes.Remove(eventTime);
         }
 
         public static void removeEventSuggestTime(string eventTime)

@@ -116,46 +116,63 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
-        public static void addGroupEventCustomTime(int groupId, DateTime dateTime)
+        public static void addGroupEventCustomTime(DateTime dateTime)
         {
-            SessionData.addEventCustomTime(SessionData.getCurrentUser(), groupId, SessionData.getEpochFromDateOrTime(dateTime));
+            SessionData.addEventCustomTime(SessionData.getCurrentGroupId(), SessionData.getEpochFromDateOrTime(dateTime));
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
-        public static void removeGroupEventCustomTime(int groupId, DateTime dateTime)
+        public static void removeGroupEventCustomTime(DateTime dateTime)
         {
-            SessionData.addEventCustomTime(SessionData.getCurrentUser(), groupId, SessionData.getEpochFromDateOrTime(dateTime));
+            SessionData.removeEventCustomTime(SessionData.getCurrentGroupId(), SessionData.getEpochFromDateOrTime(dateTime));
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
-        // To do
         public static void addGroupRestaurant(int restaurantId)
         {
+            SessionData.addGroupRestaurant(SessionData.getCurrentGroupId(), restaurantId);
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
-        // To do
         public static void removeGroupRestaurant(int restaurantId)
         {
+            SessionData.removeGroupRestaurant(SessionData.getCurrentGroupId(), restaurantId);
             ComponentFunctions.refreshAll();
         }
 
-        // To do
-        public static void createGroupEvent(int groupId, string restaurantName, DateTime date)
+        public static void createGroupEvent(int restaurantId, long date, string comment)
         {
+            int eventId = SessionData.getFirstAvailableEventId(SessionData.getCurrentGroupId());
+            SessionData.addGroupEvent(SessionData.getCurrentGroupId(), eventId, date, restaurantId, comment);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }
 
-        public static void removeGroupEventCustomTime(string groupId, DateTime dateTime)
+        public static void removeGroupEvent(int eventId)
         {
-            removeGroupEventCustomTime(Int32.Parse(groupId), dateTime);
+            SessionData.removeGroupEvent(SessionData.getCurrentGroupId(), eventId);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
         }
 
-        public static void addGroupEventCustomTime(string groupId, DateTime dateTime)
+        public static void createGroupEvent(int restaurantId, DateTime date, string comment)
         {
-            addGroupEventCustomTime(Int32.Parse(groupId), dateTime);
+            createGroupEvent(restaurantId, SessionData.getEpochFromDateOrTime(date), comment);
+        }
+
+        public static void createGroupEvent(string restaurantId, long date, string comment)
+        {
+            createGroupEvent(Int32.Parse(restaurantId), date, comment);
+        }
+
+        public static void createGroupEvent(string restaurantId, DateTime date, string comment)
+        {
+            createGroupEvent(Int32.Parse(restaurantId), SessionData.getEpochFromDateOrTime(date), comment);
         }
 
         public static void addGroupMember(string groupId, string emailTarget)
@@ -171,11 +188,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addGroupCriteria(string criterionId, string targetEmail)
         {
             addGroupCriteria(Int32.Parse(criterionId), targetEmail);
-        }
-
-        public static void createGroupEvent(string groupId, string restaurantName, DateTime date)
-        {
-            createGroupEvent(Int32.Parse(groupId), restaurantName, date);
         }
 
         public static void addGroupRestaurant(string restaurantId)

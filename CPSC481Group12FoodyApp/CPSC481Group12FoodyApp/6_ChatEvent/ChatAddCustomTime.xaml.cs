@@ -50,33 +50,49 @@ namespace CPSC481Group12FoodyApp
             try
             {
                 string customDateTimePick = CustomTimePick.Text;
-                if ((customDateTimePick.Length != 5) ||
-                    (customDateTimePick[2] != ':'))
+                if (customDateTimePick.Length == 0)
                 {
-                    throw new FormatException("Not a valid time format.");
+                    ErrorTextBlock.Text = "Please select a date.";
                 }
-
-                string hour = CustomTimePick.Text.Substring(0, 2);
-                string minute = CustomTimePick.Text.Substring(3, 2);
-                int hourInt = Int32.Parse(hour);
-                if (!isAM)
+                else
                 {
-                    hourInt += 12;
+                    if ((customDateTimePick.Length != 5) ||
+                        (customDateTimePick[2] != ':'))
+                    {
+                        throw new FormatException("Not a valid time format.");
+                    }
+
+                    string hour = CustomTimePick.Text.Substring(0, 2);
+                    string minute = CustomTimePick.Text.Substring(3, 2);
+                    int hourInt = Int32.Parse(hour);
+                    if (!isAM)
+                    {
+                        hourInt += 12;
+                    }
+
+                    date = new DateTime(date.Year, date.Month, date.Day, hourInt, Int32.Parse(minute), 0);
+
+                    Logic_Group.addGroupEventCustomTime(date);
                 }
-
-                date = new DateTime(date.Year, date.Month, date.Day, hourInt, Int32.Parse(minute), 0);
-
-                Logic_Group.addGroupEventCustomTime(SessionData.getCurrentGroupId(), date);
             }
             catch (FormatException)
             {
                 // print on error textblock
+                ErrorTextBlock.Text = "Not a valid time format";
             }
         }
 
         private void CustomTimePick_GotFocus(object sender, RoutedEventArgs e)
         {
             CustomTimePick.Text = string.Empty;
+        }
+
+        private void CustomTimePick_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (CustomTimePick.Text.Equals(string.Empty))
+            {
+                CustomTimePick.Text = "Enter time in format hh:mm";
+            }
         }
 
         private void CustomDatePick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

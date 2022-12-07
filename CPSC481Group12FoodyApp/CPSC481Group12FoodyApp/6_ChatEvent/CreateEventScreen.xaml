@@ -33,21 +33,15 @@
                 <Label x:Name="CreateEventLabel" Content="Create Event" FontSize="32" FontWeight="Bold" VerticalAlignment="Top" Margin="10,10,-10,0"/>
                 <StackPanel Margin="10,68,10,463">
                     <Label x:Name="RestaurantLabel" Content="Restaurant" FontSize="32" FontWeight="Bold" VerticalAlignment="Top" Margin="10,10,10,0" Height="48"/>
-                    <TextBlock/>
-                    <ComboBox Width="410" Height="44" FontSize="28">
-                        <ComboBoxItem IsSelected="True" Content="Taco Bell"/>
-                        <ComboBoxItem Content="Taiyo"/>
-                    </ComboBox>
+                    <ComboBox x:Name="RestaurantList" Width="410" Height="44" FontSize="28" Loaded="RestaurantList_Loaded" />
+
                 </StackPanel>
-                <StackPanel Margin="10,319,10,142" >
+                <StackPanel Margin="10,319,10,230" >
                     <Label x:Name="DateTimeLabel" Content="Date and Time" FontSize="32" FontWeight="Bold" VerticalAlignment="Top" Margin="10,10,10,0" Height="48"/>
-                    <ComboBox Width="410" Height="44" FontSize="28">
-                        <ComboBoxItem IsSelected="True" Content="Dec 9 2022 @ 6:30PM"/>
-                        <ComboBoxItem Content="Dec 9 2022 @ 5:30PM"/>
-                        <ComboBoxItem Content="Dec 10 2022 @ 5:30PM"/>
-                    </ComboBox>
+                    <ComboBox x:Name="TimeList" Width="410" Height="44" FontSize="28" Loaded="TimeList_Loaded" />
                 </StackPanel>
-                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,566,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204" Click="CreateEventButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" />
+                <Button Content="Create Event!" HorizontalAlignment="Center" Margin="0,480,0,0" VerticalAlignment="Top" FontSize="30" Height="70" Width="204" Click="CreateEventButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" />
+                <TextBlock x:Name="ErrorTextBlock" HorizontalAlignment="Center" Margin="0,566,0,0" Height="58" VerticalAlignment="Top" Width="411" FontFamily="Times New Roman" FontSize="20" Text="" TextAlignment="Center" Grid.Column="1" Grid.Row="1"/>
             </Grid>
         </Grid>
 

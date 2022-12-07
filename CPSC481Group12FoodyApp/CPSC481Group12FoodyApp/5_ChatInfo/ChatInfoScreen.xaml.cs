@@ -99,7 +99,7 @@ namespace CPSC481Group12FoodyApp
             var count = 0;
             if (criteriaGroup.ContainsKey(SessionData.getCurrentUser()))
             {
-                CriteriaTextBlock.Text = SessionData.getUserDisplayName(SessionData.getCurrentUser()) + " (Me):\n" + SessionData.getCriterionName(criteriaGroup[SessionData.getCurrentUser()]);
+                CriteriaTextBlock.Text = SessionData.getUserDisplayName(SessionData.getCurrentUser()) + " (Me):\n" + "• " + SessionData.getCriterionName(criteriaGroup[SessionData.getCurrentUser()]);
                 count++;
             }
             else
@@ -109,7 +109,7 @@ namespace CPSC481Group12FoodyApp
 
             foreach (var criterion in criteriaGroup)
             {
-                if (!criterion.Equals(SessionData.getCurrentUser()))
+                if (!criterion.Key.Equals(SessionData.getCurrentUser()))
                 {
                     if (count == 2)
                     {
@@ -121,7 +121,7 @@ namespace CPSC481Group12FoodyApp
                         break;
                     }
 
-                    CriteriaTextBlock.Text += SessionData.getUserDisplayName(criterion.Key + "\n" + SessionData.getCriterionName(criterion.Value));
+                    CriteriaTextBlock.Text += SessionData.getUserDisplayName(criterion.Key) + "\n" + "• " + SessionData.getCriterionName(criterion.Value);
                     count++;
                 }
             }
