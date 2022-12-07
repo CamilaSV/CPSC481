@@ -42,5 +42,15 @@ namespace CPSC481Group12FoodyApp
         {
             Debug.WriteLine("Card is clickable");
         }
+
+        private void voteButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void voteButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
