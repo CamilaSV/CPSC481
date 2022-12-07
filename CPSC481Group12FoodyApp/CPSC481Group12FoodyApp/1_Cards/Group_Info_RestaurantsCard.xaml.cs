@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,26 +17,21 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for ChatEditRestaurantRemoveNew.xaml
+    /// Interaction logic for GroupRestaurantListCard.xaml
     /// </summary>
-    public partial class ChatEditRestaurantRemoveNew : Page
+    public partial class GroupRestaurantListCard : UserControl
     {
-        private int idRemove;
+        bool isCardLoaded = false;
+        bool isCriteriaLoaded = false;
 
-        public ChatEditRestaurantRemoveNew(int idRemove)
+        public GroupRestaurantListCard()
         {
             InitializeComponent();
-            this.idRemove = idRemove;
         }
 
-        private void YesButton_Click(object sender, RoutedEventArgs e)
+        private void Trash_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void NoButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            PageNavigator.gotoGroupResturantDeleteConfirm(RestaurantIdText.Text);
         }
     }
 }

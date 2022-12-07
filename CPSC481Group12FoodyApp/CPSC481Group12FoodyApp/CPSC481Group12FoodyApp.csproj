@@ -71,10 +71,10 @@
     <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="4_GroupPages\Group_Info_RestaurantsCard.xaml">
+    <Page Update="1_Cards\Group_Info_RestaurantsCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="4_GroupPages\Group_Info_CriteriaCard.xaml">
+    <Page Update="1_Cards\Group_Info_CriteriaCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="1_Cards\Group_Info_MemberEditCard.xaml">
@@ -180,7 +180,7 @@
     <Compile Update="3_UserPages\User_Home_AddCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="5_ToDo\User_Main_Profile.xaml.cs">
+    <Compile Update="3_UserPages\User_Main_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_UserPages\User_Group_ChatList.xaml.cs">
@@ -201,7 +201,7 @@
     <Page Update="3_UserPages\User_Group_CreateGroup.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ToDo\User_Main_Profile.xaml">
+    <Page Update="3_UserPages\User_Main_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="3_UserPages\User_Group_ChatList.xaml">

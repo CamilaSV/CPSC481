@@ -19,12 +19,6 @@
     <Page Update="3_UserPages\User_Home_AddRestaurant.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_NotSure\ExpandCategoryOld.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="9_NotSure\ExpandRestaurantOld.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="1_Cards\User_Home_RestaurantInCategoryCard.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -40,10 +34,10 @@
     <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="4_GroupPages\Group_Info_RestaurantsCard.xaml">
+    <Page Update="1_Cards\Group_Info_RestaurantsCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="4_GroupPages\Group_Info_CriteriaCard.xaml">
+    <Page Update="1_Cards\Group_Info_CriteriaCard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="1_Cards\Group_Info_MemberEditCard.xaml">

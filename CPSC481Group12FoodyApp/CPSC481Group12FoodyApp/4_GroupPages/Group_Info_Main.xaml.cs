@@ -130,7 +130,7 @@ namespace CPSC481Group12FoodyApp
         private void RestaurantTextBlock_Loaded(object sender, RoutedEventArgs e)
         {
             var restaurantGroup = SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId());
-            RestaurantTextBlock.Text = "";
+            string textString = "";
 
             var count = 0;
             foreach (var restaurant in restaurantGroup)
@@ -145,9 +145,11 @@ namespace CPSC481Group12FoodyApp
                     break;
                 }
 
-                RestaurantTextBlock.Text += SessionData.getRestaurantName(restaurant);
+                textString += SessionData.getRestaurantName(restaurant) + "\n";
                 count++;
             }
+
+            RestaurantTextBlock.Text = textString.Substring(0, textString.Length - 1);
         }
     }
 }

@@ -69,7 +69,7 @@
                 </ScrollViewer>
                 <DockPanel>
                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend List" Height="50"/>
-                    <Button x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Center" Height="30" HorizontalAlignment="Right" Click="AddFriend_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" VerticalContentAlignment="Stretch"/>
+                    <Button x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Center" Width="30" Height="30" HorizontalAlignment="Right" Click="AddFriend_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" VerticalContentAlignment="Stretch"/>
                 </DockPanel>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
                     <ItemsControl x:Name="ListControl">

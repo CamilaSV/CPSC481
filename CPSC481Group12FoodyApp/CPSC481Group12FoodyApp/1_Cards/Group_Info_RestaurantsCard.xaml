@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="CPSC481Group12FoodyApp.GroupRestaurantListCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
+             mc:Ignorable="d">
+
+    <Border VerticalAlignment="Center" Width="380" BorderThickness="1" BorderBrush="Black">
+        <Grid ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <TextBlock x:Name="RestaurantNameText" FontSize="28" Text="{Binding RestaurantName}" />
+                <TextBlock FontSize="20" Text="{Binding CriteriaListText}"/>
+            </StackPanel>
+            
+            <Button x:Name="trash" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="Trash_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/trash.png"/>
+                </Button.Background>
+            </Button>
+            <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
+        </Grid>
+    </Border>
+</UserControl>

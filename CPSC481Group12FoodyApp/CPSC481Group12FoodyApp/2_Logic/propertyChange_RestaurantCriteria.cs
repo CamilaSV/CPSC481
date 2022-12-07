@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_Restaurant
+    public class propertyChange_RestaurantCriteria
     {
-        public string RestaurantId { get; set; }
-        public string RestaurantName { get; set; }
-        public string RestaurantComment { get; set; }
-        public string CriteriaListText { get; set; }
+        public string criterionName { get; set; }
     }
 }

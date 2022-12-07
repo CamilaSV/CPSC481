@@ -38,7 +38,6 @@ namespace CPSC481Group12FoodyApp
         private static CreateEventScreen groupEventCreatePage;
 
         private static ChatEditRestaurant groupRestaurantEditPage;
-        private static ChatEditRestaurantRemoveNew groupResRemoveConfirmPage;
 
         private static ChatEditCriteria groupCriteriaEditPage;
 
@@ -100,6 +99,10 @@ namespace CPSC481Group12FoodyApp
             else if (targetWindow.Content == addFriendPage)
             {
                 gotoProfile();
+            }
+            else if (targetWindow.Content == groupResSuggestPage)
+            {
+                gotoGroupEditRestaurants();
             }
         }
 
@@ -207,13 +210,6 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = groupRestaurantEditPage;
         }
 
-        public static void gotoRestaurantDeleteConfirm(int id)
-        {
-            groupResRemoveConfirmPage = new ChatEditRestaurantRemoveNew(id);
-            ComponentFunctions.refreshAll();
-            targetWindow.Content = groupResRemoveConfirmPage;
-        }
-
         public static void gotoGroupEditCriteria()
         {
             groupCriteriaEditPage = new ChatEditCriteria();
@@ -263,6 +259,11 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = personalCalendarPage;
         }
 
+        public static void gotoGroupResturantDeleteConfirm(int restaurantId)
+        {
+            groupRestaurantEditPage.loadRemove(restaurantId);
+        }
+
         public static void gotoPersonalEventDeleteConfirm(int groupId, int eventId)
         {
             personalCalendarPage.loadRemove(groupId, eventId);
@@ -303,5 +304,11 @@ namespace CPSC481Group12FoodyApp
         {
             gotoPersonalEventSaveConfirm(Int32.Parse(id));
         }
+
+        public static void gotoGroupResturantDeleteConfirm(string restaurantId)
+        {
+            gotoGroupResturantDeleteConfirm(Int32.Parse(restaurantId));
+        }
+
     }
 }

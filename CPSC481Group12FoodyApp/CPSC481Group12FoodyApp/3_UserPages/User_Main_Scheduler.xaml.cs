@@ -84,7 +84,7 @@ namespace CPSC481Group12FoodyApp
 
         public void loadSave(int id)
         {
-            ConfirmText.Text = "";
+            ConfirmText.Text = "Save the restaurant?";
             restaurantId_Save = id;
 
             changeConfirmVisibility();

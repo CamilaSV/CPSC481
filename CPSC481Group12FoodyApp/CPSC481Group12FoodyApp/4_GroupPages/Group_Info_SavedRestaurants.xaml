@@ -14,9 +14,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
-    <Grid ShowGridLines="False" x:Name="ChatEditRestaraunt" Background="White">
 
+    <Grid ShowGridLines="False" x:Name="ChatEditRestaraunt" Background="{StaticResource mslightgreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="9*"></RowDefinition>
@@ -35,37 +34,24 @@
         <!-- Content -->
 
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
-            <Label x:Name="RestaurantLabel" Content="Restaurants" FontSize="36" FontWeight="Bold"/>
-            <Grid x:Name="Restaurant1StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Taco Bell" FontSize="34" FontWeight="Bold"/>
-                        <Button x:Name="DeleteButton1" Content="Delete" Height="20" Margin="20" Click="DeleteButton1_Click"/>
-
-                    </StackPanel>
-                    <TextBlock FontSize="30" Text=" • Taco" />
-                    <TextBlock FontSize="30" Text=" • $" />
-                </StackPanel>
-                <Button x:Name="VoteButton1" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="44" Margin="5" Click="VoteButton1_Click"/>
-                <Label x:Name="Restaurant1LabelUser" Content="Jane" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
-            </Grid>
-            <Grid x:Name="Restaurant2StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Taiyo" FontSize="34" FontWeight="Bold"/>
-                        <Button x:Name="DeleteButton2" Content="Delete" Height="20" Margin="20" Click="DeleteButton2_Click"/>
-                    </StackPanel>
-                    <TextBlock FontSize="30" Text=" • Sushi" />
-                    <TextBlock FontSize="30" Text=" • $$" />
-                </StackPanel>
-                <Button x:Name="VoteButton2" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" Margin="0,91,5,5" Click="VoteButton2_Click"/>
-                <Label x:Name="Restaurant2LabelUser" Content="Me" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
-            </Grid>
+            <DockPanel>
+                <Label x:Name="RestaurantLabel" Content="Restaurants" FontSize="36" FontWeight="Bold"/>
+                <Button x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Center" Width="30" Height="30" HorizontalAlignment="Right" Click="Suggest_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" VerticalContentAlignment="Stretch"/>
+            </DockPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="700">
+                <ItemsControl x:Name="ListControl">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:GroupRestaurantListCard />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
 
         <Rectangle x:Name="ConfirmRectangle" HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3" Visibility="Hidden" />
         <Grid x:Name="ConfirmGrid" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1" Visibility="Hidden">
-            <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" Visibility="Hidden" />
+            <TextBlock x:Name="ConfirmText" Text="Delete the restaurant?" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" Visibility="Hidden" />
             <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" Visibility="Hidden" />
             <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" Visibility="Hidden" />
         </Grid>

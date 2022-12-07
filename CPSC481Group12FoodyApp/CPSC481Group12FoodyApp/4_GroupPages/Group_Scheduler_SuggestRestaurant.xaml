@@ -45,7 +45,7 @@
                         </ItemsControl>
                     </ScrollViewer>
                 </StackPanel>
-                <Button x:Name="SubmitRestaurantButton" Content="Submit Restaurant" Width="300" Height="120" FontSize="34" VerticalAlignment="Top" Margin="90,700,90,0" Click="SubmitRestaurantButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
+                <Button x:Name="SubmitRestaurantButton" Content="Submit Restaurant" Width="320" Height="120" FontSize="34" VerticalAlignment="Top" Margin="80,703,80,0" Click="SubmitRestaurantButton_Click" Style="{StaticResource RectangularButtonNoWidthHeight}"/>
             </Grid>
         </Grid>
 

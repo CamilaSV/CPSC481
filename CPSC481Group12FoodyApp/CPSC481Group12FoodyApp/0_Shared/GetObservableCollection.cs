@@ -557,15 +557,32 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
-        // To do
         public static List<propertyChange_Restaurant> displayGroupRestaurantList()
         {
             List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
+            string criteriaListText;
+
+            foreach (var info in SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId()))
+            {
+                criteriaListText = "";
+                foreach (var critInfo in SessionData.getRestaurantCriteria(info))
+                {
+                    criteriaListText += " • " + SessionData.getCriterionName(critInfo) + "\n";
+                }
+
+                criteriaListText = criteriaListText.Substring(0, criteriaListText.Length - 1);
+
+                collection.Add(new propertyChange_Restaurant
+                {
+                    RestaurantId = info.ToString(),
+                    RestaurantName = SessionData.getRestaurantName(info),
+                    CriteriaListText = criteriaListText,
+                });
+            }
 
             return collection;
         }
 
-        // To do
         public static List<propertyChange_GroupEvent> displayGroupEventList()
         {
             List<propertyChange_GroupEvent> collection = new List<propertyChange_GroupEvent>();
@@ -586,5 +603,11 @@ namespace CPSC481Group12FoodyApp.Logic
 
             return collection;
         }
+
+        public static List<propertyChange_Restaurant> displayGroupRestaurantCriteriaList(string resId)
+        {
+            return displayGroupRestaurantCriteriaList(resId);
+        }
+
     }
 }
