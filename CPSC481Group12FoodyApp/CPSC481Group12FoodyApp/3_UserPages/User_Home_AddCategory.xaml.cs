@@ -29,7 +29,7 @@ namespace CPSC481Group12FoodyApp
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_EditProfile.addUserCategory(AddCategoryTextBox.Text);
+            Logic_Home.addUserCategory(AddCategoryTextBox.Text);
         }
     }
 }

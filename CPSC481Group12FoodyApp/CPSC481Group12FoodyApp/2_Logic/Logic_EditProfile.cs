@@ -12,41 +12,38 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             SessionData.setUserDisplayName(email, newName);
             SessionData.saveUserInfoToDB();
-            ComponentFunctions.refreshAll();
         }
 
         public static void editUserBio(string email, string newBio)
         {
             SessionData.setUserBio(email, newBio);
             SessionData.saveUserInfoToDB();
-            ComponentFunctions.refreshAll();
         }
-
-        public static void removeUserEvent(string email, int groupId, int eventId)
+        public static void addUserDietaryChecked(int criterionId)
         {
-            SessionData.removeUserEvent(email, groupId, eventId);
+            SessionData.addUserDietaryChecked(SessionData.getCurrentUser(), criterionId);
             SessionData.saveUserInfoToDB();
-            ComponentFunctions.refreshAll();
         }
 
-        public static void saveUserRestaurant(string email, int restaurantId)
+        public static void addUserDietaryUnchecked(int criterionId)
         {
-            // To do: add catId selection to PersonalCalendar page
+            SessionData.addUserDietaryUnchecked(SessionData.getCurrentUser(), criterionId);
             SessionData.saveUserInfoToDB();
-            ComponentFunctions.refreshAll();
         }
 
-        public static void addUserCategory(string catName)
+        public static List<int> getUserDietaryChecked()
         {
-            int catId = SessionData.getFirstAvailableCategoryId(SessionData.getCurrentUser());
-            SessionData.addUserCategory(SessionData.getCurrentUser(), catId, catName);
-            SessionData.saveUserInfoToDB();
-            PageNavigator.gotoHomePage();
+            return SessionData.getUserDietaryChecked(SessionData.getCurrentUser());
         }
 
-        public static void removeUserEvent(string email, string groupId, string eventId)
+        public static void addUserDietaryChecked(string criterionId)
         {
-            removeUserEvent(email, Int32.Parse(groupId), Int32.Parse(eventId));
+            addUserDietaryChecked(Int32.Parse(criterionId));
+        }
+
+        public static void addUserDietaryUnchecked(string criterionId)
+        {
+            addUserDietaryUnchecked(Int32.Parse(criterionId));
         }
     }
 }

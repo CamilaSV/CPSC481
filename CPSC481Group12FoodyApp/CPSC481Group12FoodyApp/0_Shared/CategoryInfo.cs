@@ -7,11 +7,11 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public int id { get; set; }
         public string name { get; set; }
-        public List<int> restaurantList { get; set; }
+        public Dictionary<int, string> restaurantList { get; set; }
 
         public CategoryInfo() 
         { 
-            restaurantList = new List<int>();
+            restaurantList = new Dictionary<int, string>(); // restaurantId is Key, Notes is Value
         }
     }
 }

@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace CPSC481Group12FoodyApp
 {
-    public class propertyChange_GroupEvent
+    public class propertyChange_UserDietary
     {
-        public string EventId { get; set; }
-        public string EventTime { get; set; }
-        public string RestaurantName { get; set; }
-        public string TimeText { get; set; }
+        public string CriterionId { get; set; }
+        public string CriterionName { get; set; }
+        public bool CriterionChecked { get; set; }
     }
 }

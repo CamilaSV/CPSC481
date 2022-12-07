@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -36,7 +36,7 @@
             <DockPanel Margin="109,0,0,0">
                 <StackPanel>
                     <TextBlock x:Name="UserNameText" DockPanel.Dock="Left" FontFamily="Segoe UI Bold" FontSize="24" Width="250" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,5" />
-                    <TextBox x:Name="UserBioText" FontFamily="Segoe UI" FontSize="20" Width="250" Height="57" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <TextBox x:Name="UserBioText" Grid.RowSpan="2" AcceptsReturn="True" FontFamily="Segoe UI" FontSize="20" Width="250" Height="57" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
                 </StackPanel>
             </DockPanel>
 
@@ -45,14 +45,20 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="3" Width="440" Margin="10,30,0,0">
-            <StackPanel HorizontalAlignment="Left" >
+            <StackPanel HorizontalAlignment="Left" Width="440">
                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" Height="50"/>
-                <CheckBox Content="Vegetarian" Style="{StaticResource SmallCheckBoxStyle}"/>
-                <CheckBox Content="Vegan" Style="{StaticResource SmallCheckBoxStyle}"/>
-                <CheckBox Content="Gluten Free" Style="{StaticResource SmallCheckBoxStyle}" Height="30"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="140">
+                    <ItemsControl x:Name="CriteriaControl">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:DietaryCard />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend Request" Height="50"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl x:Name="RequestControl" Height="140" Width="440">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="140">
+                    <ItemsControl x:Name="RequestControl">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <local:FriendRequestCardControl>
@@ -65,7 +71,7 @@
                     <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend List" Height="50"/>
                     <Button x:Name="AddFriend" FontWeight="ExtraBlack" Background="White" FontSize="20" Content=" + " Padding="5" VerticalAlignment="Center" Height="30" HorizontalAlignment="Right" Click="AddFriend_Click" Style="{StaticResource RectangularButtonNoWidthHeight}" VerticalContentAlignment="Stretch"/>
                 </DockPanel>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200" Width="440">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
                     <ItemsControl x:Name="ListControl">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>

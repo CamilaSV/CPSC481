@@ -16,6 +16,7 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public static class SessionData
     {
+
         private static string currentUser = "";
         private static int currentGroupId = -1;
         private static List<string> currentInviteTargets = new List<string>();
@@ -25,6 +26,29 @@ namespace CPSC481Group12FoodyApp.Logic
         private static Dictionary<int, PresetCriteriaInfo> allPresetCriteria;
 
         private static List<long> suggestedEventTimes;
+
+        private static int currentCatId;
+        private static int currentResId;
+
+        public static void setCurrentCatId(int catId)
+        {
+            currentCatId = catId;
+        }
+
+        public static void setCurrentResId(int resId)
+        {
+            currentResId = resId;
+        }
+
+        public static int getCurrentCatId()
+        {
+            return currentCatId;
+        }
+
+        public static int getCurrentResId()
+        {
+            return currentResId;
+        }
 
         public static void initializeStartup()
         {
@@ -123,7 +147,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     id = categoryId,
                     name = name,
-                    restaurantList = new List<int>(),
+                    restaurantList = new Dictionary<int, string>(),
                 };
 
                 allUsers[emailUser].categoryList.Add(info);
@@ -182,7 +206,7 @@ namespace CPSC481Group12FoodyApp.Logic
             Tuple<int, Boolean> index = getUserCategoryHasRes(emailUser, catId, resId);
             if ((index.Item1 != -1) && (index.Item2 == false))
             {
-                allUsers[emailUser].categoryList[index.Item1].restaurantList.Add(resId);
+                allUsers[emailUser].categoryList[index.Item1].restaurantList.Add(resId, "");
             }
         }
 
@@ -193,6 +217,16 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Remove(resId);
             }
+        }
+
+        public static void editUserResNotes(string emailUser, int catId, int resId, string note)
+        {
+            allUsers[emailUser].categoryList[catId].restaurantList[resId] = note;
+        }
+
+        public static string getUserResNotes(string emailUser, int catId, int resId)
+        {
+            return allUsers[emailUser].categoryList[catId].restaurantList[resId];
         }
 
         public static void removeUserGroupInvite(string emailUser, int groupId, string emailSender)
@@ -468,7 +502,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return allUsers[email].categoryList[getCategoryExist(email, catId)].name;
         }
 
-        public static List<int> getUserCategoryRestaurants(string email, int catId)
+        public static Dictionary<int,string> getUserCategoryRestaurants(string email, int catId)
         {
             return allUsers[email].categoryList[getCategoryExist(email, catId)].restaurantList;
         }
@@ -618,7 +652,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 if (allUsers[email].categoryList[i].id == catId)
                 {
-                    if (allUsers[email].categoryList[i].restaurantList.Contains(resId))
+                    if (allUsers[email].categoryList[i].restaurantList.ContainsKey(resId))
                     {
                         return new Tuple<int, Boolean>(i, true);
                     }
@@ -793,6 +827,26 @@ namespace CPSC481Group12FoodyApp.Logic
             suggestedEventTimes.Remove(eventTime);
         }
 
+        public static void addUserDietaryChecked(string email, int criterionId)
+        {
+            if (!allUsers[email].criteriaChecked.Contains(criterionId))
+            {
+                allUsers[email].criteriaChecked.Add(criterionId);
+            }
+        }
+
+        public static void addUserDietaryUnchecked(string email, int criterionId)
+        {
+            if (allUsers[email].criteriaChecked.Contains(criterionId))
+            {
+                allUsers[email].criteriaChecked.Remove(criterionId);
+            }
+        }
+
+        public static List<int> getUserDietaryChecked(string email) {
+            return allUsers[email].criteriaChecked;
+        }
+
         public static Boolean getTargetIsPendingInvite(int groupId, string emailUser, string emailTarget)
         {
             InvitationInfo info = new InvitationInfo { inviteGroupId = groupId, inviteSenderEmail = emailUser };
@@ -809,13 +863,30 @@ namespace CPSC481Group12FoodyApp.Logic
             return allGroups[groupId].suggestedTimes;
         }
 
-        public static List<int> getAllRestaurantsNotSaved(int groupId)
+        public static List<int> getUserAllRestaurantsNotSaved(string email)
         {
             List<int> restaurantsNotSaved = new List<int>();
+            var allRes = allUsers[email].categoryList[getCurrentCatId()].restaurantList;
 
             for (int i = 0; i < allRestaurants.Count; i++)
             {
-                if (!allGroups[groupId].restaurantList.Contains(i))
+                if (!allRes.ContainsKey(i))
+                {
+                    restaurantsNotSaved.Add(i);
+                }
+            }
+
+            return restaurantsNotSaved;
+        }
+
+        public static List<int> getAllRestaurantsNotSaved(int groupId)
+        {
+            List<int> restaurantsNotSaved = new List<int>();
+            var allRes = allGroups[groupId].restaurantList;
+
+            for (int i = 0; i < allRestaurants.Count; i++)
+            {
+                if (!allRes.Contains(i))
                 {
                     restaurantsNotSaved.Add(i);
                 }

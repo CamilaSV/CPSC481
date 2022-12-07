@@ -41,7 +41,6 @@ namespace CPSC481Group12FoodyApp
             Edit.Visibility = Visibility.Hidden;
         }
 
-        // Have to change
         private void saveBtn(object sender, RoutedEventArgs e)
         {
             string newBio = UserBioText.Text;
@@ -66,6 +65,7 @@ namespace CPSC481Group12FoodyApp
             UserBioText.Text = SessionData.getUserBio(SessionData.getCurrentUser());
             RequestControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
             ListControl.ItemsSource = GetObservableCollection.displayUsersFriendList();
+            CriteriaControl.ItemsSource = GetObservableCollection.displayUserDietaryList();
         }
     }
 }

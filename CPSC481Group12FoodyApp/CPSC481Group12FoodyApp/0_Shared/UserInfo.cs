@@ -16,6 +16,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public List<CategoryInfo> categoryList { get; set; }
         public List<UserEventInfo> eventList { get; set; }
         public List<InvitationInfo> invitationList { get; set; }
+        public List<int> criteriaChecked { get; set; }
 
         public UserInfo()
         {
@@ -25,6 +26,7 @@ namespace CPSC481Group12FoodyApp.Logic
             categoryList = new List<CategoryInfo>();
             eventList = new List<UserEventInfo>();
             invitationList = new List<InvitationInfo>();
+            criteriaChecked = new List<int>();
         }
     }
 }

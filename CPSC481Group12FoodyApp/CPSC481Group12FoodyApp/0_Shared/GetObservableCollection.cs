@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -461,7 +462,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
             foreach (var info in SessionData.getUserCategoryRestaurants(SessionData.getCurrentUser(), catId))
             {
-                criteria = SessionData.getRestaurantCriteria(info);
+                criteria = SessionData.getRestaurantCriteria(info.Key);
                 criteria1 = "";
                 criteria2 = "";
                 count = criteria.Count;
@@ -483,8 +484,8 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 collection.Add(new propertyChange_RestaurantUser
                 {
-                    RestaurantId = info.ToString(),
-                    RestaurantName = SessionData.getRestaurantName(info),
+                    RestaurantId = info.Key.ToString(),
+                    RestaurantName = SessionData.getRestaurantName(info.Key),
                     Criteria1 = criteria1,
                     Criteria2 = criteria2,
                 });
@@ -525,6 +526,37 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        public static List<propertyChange_UserDietary> displayUserDietaryList()
+        {
+            List<propertyChange_UserDietary> collection = new List<propertyChange_UserDietary>();
+            var avail = SessionData.getUserDietaryChecked(SessionData.getCurrentUser());
+            var all = SessionData.getAllPresetCriteria();
+
+            for (int i = 0; i < all.Count; i++)
+            {
+                if (avail.Contains(i))
+                {
+                    collection.Add(new propertyChange_UserDietary
+                    {
+                        CriterionId = i.ToString(),
+                        CriterionName = all[i].criteria,
+                        CriterionChecked = true,
+                    });
+                }
+                else
+                {
+                    collection.Add(new propertyChange_UserDietary
+                    {
+                        CriterionId = i.ToString(),
+                        CriterionName = all[i].criteria,
+                        CriterionChecked = false,
+                    });
+                }
+            }
+
+            return collection;
+        }
+
         // To do
         public static List<propertyChange_Restaurant> displayGroupRestaurantList()
         {
@@ -537,6 +569,20 @@ namespace CPSC481Group12FoodyApp.Logic
         public static List<propertyChange_GroupEvent> displayGroupEventList()
         {
             List<propertyChange_GroupEvent> collection = new List<propertyChange_GroupEvent>();
+
+            if (SessionData.getCurrentGroupId() != -1)
+            {
+                foreach (var info in SessionData.getGroupEvents(SessionData.getCurrentGroupId()))
+                {
+                    collection.Add(new propertyChange_GroupEvent
+                    {
+                        EventId = info.id.ToString(),
+                        EventTime = SessionData.getDateTimeStringfromEpoch(info.time),
+                        RestaurantName = SessionData.getRestaurantName(info.restaurantId),
+                    }
+                    );
+                }
+            }
 
             return collection;
         }

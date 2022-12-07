@@ -22,14 +22,14 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="0.75*"></RowDefinition>
+                <RowDefinition Height="0.75*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox x:Name="RestaurantNameText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{x:Null}" Text="{Binding RestaurantName}"/>
-            <TextBox x:Name="RestaurantCriteria1Text" Grid.Row="1" Grid.Column="0" BorderBrush="{x:Null}" Text="{Binding Criteria1}"/>
-            <TextBox x:Name="RestaurantCriteria2Text" Grid.Row="2" Grid.Column="0" BorderBrush="{x:Null}" Text="{Binding Criteria2}"/>
+            <TextBlock x:Name="RestaurantNameText" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="28" Text="{Binding RestaurantName}"/>
+            <TextBlock x:Name="RestaurantCriteria1Text" Grid.Row="1" Grid.Column="0" FontSize="16" Text="{Binding Criteria1}"/>
+            <TextBlock x:Name="RestaurantCriteria2Text" Grid.Row="2" Grid.Column="0" FontSize="16" Text="{Binding Criteria2}"/>
 
             <Button x:Name="star" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="30" BorderBrush="{x:Null}" Click="star_Click">
                 <Button.Background>
@@ -37,7 +37,7 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="RestaurantShowMore" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="10" HorizontalAlignment="Right" Content="Show More" VerticalAlignment="Bottom" Height="30" Width="60" BorderBrush="{x:Null}" Click="ResShowMore_Click" />
+            <Button x:Name="RestaurantShowMore" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="10" HorizontalAlignment="Right" Content="Show More" VerticalAlignment="Bottom" Width="60" BorderBrush="{x:Null}" Click="ResShowMore_Click" />
             <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
         </Grid>
     </Border>

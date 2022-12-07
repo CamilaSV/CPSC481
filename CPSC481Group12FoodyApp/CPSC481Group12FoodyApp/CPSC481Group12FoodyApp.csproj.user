@@ -7,46 +7,49 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="1_Cards\User_Profile_DietaryCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="1_Cards\User_Profile_InviteFriendCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="8_NotSure\Group_Scheduler_TimeCard.xaml">
+    <Page Update="1_Cards\Group_Scheduler_TimeCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\User_Home_AddRestaurant.xaml">
+    <Page Update="3_UserPages\User_Home_AddRestaurant.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="8_NotSure\ExpandCategoryOld.xaml">
+    <Page Update="9_NotSure\ExpandCategoryOld.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="8_NotSure\ExpandRestaurantOld.xaml">
+    <Page Update="9_NotSure\ExpandRestaurantOld.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\User_Home_RestaurantInCategoryCard.xaml">
+    <Page Update="1_Cards\User_Home_RestaurantInCategoryCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\User_Home_CategoryCard.xaml">
+    <Page Update="1_Cards\User_Home_CategoryCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\UserEventListCard.xaml">
+    <Page Update="1_Cards\User_Scheduler_EventCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\Group_Info_Criteria.xaml">
+    <Page Update="4_GroupPages\Group_Info_Criteria.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\ChatEditRestaurantRemoveNew.xaml">
+    <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\GroupRestaurantListCard.xaml">
+    <Page Update="4_GroupPages\Group_Info_RestaurantsCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\GroupCriteriaListCard.xaml">
+    <Page Update="4_GroupPages\Group_Info_CriteriaCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\MemberEditListCard.xaml">
+    <Page Update="1_Cards\Group_Info_MemberEditCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\User_Profile_FriendListCard.xaml">
+    <Page Update="1_Cards\User_Profile_FriendListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="1_Cards\User_Profile_FriendRequestCard.xaml">

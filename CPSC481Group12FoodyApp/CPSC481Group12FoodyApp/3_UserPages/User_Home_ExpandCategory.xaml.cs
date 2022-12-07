@@ -21,10 +21,8 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ExpandCategory: Page, Interface_Component
     {
-        private int catId;
-        public ExpandCategory(int id)
+        public ExpandCategory()
         {
-            catId = id;
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
         }
@@ -36,17 +34,17 @@ namespace CPSC481Group12FoodyApp
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoUserAddRestaurant();
         }
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = GetObservableCollection.displayUserCategoryRestaurantList(catId);
+            ListControl.ItemsSource = GetObservableCollection.displayUserCategoryRestaurantList(SessionData.getCurrentCatId());
         }
 
         private void Category_Loaded(object sender, RoutedEventArgs e)
         {
-            Category.Text = SessionData.getUserCategoryName(SessionData.getCurrentUser(), catId);
+            Category.Text = SessionData.getUserCategoryName(SessionData.getCurrentUser(), SessionData.getCurrentCatId());
         }
     }
 }

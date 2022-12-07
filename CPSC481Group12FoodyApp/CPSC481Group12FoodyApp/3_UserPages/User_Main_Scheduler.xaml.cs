@@ -117,7 +117,7 @@ namespace CPSC481Group12FoodyApp
 
         private void YesDelButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_EditProfile.removeUserEvent(SessionData.getCurrentUser(), groupId_Remove, eventId_Remove);
+            Logic_Home.removeUserEvent(SessionData.getCurrentUser(), groupId_Remove, eventId_Remove);
             exitRemove();
         }
 
@@ -128,7 +128,7 @@ namespace CPSC481Group12FoodyApp
 
         private void YesSaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Logic_EditProfile.saveUserRestaurant(SessionData.getCurrentUser(), restaurantId_Save);
+            Logic_Home.saveUserRestaurant(SessionData.getCurrentUser(), 0, restaurantId_Save);
             exitSave();
         }
 

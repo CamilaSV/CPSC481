@@ -50,34 +50,37 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="1_Cards\User_Profile_DietaryCard.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="1_Cards\User_Profile_InviteFriendCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="8_NotSure\Group_Scheduler_TimeCard.xaml">
+    <Page Update="1_Cards\Group_Scheduler_TimeCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\User_Home_AddCategory.xaml">
+    <Page Update="3_UserPages\User_Home_AddCategory.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\UserEventListCard.xaml">
+    <Page Update="1_Cards\User_Scheduler_EventCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\Group_Info_Criteria.xaml">
+    <Page Update="4_GroupPages\Group_Info_Criteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\ChatEditRestaurantRemoveNew.xaml">
+    <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\GroupRestaurantListCard.xaml">
+    <Page Update="4_GroupPages\Group_Info_RestaurantsCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\GroupCriteriaListCard.xaml">
+    <Page Update="4_GroupPages\Group_Info_CriteriaCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\MemberEditListCard.xaml">
+    <Page Update="1_Cards\Group_Info_MemberEditCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\User_Profile_FriendListCard.xaml">
+    <Page Update="1_Cards\User_Profile_FriendListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="1_Cards\User_Profile_FriendRequestCard.xaml">
@@ -86,19 +89,22 @@
     <Page Update="4_GroupPages\Group_Main_ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_ToDo\Group_Info_Members.xaml">
+    <Page Update="4_GroupPages\Group_Info_Members.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\Group_Info_Main.xaml">
+    <Page Update="4_GroupPages\Group_Info_Main.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="8_NotSure\ChatScreenEventNotify.xaml">
+    <Page Update="3_UserPages\User_Home_AddRestaurant.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="9_NotSure\ChatScreenEventNotify.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="9_ToDo\ChatEditRestaurant.xaml">
+    <Page Update="5_ToDo\Group_Info_SavedRestaurants.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -171,10 +177,10 @@
     <Compile Update="3_UserPages\User_Group_CreateGroup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="7_Profile\User_Home_AddCategory.xaml.cs">
+    <Compile Update="3_UserPages\User_Home_AddCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="7_Profile\User_Main_Profile.xaml.cs">
+    <Compile Update="5_ToDo\User_Main_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_UserPages\User_Group_ChatList.xaml.cs">
@@ -195,7 +201,7 @@
     <Page Update="3_UserPages\User_Group_CreateGroup.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\User_Main_Profile.xaml">
+    <Page Update="5_ToDo\User_Main_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="3_UserPages\User_Group_ChatList.xaml">

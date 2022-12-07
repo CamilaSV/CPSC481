@@ -50,5 +50,15 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        private void YesDelButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NoDelButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

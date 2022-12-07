@@ -62,5 +62,13 @@
                 <Label x:Name="Restaurant2LabelUser" Content="Me" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
         </StackPanel>
+
+        <Rectangle x:Name="ConfirmRectangle" HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3" Visibility="Hidden" />
+        <Grid x:Name="ConfirmGrid" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1" Visibility="Hidden">
+            <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" Visibility="Hidden" />
+            <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" Visibility="Hidden" />
+            <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" Visibility="Hidden" />
+        </Grid>
+
     </Grid>
 </Page>

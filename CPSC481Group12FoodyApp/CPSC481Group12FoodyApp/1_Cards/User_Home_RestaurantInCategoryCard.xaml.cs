@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CPSC481Group12FoodyApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,8 @@ namespace CPSC481Group12FoodyApp
 
         private void ResShowMore_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigator.gotoExpandRestaurant(RestaurantIdText.Text);
+            SessionData.setCurrentResId(Int32.Parse(RestaurantIdText.Text));
+            PageNavigator.gotoExpandRestaurant();
         }
     }
 }

@@ -47,6 +47,7 @@ namespace CPSC481Group12FoodyApp
         // user home page & related navigation
         private static HomePage homePage;
         private static UserControl_AddCategory addCategoryPage;
+        private static AddUserRestaurant addUserRestaurantPage;
 
         private static ExpandCategory expandCategoryPage;
 
@@ -59,8 +60,6 @@ namespace CPSC481Group12FoodyApp
         private static UserControl_Profile profilePage;
 
         private static UserControl_AddFriends addFriendPage;
-
-        private static int currentCatId;
 
         public static void goBack()
         {
@@ -93,9 +92,10 @@ namespace CPSC481Group12FoodyApp
             {
                 gotoHomePage();
             }
-            else if (targetWindow.Content == expandRestaurantPage)
+            else if ((targetWindow.Content == addUserRestaurantPage) ||
+                (targetWindow.Content == expandRestaurantPage))
             {
-                gotoExpandCategory(currentCatId);
+                gotoExpandCategory();
             }
             else if (targetWindow.Content == addFriendPage)
             {
@@ -242,17 +242,16 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = addCategoryPage;
         }
 
-        public static void gotoExpandCategory(int id)
+        public static void gotoExpandCategory()
         {
-            currentCatId = id;
-            expandCategoryPage = new ExpandCategory(currentCatId);
+            expandCategoryPage = new ExpandCategory();
             ComponentFunctions.refreshAll();
             targetWindow.Content = expandCategoryPage;
         }
 
-        public static void gotoExpandRestaurant(int id)
+        public static void gotoExpandRestaurant()
         {
-            expandRestaurantPage = new ExpandRestaurant(id);
+            expandRestaurantPage = new ExpandRestaurant();
             ComponentFunctions.refreshAll();
             targetWindow.Content = expandRestaurantPage;
         }
@@ -288,6 +287,13 @@ namespace CPSC481Group12FoodyApp
             targetWindow.Content = addFriendPage;
         }
 
+        public static void gotoUserAddRestaurant()
+        {
+            addUserRestaurantPage = new AddUserRestaurant();
+            ComponentFunctions.refreshAll();
+            targetWindow.Content = addUserRestaurantPage;
+        }
+
         public static void gotoPersonalEventDeleteConfirm(string groupId, string eventId)
         {
             gotoPersonalEventDeleteConfirm(Int32.Parse(groupId), Int32.Parse(eventId));
@@ -297,16 +303,5 @@ namespace CPSC481Group12FoodyApp
         {
             gotoPersonalEventSaveConfirm(Int32.Parse(id));
         }
-
-        public static void gotoExpandCategory(string id)
-        {
-            gotoExpandCategory(Int32.Parse(id));
-        }
-
-        public static void gotoExpandRestaurant(string id)
-        {
-            gotoExpandRestaurant(Int32.Parse(id));
-        }
-
     }
 }

@@ -38,7 +38,7 @@
 
         <!-- Name and Search Bar -->
 
-        <TextBox x:Name="Category" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" BorderBrush="{x:Null}" Background="{x:Null}" Margin="10,0,0,0"/>
+        <TextBlock x:Name="Category" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" Background="{x:Null}" Margin="10,0,0,0" Loaded="Category_Loaded"/>
 
         <Button x:Name="Filter"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Height="50" Width="50" VerticalAlignment="Top" BorderBrush="{x:Null}" Click="Filter_Click" Margin="0,0,10,0">
             <Button.Background>
