@@ -494,10 +494,30 @@ namespace CPSC481Group12FoodyApp.Logic
             return collection;
         }
 
+        public static List<propertyChange_RestaurantUser> testGrpRestList()
+        {
+            int votes = 0;
+
+            List<propertyChange_RestaurantUser> collection = new List<propertyChange_RestaurantUser>();
+
+                collection.Add(new propertyChange_RestaurantUser
+                {
+                    RestaurantName = "Taco Bell",
+                    Criteria1 = "• Mexican",
+                    Criteria2 = "  . . .",
+                });
+
+            return collection;
+        }
+
         // To do
         public static List<propertyChange_Restaurant> displayGroupRestaurantList()
         {
             List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
+            collection.Add(new propertyChange_Restaurant
+            {
+                RestaurantName = "test"
+            });
 
             return collection;
         }

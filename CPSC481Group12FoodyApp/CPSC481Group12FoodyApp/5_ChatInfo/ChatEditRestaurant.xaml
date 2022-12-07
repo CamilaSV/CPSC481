@@ -34,6 +34,25 @@
 
         <!-- Content -->
 
+
+        <ItemsControl x:Name="GroupRestaurantControl"
+                      Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:GroupRestaurantListCard>
+                    </local:GroupRestaurantListCard>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--
+        <ScrollViewer x:Name="GroupRestaurantListScroll" VerticalScrollBarVisibility="Auto" Height="250"
+                       Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
+            
+        </ScrollViewer>
+        -->
+
+        <!--
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,10,0,0">
             <Label x:Name="RestaurantLabel" Content="Restaurants" FontSize="36" FontWeight="Bold"/>
             <Grid x:Name="Restaurant1StackPanel" HorizontalAlignment="Center" Width="400" Background="LightGray" Margin="0,20,0,0">
@@ -61,6 +80,6 @@
                 <Button x:Name="VoteButton2" Content="Vote" FontSize="32" Width="100" HorizontalAlignment="Right" Margin="0,91,5,5" Click="VoteButton2_Click"/>
                 <Label x:Name="Restaurant2LabelUser" Content="Me" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="26" Margin="5"/>
             </Grid>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>

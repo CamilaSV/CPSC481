@@ -1,6 +1,7 @@
 ﻿using CPSC481Group12FoodyApp.Logic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,21 +29,18 @@ namespace CPSC481Group12FoodyApp
 
         private void vote_Restaurant_Click(object sender, RoutedEventArgs e)
         {
-            if (voteButton.IsChecked == true) 
-            {
-                voteButton.Background = new SolidColorBrush(Colors.DarkGreen);
-                voteButton.Content = "Unvote";
-            }
-            else
-            {
-                voteButton.Background = new SolidColorBrush(Colors.Green);
-                voteButton.Content = "Voted";
-            }
+            
         }
 
-        private void Vote_Click(object sender, RoutedEventArgs e)
+        
+        private void removeRestaurantButton(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Debug.WriteLine("Card is clickable");
         }
     }
 }

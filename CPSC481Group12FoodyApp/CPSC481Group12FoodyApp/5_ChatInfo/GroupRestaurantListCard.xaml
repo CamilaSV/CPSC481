@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
              mc:Ignorable="d" 
              
-                          Background="#8D6A9F"
+             Background="#8D6A9F"
              BorderBrush="White" BorderThickness="2"
-             Height="140"
+             Height="180"
              
-             d:DesignHeight="155" d:DesignWidth="480">
+             d:DesignHeight="180" d:DesignWidth="412">
 
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="auto"/>
@@ -20,41 +20,63 @@
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="2" VerticalAlignment="Center" Padding="10">
+        <Border Grid.Column="2" VerticalAlignment="Center" Padding="5">
             <StackPanel>
-                <DockPanel>
-                    <TextBlock x:Name="RestaurantName"  Text="Taco Bell"   FontSize="35" FontWeight="Bold" Width="235" TextTrimming="CharacterEllipsis"/>
-                    <ToggleButton x:Name="voteButton" Click="vote_Restaurant_Click" Content="Vote" 
-                                  DockPanel.Dock="Right"  FontWeight="UltraBold" FontSize="35" Background="LimeGreen" Width="125">
-                        <!--
-                        Checked="vote_Restaurant_Checked" Unchecked="vote_Restaurant_Unchecked"
-                            <ToggleButton.Style>
-                                <Style TargetType="{x:Type ToggleButton}">
-                                    <Setter Property="Content" Value="Vote"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsChecked" Value="True">
-                                            <Setter Property="Content" Value="UnVote"/>
-                                            <Setter Property="Background" Value="Red"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ToggleButton.Style>
-                        -->
+                <DockPanel Margin="0,5,0,0">
+                    
+                    <!-- Restaurant Name -->
+                    <TextBlock UIElement.PreviewMouseDown="Grid_PreviewMouseDown" x:Name="RestaurantName"  Text="{Binding RestaurantName}"  FontSize="32" Width ="200" MaxWidth="200" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
+                    
+                    <!-- Vote Button -->
+                    <ToggleButton x:Name="voteButton" Click="vote_Restaurant_Click"
+                                  DockPanel.Dock="Right"  FontWeight="ExtraBold" FontSize="32" Width="120" Height="50"  >
+                        <ToggleButton.Style>
+                            <Style TargetType="{x:Type ToggleButton}">
+                                <Setter Property="Content" Value="Vote"/>
+                                <Setter Property="Background" Value="lime"/>
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter Property="Content" Value="Unvote"/>
+                                        <Setter Property="Background" Value="red"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ToggleButton.Style>
                     </ToggleButton>
-                        
 
-
-                <Button Click="Vote_Click" Margin="0,0,25,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="35" HorizontalAlignment="Right" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"  />
+                    <!-- Delete Button -->
+                    <Button Click="removeRestaurantButton" Margin="0,0,5,0" DockPanel.Dock="Right" Content="&#x1F5D1;" 
+                              FontWeight="UltraBold" FontSize="30" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </DockPanel>
-                <StackPanel>
-                    <DockPanel Margin="0,5,0,15">
-                        <TextBlock Text="Vegeterian Veegan"  DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" Width="144" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Votes: 4/5" DockPanel.Dock="Right" FontWeight="Black" FontSize="25" Foreground="LimeGreen" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="150"/>
+
+                <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
+                    <DockPanel Margin="0,5,0,5" >
+                        
+                        <!-- Category -->
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="{Binding Criteria1}" TextWrapping="Wrap" FontWeight="Semibold" FontSize="25"
+                                   TextTrimming="CharacterEllipsis" MaxWidth="230"/>
+
+                            <TextBlock DockPanel.Dock="Left" Text="{Binding Criteria2}" TextWrapping="Wrap" FontWeight="Semibold" FontSize="25"
+                                   TextTrimming="CharacterEllipsis" MaxWidth="230"/>
+                        </StackPanel>
+
+                        <TextBlock DockPanel.Dock="Right" Text="Votes: 2/5" FontSize="25" 
+                                   Foreground="lime" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="190" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Top"/>
                     </DockPanel>
-                    <DockPanel>
-                        <TextBlock  Foreground="#7FA9A9A9" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="222" FontStyle="Italic"><Run Language="en-ca" Text="Click to show more..."/></TextBlock>
-                    </DockPanel>
+                    <TextBlock Text="Click to show more..." Foreground="DarkGray" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="223" FontStyle="Italic" />
                 </StackPanel>
+                
             </StackPanel>
         </Border>
     </Grid>

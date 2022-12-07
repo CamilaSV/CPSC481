@@ -19,11 +19,12 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for ChatEditRestaurant.xaml
     /// </summary>
-    public partial class ChatEditRestaurant : Page
+    public partial class ChatEditRestaurant : Page, Interface_Component
     {
         public ChatEditRestaurant()
         {
             InitializeComponent();
+            ComponentFunctions.addComponentToList(this);
         }
 
         private void TopBar_Loaded(object sender, RoutedEventArgs e)
@@ -50,5 +51,15 @@ namespace CPSC481Group12FoodyApp
         {
 
         }
+
+        public void refreshComponent()
+        {
+            GroupRestaurantControl.ItemsSource = GetObservableCollection.testGrpRestList();
+
+        }
+
+
+
+
     }
 }
