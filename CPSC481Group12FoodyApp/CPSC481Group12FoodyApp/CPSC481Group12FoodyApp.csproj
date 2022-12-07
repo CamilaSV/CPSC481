@@ -50,66 +50,66 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
+    <Page Update="1_Cards\User_Profile_InviteFriendCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="6_ChatEvent\ChatScheduleListCard.xaml">
+    <Page Update="8_NotSure\Group_Scheduler_TimeCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\UserControl_AddCategory.xaml">
+    <Page Update="7_Profile\User_Home_AddCategory.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="7_Profile\UserEventListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditCriteria.xaml">
+    <Page Update="9_ToDo\Group_Info_Criteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditRestaurantRemoveNew.xaml">
+    <Page Update="9_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\GroupRestaurantListCard.xaml">
+    <Page Update="9_ToDo\GroupRestaurantListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\GroupCriteriaListCard.xaml">
+    <Page Update="9_ToDo\GroupCriteriaListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\MemberEditListCard.xaml">
+    <Page Update="9_ToDo\MemberEditListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\FriendListCardControl.xaml">
+    <Page Update="7_Profile\User_Profile_FriendListCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
+    <Page Update="1_Cards\User_Profile_FriendRequestCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Group_Send_Chat\ChatScreen.xaml">
+    <Page Update="4_GroupPages\Group_Main_ChatScreen.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditMembers.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="5_ChatInfo\ChatInfoScreen.xaml">
+    <Page Update="9_ToDo\Group_Info_Members.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatEvent\ChatScreenEventNotify.xaml">
+    <Page Update="9_ToDo\Group_Info_Main.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditRestaurant.xaml">
+    <Page Update="8_NotSure\ChatScreenEventNotify.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatEvent\CreateEventScreen.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
-    <Page Update="6_ChatEvent\SuggestRestaurant.xaml">
+    <Page Update="9_ToDo\ChatEditRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml">
+    <Page Update="4_GroupPages\Group_Info_CreateEvent.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="4_GroupPages\Group_Scheduler_SuggestRestaurant.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="3_UserPages\User_Prof_AddFriends.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="User_Controls\Template_WithTopBar.xaml">
@@ -156,31 +156,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="3_Create_Group_Send_Chat\ChatScreen.xaml.cs">
+    <Compile Update="4_GroupPages\Group_Main_ChatScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Group_Send_Chat\InvitationCardControl.xaml.cs">
+    <Compile Update="1_Cards\User_Group_InvitationCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml.cs">
+    <Compile Update="3_UserPages\User_Prof_AddFriends.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Group_Send_Chat\UserControl_Invitations.xaml.cs">
+    <Compile Update="3_UserPages\User_Group_CheckGroupInvite.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Group_Send_Chat\UserControl_CreateNewChat.xaml.cs">
+    <Compile Update="3_UserPages\User_Group_CreateGroup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="7_Profile\UserControl_AddCategory.xaml.cs">
+    <Compile Update="7_Profile\User_Home_AddCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="7_Profile\UserControl_Profile.xaml.cs">
+    <Compile Update="7_Profile\User_Main_Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="3_Create_Group_Send_Chat\UserControl_ChatList.xaml.cs">
+    <Compile Update="3_UserPages\User_Group_ChatList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="1_Start_Login_Register\UserControl_Register.xaml.cs">
+    <Compile Update="3_UserPages\User_Top_Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dictionaries\MainStylesDictionary.xaml.cs">
@@ -189,19 +189,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="3_Create_Group_Send_Chat\UserControl_Invitations.xaml">
+    <Page Update="3_UserPages\User_Group_CheckGroupInvite.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Group_Send_Chat\UserControl_CreateNewChat.xaml">
+    <Page Update="3_UserPages\User_Group_CreateGroup.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="7_Profile\UserControl_Profile.xaml">
+    <Page Update="7_Profile\User_Main_Profile.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="3_Create_Group_Send_Chat\UserControl_ChatList.xaml">
+    <Page Update="3_UserPages\User_Group_ChatList.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="1_Start_Login_Register\UserControl_Register.xaml">
+    <Page Update="3_UserPages\User_Top_Register.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

@@ -17,16 +17,15 @@ using System.Windows.Shapes;
 namespace CPSC481Group12FoodyApp
 {
     /// <summary>
-    /// Interaction logic for Template_WithBottom.xaml
+    /// Interaction logic for AddUserRestaurant.xaml
     /// </summary>
-    public partial class ExpandCategory: Page, Interface_Component
+    public partial class AddUserRestaurant : Page
     {
-        private int catId;
-        public ExpandCategory(int id)
+        private int resId;
+        public AddUserRestaurant(int id)
         {
-            catId = id;
+            resId = id;
             InitializeComponent();
-            ComponentFunctions.addComponentToList(this);
         }
 
         private void Filter_Click(object sender, RoutedEventArgs e)
@@ -37,11 +36,6 @@ namespace CPSC481Group12FoodyApp
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        public void refreshComponent()
-        {
-            ListControl.ItemsSource = GetObservableCollection.displayUserCategoryRestaurantList(catId);
         }
     }
 }

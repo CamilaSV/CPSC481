@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace CPSC481Group12FoodyApp.Logic
 {
     public class GroupInfo
@@ -11,6 +13,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public List<MsgInfo> msgList { get; set; }
         public List<EventInfo> eventList { get; set; }
         public List<long> suggestedTimes { get; set; }
+        public List<VoteInfo> voteInfo { get; set; }
 
         public GroupInfo()
         {
@@ -21,6 +24,7 @@ namespace CPSC481Group12FoodyApp.Logic
             msgList = new List<MsgInfo>();
             eventList = new List<EventInfo>();
             suggestedTimes = new List<long>();
+            voteInfo = new List<VoteInfo>();
         }
     }
 }

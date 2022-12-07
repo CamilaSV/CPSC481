@@ -2,63 +2,66 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="6_ChatEvent\ChatAddCustomTime.xaml.cs">
+    <Compile Update="4_GroupPages\Group_Scheduler_AddTime.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="3_Create_Group_Send_Chat\FriendListInviteCardControl.xaml">
+    <Page Update="1_Cards\User_Profile_InviteFriendCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatEvent\ChatScheduleListCard.xaml">
+    <Page Update="8_NotSure\Group_Scheduler_TimeCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\ExpandCategoryOld.xaml">
+    <Page Update="7_Profile\User_Home_AddRestaurant.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\ExpandRestaurantOld.xaml">
+    <Page Update="8_NotSure\ExpandCategoryOld.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\RestaurantInCatCardControl.xaml">
+    <Page Update="8_NotSure\ExpandRestaurantOld.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\CategoryCardControl.xaml">
+    <Page Update="7_Profile\User_Home_RestaurantInCategoryCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="7_Profile\User_Home_CategoryCard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="7_Profile\UserEventListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditCriteria.xaml">
+    <Page Update="9_ToDo\Group_Info_Criteria.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\ChatEditRestaurantRemoveNew.xaml">
+    <Page Update="9_ToDo\ChatEditRestaurantRemoveNew.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\GroupRestaurantListCard.xaml">
+    <Page Update="9_ToDo\GroupRestaurantListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\GroupCriteriaListCard.xaml">
+    <Page Update="9_ToDo\GroupCriteriaListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ChatInfo\MemberEditListCard.xaml">
+    <Page Update="9_ToDo\MemberEditListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="7_Profile\FriendListCardControl.xaml">
+    <Page Update="7_Profile\User_Profile_FriendListCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="2_Add_Remove_Friend\FriendRequestCardControl.xaml">
+    <Page Update="1_Cards\User_Profile_FriendRequestCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="3_Create_Group_Send_Chat\ChatScreen.xaml">
+    <Page Update="4_GroupPages\Group_Main_ChatScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="6_ChatEvent\ChatAddCustomTime.xaml">
+    <Page Update="4_GroupPages\Group_Scheduler_AddTime.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dictionaries\MainStylesDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="2_Add_Remove_Friend\UserControl_AddFriends.xaml">
+    <Page Update="3_UserPages\User_Prof_AddFriends.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
