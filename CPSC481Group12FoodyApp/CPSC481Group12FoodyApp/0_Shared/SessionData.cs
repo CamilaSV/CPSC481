@@ -407,6 +407,87 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
+        public static void addGroupVote(int groupId, int resId, int usersVoted)
+        {
+
+            if (getVoteInfoExist(groupId, resId) == -1)
+            {
+                VoteInfo voteInfo = new VoteInfo
+                {
+                    resId = resId,
+                };
+                allGroups[groupId].voteInfo.Add(voteInfo);
+                //addGroupMsg(groupId, "", emailTarget + " has joined the group.");
+            }
+
+        }
+
+
+
+        /*
+         * 
+         * public static void addGroupCriterion(int groupId, string email, int criterionId)
+        {
+            if (!allGroups[groupId].customCriteriaList.ContainsKey(email))
+            {
+                allGroups[groupId].customCriteriaList.Add(email, criterionId);
+            }
+        }
+
+         * 
+         * 
+         * public static void addUserCategory(string emailUser, int categoryId, string name)
+        {
+            if (getCategoryExist(emailUser, categoryId) == -1)
+            {
+                CategoryInfo info = new CategoryInfo
+                {
+                    id = categoryId,
+                    name = name,
+                    restaurantList = new Dictionary<int, string>(),
+                };
+
+                allUsers[emailUser].categoryList.Add(info);
+            }
+        }
+         * 
+         * public static void addUserFriend(string emailUser, string emailTarget)
+        {
+            if (!allUsers[emailUser].friendList.Contains(emailTarget))
+            {
+                allUsers[emailUser].friendList.Add(emailTarget);
+                addUserFriend(emailTarget, emailUser);
+                removeUserFriendReq(emailUser, emailTarget);
+            }
+        }
+
+          public static void addGroupMember(int groupId, string emailTarget)
+        {
+            if (!allGroups[groupId].memberList.Contains(emailTarget))
+            {
+                allGroups[groupId].memberList.Add(emailTarget);
+                addGroupMsg(groupId, "", emailTarget + " has joined the group.");
+            }
+        }
+
+        public static void addGroupMsg(int groupId, string msgSender, string msgContent)
+        {
+            int msgId = getFirstAvailableMsgId(groupId);
+            MsgInfo msg = new MsgInfo
+            {
+                id = msgId,
+                senderEmail = msgSender,
+                content = msgContent,
+                time = getEpochFromDateOrTime(DateTime.Now),
+            };
+
+            allGroups[groupId].msgList.Add(msg);
+            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
+        }
+
+         * 
+         */
+
         public static void removeGroupRestaurant(int groupId, int restaurantId)
         {
             if (allGroups[groupId].restaurantList.Contains(restaurantId))
@@ -684,6 +765,19 @@ namespace CPSC481Group12FoodyApp.Logic
             for (int i = 0; i < allGroups[groupId].msgList.Count; i++)
             {
                 if (allGroups[groupId].msgList[i].id == msgId)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private static int getVoteInfoExist(int groupId, int restId)
+        {
+            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
+            {
+                if (allGroups[groupId].voteInfo[i].resId == restId)
                 {
                     return i;
                 }
