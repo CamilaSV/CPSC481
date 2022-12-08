@@ -15,5 +15,7 @@ namespace CPSC481Group12FoodyApp
         public string RestaurantName { get; set; }
         public string RestaurantComment { get; set; }
         public string CriteriaListText { get; set; }
+
+        public bool ExpandCard { get; set; }
     }
 }

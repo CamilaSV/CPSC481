@@ -6,9 +6,8 @@
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
              mc:Ignorable="d"
              Background="#8D6A9F"
-             BorderBrush="White" BorderThickness="2"
              Height="180"
-             
+             BorderBrush="#EAEFD3" BorderThickness="0,0,0,15"
              d:DesignHeight="180" d:DesignWidth="412">
 
     
@@ -35,7 +34,7 @@
     </Border>
     -->
 
-    <Grid ShowGridLines="False" UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
+    <Grid ShowGridLines="False" Background="Transparent" UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="auto"/>
@@ -44,19 +43,21 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="2" VerticalAlignment="Center" Padding="5">
-            <StackPanel>
+            <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
                 <DockPanel Margin="0,5,0,0">
 
                     <!-- Restaurant Name -->
-                    <TextBlock UIElement.PreviewMouseDown="Grid_PreviewMouseDown" x:Name="RestaurantNameText"  Text="{Binding RestaurantName}"  FontSize="32" Width ="200" MaxWidth="200" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
-
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="70">
+                        <TextBlock UIElement.PreviewMouseDown="Grid_PreviewMouseDown" x:Name="RestaurantNameText" Text="{Binding RestaurantName}" FontSize="25" Width ="200" MaxWidth="200" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="ExtraBold"/>
+                    </ScrollViewer>
                     <!-- Vote Button -->
-                    <ToggleButton x:Name="voteButton" BorderBrush="{x:Null}"
-                                  Checked = "voteButton_Checked" Unchecked = "voteButton_Unchecked" 
-                                  DockPanel.Dock="Right"  FontWeight="ExtraBold" FontSize="32" Width="120" Height="50"  >
+                    <ToggleButton x:Name="voteButton" BorderBrush="{x:Null}" VerticalAlignment="Top"
+                                  DockPanel.Dock="Right"  FontWeight="ExtraBlack" FontSize="25" Width="113" Height="40"  >
                         <ToggleButton.Style>
                             <Style TargetType="{x:Type ToggleButton}">
                                 <!--
+                                  Checked = "voteButton_Checked" Unchecked = "voteButton_Unchecked" 
+                                
                                 <Setter Property="Content" Value="Vote"/>
                                 <Setter Property="Background" Value="lime"/>
                                 -->
@@ -85,11 +86,11 @@
                                                                         -->
 
                                     <Trigger Property="IsChecked" Value="True">
-                                        <Setter Property="Content" Value="Unvote"/>
+                                        <Setter Property="Content" Value="UNVOTE"/>
                                         <Setter Property="Background" Value="red"/>
                                     </Trigger>
                                     <Trigger Property="IsChecked" Value="False">
-                                        <Setter Property="Content" Value="Vote"/>
+                                        <Setter Property="Content" Value="VOTE"/>
                                         <Setter Property="Background" Value="lime"/>
                                     </Trigger>
 
@@ -100,33 +101,43 @@
                     </ToggleButton>
 
                     <!-- Delete Button -->
-                    <Button x:Name="trash" Click="Trash_Click" Margin="0,0,5,0" DockPanel.Dock="Right"   
-                              FontWeight="UltraBold" FontSize="30" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="trash" Click="Trash_Click" Margin="0,0,0,0" DockPanel.Dock="Right"   
+                              FontWeight="UltraBold" FontSize="25" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <Grid>
                             <Image Source="/Images/trash.png"/>
                         </Grid>
                     </Button>
                 </DockPanel>
 
-                <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
-                    <DockPanel Margin="0,5,0,5" >
-
+                <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown" Margin="0,0,0,0">
+                    <DockPanel Margin="0,0,0,0" >
                         <!-- Category -->
-                        <StackPanel>
-                            <TextBlock DockPanel.Dock="Left" Text="{Binding CriteriaListText}" TextWrapping="Wrap" FontWeight="Semibold" FontSize="25"
+                        <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
+                            <TextBlock x:Name="critList" UIElement.PreviewMouseDown="Grid_PreviewMouseDown" DockPanel.Dock="Left" Text="{Binding CriteriaListText}" TextWrapping="Wrap" FontWeight="Semibold" FontSize="22"
                                    TextTrimming="CharacterEllipsis" MaxWidth="230"/>
                         </StackPanel>
 
-                        <TextBlock DockPanel.Dock="Right" Text="Votes: 2/5" FontSize="25" 
+                        <StackPanel>
+                        <TextBlock DockPanel.Dock="Right" Text="Votes: 2/5" FontSize="25" MinHeight="25"
                                    Foreground="lime" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="190" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Top"/>
-                    </DockPanel>
-                    <TextBlock Text="Click to show more..." Foreground="DarkGray" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="223" FontStyle="Italic" />
-                </StackPanel>
 
+                            <TextBlock x:Name="showMoreTxt" Padding="0,15,0,0" UIElement.PreviewMouseDown="Grid_PreviewMouseDown" Foreground="DarkGray" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="223" FontStyle="Italic">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ExpandCard}" Value="true">
+                                                <Setter Property="Text" Value="Click to show more..."/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
             </StackPanel>
         </Border>
         <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
     </Grid>
-
-
 </UserControl>

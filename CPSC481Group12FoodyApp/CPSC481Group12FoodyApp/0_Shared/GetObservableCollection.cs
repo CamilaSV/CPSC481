@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
@@ -561,6 +562,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
             string criteriaListText;
+            bool expandCard;
 
             foreach (var info in SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId()))
             {
@@ -575,11 +577,17 @@ namespace CPSC481Group12FoodyApp.Logic
                     criteriaListText = criteriaListText.Substring(0, criteriaListText.Length - 1);
                 }
 
+                if (SessionData.getRestaurantCriteria(info).Count > 3) 
+                    expandCard = true;
+                else 
+                    expandCard = false;
+
                 collection.Add(new propertyChange_Restaurant
                 {
                     RestaurantId = info.ToString(),
                     RestaurantName = SessionData.getRestaurantName(info),
                     CriteriaListText = criteriaListText,
+                    ExpandCard = expandCard,
                 });
             }
 
