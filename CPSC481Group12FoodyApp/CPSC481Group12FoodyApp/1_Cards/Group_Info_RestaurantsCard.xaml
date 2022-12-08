@@ -4,8 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             Background="#8D6A9F"
+             BorderBrush="White" BorderThickness="2"
+             Height="180"
+             
+             d:DesignHeight="180" d:DesignWidth="412">
 
+    
+    <!--
     <Border VerticalAlignment="Center" Width="380" BorderThickness="1" BorderBrush="Black">
         <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
@@ -26,4 +33,100 @@
             <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
         </Grid>
     </Border>
+    -->
+
+    <Grid ShowGridLines="False" UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="2" VerticalAlignment="Center" Padding="5">
+            <StackPanel>
+                <DockPanel Margin="0,5,0,0">
+
+                    <!-- Restaurant Name -->
+                    <TextBlock UIElement.PreviewMouseDown="Grid_PreviewMouseDown" x:Name="RestaurantNameText"  Text="{Binding RestaurantName}"  FontSize="32" Width ="200" MaxWidth="200" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
+
+                    <!-- Vote Button -->
+                    <ToggleButton x:Name="voteButton" BorderBrush="{x:Null}"
+                                  Checked = "voteButton_Checked" Unchecked = "voteButton_Unchecked" 
+                                  DockPanel.Dock="Right"  FontWeight="ExtraBold" FontSize="32" Width="120" Height="50"  >
+                        <ToggleButton.Style>
+                            <Style TargetType="{x:Type ToggleButton}">
+                                <!--
+                                <Setter Property="Content" Value="Vote"/>
+                                <Setter Property="Background" Value="lime"/>
+                                -->
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+
+                                    <!--
+                                <DataTrigger Binding="{Binding IsUserVote, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                                    <Setter Property="Content" Value="Unvote"/>
+                                    <Setter Property="Background" Value="red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsUserVote, UpdateSourceTrigger=PropertyChanged}" Value="false">
+                                    <Setter Property="Content" Value="Vote"/>
+                                    <Setter Property="Background" Value="lime"/>
+                                </DataTrigger>
+                                    
+                                                                        -->
+
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter Property="Content" Value="Unvote"/>
+                                        <Setter Property="Background" Value="red"/>
+                                    </Trigger>
+                                    <Trigger Property="IsChecked" Value="False">
+                                        <Setter Property="Content" Value="Vote"/>
+                                        <Setter Property="Background" Value="lime"/>
+                                    </Trigger>
+
+
+                                </Style.Triggers>
+                            </Style>
+                        </ToggleButton.Style>
+                    </ToggleButton>
+
+                    <!-- Delete Button -->
+                    <Button x:Name="trash" Click="Trash_Click" Margin="0,0,5,0" DockPanel.Dock="Right"   
+                              FontWeight="UltraBold" FontSize="30" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid>
+                            <Image Source="/Images/trash.png"/>
+                        </Grid>
+                    </Button>
+                </DockPanel>
+
+                <StackPanel UIElement.PreviewMouseDown="Grid_PreviewMouseDown">
+                    <DockPanel Margin="0,5,0,5" >
+
+                        <!-- Category -->
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="{Binding CriteriaListText}" TextWrapping="Wrap" FontWeight="Semibold" FontSize="25"
+                                   TextTrimming="CharacterEllipsis" MaxWidth="230"/>
+                        </StackPanel>
+
+                        <TextBlock DockPanel.Dock="Right" Text="Votes: 2/5" FontSize="25" 
+                                   Foreground="lime" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="190" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Top"/>
+                    </DockPanel>
+                    <TextBlock Text="Click to show more..." Foreground="DarkGray" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="223" FontStyle="Italic" />
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <TextBlock x:Name="RestaurantIdText" Visibility="Hidden" Text="{Binding RestaurantId}"/>
+    </Grid>
+
+
 </UserControl>
