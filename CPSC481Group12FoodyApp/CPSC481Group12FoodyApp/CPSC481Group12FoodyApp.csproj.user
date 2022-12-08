@@ -31,9 +31,6 @@
     <Page Update="4_GroupPages\Group_Info_Criteria.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="1_Cards\Group_Info_RestaurantsCard.xaml">
       <SubType>Designer</SubType>
     </Page>

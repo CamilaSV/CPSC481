@@ -36,7 +36,7 @@
             <DockPanel Margin="109,0,0,0">
                 <StackPanel>
                     <TextBlock x:Name="UserNameText" DockPanel.Dock="Left" FontFamily="Segoe UI Bold" FontSize="24" Width="250" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,0,0,5" />
-                    <TextBox x:Name="UserBioText" Grid.RowSpan="2" AcceptsReturn="True" FontFamily="Segoe UI" FontSize="20" Width="250" Height="57" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
+                    <TextBox x:Name="UserBioText" Grid.RowSpan="2" AcceptsReturn="True" FontFamily="Segoe UI" FontSize="20" Width="250" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
                 </StackPanel>
             </DockPanel>
 

@@ -54,9 +54,9 @@
 
             <!-- Restaraunt Info -->
 
-            <TextBlock x:Name="RestaurantName" Grid.Column="1" HorizontalAlignment="Center" Background="{x:Null}" FontSize="40" Width="370" TextWrapping="Wrap" Margin="0,21,0,256" Grid.RowSpan="3"/>
+            <TextBlock x:Name="RestaurantName" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Background="{x:Null}" FontSize="40" Width="370" TextWrapping="Wrap" Loaded="RestaurantName_Loaded" FontWeight="Bold"/>
             <StackPanel Grid.Column="1" Grid.Row="2">
-                <TextBlock x:Name="CriteriaText" HorizontalAlignment="Left" Text="Criteria" Background="{x:Null}" FontSize="40" />
+                <TextBlock x:Name="CriteriaText" HorizontalAlignment="Left" Text="Criteria" Background="{x:Null}" FontSize="36" />
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ItemsControl x:Name="ListControl" Loaded="ListControl_Loaded" FontSize="20"/>
                 </ScrollViewer>
@@ -64,7 +64,7 @@
 
             <!-- Notes -->
             <StackPanel Grid.Column="1" Grid.Row="3">
-                <TextBlock HorizontalAlignment="Left" Text="Notes" Background="{x:Null}" FontSize="40" />
+                <TextBlock HorizontalAlignment="Left" Text="Notes" Background="{x:Null}" FontSize="36" />
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <TextBox x:Name="AllNotesText" TextWrapping="Wrap" AcceptsReturn="True" FontSize="20" Background="Transparent" IsReadOnly="True" Loaded="AllNotesText_Loaded" BorderBrush="Transparent" BorderThickness="0" Width="366"/>
                 </ScrollViewer>

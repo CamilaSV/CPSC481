@@ -68,9 +68,6 @@
     <Page Update="4_GroupPages\Group_Info_Criteria.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="5_ToDo\ChatEditRestaurantRemoveNew.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
     <Page Update="1_Cards\Group_Info_RestaurantsCard.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
@@ -104,7 +101,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="5_ToDo\Group_Info_SavedRestaurants.xaml">
+    <Page Update="4_GroupPages\Group_Info_SavedRestaurants.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

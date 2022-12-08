@@ -49,7 +49,7 @@ namespace CPSC481Group12FoodyApp
             string newBio = AllNotesText.Text;
             if (newBio.Length > 250)
             {
-                AllNotesText.Text = "Please limit your bio to 250 characters or less.";
+                AllNotesText.Text = "Please limit your notes to 250 characters or less.";
             }
             else
             {
@@ -86,6 +86,11 @@ namespace CPSC481Group12FoodyApp
         private void AllNotesText_Loaded(object sender, RoutedEventArgs e)
         {
             AllNotesText.Text = Logic_Home.getUserRestaurantNotes();
+        }
+
+        private void RestaurantName_Loaded(object sender, RoutedEventArgs e)
+        {
+            RestaurantName.Text = SessionData.getRestaurantName(SessionData.getCurrentResId());
         }
     }
 }
