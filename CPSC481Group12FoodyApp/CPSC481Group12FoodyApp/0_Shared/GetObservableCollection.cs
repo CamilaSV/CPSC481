@@ -570,7 +570,10 @@ namespace CPSC481Group12FoodyApp.Logic
                     criteriaListText += " • " + SessionData.getCriterionName(critInfo) + "\n";
                 }
 
-                criteriaListText = criteriaListText.Substring(0, criteriaListText.Length - 1);
+                if (!criteriaListText.Equals(string.Empty))
+                {
+                    criteriaListText = criteriaListText.Substring(0, criteriaListText.Length - 1);
+                }
 
                 collection.Add(new propertyChange_Restaurant
                 {

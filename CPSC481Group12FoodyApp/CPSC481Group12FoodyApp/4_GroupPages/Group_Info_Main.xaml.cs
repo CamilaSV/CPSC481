@@ -149,7 +149,10 @@ namespace CPSC481Group12FoodyApp
                 count++;
             }
 
-            RestaurantTextBlock.Text = textString.Substring(0, textString.Length - 1);
+            if (!textString.Equals(string.Empty))
+            {
+                RestaurantTextBlock.Text = textString.Substring(0, textString.Length - 1);
+            }
         }
     }
 }
