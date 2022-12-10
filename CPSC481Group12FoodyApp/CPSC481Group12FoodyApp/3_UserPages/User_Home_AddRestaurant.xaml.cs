@@ -38,7 +38,7 @@ namespace CPSC481Group12FoodyApp
             }
             else
             {
-                Logic_Home.saveUserRestaurant(SessionData.getCurrentUser(), SessionData.getCurrentCatId(), SessionData.getCurrentResId());
+                Logic_Home.saveUserRestaurant(SessionData.getCurrentUser(), SessionData.getCurrentCatId(), allRestaurants[RestaurantList.SelectedIndex]);
                 ErrorTextBlock.Foreground = Brushes.Blue;
                 ErrorTextBlock.Text = "Restaurant Saved!";
             }

@@ -30,31 +30,6 @@ namespace CPSC481Group12FoodyApp
             ComponentFunctions.addComponentToList(this);
         }
 
-        private void Bottom_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
-        private void Bottom_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoCalendar();
-        }
-
-        private void Bottom_HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoHomePage();
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
-        private void ProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoProfile();
-        }
-
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
             Logic_Group.createGroup(this);
@@ -68,14 +43,6 @@ namespace CPSC481Group12FoodyApp
         private void GroupNameText_GotFocus(object sender, RoutedEventArgs e)
         {
             GroupNameText.Text = string.Empty;
-        }
-
-        private void GroupNameText_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (GroupNameText.Text.Equals(string.Empty))
-            {
-                GroupNameText.Text = "Enter a group name";
-            }
         }
     }
 }

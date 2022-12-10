@@ -25,38 +25,59 @@ namespace CPSC481Group12FoodyApp.Logic
             }
             else
             {
+                SessionData.stopTimer();
+                SessionData.updateUserInfoFromDB();
+                SessionData.updateGroupInfoFromDB();
                 groupId = SessionData.getFirstAvailableGroupId();
                 SessionData.addUserNewGroup(SessionData.getCurrentUser(), groupId, groupName);
 
-//                SessionData.sendGroupInviteToTarget(createPage.InviteeTextBox.Text, groupId, SessionData.getCurrentUser());
-                sendInvites(groupId);
+                foreach (var eachEmail in SessionData.getTargetsToInviteToGroup())
+                {
+                    SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
+                }
+                SessionData.removeInviteTargetList();
+
+                SessionData.saveUserInfoToDB();
                 SessionData.saveGroupInfoToDB();
                 PageNavigator.gotoChatList();
+                SessionData.startTimer();
             }
         }
 
         public static void sendInvites(int groupId)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
             foreach (var eachEmail in SessionData.getTargetsToInviteToGroup())
             {
                 SessionData.sendGroupInviteToTarget(eachEmail, groupId, SessionData.getCurrentUser());
             }
             SessionData.removeInviteTargetList();
             SessionData.saveUserInfoToDB();
+            SessionData.startTimer();
         }
 
         public static void acceptGroupInvite(int groupId)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
             SessionData.addUserGroup(SessionData.getCurrentUser(), groupId);
-            addGroupMember(groupId, SessionData.getCurrentUser());
+            SessionData.addGroupMember(groupId, SessionData.getCurrentUser());
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void removeOneGroupInvite(string emailUser, int groupId, string emailSender)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
             SessionData.removeUserGroupInvite(emailUser, groupId, emailSender);
             SessionData.saveUserInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void addTargetToInviteList(string emailTarget)
@@ -71,93 +92,122 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
         }
 
-        public static void addGroupMember(int groupId, string emailTarget)
-        {
-            SessionData.addGroupMember(groupId, emailTarget);
-            SessionData.saveUserInfoToDB();
-            SessionData.saveGroupInfoToDB();
-            ComponentFunctions.refreshAll();
-        }
-
         public static void removeGroupMember(int groupId, string emailTarget)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupMember(groupId, emailTarget);
             SessionData.removeUserGroup(emailTarget, groupId);
             SessionData.saveUserInfoToDB();
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void promoteGroupMember(int groupId, string emailTarget)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.addGroupMemberToAdmin(groupId, emailTarget);
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void demoteGroupMember(int groupId, string emailTarget)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupMemberFromAdmin(groupId, emailTarget);
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void addGroupCriteria(int criterionId, string targetEmail)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.addGroupCriterion(SessionData.getCurrentGroupId(), targetEmail, criterionId);
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void removeGroupCriteria(string targetEmail)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupCriterion(SessionData.getCurrentGroupId(), targetEmail);
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void addGroupEventCustomTime(DateTime dateTime)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.addEventCustomTime(SessionData.getCurrentGroupId(), SessionData.getEpochFromDateOrTime(dateTime));
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void removeGroupEventCustomTime(DateTime dateTime)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeEventCustomTime(SessionData.getCurrentGroupId(), SessionData.getEpochFromDateOrTime(dateTime));
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void addGroupRestaurant(int restaurantId)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.addGroupRestaurant(SessionData.getCurrentGroupId(), restaurantId);
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void removeGroupRestaurant(int restaurantId)
         {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupRestaurant(SessionData.getCurrentGroupId(), restaurantId);
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void createGroupEvent(int restaurantId, long date, string comment)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
             int eventId = SessionData.getFirstAvailableEventId(SessionData.getCurrentGroupId());
             SessionData.addGroupEvent(SessionData.getCurrentGroupId(), eventId, date, restaurantId, comment);
             SessionData.saveUserInfoToDB();
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void removeGroupEvent(int eventId)
         {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupEvent(SessionData.getCurrentGroupId(), eventId);
             SessionData.saveUserInfoToDB();
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
+            SessionData.startTimer();
         }
 
         public static void createGroupEvent(int restaurantId, DateTime date, string comment)
@@ -173,11 +223,6 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void createGroupEvent(string restaurantId, DateTime date, string comment)
         {
             createGroupEvent(Int32.Parse(restaurantId), SessionData.getEpochFromDateOrTime(date), comment);
-        }
-
-        public static void addGroupMember(string groupId, string emailTarget)
-        {
-            addGroupMember(Int32.Parse(groupId), emailTarget);
         }
 
         public static void removeGroupMember(string groupId, string emailTarget)

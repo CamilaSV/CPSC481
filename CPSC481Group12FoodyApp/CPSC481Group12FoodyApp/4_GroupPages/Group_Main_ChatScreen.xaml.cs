@@ -36,13 +36,20 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
+            ListControl.ItemsSource = null;
             ListControl.ItemsSource = GetObservableCollection.displayChatModels();
-            ChatScroll.ScrollToBottom();
         }
 
         private void TopBar_Loaded(object sender, RoutedEventArgs e)
         {
             ComponentFunctions.setLabel(TopBar);
+        }
+
+        private void ListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListControl.ItemsSource = GetObservableCollection.displayChatModels();
+            ListControl.Items.Refresh();
+            ChatScroll.ScrollToBottom();
         }
     }
 }

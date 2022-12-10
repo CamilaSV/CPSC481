@@ -19,12 +19,14 @@ namespace CPSC481Group12FoodyApp
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class HomePage : Page, Interface_Component
+    public partial class HomePage : Page
     {
+        private bool leftLoaded = false;
+        private bool rightLoaded = false;
+
         public HomePage()
         {
             InitializeComponent();
-            ComponentFunctions.addComponentToList(this);
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
@@ -32,7 +34,23 @@ namespace CPSC481Group12FoodyApp
             PageNavigator.gotoAddCategory();
         }
 
-        public void refreshComponent()
+        private void LeftListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (rightLoaded)
+            {
+                updateLists();
+            }
+        }
+
+        private void RightListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (leftLoaded)
+            {
+                updateLists();
+            }
+        }
+
+        private void updateLists()
         {
             var allLists = GetObservableCollection.displayUserCategoryList();
 

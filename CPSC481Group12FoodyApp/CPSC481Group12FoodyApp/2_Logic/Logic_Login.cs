@@ -12,6 +12,8 @@ namespace CPSC481Group12FoodyApp.Logic
             string email = loginWindow.EmailTextBox.Text;
             string password = loginWindow.PasswordBox.Password;
 
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
             // Source: https://learn.microsoft.com/en-us/dotnet/api/system.net.mail.mailaddress.trycreate
             if (MailAddress.TryCreate(email, out _))
             {
@@ -33,6 +35,7 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 loginWindow.ErrorTextBlock.Text = "An invalid email address was given.";
             }
+            SessionData.startTimer();
         }
     }
 }

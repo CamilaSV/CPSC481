@@ -111,6 +111,8 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
+            UpcomingEventControl.ItemsSource = null;
+            CompleteEventControl.ItemsSource = null;
             UpcomingEventControl.ItemsSource = GetObservableCollection.displayUserUpcomingEventDate(selected_date);
             CompleteEventControl.ItemsSource = GetObservableCollection.displayUserCompletedEventDate(selected_date);
         }

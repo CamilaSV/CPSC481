@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -65,6 +67,10 @@ namespace CPSC481Group12FoodyApp
             UserBioText.Text = SessionData.getUserBio(SessionData.getCurrentUser());
             RequestControl.ItemsSource = GetObservableCollection.displayUsersFriendRequest();
             ListControl.ItemsSource = GetObservableCollection.displayUsersFriendList();
+        }
+
+        private void CriteriaControl_Loaded(object sender, RoutedEventArgs e)
+        {
             CriteriaControl.ItemsSource = GetObservableCollection.displayUserDietaryList();
         }
     }

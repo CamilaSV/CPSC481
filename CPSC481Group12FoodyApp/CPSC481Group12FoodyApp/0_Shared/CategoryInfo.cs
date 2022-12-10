@@ -13,5 +13,13 @@ namespace CPSC481Group12FoodyApp.Logic
         { 
             restaurantList = new Dictionary<int, string>(); // restaurantId is Key, Notes is Value
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            CategoryInfo other = obj as CategoryInfo;
+
+            return id == other.id;
+        }
     }
 }

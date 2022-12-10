@@ -71,6 +71,7 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
+            ListControl.ItemsSource = null;
             ListControl.ItemsSource = GetObservableCollection.displayGroupRestaurantList();
         }
 

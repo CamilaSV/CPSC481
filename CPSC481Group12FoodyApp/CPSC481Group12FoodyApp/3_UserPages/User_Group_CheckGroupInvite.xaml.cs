@@ -28,36 +28,6 @@ namespace CPSC481Group12FoodyApp
             ComponentFunctions.addComponentToList(this);
         }
 
-        private void List_HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoHomePage();
-        }
-
-        private void List_CalButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoCalendar();
-        }
-
-        private void List_ChatButton_Click(object sender, RoutedEventArgs e)
-        {
-            // do nothing, as you are already in this page
-        }
-
-        private void List_CreateGroup_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoCreateGroup();
-        }
-
-        private void List_Profile_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoProfile();
-        }
-
-        private void BackButton_MouseUp(object sender, RoutedEventArgs e)
-        {
-            PageNavigator.gotoChatList();
-        }
-
         public void refreshComponent()
         {
             ListControl.ItemsSource = GetObservableCollection.displayUsersGroupInviteList();

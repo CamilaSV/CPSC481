@@ -49,7 +49,7 @@
         <!-- Middle Content -->
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.ColumnSpan="3">
-            <ItemsControl x:Name="ListControl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
+            <ItemsControl x:Name="ListControl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Loaded="ListControl_Loaded">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:RestaurantCatCardControl>

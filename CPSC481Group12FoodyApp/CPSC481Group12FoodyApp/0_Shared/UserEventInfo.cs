@@ -9,5 +9,14 @@ namespace CPSC481Group12FoodyApp.Logic
     {
         public int groupId;
         public int eventId;
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            UserEventInfo other = obj as UserEventInfo;
+
+            return (groupId == other.groupId) &&
+                (eventId == other.eventId);
+        }
     }
 }

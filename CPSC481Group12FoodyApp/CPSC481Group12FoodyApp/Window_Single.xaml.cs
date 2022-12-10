@@ -28,6 +28,13 @@ namespace CPSC481Group12FoodyApp
             DBFunctions.createNecessaryFiles();
             SessionData.initializeStartup();
             PageNavigator.initializeProgram(this);
+
+            SessionData.startTimer();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SessionData.stopTimer();
         }
     }
 }

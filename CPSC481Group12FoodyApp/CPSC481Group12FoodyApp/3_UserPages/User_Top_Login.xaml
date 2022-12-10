@@ -40,6 +40,6 @@
         <TextBox Grid.ColumnSpan="3" Grid.Row="2" x:Name="EmailTextBox" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="290" RenderTransformOrigin="-0.464,0.165" FontFamily="Times New Roman" FontSize="24" Margin="149,0,0,0"/>
         <TextBlock Grid.Row="4" x:Name="LoginText" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="93" FontFamily="Times New Roman" FontSize="16" Foreground="#FF000064" TextDecorations="Underline" PreviewMouseLeftButtonUp="RegisterText_MouseUp" Grid.Column="1" Margin="155,102,0,0" Grid.ColumnSpan="2"><Run Text="Sign Up here"/></TextBlock>
         <TextBlock Grid.ColumnSpan="2" Grid.Row="4" Height="23" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="16" Margin="143,102,5,0"><Run Language="ko-kr" Text="Doesn't have an account?"/></TextBlock>
-        <TextBlock Grid.Row="4" x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" VerticalAlignment="Top" Width="460" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.Column="1" Margin="0,188,0,0"/>
+        <TextBlock Grid.Row="4" x:Name="ErrorTextBlock" HorizontalAlignment="Center" Height="58" VerticalAlignment="Top" Width="460" FontFamily="Times New Roman" FontSize="20" Foreground="#FF640000" Text="" TextAlignment="Center" Grid.ColumnSpan="3" Margin="0,188,0,0"/>
     </Grid>
 </Page>

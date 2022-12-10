@@ -44,7 +44,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 
-                <ItemsControl x:Name="LeftListControl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
+                <ItemsControl x:Name="LeftListControl" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Loaded="LeftListControl_Loaded">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <local:CategoryCardControl>
@@ -53,7 +53,7 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
-                <ItemsControl x:Name="RightListControl" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
+                <ItemsControl x:Name="RightListControl" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Loaded="RightListControl_Loaded">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <local:CategoryCardControl>

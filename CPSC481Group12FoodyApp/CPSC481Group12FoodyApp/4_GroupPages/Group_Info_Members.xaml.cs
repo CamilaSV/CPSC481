@@ -74,6 +74,8 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
+            MemberListControl.ItemsSource = null;
+            InviteListControl.ItemsSource = null;
             MemberListControl.ItemsSource = GetObservableCollection.displayGroupMemberList(); ;
             InviteListControl.ItemsSource = GetObservableCollection.displayUsersFriendInviteMoreList();
         }

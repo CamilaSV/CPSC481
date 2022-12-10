@@ -31,7 +31,14 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = GetObservableCollection.displayUsersChatList();
+            if (GetObservableCollection.displayUsersGroupInviteList().Count > 0)
+            {
+                List_Invitation.Background = Brushes.LightPink;
+            }
+            else
+            {
+                List_Invitation.Background = Brushes.LightSkyBlue;
+            }
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
@@ -42,6 +49,11 @@ namespace CPSC481Group12FoodyApp
         private void List_Invitation_Click(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoInvitation();
+        }
+
+        private void ListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListControl.ItemsSource = GetObservableCollection.displayUsersChatList();
         }
     }
 }

@@ -7,5 +7,13 @@ namespace CPSC481Group12FoodyApp.Logic
         public string senderEmail { get; set; }
         public string content { get; set; }
         public long time { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            MsgInfo other = obj as MsgInfo;
+
+            return id == other.id;
+        }
     }
 }

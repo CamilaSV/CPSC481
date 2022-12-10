@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows.Interop;
+using System.Windows.Threading;
 using System.Xml.Linq;
 
 namespace CPSC481Group12FoodyApp.Logic
@@ -29,6 +31,19 @@ namespace CPSC481Group12FoodyApp.Logic
 
         private static int currentCatId;
         private static int currentResId;
+
+        private static DispatcherTimer timer;
+
+        public static void stopTimer()
+        {
+            timer.Stop();
+            while (timer.IsEnabled) ;
+        }
+
+        public static void startTimer()
+        {
+            timer.Start();
+        }
 
         public static void setCurrentCatId(int catId)
         {
@@ -58,12 +73,17 @@ namespace CPSC481Group12FoodyApp.Logic
             allPresetCriteria = DBFunctions.getAllCriteriaInfo();
 
             suggestedEventTimes = new List<long>();
+            timer = new DispatcherTimer();
+            timer.Tick += timeSpent;
+            timer.Interval = new TimeSpan(0, 0, 0, 3);
+            timer.Start();
         }
 
-        public static void updateSessionData()
+        private static void timeSpent(Object source, EventArgs e)
         {
-            allUsers = DBFunctions.getAllUserInfo();
-            allGroups = DBFunctions.getAllGroupInfo();
+            updateUserInfoFromDB();
+            updateGroupInfoFromDB();
+            ComponentFunctions.refreshAll();
         }
 
         public static void loginUser(string emailUser)
@@ -100,7 +120,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 categoryList = new List<CategoryInfo>(),
                 eventList = new List<UserEventInfo>(),
                 invitationList = new List<InvitationInfo>(),
-                usersVoted = new List<VoteInfo>(),
+//                usersVoted = new List<VoteInfo>(),
             };
 
             allUsers[emailUser] = info;
@@ -1191,6 +1211,16 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void removeEventSuggestTime(string eventTime)
         {
             removeEventSuggestTime(long.Parse(eventTime));
+        }
+
+        public static void updateUserInfoFromDB()
+        {
+            allUsers = allUsers.Concat(DBFunctions.getAllUserInfo()).GroupBy(keyval => keyval.Key).ToDictionary(keyval => keyval.Key, keyval => keyval.Last().Value);
+        }
+
+        public static void updateGroupInfoFromDB()
+        {
+            allGroups = allGroups.Concat(DBFunctions.getAllGroupInfo()).GroupBy(keyval => keyval.Key).ToDictionary(keyval => keyval.Key, keyval => keyval.Last().Value);
         }
 
         public static void saveUserInfoToDB()

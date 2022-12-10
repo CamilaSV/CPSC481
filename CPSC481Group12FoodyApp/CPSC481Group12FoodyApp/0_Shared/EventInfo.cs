@@ -13,5 +13,13 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             attendees = new List<string>();
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            EventInfo other = obj as EventInfo;
+
+            return id == other.id;
+        }
     }
 }
