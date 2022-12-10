@@ -186,6 +186,9 @@
     <Compile Update="3_UserPages\User_Top_Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="1_Cards\ChatMsgsShow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dictionaries\MainStylesDictionary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

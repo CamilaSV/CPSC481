@@ -1,5 +1,73 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    x:Class="CPSC481Group12FoodyApp.ChatMsgsShow"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="EvResText" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Background" Value="LightGray" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Text" Value="{Binding ResName}" />
+    </Style>
+
+    <Style x:Key="EvResText" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Background" Value="LightGray" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Text" Value="{Binding EvTime}" />
+    </Style>
+
+    <Style x:Key="EvResText" TargetType="TextBlock">
+        <Setter Property="x:Name" Value="EvResTextBlock" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Background" Value="LightGray" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Text" Value="{Binding EvId}" />
+        <Setter Property="Visibility" Value="Hidden" />
+    </Style>
+
+    <!-- Buttons -->
+    <Style x:Key="Yes" TargetType="Button" >
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Button Click="YesButton_Click" Content="Yes" BorderThickness="1" Background="{x:Null}" FontSize="28" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="No" TargetType="Button" >
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Button Click="NoButton_Click" Content="No" BorderThickness="1" Background="{x:Null}" FontSize="28" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="messageId" TargetType="TextBlock" >
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Visibility" Value="Hidden"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBlock">
+                    <TextBlock x:Name="ChatIdTextBlock" Text="{Binding IsUser_chatId}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style TargetType="ListViewItem" x:Key="ChatMsgsShow">
         <Setter Property="Template">
@@ -31,7 +99,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
-                                            <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                            <TextBlock Style="{StaticResource messageId}"/>
                                         </StackPanel>
                                     </Grid>
                                     <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black" MaxWidth="330"/>
@@ -75,7 +143,7 @@
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
-                                            <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                            <TextBlock Style="{StaticResource messageId}"/>
                                             <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
                                         </StackPanel>
                                         <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black" MaxWidth="330"/>
@@ -115,10 +183,52 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
                                         <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
-                                        <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                        <TextBlock Style="{StaticResource messageId}"/>
                                     </StackPanel>
                                 </Grid>
                                 <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray" MaxWidth="330"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+
+            <!-- Created Event Msg Model-->
+            <ControlTemplate x:Key="EventMsgModel">
+                <Border BorderThickness="0,5,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Border Padding="4">
+                                <Grid>
+                                    <Ellipse Fill="Transparent" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                                    <TextBlock FontSize="25" Foreground="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <Border Grid.Column="2" Padding="5,0,0,0" VerticalAlignment="Center" >
+                            <StackPanel VerticalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Attend Event:" FontSize="28" TextAlignment="Center" />
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding ResName}" FontSize="28" TextAlignment="Center" />
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding EvTime}" FontSize="28" TextAlignment="Center" />
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding EvId}" FontSize="28" TextAlignment="Center" Visibility="Hidden" />
+                                        <DockPanel>
+                                            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Style="{StaticResource Yes}" />
+                                            <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Style="{StaticResource No}" />
+                                        </DockPanel>
+                                    </StackPanel>
+                                </Grid>
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -133,8 +243,10 @@
             <DataTrigger Binding="{Binding IsUserJoined}" Value="true">
                 <Setter Property="Template" Value="{StaticResource UserJoinedMsgModel}"/>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IsEventNotification}" Value="true">
+                <Setter Property="Template" Value="{StaticResource EventMsgModel}"/>
+            </DataTrigger>
         </Style.Triggers>
-
     </Style>
     
 </ResourceDictionary>

@@ -20,6 +20,16 @@ namespace CPSC481Group12FoodyApp.Logic
             ComponentFunctions.refreshAll();
             SessionData.startTimer();
         }
+        
+        public static void removeMsg(int groupId, int msgId)
+        {
+            SessionData.stopTimer();
+            SessionData.updateGroupInfoFromDB();
+            SessionData.removeGroupMsg(groupId, msgId);
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+            SessionData.startTimer();
+        }
 
         public static void sendMsg(string emailSender, string groupId, string chatMsg)
         {

@@ -361,6 +361,30 @@ namespace CPSC481Group12FoodyApp.Logic
             allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
         }
 
+        public static void addGroupMsg(int groupId, int eventId, long evTime, int resId, string comment)
+        {
+            int msgId = getFirstAvailableMsgId(groupId);
+            MsgInfo msg = new MsgInfo
+            {
+                id = msgId,
+                senderEmail = "event",
+                evTime = evTime,
+                resName = getRestaurantName(resId),
+            };
+
+            allGroups[groupId].msgList.Add(msg);
+            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
+        }
+
+        public static void removeGroupMsg(int groupId, int msgId)
+        {
+            MsgInfo info = new MsgInfo { id = msgId };
+            if (allGroups[groupId].msgList.Contains(info))
+            {
+                allGroups[groupId].msgList.Remove(info);
+            }
+        }
+
         public static void addGroupMemberToAdmin(int groupId, string emailTarget)
         {
             if (!allGroups[groupId].adminList.Contains(emailTarget))
@@ -575,6 +599,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     allGroups[groupId].eventList.Add(info);
                     allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
+                    addGroupMsg(groupId, eventId, time, resId, comment);
                 }
             }
         }

@@ -311,31 +311,43 @@ namespace CPSC481Group12FoodyApp.Logic
             if (SessionData.getCurrentGroupId() != -1)
             {
                 string email;
-                string abbreviation;
-                string name;
-                bool isSender;
+                string abbreviation = "";
+                string name = "";
                 bool isUserJoined;
+                bool isEventNotification;
+                string resName = "";
+                long evTime = 0;
+                int msgId;
+
                 foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
                 {
                     email = msgInfo.senderEmail;
+                    msgId = msgInfo.id;
                     if (String.IsNullOrEmpty(email))
                     {
-                        name = "";
-                        abbreviation = "";
                         isUserJoined = true;
-                        
+                        isEventNotification = false;
+                    }
+                    else if (email.ToLower().Equals("event".ToLower()))
+                    {
+                        resName = msgInfo.resName;
+                        evTime = msgInfo.evTime;
+                        isUserJoined = false;
+                        isEventNotification = true;
                     }
                     else
                     {
                         name = SessionData.getUserDisplayName(email);
                         abbreviation = name.Substring(0, 1).ToUpper();
                         isUserJoined = false;
+                        isEventNotification = false;
                     }
 
                     if (email.Equals(SessionData.getCurrentUser()))
                     {
                         collection.Add(new propertyChange_ChatScreen
                         {
+                            IsUser_chatId = msgId.ToString(),
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
                             IsUser_chatSenderName = name,
@@ -349,14 +361,18 @@ namespace CPSC481Group12FoodyApp.Logic
                     {
                         collection.Add(new propertyChange_ChatScreen
                         {
+                            IsUser_chatId = msgId.ToString(),
                             IsUser_abbreviation = abbreviation,
                             IsUser_chatSenderEmail = email,
                             IsUser_chatSenderName = name,
                             IsUser_chatMsg = msgInfo.content,
                             IsUser_chatTime = msgInfo.time.ToString(),
+                            ResName = resName,
+                            EvTime = SessionData.getDateOrTimefromEpoch(evTime).ToString("MMMM dd, yyyy @ hh:mm tt"),
 
                             IsSender = false,
                             IsUserJoined = isUserJoined,
+                            IsEventNotification= isEventNotification,
                         });
                        
                         
