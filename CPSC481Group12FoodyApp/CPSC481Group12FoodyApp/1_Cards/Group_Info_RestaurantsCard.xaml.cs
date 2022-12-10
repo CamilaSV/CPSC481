@@ -55,12 +55,28 @@ namespace CPSC481Group12FoodyApp
             PageNavigator.gotoGroupResturantDeleteConfirm(RestaurantIdText.Text);
         }
 
+        
+
+
+        
         private void voteButton_Click(object sender, RoutedEventArgs e)
 
         {
+            if (Logic_Group.getUserHasVoted(Int32.Parse(RestaurantIdText.Text)))
+            {
+                Logic_Group.removeUserVote(Int32.Parse(RestaurantIdText.Text));
 
-            Logic_Group.addUserVote(Int32.Parse(RestaurantIdText.Text));
+            }
+            else
+            {
+                Logic_Group.addUserVote(Int32.Parse(RestaurantIdText.Text));
+
+            }
 
         }
+
+
+
+
     }
 }
