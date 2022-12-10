@@ -39,6 +39,8 @@ namespace CPSC481Group12FoodyApp
             {
                 List_Invitation.Background = Brushes.LightSkyBlue;
             }
+
+            ListControl.ItemsSource = GetObservableCollection.displayUsersChatList();
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)

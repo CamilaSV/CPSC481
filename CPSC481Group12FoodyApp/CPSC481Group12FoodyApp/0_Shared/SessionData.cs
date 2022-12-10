@@ -120,7 +120,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 categoryList = new List<CategoryInfo>(),
                 eventList = new List<UserEventInfo>(),
                 invitationList = new List<InvitationInfo>(),
-//                usersVoted = new List<VoteInfo>(),
             };
 
             allUsers[emailUser] = info;
