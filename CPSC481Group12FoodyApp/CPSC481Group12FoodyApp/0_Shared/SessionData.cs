@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -100,7 +101,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 categoryList = new List<CategoryInfo>(),
                 eventList = new List<UserEventInfo>(),
                 invitationList = new List<InvitationInfo>(),
-                usersVoted = new List<VoteInfo>(),
             };
 
             allUsers[emailUser] = info;
@@ -425,15 +425,117 @@ namespace CPSC481Group12FoodyApp.Logic
 
         }
 
+        public static void addGroupVote(int groupId, string resId, string emailUser)
+        {
+            addGroupVote(groupId, Int32.Parse(resId));
+        }
+
+        private static int getVoteInfoExist(int groupId, int restId)
+        {
+            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
+            {
+                if (allGroups[groupId].voteInfo[i].resId == restId)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
+        private static Tuple<int, Boolean> getVoteInfoUserHasVote(int groupId, int resId, string emailUser)
+        {
+            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
+            {
+                //if (allGroups[groupId].voteInfo[i].resId == resId)
+                
+                if (allGroups[groupId].restaurantList.Contains(resId))
+                {
+                    if (allGroups[groupId].voteInfo[i].usersVoted.Contains(emailUser))
+                    {
+                        return new Tuple<int, Boolean>(i, true);
+                    }
+                    else
+                    {
+                        return new Tuple<int, Boolean>(i, false);
+                    }
+                }
+            }
+
+            return new Tuple<int, Boolean>(-1, false);
+        }
+
+        public static int getVoteCountRestaurant(int groupId, int resId)
+        {
+            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
+            {
+                if (allGroups[groupId].voteInfo[i].resId == resId)
+                {
+                    return allGroups[groupId].voteInfo[i].usersVoted.Count;
+                }
+            }
+            return 0;
+        }
+
+        public static int getNumberOfGroupMembers(int groupId, int resId)
+        {
+            return allGroups[groupId].memberList.Count;
+        }
+
         public static void addUserVote(int groupId, int resId, string emailUser)
         {
-            Tuple<int, Boolean> index = getUserCategoryHasRes(emailUser, groupId, resId);
+            Tuple<int, Boolean> index = getVoteInfoUserHasVote(groupId, resId, emailUser);
+            if ((index.Item1 != -1) && (index.Item2 == false))
+            {
+                allGroups[groupId].voteInfo[index.Item1].usersVoted.Add(emailUser);
+            }
+        }
+
+        public static void removeUserVote(int groupId, int resId, string emailUser)
+        {
+            Tuple<int, Boolean> index = getVoteInfoUserHasVote(groupId, resId, emailUser);
+            if ((index.Item1 != -1) && (index.Item2 == false))
+            {
+                allGroups[groupId].voteInfo[index.Item1].usersVoted.Remove(emailUser);
+            }
+        }
+
+
+        /*
+        private static int getCategoryExist(string email, int catId)
+        {
+            for (int i = 0; i < allUsers[email].categoryList.Count; i++)
+            {
+                if (allUsers[email].categoryList[i].id == catId)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }*/
+
+
+
+        //public static void addGroupVote(int groupId, string resId, string emailUser)
+        //{
+        //    addGroupVote(emailUser, Int32.Parse(resId), emailUser);
+        //}
+
+
+
+
+        /*
+         * public static void addUserRestaurant(string emailUser, int catId, int resId)
+        {
+            Tuple<int, Boolean> index = getUserCategoryHasRes(emailUser, catId, resId);
             if ((index.Item1 != -1) && (index.Item2 == false))
             {
                 allUsers[emailUser].categoryList[index.Item1].restaurantList.Add(resId, "");
             }
         }
-        /*
+         * 
+         * 
         public static void removeUserVote(string emailUser, int resId, int resId)
         {
             Tuple<int, Boolean> index = getUserCategoryHasRes(emailUser, catId, resId);
@@ -443,13 +545,15 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }*/
 
-        private static Tuple<int, Boolean> getVoteInfoUserHasVote(string email, int groupId, int resId, string emailUser)
+
+        /*
+        private static Tuple<int, Boolean> getUserCategoryHasRes(string email, int catId, int resId)
         {
-            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
+            for (int i = 0; i < allUsers[email].categoryList.Count; i++)
             {
-                if (allGroups[groupId].voteInfo[i].resId == resId)
+                if (allUsers[email].categoryList[i].id == catId)
                 {
-                    if (allGroups[groupId].voteInfo[i].usersVoted.Contains(emailUser))
+                    if (allUsers[email].categoryList[i].restaurantList.ContainsKey(resId))
                     {
                         return new Tuple<int, Boolean>(i, true);
                     }
@@ -817,18 +921,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return -1;
         }
 
-        private static int getVoteInfoExist(int groupId, int restId)
-        {
-            for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
-            {
-                if (allGroups[groupId].voteInfo[i].resId == restId)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
+        
 
         private static int getGroupEventExist(int groupId, int eventId)
         {
