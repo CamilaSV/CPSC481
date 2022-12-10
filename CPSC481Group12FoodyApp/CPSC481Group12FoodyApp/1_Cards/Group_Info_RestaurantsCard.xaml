@@ -52,7 +52,7 @@
                     </ScrollViewer>
                     <!-- Vote Button -->
                     <ToggleButton x:Name="voteButton" BorderBrush="{x:Null}" VerticalAlignment="Top"
-                                  DockPanel.Dock="Right"  FontWeight="ExtraBlack" FontSize="25" Width="113" Height="40"  >
+                                  DockPanel.Dock="Right"  FontWeight="ExtraBlack" FontSize="25" Width="113" Height="40" Click="voteButton_Click"  >
                         <ToggleButton.Style>
                             <Style TargetType="{x:Type ToggleButton}">
                                 <!--
@@ -118,7 +118,7 @@
                         </StackPanel>
 
                         <StackPanel>
-                        <TextBlock DockPanel.Dock="Right" Text="Votes: 2/5" FontSize="25" MinHeight="25"
+                        <TextBlock DockPanel.Dock="Right" Text="{Binding DisplayVote}" FontSize="25" MinHeight="25"
                                    Foreground="lime" TextTrimming="CharacterEllipsis" HorizontalAlignment="Right" MaxWidth="190" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Top"/>
 
                             <TextBlock x:Name="showMoreTxt" Padding="0,15,0,0" UIElement.PreviewMouseDown="Grid_PreviewMouseDown" Foreground="DarkGray" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="Regular" FontSize="25" TextTrimming="CharacterEllipsis" Width="223" FontStyle="Italic">

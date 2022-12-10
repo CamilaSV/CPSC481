@@ -579,6 +579,7 @@ namespace CPSC481Group12FoodyApp.Logic
             List<propertyChange_Restaurant> collection = new List<propertyChange_Restaurant>();
             string criteriaListText;
             bool expandCard;
+            string displayVotes;
 
             foreach (var info in SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId()))
             {
@@ -598,12 +599,18 @@ namespace CPSC481Group12FoodyApp.Logic
                 else 
                     expandCard = false;
 
+
+                displayVotes = "Votes: " + SessionData.getVoteCountRestaurant(SessionData.getCurrentGroupId(), info).ToString() +"/"+ SessionData.getNumberOfGroupMembers(SessionData.getCurrentGroupId(), info).ToString();
+
                 collection.Add(new propertyChange_Restaurant
                 {
                     RestaurantId = info.ToString(),
                     RestaurantName = SessionData.getRestaurantName(info),
                     CriteriaListText = criteriaListText,
                     ExpandCard = expandCard,
+
+                    DisplayVote = displayVotes
+
                 });
             }
 

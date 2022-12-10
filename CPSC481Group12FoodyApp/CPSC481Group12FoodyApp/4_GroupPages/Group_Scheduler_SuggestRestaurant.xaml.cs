@@ -44,6 +44,7 @@ namespace CPSC481Group12FoodyApp
             else
             {
                 Logic_Group.addGroupRestaurant(allRestaurants[RestaurantList.SelectedIndex]);
+                Logic_Group.addGroupVote(allRestaurants[RestaurantList.SelectedIndex]);
                 ErrorTextBlock.Foreground = Brushes.Blue;
                 ErrorTextBlock.Text = "Restaurant suggested!";
             }
