@@ -549,10 +549,21 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void removeUserVote(int groupId, int resId, string emailUser)
         {
             Tuple<int, Boolean> index = getVoteInfoUserHasVote(groupId, resId, emailUser);
-            if ((index.Item1 != -1) && (index.Item2 == false))
+            if ((index.Item1 != -1) && (index.Item2 == true))
             {
                 allGroups[groupId].voteInfo[index.Item1].usersVoted.Remove(emailUser);
             }
+        }
+
+        public static bool getHasUserVoted(int groupId, int resId, string emailUser)
+        {
+            Tuple<int, Boolean> index = getVoteInfoUserHasVote(groupId, resId, emailUser);
+            if ((index.Item1 != -1) && (index.Item2 == true))
+            {
+                return true;
+
+            }
+            return false;
         }
 
 

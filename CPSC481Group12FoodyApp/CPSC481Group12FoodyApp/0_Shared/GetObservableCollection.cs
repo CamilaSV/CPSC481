@@ -595,6 +595,7 @@ namespace CPSC481Group12FoodyApp.Logic
             string criteriaListText;
             bool expandCard;
             string displayVotes;
+            bool userVoted;
 
             foreach (var info in SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId()))
             {
@@ -614,6 +615,16 @@ namespace CPSC481Group12FoodyApp.Logic
                 else 
                     expandCard = false;
 
+                if(SessionData.getHasUserVoted(SessionData.getCurrentGroupId(), info, SessionData.getCurrentUser()))
+                {
+                    //Logic_Group.addUserVote(info);
+                    userVoted = true;
+                }
+                else
+                {
+                    //Logic_Group.removeUserVote(info);
+                    userVoted = false;
+                }
 
                 displayVotes = "Votes: " + SessionData.getVoteCountRestaurant(SessionData.getCurrentGroupId(), info).ToString() +"/"+ SessionData.getNumberOfGroupMembers(SessionData.getCurrentGroupId(), info).ToString();
 
@@ -624,7 +635,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     CriteriaListText = criteriaListText,
                     ExpandCard = expandCard,
 
-                    DisplayVote = displayVotes
+                    DisplayVote = displayVotes,
+                    UserVoted = userVoted
 
                 });
             }

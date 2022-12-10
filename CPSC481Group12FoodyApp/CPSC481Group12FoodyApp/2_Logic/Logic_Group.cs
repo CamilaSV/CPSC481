@@ -185,9 +185,20 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.startTimer();
         }
 
+        public static bool getUserHasVoted(int resId)
+        {
+            return SessionData.getHasUserVoted(SessionData.getCurrentGroupId(), resId, SessionData.getCurrentUser());
+        }
+
         public static void addUserVote(int resId)
         {
             SessionData.addUserVote(SessionData.getCurrentGroupId(), resId, SessionData.getCurrentUser());
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+        }
+        public static void removeUserVote(int resId)
+        {
+            SessionData.removeUserVote(SessionData.getCurrentGroupId(), resId, SessionData.getCurrentUser());
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
         }

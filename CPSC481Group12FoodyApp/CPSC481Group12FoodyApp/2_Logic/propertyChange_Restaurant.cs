@@ -18,5 +18,7 @@ namespace CPSC481Group12FoodyApp
 
         public string DisplayVote { get; set; } 
         public bool ExpandCard { get; set; }
+
+        public bool UserVoted { get; set; }
     }
 }
