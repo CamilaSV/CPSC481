@@ -502,9 +502,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             for (int i = 0; i < allGroups[groupId].voteInfo.Count; i++)
             {
-                //if (allGroups[groupId].voteInfo[i].resId == resId)
-                
-                if (allGroups[groupId].restaurantList.Contains(resId))
+                if (allGroups[groupId].voteInfo[i].resId == resId)
                 {
                     if (allGroups[groupId].voteInfo[i].usersVoted.Contains(emailUser))
                     {
