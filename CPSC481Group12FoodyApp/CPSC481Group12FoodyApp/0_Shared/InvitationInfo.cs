@@ -13,5 +13,10 @@
             return (inviteGroupId == other.inviteGroupId) &&
                 (inviteSenderEmail == other.inviteSenderEmail);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

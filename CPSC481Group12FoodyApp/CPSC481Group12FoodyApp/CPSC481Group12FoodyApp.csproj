@@ -159,6 +159,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="1_Cards\ChatMsgsShowCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="4_GroupPages\Group_Main_ChatScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

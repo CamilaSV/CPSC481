@@ -24,8 +24,6 @@ namespace CPSC481Group12FoodyApp
 
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
-            var templateParent = 
-            Logic_Chat.removeMsg(SessionData.getCurrentGroupId(), ChatId)
         }
     }
 }

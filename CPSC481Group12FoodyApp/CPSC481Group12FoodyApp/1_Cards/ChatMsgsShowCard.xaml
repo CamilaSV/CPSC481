@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="CPSC481Group12FoodyApp.GroupChatMessagesCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Group12FoodyApp" 
+             mc:Ignorable="d" 
+                          
+             d:DesignWidth="450" Loaded="UserControl_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,5,0,10">
+            <Grid x:Name="ReceiverGrid" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Border Padding="4">
+                        <Grid>
+                            <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                            <TextBlock FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <Border Grid.Column="2" Padding="5,0,0,0" VerticalAlignment="Center" >
+                    <StackPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
+                                <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black" MaxWidth="330"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border BorderThickness="0,5,0,10">
+            <Grid x:Name="SenderGrid" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Border Padding="4">
+                        <Grid>
+                            <Ellipse Fill="Black" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                            <TextBlock FontSize="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsUser_abbreviation}"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <Border Grid.Column="1" Padding="0,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <DockPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                    <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
+                                </StackPanel>
+                                <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black" MaxWidth="330"/>
+                            </StackPanel>
+                        </Grid>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border BorderThickness="0,5,0,10">
+            <Grid x:Name="UserJoinedGrid" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Border Padding="4">
+                        <Grid>
+                            <Ellipse Fill="Transparent" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Height="50"/>
+                            <TextBlock FontSize="25" Foreground="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <Border Grid.Column="2" Padding="5,0,0,0" VerticalAlignment="Center" >
+                    <StackPanel VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
+                                <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray" MaxWidth="330"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border BorderThickness="0,5,0,5">
+            <Grid x:Name="EventGrid" Width="340" Background="LightGray" Visibility="Collapsed">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Margin" Value="0,10,0,0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Attend Event:" FontSize="28" TextAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding ResName}" FontSize="24" TextAlignment="Center" />
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding EvTime}" FontSize="24" TextAlignment="Center" />
+                    <DockPanel Margin="10">
+                        <Button x:Name="YesButton" Content="Yes" DockPanel.Dock="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="YesButton_Click" Visibility="Hidden"/>
+                        <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Width="40" Height="40" Margin="40,0,0,0" Visibility="Hidden"/>
+                        <Button x:Name="NoButton" Content="No" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="NoButton_Click" Visibility="Hidden"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TextBlock x:Name="EventIdText" Visibility="Hidden" Text="{Binding EvId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="ChatIdText" Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsSenderText" Visibility="Hidden" Text="{Binding IsSender}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsJoinText" Visibility="Hidden" Text="{Binding IsUserJoined}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsEventText" Visibility="Hidden" Text="{Binding IsEventNotification}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsEventConfirmedText" Visibility="Hidden" Text="{Binding IsConfirmedEvent}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+    </Grid>
+</UserControl>

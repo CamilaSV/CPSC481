@@ -207,6 +207,7 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.updateGroupInfoFromDB();
             int eventId = SessionData.getFirstAvailableEventId(SessionData.getCurrentGroupId());
             SessionData.addGroupEvent(SessionData.getCurrentGroupId(), eventId, date, restaurantId, comment);
+            SessionData.addUserEvent(SessionData.getCurrentUser(), SessionData.getCurrentGroupId(), eventId);
             SessionData.saveUserInfoToDB();
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
@@ -219,6 +220,30 @@ namespace CPSC481Group12FoodyApp.Logic
             SessionData.updateUserInfoFromDB();
             SessionData.updateGroupInfoFromDB();
             SessionData.removeGroupEvent(SessionData.getCurrentGroupId(), eventId);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+            SessionData.startTimer();
+        }
+
+        public static void acceptGroupEvent(int groupId, int eventId)
+        {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
+            SessionData.addUserEvent(SessionData.getCurrentUser(), groupId, eventId);
+            SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
+            ComponentFunctions.refreshAll();
+            SessionData.startTimer();
+        }
+
+        public static void denyGroupEvent(int groupId, int eventId)
+        {
+            SessionData.stopTimer();
+            SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
+            SessionData.removeUserEvent(SessionData.getCurrentUser(), groupId, eventId);
             SessionData.saveUserInfoToDB();
             SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();

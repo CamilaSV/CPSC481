@@ -208,6 +208,11 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Add(eventInfo);
+                var eventIndex = getGroupEventExist(groupId, eventId);
+                if (eventIndex != -1)
+                {
+                    allGroups[groupId].eventList[eventIndex].attendees.Add(emailUser);
+                }
             }
         }
 
@@ -218,6 +223,11 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Remove(eventInfo);
+                var eventIndex = getGroupEventExist(groupId, eventId);
+                if (eventIndex != -1)
+                {
+                    allGroups[groupId].eventList[eventIndex].denied.Add(emailUser);
+                }
             }
         }
 
@@ -361,15 +371,17 @@ namespace CPSC481Group12FoodyApp.Logic
             allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
         }
 
-        public static void addGroupMsg(int groupId, int eventId, long evTime, int resId, string comment)
+        public static void addGroupMsg(int groupId, int eventId)
         {
             int msgId = getFirstAvailableMsgId(groupId);
             MsgInfo msg = new MsgInfo
             {
                 id = msgId,
                 senderEmail = "event",
-                evTime = evTime,
-                resName = getRestaurantName(resId),
+                evId = eventId,
+                evTime = getEventTime(groupId, eventId),
+                resName = getRestaurantName(getEventRestaurant(groupId, eventId)),
+                time = getEpochFromDateOrTime(DateTime.Now),
             };
 
             allGroups[groupId].msgList.Add(msg);
@@ -701,9 +713,10 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 if (!allGroups[groupId].eventList.Contains(info))
                 {
+                    System.Diagnostics.Debug.WriteLine("Passed here");
                     allGroups[groupId].eventList.Add(info);
                     allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
-                    addGroupMsg(groupId, eventId, time, resId, comment);
+                    addGroupMsg(groupId, eventId);
                 }
             }
         }
@@ -965,9 +978,7 @@ namespace CPSC481Group12FoodyApp.Logic
             return -1;
         }
 
-        
-
-        private static int getGroupEventExist(int groupId, int eventId)
+        public static int getGroupEventExist(int groupId, int eventId)
         {
             for (int i = 0; i < allGroups[groupId].eventList.Count; i++)
             {

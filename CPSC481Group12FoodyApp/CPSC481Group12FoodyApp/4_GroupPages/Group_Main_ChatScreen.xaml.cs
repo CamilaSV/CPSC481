@@ -22,8 +22,12 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatScreen : UserControl, Interface_Component
     {
+        List<propertyChange_ChatScreen> oldOnes;
+        List<propertyChange_ChatScreen> newOnes;
+
         public ChatScreen()
         {
+            oldOnes = new List<propertyChange_ChatScreen>();
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
         }
@@ -36,8 +40,13 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = null;
-            ListControl.ItemsSource = GetObservableCollection.displayChatModels();
+            newOnes = GetObservableCollection.displayChatModels();
+            if (oldOnes.Count < newOnes.Count)
+            {
+                oldOnes = newOnes;
+                ListControl.ItemsSource = newOnes;
+                ChatScroll.ScrollToBottom();
+            }
         }
 
         private void TopBar_Loaded(object sender, RoutedEventArgs e)
@@ -48,7 +57,6 @@ namespace CPSC481Group12FoodyApp
         private void ListControl_Loaded(object sender, RoutedEventArgs e)
         {
             ListControl.ItemsSource = GetObservableCollection.displayChatModels();
-            ListControl.Items.Refresh();
             ChatScroll.ScrollToBottom();
         }
     }

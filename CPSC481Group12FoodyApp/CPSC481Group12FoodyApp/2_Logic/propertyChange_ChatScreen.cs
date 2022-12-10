@@ -24,6 +24,7 @@ namespace CPSC481Group12FoodyApp
         public bool IsSender { get; set; }
         public bool IsUserJoined { get; set; }
         public bool IsEventNotification { get; set; }
+        public int IsConfirmedEvent { get; set; }
 
         // not used, perhapse remove?
         /*

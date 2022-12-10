@@ -162,7 +162,7 @@ namespace CPSC481Group12FoodyApp.Logic
             List<propertyChange_Chat> collection = new List<propertyChange_Chat>();
 
             MsgInfo msg;
-            string name, abbreviation;
+            string name, abbreviation, content;
             List<int> sortedGroups = SessionData.getUserGroups(SessionData.getCurrentUser());
             sortedGroups.Sort((m1, m2) => SessionData.getGroupLastMsgInfo(m2).time.CompareTo(SessionData.getGroupLastMsgInfo(m1).time));
 
@@ -173,11 +173,19 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     name = "";
                     abbreviation = "";
+                    content = msg.content;
+                }
+                else if (msg.senderEmail == "event")
+                {
+                    name = "";
+                    abbreviation = "";
+                    content = "A new event is created.";
                 }
                 else
                 {
                     name = SessionData.getUserDisplayName(msg.senderEmail);
                     abbreviation = name.Substring(0, 1);
+                    content = msg.content;
                 }
 
                 collection.Add(new propertyChange_Chat
@@ -186,7 +194,7 @@ namespace CPSC481Group12FoodyApp.Logic
                     ChatId = groupId.ToString(),
                     ChatName = SessionData.getGroupName(groupId),
                     ChatLastSender = msg.senderEmail,
-                    ChatLastMsg = msg.content,
+                    ChatLastMsg = content,
 
                     ChatLastTime = SessionData.getDateTimeStringfromEpoch(msg.time),
                 }
@@ -315,8 +323,11 @@ namespace CPSC481Group12FoodyApp.Logic
                 string name = "";
                 bool isUserJoined;
                 bool isEventNotification;
+                bool isSender;
+                int isConfirmedEvent = -1;
                 string resName = "";
                 long evTime = 0;
+                int evId = -1;
                 int msgId;
 
                 foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
@@ -325,58 +336,62 @@ namespace CPSC481Group12FoodyApp.Logic
                     msgId = msgInfo.id;
                     if (String.IsNullOrEmpty(email))
                     {
+                        isSender = false;
                         isUserJoined = true;
                         isEventNotification = false;
                     }
-                    else if (email.ToLower().Equals("event".ToLower()))
+                    else if (email == "event")
                     {
+                        var eventIndex = SessionData.getGroupEventExist(SessionData.getCurrentGroupId(), msgInfo.evId);
+                        if (SessionData.getGroupEvents(SessionData.getCurrentGroupId())[eventIndex].attendees.Contains(SessionData.getCurrentUser()))
+                        {
+                            isConfirmedEvent = 1;
+                        }
+                        else if (SessionData.getGroupEvents(SessionData.getCurrentGroupId())[eventIndex].denied.Contains(SessionData.getCurrentUser()))
+                        {
+                            isConfirmedEvent = 0;
+                        }
+
+                        evId = msgInfo.evId;
                         resName = msgInfo.resName;
                         evTime = msgInfo.evTime;
+                        isSender = false;
                         isUserJoined = false;
                         isEventNotification = true;
                     }
-                    else
+                    else if (email.Equals(SessionData.getCurrentUser()))
+                    {
+                        isSender = true;
+                        isUserJoined = false;
+                        isEventNotification = false;
+                    }
+                    else 
                     {
                         name = SessionData.getUserDisplayName(email);
                         abbreviation = name.Substring(0, 1).ToUpper();
+                        isSender = false;
                         isUserJoined = false;
                         isEventNotification = false;
                     }
 
-                    if (email.Equals(SessionData.getCurrentUser()))
+                    collection.Add(new propertyChange_ChatScreen
                     {
-                        collection.Add(new propertyChange_ChatScreen
-                        {
-                            IsUser_chatId = msgId.ToString(),
-                            IsUser_abbreviation = abbreviation,
-                            IsUser_chatSenderEmail = email,
-                            IsUser_chatSenderName = name,
-                            IsUser_chatMsg = msgInfo.content,
-                            IsUser_chatTime = msgInfo.time.ToString(),
+                        IsUser_chatId = msgId.ToString(),
+                        IsUser_abbreviation = abbreviation,
+                        IsUser_chatSenderEmail = email,
+                        IsUser_chatSenderName = name,
+                        IsUser_chatMsg = msgInfo.content,
+                        IsUser_chatTime = msgInfo.time.ToString(),
 
-                            IsSender = true,
-                        });
-                    }
-                    else
-                    {
-                        collection.Add(new propertyChange_ChatScreen
-                        {
-                            IsUser_chatId = msgId.ToString(),
-                            IsUser_abbreviation = abbreviation,
-                            IsUser_chatSenderEmail = email,
-                            IsUser_chatSenderName = name,
-                            IsUser_chatMsg = msgInfo.content,
-                            IsUser_chatTime = msgInfo.time.ToString(),
-                            ResName = resName,
-                            EvTime = SessionData.getDateOrTimefromEpoch(evTime).ToString("MMMM dd, yyyy @ hh:mm tt"),
+                        EvId = evId.ToString(),
+                        ResName = resName,
+                        EvTime = SessionData.getDateOrTimefromEpoch(evTime).ToString("MMMM dd, yyyy @ hh:mm tt"),
 
-                            IsSender = false,
-                            IsUserJoined = isUserJoined,
-                            IsEventNotification= isEventNotification,
-                        });
-                       
-                        
-                    }
+                        IsSender = isSender,
+                        IsUserJoined = isUserJoined,
+                        IsEventNotification = isEventNotification,
+                        IsConfirmedEvent = isConfirmedEvent,
+                    });
                 }
             }
 

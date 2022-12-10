@@ -26,13 +26,13 @@ namespace CPSC481Group12FoodyApp.Logic
             }
         }
 
-        // Source: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-find-datatemplate-generated-elements
         public static void setLabel(ContentPresenter thing)
         {
             Label lb = FindVisualChild<Label>(thing);
             lb.Content = SessionData.getGroupName(SessionData.getCurrentGroupId());
         }
 
+        // Source: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-find-datatemplate-generated-elements
         private static childItem FindVisualChild<childItem>(DependencyObject obj)
     where childItem : DependencyObject
         {
@@ -46,6 +46,37 @@ namespace CPSC481Group12FoodyApp.Logic
                 else
                 {
                     childItem childOfChild = FindVisualChild<childItem>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
+            }
+            return null;
+        }
+
+        public static string getText(ListView thing, string name)
+        {
+            TextBlock tb = FindVisualChild<TextBlock>(thing, name);
+            return tb.Text;
+        }
+
+        private static childItem FindVisualChild<childItem>(DependencyObject obj, string name)
+    where childItem : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+
+                if (child != null && child is childItem)
+                {
+                    FrameworkElement frameworkElement = child as FrameworkElement;
+                    if ((frameworkElement != null) && (frameworkElement.Name == name))
+                    {
+                        return (childItem)child;
+                    }
+                }
+                else
+                {
+                    childItem childOfChild = FindVisualChild<childItem>(child, name);
                     if (childOfChild != null)
                         return childOfChild;
                 }

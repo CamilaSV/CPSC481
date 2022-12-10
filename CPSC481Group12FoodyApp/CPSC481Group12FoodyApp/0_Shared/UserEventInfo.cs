@@ -18,5 +18,10 @@ namespace CPSC481Group12FoodyApp.Logic
             return (groupId == other.groupId) &&
                 (eventId == other.eventId);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

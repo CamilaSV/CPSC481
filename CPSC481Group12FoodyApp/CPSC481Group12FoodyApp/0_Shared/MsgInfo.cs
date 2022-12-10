@@ -7,6 +7,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public string senderEmail { get; set; }
         public string content { get; set; }
         public long time { get; set; }
+        public int evId { get; set; }
         public string resName { get; set; }
         public long evTime { get; set; }
 
@@ -16,6 +17,11 @@ namespace CPSC481Group12FoodyApp.Logic
             MsgInfo other = obj as MsgInfo;
 
             return id == other.id;
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode();
         }
     }
 }
