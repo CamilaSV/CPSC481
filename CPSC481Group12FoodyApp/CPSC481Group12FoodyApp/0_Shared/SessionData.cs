@@ -1,11 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using System.Collections.ObjectModel;
-=======
 using System.ComponentModel.DataAnnotations;
->>>>>>> origin/Restaurant3
 using System.Globalization;
 using System.IO;
 using System.Linq;
