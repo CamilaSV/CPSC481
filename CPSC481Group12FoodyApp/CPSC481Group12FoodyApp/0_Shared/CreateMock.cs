@@ -529,11 +529,6 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].restaurantList.Contains(restaurantId))
             {
                 allGroups[groupId].restaurantList.Add(restaurantId);
-                allGroups[groupId].voteInfo.Add(new VoteInfo
-                {
-                    resId = restaurantId,
-                    usersVoted = new List<string>(),
-                });
             }
         }
 
