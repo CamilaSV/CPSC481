@@ -225,6 +225,7 @@
         <Grid Height="82" Width="480" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <Rectangle Fill="{StaticResource msdarkgreen}" Height="82" Width="480" Stroke="Black"/>
             <Button x:Name="User" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8" Style="{StaticResource Profile}" BorderBrush="{x:Null}" />
+            <Label x:Name="AppName" Content="MEAL SOCIAL" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="44" Width="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </Grid>
     </DataTemplate>
 
