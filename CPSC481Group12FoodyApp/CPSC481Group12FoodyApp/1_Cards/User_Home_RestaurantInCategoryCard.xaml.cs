@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void star_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigator.gotoExtendCategoryUnderDev();
         }
 
         private void ResShowMore_Click(object sender, RoutedEventArgs e)

@@ -70,11 +70,11 @@
 
         <Rectangle x:Name="ConfirmRectangle" HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3" Visibility="Hidden" />
         <Grid x:Name="ConfirmGrid" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="340" Background="White" Grid.ColumnSpan="3" Margin="72,251,0,0" Grid.Row="1" Visibility="Hidden">
-            <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" Visibility="Hidden" />
-            <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" Visibility="Hidden" />
-            <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" Visibility="Hidden" />
-            <Button x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" Visibility="Hidden" />
-            <Button x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" Visibility="Hidden" />
+            <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" />
+            <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" />
+            <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" />
+            <Button x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" />
+            <Button x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" />
         </Grid>
 
     </Grid>

@@ -92,5 +92,12 @@
                 <ImageBrush ImageSource="/Images/trash.png"/>
             </Button.Background>
         </Button>
+
+        <!-- Under Development -->
+        <Rectangle x:Name="UnderDevRec" HorizontalAlignment="Right" Height="853" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.RowSpan="3" Fill="#4C000000" Grid.ColumnSpan="3" Visibility="Hidden" />
+        <Grid x:Name="UnderDevGrid" HorizontalAlignment="Center" Height="269" VerticalAlignment="Center" Width="340" Background="White" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden">
+            <TextBlock x:Name="ConfirmText" Text="Currently Under Development" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" Margin="0,0,0,68" />
+            <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="OK_Click" />
+        </Grid>
     </Grid>
 </UserControl>

@@ -28,12 +28,12 @@ namespace CPSC481Group12FoodyApp
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-
+            enableUnderDev();
         }
 
         private void StarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            enableUnderDev();
         }
 
         private void editBtn(object sender, RoutedEventArgs e)
@@ -91,6 +91,34 @@ namespace CPSC481Group12FoodyApp
         private void RestaurantName_Loaded(object sender, RoutedEventArgs e)
         {
             RestaurantName.Text = SessionData.getRestaurantName(SessionData.getCurrentResId());
+        }
+
+        public void enableUnderDev()
+        {
+            UnderDevRec.Visibility = Visibility.Visible;
+            UnderDevGrid.Visibility = Visibility.Visible;
+
+            TopBar.IsHitTestVisible = false;
+            BottomBar.IsHitTestVisible = false;
+            Star.IsHitTestVisible = false;
+            send.IsHitTestVisible = false;
+            Edit.IsHitTestVisible = false;
+            Save.IsHitTestVisible = false;
+            Trash.IsHitTestVisible = false;
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            TopBar.IsHitTestVisible = true;
+            BottomBar.IsHitTestVisible = true;
+            Star.IsHitTestVisible = true;
+            send.IsHitTestVisible = true;
+            Edit.IsHitTestVisible = true;
+            Save.IsHitTestVisible = true;
+            Trash.IsHitTestVisible = true;
+
+            UnderDevRec.Visibility = Visibility.Hidden;
+            UnderDevGrid.Visibility = Visibility.Hidden;
         }
     }
 }

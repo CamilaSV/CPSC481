@@ -28,7 +28,7 @@ namespace CPSC481Group12FoodyApp
 
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
-
+            enableUnderDev();
         }
 
         private void Bottom_CreateButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +44,30 @@ namespace CPSC481Group12FoodyApp
         private void ListControl_Loaded(object sender, RoutedEventArgs e)
         {
             ListControl.ItemsSource = GetObservableCollection.displayUserCategoryRestaurantList(SessionData.getCurrentCatId());
+        }
+
+        public void enableUnderDev()
+        {
+            UnderDevRec.Visibility = Visibility.Visible;
+            UnderDevGrid.Visibility = Visibility.Visible;
+
+            TopBar.IsHitTestVisible = false;
+            BottomBar.IsHitTestVisible = false;
+            Filter.IsHitTestVisible = false;
+            Bottom_CreateButton.IsHitTestVisible = false;
+            ListControl.IsHitTestVisible = false;
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            TopBar.IsHitTestVisible = true;
+            BottomBar.IsHitTestVisible = true;
+            Filter.IsHitTestVisible = true;
+            Bottom_CreateButton.IsHitTestVisible = true;
+            ListControl.IsHitTestVisible = true;
+
+            UnderDevRec.Visibility = Visibility.Hidden;
+            UnderDevGrid.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -97,10 +97,6 @@
     <Page Update="3_UserPages\User_Home_AddRestaurant.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-    <Page Update="9_NotSure\ChatScreenEventNotify.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="4_GroupPages\Group_Info_SavedRestaurants.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -187,9 +183,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="3_UserPages\User_Top_Register.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="1_Cards\ChatMsgsShow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dictionaries\MainStylesDictionary.xaml.cs">

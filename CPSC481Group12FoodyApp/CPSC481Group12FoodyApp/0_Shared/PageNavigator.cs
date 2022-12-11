@@ -274,6 +274,11 @@ namespace CPSC481Group12FoodyApp
             personalCalendarPage.loadSave(restaurantId);
         }
 
+        public static void gotoExtendCategoryUnderDev()
+        {
+            expandCategoryPage.enableUnderDev();
+        }
+
         public static void gotoProfile()
         {
             profilePage = new UserControl_Profile();
@@ -309,6 +314,5 @@ namespace CPSC481Group12FoodyApp
         {
             gotoGroupResturantDeleteConfirm(Int32.Parse(restaurantId));
         }
-
     }
 }
