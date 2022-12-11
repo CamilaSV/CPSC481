@@ -324,7 +324,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 bool isUserJoined;
                 bool isEventNotification;
                 bool isSender;
-                int isConfirmedEvent = -1;
+                int isConfirmedEvent;
                 string resName;
                 long evTime;
                 int evId;
@@ -338,8 +338,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     evTime = 0;
                     evId = -1;
                     isConfirmedEvent = -1;
+
                     email = msgInfo.senderEmail;
-                    System.Diagnostics.Debug.WriteLine(email);
                     msgId = msgInfo.id;
                     if (email == string.Empty)
                     {
