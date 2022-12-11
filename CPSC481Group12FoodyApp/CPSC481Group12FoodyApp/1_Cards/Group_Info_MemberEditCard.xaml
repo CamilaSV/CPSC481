@@ -14,10 +14,12 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="1" Padding="5" >
@@ -27,21 +29,21 @@
             </Grid>
         </Border>
 
-        <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
-            <DockPanel>
-                <Button x:Name ="AdminButton" Margin="10,0,0,0" DockPanel.Dock="Right" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Left" Background="LimeGreen" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Delete_Member_Click" Visibility="Hidden" />
-                <!--<TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI Light" FontSize="16" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding LastActive}"/>-->
-                <TextBlock DockPanel.Dock="Left" FontFamily="Segoe UI Semibold" FontSize="25" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetUserName}" VerticalAlignment="Center"/>
-            </DockPanel>
+        <Border Grid.Column="2" VerticalAlignment="Center" Padding="0,0,0,0">
+            <TextBlock FontFamily="Segoe UI Semibold" FontSize="22" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetUserName}" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="3" VerticalAlignment="Center" Padding="0,0,0,0">
+            <Button x:Name ="AdminButton" Content="&#x1F5D1;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Center" Background="LimeGreen" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Delete_Member_Click" Visibility="Hidden" />
+        </Border>
+        <Border Grid.Column="3" VerticalAlignment="Center" Padding="0,0,0,0">
+            <Button x:Name ="DemoteButton" Content="&#x21E9;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Center" Background="Red" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Demote_Member_Click" Visibility="Hidden" />
         </Border>
 
-        <Border Grid.Column="2" VerticalAlignment="Center" Padding="10,0,0,0">
-            <DockPanel>
-                <Button x:Name ="DemoteButton" Content="&#x21E9;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Right" Background="Red" DockPanel.Dock="Right" Width="37" Click="Demote_Member_Click" Grid.Column="2" Visibility="Hidden" />
-                <Button x:Name ="PromoteButton" Content="&#x21E7;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Right" Background="LimeGreen" DockPanel.Dock="Right" Width="37" Click="Promote_Member_Click" Grid.Column="2" Visibility="Hidden" />
-                <TextBlock x:Name ="AdminText" DockPanel.Dock="Right" FontFamily="Segoe UI Semibold" HorizontalAlignment="Right" FontSize="16" TextTrimming="CharacterEllipsis" Text="Admin" Width="49" Height="22" Visibility="Hidden" />
-            </DockPanel>
+        <Border Grid.Column="4" VerticalAlignment="Center" Padding="0,0,0,0">
+            <Button x:Name ="PromoteButton" Content="&#x21E7;" FontWeight="UltraBold" FontSize="25" HorizontalAlignment="Center" Background="LimeGreen" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Click="Promote_Member_Click" Visibility="Hidden" />
         </Border>
+
+        <TextBlock x:Name ="AdminText" Grid.Column="2" FontFamily="Segoe UI Semibold" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" Text="Admin" Visibility="Hidden" />
 
         <TextBlock x:Name="EmailText" FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetEmail, NotifyOnTargetUpdated=True}" VerticalAlignment="Top" Grid.Column="2" Margin="0,53,0,0" TargetUpdated="CheckAdminEmail"/>
         <TextBlock x:Name="IsAdminText" FontFamily="Segoe UI Semibold" FontSize="10" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" Text="{Binding TargetIsAdmin, NotifyOnTargetUpdated=True}" VerticalAlignment="Top" Grid.Column="2" TargetUpdated="CheckAdminTrue" Visibility="Hidden" />
