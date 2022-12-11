@@ -319,22 +319,29 @@ namespace CPSC481Group12FoodyApp.Logic
             if (SessionData.getCurrentGroupId() != -1)
             {
                 string email;
-                string abbreviation = "";
-                string name = "";
+                string abbreviation;
+                string name;
                 bool isUserJoined;
                 bool isEventNotification;
                 bool isSender;
                 int isConfirmedEvent = -1;
-                string resName = "";
-                long evTime = 0;
-                int evId = -1;
+                string resName;
+                long evTime;
+                int evId;
                 int msgId;
 
                 foreach (var msgInfo in SessionData.getGroupMessages(SessionData.getCurrentGroupId()))
                 {
+                    abbreviation = "";
+                    name = "";
+                    resName = "";
+                    evTime = 0;
+                    evId = -1;
+                    isConfirmedEvent = -1;
                     email = msgInfo.senderEmail;
+                    System.Diagnostics.Debug.WriteLine(email);
                     msgId = msgInfo.id;
-                    if (String.IsNullOrEmpty(email))
+                    if (email == string.Empty)
                     {
                         isSender = false;
                         isUserJoined = true;
@@ -361,6 +368,8 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                     else if (email.Equals(SessionData.getCurrentUser()))
                     {
+                        name = SessionData.getUserDisplayName(email);
+                        abbreviation = name.Substring(0, 1).ToUpper();
                         isSender = true;
                         isUserJoined = false;
                         isEventNotification = false;
