@@ -42,7 +42,15 @@ namespace CPSC481Group12FoodyApp
 
         private void GroupNameText_GotFocus(object sender, RoutedEventArgs e)
         {
-            GroupNameText.Text = string.Empty;
+            GroupEmptyText.Text = string.Empty;
+        }
+
+        private void GroupNameText_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (GroupNameText.Text == string.Empty)
+            {
+                GroupEmptyText.Text = "Enter a group name";
+            }
         }
     }
 }
