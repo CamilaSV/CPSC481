@@ -86,7 +86,7 @@ namespace CPSC481Group12FoodyApp
                         break;
                     }
 
-                    MemberTextBlock.Text = "\n" + SessionData.getUserDisplayName(member);
+                    MemberTextBlock.Text += "\n" + SessionData.getUserDisplayName(member);
                     count++;
                 }
             }
