@@ -29,9 +29,9 @@ namespace CPSC481Group12FoodyApp.Logic
             criteriaChecked = new List<int>();
         }
 
-        public UserInfo(string emailUser, string password)
+        public UserInfo(string emailUser, string pw)
         {
-            password = password;
+            password = pw;
             name = emailUser;
             bio = "I am a bio. Press edit button to edit me.";
             friendList = new List<string>();
@@ -43,11 +43,11 @@ namespace CPSC481Group12FoodyApp.Logic
             criteriaChecked = new List<int>();
         }
 
-        public UserInfo(string emailUser, string password, string bio)
+        public UserInfo(string emailUser, string pw, string bi)
         {
-            password = password;
+            password = pw;
             name = emailUser;
-            bio = bio;
+            bio = bi;
             friendList = new List<string>();
             friendReqList = new List<string>();
             groupList = new List<int>();
