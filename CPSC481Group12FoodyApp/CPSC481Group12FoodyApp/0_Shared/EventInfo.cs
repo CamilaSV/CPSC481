@@ -16,6 +16,16 @@ namespace CPSC481Group12FoodyApp.Logic
             denied = new List<string>();
         }
 
+        public EventInfo(int eventId, long evTime, int resId, string evComment)
+        {
+            id = eventId;
+            time = evTime;
+            restaurantId = resId;
+            comment = evComment;
+            attendees = new List<string>();
+            denied = new List<string>();
+        }
+
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;

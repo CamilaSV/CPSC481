@@ -109,25 +109,14 @@ namespace CPSC481Group12FoodyApp.Logic
         // setters for user
         public static void createUser(string emailUser, string password)
         {
-            UserInfo info = new UserInfo
-            {
-                password = password,
-                name = emailUser,
-                bio = "I am a bio. Press edit button to edit me.",
-                friendList = new List<string>(),
-                friendReqList = new List<string>(),
-                groupList = new List<int>(),
-                categoryList = new List<CategoryInfo>(),
-                eventList = new List<UserEventInfo>(),
-                invitationList = new List<InvitationInfo>(),
-            };
+            UserInfo info = new UserInfo(emailUser, password);
 
             allUsers[emailUser] = info;
         }
 
         public static void addUserNewGroup(string emailCreator, int groupId, string name)
         {
-            createGroup(groupId, name, emailCreator);
+            createGroup(groupId, name);
             addGroupMemberToAdmin(groupId, emailCreator);
             addUserGroup(emailCreator, groupId);
             addGroupMember(groupId, emailCreator);
@@ -325,19 +314,9 @@ namespace CPSC481Group12FoodyApp.Logic
         }
 
         // setters for group/event
-        public static void createGroup(int groupId, string groupName, string emailCreator)
+        public static void createGroup(int groupId, string groupName)
         {
-            GroupInfo info = new GroupInfo
-            {
-                name = groupName,
-                adminList = new List<string>(),
-                memberList = new List<string>(),
-                customCriteriaList = new Dictionary<string, int>(),
-                restaurantList = new List<int>(),
-                msgList = new List<MsgInfo>(),
-                eventList = new List<EventInfo>(),
-                voteInfo = new List<VoteInfo>(),
-            };
+            GroupInfo info = new GroupInfo(groupName);
 
             allGroups[groupId] = info;
         }
@@ -359,13 +338,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addGroupMsg(int groupId, string msgSender, string msgContent)
         {
             int msgId = getFirstAvailableMsgId(groupId);
-            MsgInfo msg = new MsgInfo
-            {
-                id = msgId,
-                senderEmail = msgSender,
-                content = msgContent,
-                time = getEpochFromDateOrTime(DateTime.Now),
-            };
+            MsgInfo msg = new MsgInfo(msgId, msgSender, msgContent);
 
             allGroups[groupId].msgList.Add(msg);
             allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
@@ -374,15 +347,7 @@ namespace CPSC481Group12FoodyApp.Logic
         public static void addGroupMsg(int groupId, int eventId)
         {
             int msgId = getFirstAvailableMsgId(groupId);
-            MsgInfo msg = new MsgInfo
-            {
-                id = msgId,
-                senderEmail = "event",
-                evId = eventId,
-                evTime = getEventTime(groupId, eventId),
-                resName = getRestaurantName(getEventRestaurant(groupId, eventId)),
-                time = getEpochFromDateOrTime(DateTime.Now),
-            };
+            MsgInfo msg = new MsgInfo(msgId, groupId, eventId);
 
             allGroups[groupId].msgList.Add(msg);
             allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
@@ -390,7 +355,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static void removeGroupMsg(int groupId, int msgId)
         {
-            MsgInfo info = new MsgInfo { id = msgId };
+            MsgInfo info = new MsgInfo(msgId);
             if (allGroups[groupId].msgList.Contains(info))
             {
                 allGroups[groupId].msgList.Remove(info);
@@ -712,13 +677,7 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             if (getGroupEventExist(groupId, eventId) == -1)
             {
-                EventInfo info = new EventInfo
-                {
-                    id = eventId,
-                    time = time,
-                    restaurantId = resId,
-                    comment = comment,
-                };
+                EventInfo info = new EventInfo(eventId, time, resId, comment);
 
                 if (!allGroups[groupId].eventList.Contains(info))
                 {
@@ -1020,6 +979,15 @@ namespace CPSC481Group12FoodyApp.Logic
             {
                 dateOrTime = epochDateTime.ToString("hh:mm tt", new CultureInfo("en-US"));
             }
+
+            return dateOrTime;
+        }
+
+        public static string convertEventDateTimeToString(DateTime epochDateTime)
+        {
+            string dateOrTime;
+
+            dateOrTime = epochDateTime.ToString("YYYY-MM-dd hh:mm tt", new CultureInfo("en-US"));
 
             return dateOrTime;
         }

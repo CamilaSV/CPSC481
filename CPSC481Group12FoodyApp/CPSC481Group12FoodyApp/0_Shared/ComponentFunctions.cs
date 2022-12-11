@@ -22,7 +22,9 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             if (component != null)
             {
+                SessionData.stopTimer();
                 component.refreshComponent();
+                SessionData.startTimer();
             }
         }
 

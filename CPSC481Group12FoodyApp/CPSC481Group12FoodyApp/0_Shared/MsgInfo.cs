@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace CPSC481Group12FoodyApp.Logic
 {
     public class MsgInfo
@@ -10,6 +11,49 @@ namespace CPSC481Group12FoodyApp.Logic
         public int evId { get; set; }
         public string resName { get; set; }
         public long evTime { get; set; }
+
+        public MsgInfo() { }
+
+        public MsgInfo(int msgId)
+        {
+            id = msgId;
+        }
+
+        public MsgInfo(int msgId, string msgSender, string msgContent)
+        {
+            id = msgId;
+            senderEmail = msgSender;
+            content = msgContent;
+            time = SessionData.getEpochFromDateOrTime(DateTime.Now);
+        }
+
+        public MsgInfo(int msgId, int groupId, int eventId)
+        {
+            id = msgId;
+            senderEmail = "event";
+            evId = eventId;
+            evTime = SessionData.getEventTime(groupId, eventId);
+            resName = SessionData.getRestaurantName(SessionData.getEventRestaurant(groupId, eventId));
+            time = SessionData.getEpochFromDateOrTime(DateTime.Now);
+        }
+
+        public MsgInfo(int msgId, string msgSender, string msgContent, long msgTime)
+        {
+            id = msgId;
+            senderEmail = msgSender;
+            content = msgContent;
+            time = msgTime;
+        }
+
+        public MsgInfo(int msgId, int groupId, int eventId, long msgTime)
+        {
+            id = msgId;
+            senderEmail = "event";
+            evId = eventId;
+            evTime = SessionData.getEventTime(groupId, eventId);
+            resName = SessionData.getRestaurantName(SessionData.getEventRestaurant(groupId, eventId));
+            time = msgTime;
+        }
 
         public override bool Equals(object? obj)
         {

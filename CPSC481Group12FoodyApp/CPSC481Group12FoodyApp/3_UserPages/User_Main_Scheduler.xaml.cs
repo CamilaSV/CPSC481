@@ -35,7 +35,10 @@ namespace CPSC481Group12FoodyApp
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
+            SessionData.stopTimer();
             selected_date = EventCalendar.SelectedDate.Value;
+            refreshComponent();
+            SessionData.startTimer();
         }
 
         private void changeConfirmVisibility()
@@ -111,8 +114,6 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            UpcomingEventControl.ItemsSource = null;
-            CompleteEventControl.ItemsSource = null;
             UpcomingEventControl.ItemsSource = GetObservableCollection.displayUserUpcomingEventDate(selected_date);
             CompleteEventControl.ItemsSource = GetObservableCollection.displayUserCompletedEventDate(selected_date);
         }
