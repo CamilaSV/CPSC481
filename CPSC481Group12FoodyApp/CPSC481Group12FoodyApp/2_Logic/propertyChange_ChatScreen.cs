@@ -20,6 +20,7 @@ namespace CPSC481Group12FoodyApp
         public string ResName { get; set; }
         public string EvTime { get; set; }
         public string EvId { get; set; }
+        public string ChatTime_Formatted { get; set; }
 
         public bool IsSender { get; set; }
         public bool IsUserJoined { get; set; }

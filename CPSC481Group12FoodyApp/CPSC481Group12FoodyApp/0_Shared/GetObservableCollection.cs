@@ -356,7 +356,6 @@ namespace CPSC481Group12FoodyApp.Logic
                         isEventNotification = true;
 
                         var eventIndex = SessionData.getGroupEventExist(SessionData.getCurrentGroupId(), evId);
-                        System.Diagnostics.Debug.WriteLine("ev index: " + eventIndex);
                         if (SessionData.getGroupEvents(SessionData.getCurrentGroupId())[eventIndex].attendees.Contains(SessionData.getCurrentUser()))
                         {
                             isConfirmedEvent = 1;
@@ -391,6 +390,7 @@ namespace CPSC481Group12FoodyApp.Logic
                         IsUser_chatSenderName = name,
                         IsUser_chatMsg = msgInfo.content,
                         IsUser_chatTime = msgInfo.time.ToString(),
+                        ChatTime_Formatted = SessionData.getDateTimeStringfromEpoch(msgInfo.time),
 
                         EvId = evId.ToString(),
                         ResName = resName,
