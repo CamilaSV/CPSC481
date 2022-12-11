@@ -40,6 +40,10 @@ namespace CPSC481Group12FoodyApp
             {
                 updateLists();
             }
+            else
+            {
+                leftLoaded = true;
+            }
         }
 
         private void RightListControl_Loaded(object sender, RoutedEventArgs e)
@@ -47,6 +51,10 @@ namespace CPSC481Group12FoodyApp
             if (leftLoaded)
             {
                 updateLists();
+            }
+            else
+            {
+                rightLoaded = true;
             }
         }
 

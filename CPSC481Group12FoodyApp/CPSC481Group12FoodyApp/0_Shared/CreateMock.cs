@@ -200,10 +200,10 @@ namespace CPSC481Group12FoodyApp.Logic
             addUserRestaurant(ac3, 0, 7);
 
             addUserCategory(ac4, 0, "Cat1");
-            addUserCategory(ac4, 0, "Cat2");
-            addUserCategory(ac4, 0, "Cat3");
-            addUserCategory(ac4, 0, "Cat4");
-            addUserCategory(ac4, 0, "Cat5");
+            addUserCategory(ac4, 1, "Cat2");
+            addUserCategory(ac4, 2, "Cat3");
+            addUserCategory(ac4, 3, "Cat4");
+            addUserCategory(ac4, 4, "Cat5");
         }
 
         public static void createDummyData()
