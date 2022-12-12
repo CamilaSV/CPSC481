@@ -565,6 +565,8 @@ namespace CPSC481Group12FoodyApp.Logic
                 }
             }
 
+            collection.Sort((a, b) => a.TimeText.CompareTo(b.TimeText));
+
             return collection;
         }
 
