@@ -72,6 +72,7 @@ namespace CPSC481Group12FoodyApp
         private void CriteriaControl_Loaded(object sender, RoutedEventArgs e)
         {
             CriteriaControl.ItemsSource = GetObservableCollection.displayUserDietaryList();
+            CriteriaControl.IsHitTestVisible = false;
         }
     }
 }
