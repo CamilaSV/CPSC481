@@ -27,6 +27,16 @@ namespace CPSC481Group12FoodyApp.Logic
         private const string ac3 = "account3@gmail.com";
         private const string ac4 = "account4@hotmail.com";
         private const string ac5 = "account5@gmail.com";
+        private const string experience = "adam@gmail.com";
+        private const string sally = "sally@gmail.com";
+        private const string john = "john@gmail.com";
+        private const string cie = "cie@gmail.com";
+        private const string jake = "jake@gmail.com";
+        private const string ellie = "ellie@gmail.com";
+        private const string jane = "jane@gmail.com";
+        private const string max = "max@gmail.com";
+
+
 
         private static string getAccountsPath()
         {
@@ -93,6 +103,7 @@ namespace CPSC481Group12FoodyApp.Logic
             createOneRestaurant(ref i, "barBURRITO", "61 Crowfoot Terrace NW", "Calgary", "Alberta", "T3G 4J8", createCriteriaList(0, 7, 13)); // 8
             createOneRestaurant(ref i, "Chicken On The Way", "1443 Kensington Rd NW", "Calgary", "Alberta", "T2N 3P9", createCriteriaList(3, 12, 13)); // 9
             createOneRestaurant(ref i, "Mary Brown's Chicken", "163 Quarry Park Blvd SE #103", "Calgary", "Alberta", "T2C 5E1", createCriteriaList(3, 12, 13)); // 10
+            createOneRestaurant(ref i, "Lonely Mouth Bar", "528 17 Ave SW", "Calgary", "Alberta", "T2S 0B1", createCriteriaList(4, 10, 15)); // 10
 
             do
             {
@@ -129,6 +140,17 @@ namespace CPSC481Group12FoodyApp.Logic
             addGroupMemberToAdmin(2, ac4);
 
             addUserNewGroup(ac5, 3, "Enjoy", time - 24050430);
+
+            // for adam
+            addUserNewGroup(experience, 4, "FOODIES", time - 26000000);
+            addUserGroup(cie, 4);
+            addUserGroup(jake, 4);
+            addUserGroup(ellie, 4);
+            addGroupMember(0, cie, time - 15000000);
+            addGroupMsg(0, experience, "Do you guys want to go get lonely mouth?", time - 10000000);
+            addGroupMsg(0, jake, "not really, not a fan of Japanese", time - 9998000);
+            addGroupMsg(0, cie, "I'm good for anything!", time - 9998000);
+            addGroupMsg(0, ellie, "Olive garden?", time - 9997000);
 
             sendGroupInviteToTarget(ac5, 0, ac1);
             sendGroupInviteToTarget(ac1, 3, ac5);
@@ -205,6 +227,18 @@ namespace CPSC481Group12FoodyApp.Logic
             addUserCategory(ac4, 2, "Cat3");
             addUserCategory(ac4, 3, "Cat4");
             addUserCategory(ac4, 4, "Cat5");
+
+            // adam categories
+            addUserCategory(experience, 0, "Favourites");
+            addUserRestaurant(experience, 0, 10);
+            addUserRestaurant(experience, 0, 0);
+            addUserRestaurant(experience, 0, 4);
+            addUserRestaurant(experience, 0, 6);
+            addUserCategory(experience, 1, "Want to go");
+            addUserRestaurant(experience, 1, 5);
+            addUserRestaurant(experience, 1, 7);
+            addUserRestaurant(experience, 1, 8);
+
         }
 
         public static void createDummyData()
@@ -284,6 +318,102 @@ namespace CPSC481Group12FoodyApp.Logic
                     "",
                     new List<string>(),
                     new List<string> { ac4 },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   experience,
+                    createOneUser
+                    (
+                    "12341234",
+                    "Adam",
+                    "I love eating food! Let's eat food together!",
+                    new List<string>(),
+                    new List<string> {sally, john, jane, ellie, max, jake, cie},
+                    new List<int>(),
+                    new List<int> {5, 10}
+                    )
+                },
+                {   sally,
+                    createOneUser
+                    (
+                    "12341234",
+                    sally,
+                    "",
+                    new List<string>(),
+                    new List<string> {experience, john, jane, ellie, max, jake, cie},
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   john,
+                    createOneUser
+                    (
+                    "12341234",
+                    john,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, jane, ellie, max, jake, cie },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   cie,
+                    createOneUser
+                    (
+                    "12341234",
+                    cie,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, john, jane, ellie, max, jake },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   jake,
+                    createOneUser
+                    (
+                    "12341234",
+                    jake,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, john, jane, ellie, max, cie },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   ellie,
+                    createOneUser
+                    (
+                    "12341234",
+                    ellie,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, john, jane, max, jake, cie },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   max,
+                    createOneUser
+                    (
+                    "12341234",
+                    max,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, john, jane, ellie, jake, cie },
+                    new List<int>(),
+                    new List<int> { 1, 3, 5 }
+                    )
+                },
+                {   jane,
+                    createOneUser
+                    (
+                    "12341234",
+                    jane,
+                    "",
+                    new List<string>(),
+                    new List<string> { experience, sally, john, ellie, max, jake, cie },
                     new List<int>(),
                     new List<int> { 1, 3, 5 }
                     )
@@ -515,6 +645,11 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allGroups[groupId].restaurantList.Contains(restaurantId))
             {
                 allGroups[groupId].restaurantList.Add(restaurantId);
+                allGroups[groupId].voteInfo.Add(new VoteInfo
+                {
+                    resId = restaurantId,
+                    usersVoted = new List<string>(),
+                });
             }
         }
 
