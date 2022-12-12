@@ -547,25 +547,28 @@ namespace CPSC481Group12FoodyApp.Logic
 
             if (SessionData.getCurrentGroupId() != -1)
             {
-                var infos = SessionData.getEventCustomTimesOnGroupDate(SessionData.getCurrentGroupId());
-                long chosenDate;
+                List<long> infos = SessionData.getEventCustomTimesOnGroupDate(SessionData.getCurrentGroupId());
+                infos.Sort();
+
+                if (date.Date == DateTime.Now.Date)
+                {
+                    date = DateTime.Now;
+                }
+                long chosenDate = SessionData.getEpochFromDateOrTime(date);
                 foreach (var info in infos)
                 {
-                    chosenDate = SessionData.getEpochFromDateOrTime(date);
-                    if (chosenDate <= info)
+                    if (date.Date == SessionData.getDateOrTimefromEpoch(info).Date)
                     {
-                        if (date.Date == SessionData.getDateOrTimefromEpoch(info).Date)
+                        if (chosenDate <= info)
                         {
                             collection.Add(new propertyChange_GroupEvent
                             {
-                                TimeText = SessionData.getDateOrTimefromEpoch(chosenDate).ToString("MMMM dd, yyyy @ hh:mm tt")
+                                TimeText = SessionData.getDateOrTimefromEpoch(info).ToString("MMMM dd, yyyy @ hh:mm tt")
                             });
                         }
                     }
                 }
             }
-
-            collection.Sort((a, b) => a.TimeText.CompareTo(b.TimeText));
 
             return collection;
         }

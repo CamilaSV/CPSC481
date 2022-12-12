@@ -47,15 +47,21 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="3" Width="440" Margin="10,30,0,0">
             <StackPanel HorizontalAlignment="Left" Width="440">
                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Dietary" Height="50"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="140">
-                    <ItemsControl x:Name="CriteriaControl" Loaded="CriteriaControl_Loaded">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <local:DietaryCard />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="70">
+                        <ItemsControl x:Name="CriteriaControl" Loaded="CriteriaControl_Loaded">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <local:DietaryCard />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <Rectangle x:Name="UnderDevRec" Stroke="Black" Width="440" Fill="#4C000000" />
+                    <Grid x:Name="UnderDevGrid" Width="350" Background="Transparent">
+                        <TextBlock x:Name="ConfirmText" Text="Currently Under Development" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320"  />
+                    </Grid>
+                </Grid>
                 <TextBlock FontFamily="Segoe UI Bold" FontSize="28" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Friend Request" Height="50"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Height="140">
                     <ItemsControl x:Name="RequestControl">
