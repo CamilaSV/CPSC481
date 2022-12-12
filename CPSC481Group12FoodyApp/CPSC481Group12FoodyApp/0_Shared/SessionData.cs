@@ -200,7 +200,15 @@ namespace CPSC481Group12FoodyApp.Logic
                 var eventIndex = getGroupEventExist(groupId, eventId);
                 if (eventIndex != -1)
                 {
-                    allGroups[groupId].eventList[eventIndex].attendees.Add(emailUser);
+                    if (allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
+                    {
+                        allGroups[groupId].eventList[eventIndex].denied.Remove(emailUser);
+                    }
+
+                    if (!allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
+                    {
+                        allGroups[groupId].eventList[eventIndex].attendees.Add(emailUser);
+                    }
                 }
             }
         }
@@ -215,7 +223,15 @@ namespace CPSC481Group12FoodyApp.Logic
                 var eventIndex = getGroupEventExist(groupId, eventId);
                 if (eventIndex != -1)
                 {
-                    allGroups[groupId].eventList[eventIndex].denied.Add(emailUser);
+                    if (allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
+                    {
+                        allGroups[groupId].eventList[eventIndex].attendees.Remove(emailUser);
+                    }
+
+                    if (!allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
+                    {
+                        allGroups[groupId].eventList[eventIndex].denied.Add(emailUser);
+                    }
                 }
             }
         }
@@ -341,7 +357,6 @@ namespace CPSC481Group12FoodyApp.Logic
             MsgInfo msg = new MsgInfo(msgId, msgSender, msgContent);
 
             allGroups[groupId].msgList.Add(msg);
-            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
         }
 
         public static void addGroupMsg(int groupId, int eventId)
@@ -350,7 +365,6 @@ namespace CPSC481Group12FoodyApp.Logic
             MsgInfo msg = new MsgInfo(msgId, groupId, eventId);
 
             allGroups[groupId].msgList.Add(msg);
-            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
         }
 
         public static void removeGroupMsg(int groupId, int msgId)
@@ -683,7 +697,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 {
                     System.Diagnostics.Debug.WriteLine("Passed here");
                     allGroups[groupId].eventList.Add(info);
-                    allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
                     addGroupMsg(groupId, eventId);
                 }
             }

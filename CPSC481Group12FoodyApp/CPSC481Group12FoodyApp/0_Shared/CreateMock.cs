@@ -466,8 +466,7 @@ namespace CPSC481Group12FoodyApp.Logic
             int msgId = getFirstAvailableMsgId(groupId);
             MsgInfo msg = new MsgInfo(msgId, msgSender, msgContent, time);
 
-            allGroups[groupId].msgList.Add(msg);
-            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
+            allGroups[groupId].msgList.Add(msg); // always sort messages depending on time
         }
 
         private static void addGroupMsg(int groupId, int eventId, long time)
@@ -483,8 +482,7 @@ namespace CPSC481Group12FoodyApp.Logic
                 time = getEpochFromDateOrTime(DateTime.Now),
             };
 
-            allGroups[groupId].msgList.Add(msg);
-            allGroups[groupId].msgList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort messages depending on time
+            allGroups[groupId].msgList.Add(msg); // always sort messages depending on time
         }
 
         private static void addGroupMemberToAdmin(int groupId, string emailTarget)
@@ -540,7 +538,6 @@ namespace CPSC481Group12FoodyApp.Logic
                 if (!allGroups[groupId].eventList.Contains(info))
                 {
                     allGroups[groupId].eventList.Add(info);
-                    allGroups[groupId].eventList.Sort((m1, m2) => m1.time.CompareTo(m2.time)); // always sort events depending on time
                     addGroupMsg(groupId, eventId, msgtime);
                 }
             }

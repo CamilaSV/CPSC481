@@ -24,6 +24,8 @@ namespace CPSC481Group12FoodyApp.Logic
             id = msgId;
             senderEmail = msgSender;
             content = msgContent;
+            evId = -1;
+            evTime = 0;
             time = SessionData.getEpochFromDateOrTime(DateTime.Now);
         }
 
@@ -42,6 +44,8 @@ namespace CPSC481Group12FoodyApp.Logic
             id = msgId;
             senderEmail = msgSender;
             content = msgContent;
+            evId = -1;
+            evTime = 0;
             time = msgTime;
         }
 

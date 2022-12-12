@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -404,6 +405,11 @@ namespace CPSC481Group12FoodyApp.Logic
                 }
             }
 
+            if (collection.Count > 1)
+            {
+                collection.Sort((a, b) => a.IsUser_chatTime.CompareTo(b.IsUser_chatTime));
+            }
+
             return collection;
         }
 
@@ -557,11 +563,6 @@ namespace CPSC481Group12FoodyApp.Logic
                         }
                     }
                 }
-
-                collection.Add(new propertyChange_GroupEvent
-                {
-                    TimeText = null,
-                });
             }
 
             return collection;
