@@ -22,9 +22,12 @@ namespace CPSC481Group12FoodyApp
     public partial class ChatEditRestaurant : Page, Interface_Component
     {
         private int restaurantId_Remove;
+        List<propertyChange_Restaurant> listOrig;
+        List<propertyChange_Restaurant> listNew;
 
         public ChatEditRestaurant()
         {
+            listOrig = GetObservableCollection.displayGroupRestaurantList();
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
         }
@@ -71,8 +74,19 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = null;
-            ListControl.ItemsSource = GetObservableCollection.displayGroupRestaurantList();
+            listNew = GetObservableCollection.displayGroupRestaurantList();
+
+            for (var i = 0; i < listOrig.Count; i++)
+            {
+                if (listOrig[i].RestaurantId == listNew[i].RestaurantId)
+                {
+                    continue;
+                }
+
+                listOrig = listNew;
+                ListControl.ItemsSource = listNew;
+                break;
+            }
         }
 
         private void YesDelButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +103,11 @@ namespace CPSC481Group12FoodyApp
         private void Suggest_Click(object sender, RoutedEventArgs e)
         {
             PageNavigator.gotoSuggestRestaurant();
+        }
+
+        private void ListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListControl.ItemsSource = listOrig;
         }
     }
 }
