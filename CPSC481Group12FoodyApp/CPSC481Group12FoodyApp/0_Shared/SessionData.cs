@@ -695,7 +695,6 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 if (!allGroups[groupId].eventList.Contains(info))
                 {
-                    System.Diagnostics.Debug.WriteLine("Passed here");
                     allGroups[groupId].eventList.Add(info);
                     addGroupMsg(groupId, eventId);
                 }

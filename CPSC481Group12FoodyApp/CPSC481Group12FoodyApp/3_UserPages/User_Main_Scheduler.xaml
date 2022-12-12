@@ -36,7 +36,7 @@
         <ContentPresenter x:Name="BottomBar" Grid.ColumnSpan="3" Grid.Row="7" ContentTemplate="{StaticResource HomeBottomBar}"/>
 
         <Label Content="Personal Calendar" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Calendar x:Name="EventCalendar" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" SelectedDatesChanged="Calendar_SelectedDatesChanged">
+        <Calendar x:Name="EventCalendar" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" SelectedDatesChanged="Calendar_SelectedDatesChanged" Loaded="EventCalendar_Loaded">
             <Calendar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.6" ScaleY="1.5"/>
@@ -81,11 +81,10 @@
         <Rectangle x:Name="ConfirmRectangle" Stroke="Black" Grid.ColumnSpan="3" Grid.RowSpan="7" Fill="#4C000000" Visibility="Hidden" />
         <Grid x:Name="ConfirmGrid" Height="220" Width="340" HorizontalAlignment="Center" Background="White" Grid.ColumnSpan="3" Grid.RowSpan="7" Visibility="Hidden">
             <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" FontSize="36" TextAlignment="Center" TextWrapping="Wrap" Width="320" />
-            <Button x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" />
-            <Button x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" />
-            <Button x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" />
-            <Button x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" />
+            <Button Visibility ="Hidden" x:Name="YesDelButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesDelButton_Click" />
+            <Button Visibility ="Hidden" x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" />
+            <Button Visibility ="Hidden" x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" />
+            <Button Visibility ="Hidden" x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" />
         </Grid>
-
     </Grid>
 </Page>

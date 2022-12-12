@@ -28,15 +28,14 @@ namespace CPSC481Group12FoodyApp
 
         public PersonalCalendar()
         {
-            InitializeComponent();
-            EventCalendar.SelectedDate = DateTime.Now;
             ComponentFunctions.addComponentToList(this);
+            InitializeComponent();
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            SessionData.stopTimer();
             selected_date = EventCalendar.SelectedDate.Value;
+            SessionData.stopTimer();
             refreshComponent();
             SessionData.startTimer();
         }
@@ -138,6 +137,11 @@ namespace CPSC481Group12FoodyApp
         private void NoSaveButton_Click(object sender, RoutedEventArgs e)
         {
             exitSave();
+        }
+
+        private void EventCalendar_Loaded(object sender, RoutedEventArgs e)
+        {
+            EventCalendar.SelectedDate = DateTime.Now;
         }
     }
 }
