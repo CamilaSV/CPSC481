@@ -86,18 +86,21 @@ namespace CPSC481Group12FoodyApp
 
         public void loadSave(int id)
         {
-            ConfirmText.Text = "Save the restaurant?";
-            restaurantId_Save = id;
+            ConfirmText.Text = "Under Development";
+//            restaurantId_Save = id;
 
             changeConfirmVisibility();
-            YesSaveButton.Visibility = Visibility.Visible;
-            NoSaveButton.Visibility = Visibility.Visible;
+            OKButton.Visibility = Visibility.Visible;
+//            YesSaveButton.Visibility = Visibility.Visible;
+//            NoSaveButton.Visibility = Visibility.Visible;
+
         }
 
         private void exitSave()
         {
-            YesSaveButton.Visibility = Visibility.Hidden;
-            NoSaveButton.Visibility = Visibility.Hidden;
+            //            YesSaveButton.Visibility = Visibility.Hidden;
+            //            NoSaveButton.Visibility = Visibility.Hidden;
+            OKButton.Visibility = Visibility.Hidden;
             exitConfirmVisibility();
         }
 
@@ -135,6 +138,11 @@ namespace CPSC481Group12FoodyApp
         }
 
         private void NoSaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            exitSave();
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
         {
             exitSave();
         }

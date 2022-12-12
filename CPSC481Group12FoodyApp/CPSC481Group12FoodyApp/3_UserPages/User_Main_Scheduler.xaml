@@ -85,6 +85,7 @@
             <Button Visibility ="Hidden" x:Name="NoDelButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoDelButton_Click" />
             <Button Visibility ="Hidden" x:Name="YesSaveButton" Content="Yes" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="YesSaveButton_Click" />
             <Button Visibility ="Hidden" x:Name="NoSaveButton" Content="No" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="10,0,0,10" Click="NoSaveButton_Click" />
+            <Button Visibility ="Hidden" x:Name="OKButton" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Margin="0,0,10,10" Click="OK_Click" />
         </Grid>
     </Grid>
 </Page>
