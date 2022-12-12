@@ -21,8 +21,11 @@ namespace CPSC481Group12FoodyApp
     /// </summary>
     public partial class ChatEditCriteria : Page, Interface_Component
     {
+        List<propertyChange_GroupCriteria> groupCritOrig;
+        List<propertyChange_GroupCriteria> groupCritNew;
         public ChatEditCriteria()
         {
+            groupCritOrig = GetObservableCollection.displayGroupCriteriaList();
             InitializeComponent();
             ComponentFunctions.addComponentToList(this);
         }
@@ -34,8 +37,25 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            ListControl.ItemsSource = null;
-            ListControl.ItemsSource = GetObservableCollection.displayGroupCriteriaList();
+            groupCritNew = GetObservableCollection.displayGroupCriteriaList();
+
+            for (var i = 0; i < groupCritOrig.Count; i++)
+            {
+                if ((groupCritOrig[i].CriterionId == groupCritNew[i].CriterionId) &&
+                    (groupCritOrig[i].TargetEmail == groupCritNew[i].TargetEmail))
+                {
+                    continue;
+                }
+
+                groupCritOrig = groupCritNew;
+                ListControl.ItemsSource = groupCritNew;
+                break;
+            }
+        }
+
+        private void ListControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ListControl.ItemsSource = groupCritOrig;
         }
     }
 }

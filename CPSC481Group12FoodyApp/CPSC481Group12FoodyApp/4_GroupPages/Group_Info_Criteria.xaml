@@ -32,7 +32,7 @@
         <Label x:Name="CriteriaLabel" Grid.Row="1" Content="Criteria" FontSize="36" FontWeight="Bold"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="3" Grid.Row="2">
-            <ItemsControl x:Name="ListControl">
+            <ItemsControl x:Name="ListControl" Loaded="ListControl_Loaded">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:GroupCriteriaListCard>
