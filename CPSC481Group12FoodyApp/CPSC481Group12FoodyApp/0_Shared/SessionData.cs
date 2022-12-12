@@ -197,18 +197,19 @@ namespace CPSC481Group12FoodyApp.Logic
             if (!allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Add(eventInfo);
-                var eventIndex = getGroupEventExist(groupId, eventId);
-                if (eventIndex != -1)
-                {
-                    if (allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
-                    {
-                        allGroups[groupId].eventList[eventIndex].denied.Remove(emailUser);
-                    }
+            }
 
-                    if (!allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
-                    {
-                        allGroups[groupId].eventList[eventIndex].attendees.Add(emailUser);
-                    }
+            var eventIndex = getGroupEventExist(groupId, eventId);
+            if (eventIndex != -1)
+            {
+                if (allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
+                {
+                    allGroups[groupId].eventList[eventIndex].denied.Remove(emailUser);
+                }
+
+                if (!allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
+                {
+                    allGroups[groupId].eventList[eventIndex].attendees.Add(emailUser);
                 }
             }
         }
@@ -220,18 +221,19 @@ namespace CPSC481Group12FoodyApp.Logic
             if (allUsers[emailUser].eventList.Contains(eventInfo))
             {
                 allUsers[emailUser].eventList.Remove(eventInfo);
-                var eventIndex = getGroupEventExist(groupId, eventId);
-                if (eventIndex != -1)
-                {
-                    if (allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
-                    {
-                        allGroups[groupId].eventList[eventIndex].attendees.Remove(emailUser);
-                    }
+            }
 
-                    if (!allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
-                    {
-                        allGroups[groupId].eventList[eventIndex].denied.Add(emailUser);
-                    }
+            var eventIndex = getGroupEventExist(groupId, eventId);
+            if (eventIndex != -1)
+            {
+                if (allGroups[groupId].eventList[eventIndex].attendees.Contains(emailUser))
+                {
+                    allGroups[groupId].eventList[eventIndex].attendees.Remove(emailUser);
+                }
+
+                if (!allGroups[groupId].eventList[eventIndex].denied.Contains(emailUser))
+                {
+                    allGroups[groupId].eventList[eventIndex].denied.Add(emailUser);
                 }
             }
         }

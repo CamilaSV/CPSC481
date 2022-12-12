@@ -51,20 +51,15 @@ namespace CPSC481Group12FoodyApp
                 {
                     YesButton.Visibility = Visibility.Visible;
                     NoButton.Visibility = Visibility.Visible;
-                    ConfirmText.Visibility = Visibility.Hidden;
                 }
                 else if (status == 0)
                 {
-                    YesButton.Visibility = Visibility.Hidden;
-                    NoButton.Visibility = Visibility.Hidden;
                     ConfirmText.Foreground = Brushes.Red;
                     ConfirmText.Text = "⨉";
                     ConfirmText.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    YesButton.Visibility = Visibility.Hidden;
-                    NoButton.Visibility = Visibility.Hidden;
                     ConfirmText.Foreground = Brushes.Green;
                     ConfirmText.Text = "✓";
                     ConfirmText.Visibility = Visibility.Visible;

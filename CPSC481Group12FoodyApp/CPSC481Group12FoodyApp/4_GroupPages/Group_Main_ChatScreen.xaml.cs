@@ -41,7 +41,7 @@ namespace CPSC481Group12FoodyApp
         public void refreshComponent()
         {
             newOnes = GetObservableCollection.displayChatModels();
-            if (oldOnes.Count < newOnes.Count)
+            if (!oldOnes.SequenceEqual(newOnes))
             {
                 oldOnes = newOnes;
                 ListControl.ItemsSource = newOnes;
