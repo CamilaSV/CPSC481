@@ -7,8 +7,8 @@ namespace CPSC481Group12FoodyApp.Logic
 {
     public class UserEventInfo
     {
-        public int groupId;
-        public int eventId;
+        public int groupId { get; set; }
+        public int eventId { get; set; }
 
         public override bool Equals(object? obj)
         {
@@ -21,7 +21,7 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return eventId.GetHashCode();
         }
     }
 }

@@ -26,5 +26,18 @@ namespace CPSC481Group12FoodyApp.Logic
             suggestedTimes = new List<long>();
             voteInfo = new List<VoteInfo>();
         }
+
+        public GroupInfo(string groupName)
+        {
+            name = groupName;
+            adminList = new List<string>();
+            memberList = new List<string>();
+            customCriteriaList= new Dictionary<string, int>();
+            restaurantList= new List<int>();
+            msgList = new List<MsgInfo>();
+            eventList = new List<EventInfo>();
+            suggestedTimes = new List<long>();
+            voteInfo = new List<VoteInfo>();
+        }
     }
 }

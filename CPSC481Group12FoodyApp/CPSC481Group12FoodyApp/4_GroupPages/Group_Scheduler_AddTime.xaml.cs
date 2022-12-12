@@ -65,7 +65,7 @@ namespace CPSC481Group12FoodyApp
                     string hour = CustomTimePick.Text.Substring(0, 2);
                     string minute = CustomTimePick.Text.Substring(3, 2);
                     int hourInt = Int32.Parse(hour);
-                    if (!isAM)
+                    if (!isAM && (hourInt != 12))
                     {
                         hourInt += 12;
                     }

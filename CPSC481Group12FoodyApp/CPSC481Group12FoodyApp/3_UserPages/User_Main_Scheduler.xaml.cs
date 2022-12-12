@@ -28,14 +28,16 @@ namespace CPSC481Group12FoodyApp
 
         public PersonalCalendar()
         {
-            InitializeComponent();
-            EventCalendar.SelectedDate = DateTime.Now;
             ComponentFunctions.addComponentToList(this);
+            InitializeComponent();
         }
 
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             selected_date = EventCalendar.SelectedDate.Value;
+            SessionData.stopTimer();
+            refreshComponent();
+            SessionData.startTimer();
         }
 
         private void changeConfirmVisibility()
@@ -84,18 +86,21 @@ namespace CPSC481Group12FoodyApp
 
         public void loadSave(int id)
         {
-            ConfirmText.Text = "Save the restaurant?";
-            restaurantId_Save = id;
+            ConfirmText.Text = "Under Development";
+//            restaurantId_Save = id;
 
             changeConfirmVisibility();
-            YesSaveButton.Visibility = Visibility.Visible;
-            NoSaveButton.Visibility = Visibility.Visible;
+            OKButton.Visibility = Visibility.Visible;
+//            YesSaveButton.Visibility = Visibility.Visible;
+//            NoSaveButton.Visibility = Visibility.Visible;
+
         }
 
         private void exitSave()
         {
-            YesSaveButton.Visibility = Visibility.Hidden;
-            NoSaveButton.Visibility = Visibility.Hidden;
+            //            YesSaveButton.Visibility = Visibility.Hidden;
+            //            NoSaveButton.Visibility = Visibility.Hidden;
+            OKButton.Visibility = Visibility.Hidden;
             exitConfirmVisibility();
         }
 
@@ -111,8 +116,6 @@ namespace CPSC481Group12FoodyApp
 
         public void refreshComponent()
         {
-            UpcomingEventControl.ItemsSource = null;
-            CompleteEventControl.ItemsSource = null;
             UpcomingEventControl.ItemsSource = GetObservableCollection.displayUserUpcomingEventDate(selected_date);
             CompleteEventControl.ItemsSource = GetObservableCollection.displayUserCompletedEventDate(selected_date);
         }
@@ -137,6 +140,16 @@ namespace CPSC481Group12FoodyApp
         private void NoSaveButton_Click(object sender, RoutedEventArgs e)
         {
             exitSave();
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            exitSave();
+        }
+
+        private void EventCalendar_Loaded(object sender, RoutedEventArgs e)
+        {
+            EventCalendar.SelectedDate = DateTime.Now;
         }
     }
 }

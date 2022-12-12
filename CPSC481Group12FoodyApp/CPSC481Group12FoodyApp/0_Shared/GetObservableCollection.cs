@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace CPSC481Group12FoodyApp.Logic
 {
@@ -225,24 +226,23 @@ namespace CPSC481Group12FoodyApp.Logic
 
         public static List<propertyChange_UserEvent> displayUserUpcomingEventDate(DateTime date)
         {
-
             List<propertyChange_UserEvent> list = new List<propertyChange_UserEvent>();
 
             foreach (var info in SessionData.getUserEvents(SessionData.getCurrentUser()))
             {
                 var eventDate = SessionData.getDateOrTimefromEpoch(SessionData.getEventTime(info.groupId, info.eventId));
 
-                if (eventDate < date)
+                if (eventDate.Date == date.Date)
                 {
-                    if (eventDate.Date == date.Date)
+                    if (eventDate >= DateTime.Now)
                     {
                         list.Add(new propertyChange_UserEvent
                         {
                             GroupId = info.groupId.ToString(),
                             EventId = info.eventId.ToString(),
-                            EventTime = SessionData.convertDateTimeToString(eventDate),
+                            EventTime = SessionData.convertEventDateTimeToString(eventDate),
                             RestaurantName = SessionData.getRestaurantName(SessionData.getEventRestaurant(info.groupId, info.eventId)),
-                            TextToShow = "On " + eventDate.Date + "\n" + "with" + SessionData.getGroupName(info.groupId),
+                            TextToShow = eventDate.ToString("MMMM dd, yyyy @ hh:mm tt") + "\n" + "with " + SessionData.getGroupName(info.groupId),
                         });
                     }
                 }
@@ -266,15 +266,15 @@ namespace CPSC481Group12FoodyApp.Logic
 
                 if (eventDate.Date == date.Date)
                 {
-                    if (eventDate >= date)
+                    if (eventDate < DateTime.Now)
                     {
                         list.Add(new propertyChange_UserEvent
                         {
                             GroupId = info.groupId.ToString(),
                             EventId = info.eventId.ToString(),
-                            EventTime = SessionData.convertDateTimeToString(eventDate),
+                            EventTime = SessionData.convertEventDateTimeToString(eventDate),
                             RestaurantName = SessionData.getRestaurantName(SessionData.getEventRestaurant(info.groupId, info.eventId)),
-                            TextToShow = "On " + eventDate.Date + "\n" + "with" + SessionData.getGroupName(info.groupId),
+                            TextToShow = eventDate.ToString("MMMM dd, yyyy @ hh:mm tt") + "\n" + "with " + SessionData.getGroupName(info.groupId),
                         });
                     }
                 }
@@ -349,7 +349,14 @@ namespace CPSC481Group12FoodyApp.Logic
                     }
                     else if (email == "event")
                     {
-                        var eventIndex = SessionData.getGroupEventExist(SessionData.getCurrentGroupId(), msgInfo.evId);
+                        evId = msgInfo.evId;
+                        resName = msgInfo.resName;
+                        evTime = msgInfo.evTime;
+                        isSender = false;
+                        isUserJoined = false;
+                        isEventNotification = true;
+
+                        var eventIndex = SessionData.getGroupEventExist(SessionData.getCurrentGroupId(), evId);
                         if (SessionData.getGroupEvents(SessionData.getCurrentGroupId())[eventIndex].attendees.Contains(SessionData.getCurrentUser()))
                         {
                             isConfirmedEvent = 1;
@@ -358,13 +365,6 @@ namespace CPSC481Group12FoodyApp.Logic
                         {
                             isConfirmedEvent = 0;
                         }
-
-                        evId = msgInfo.evId;
-                        resName = msgInfo.resName;
-                        evTime = msgInfo.evTime;
-                        isSender = false;
-                        isUserJoined = false;
-                        isEventNotification = true;
                     }
                     else if (email.Equals(SessionData.getCurrentUser()))
                     {
@@ -391,6 +391,7 @@ namespace CPSC481Group12FoodyApp.Logic
                         IsUser_chatSenderName = name,
                         IsUser_chatMsg = msgInfo.content,
                         IsUser_chatTime = msgInfo.time.ToString(),
+                        ChatTime_Formatted = SessionData.getDateTimeStringfromEpoch(msgInfo.time),
 
                         EvId = evId.ToString(),
                         ResName = resName,
@@ -402,6 +403,11 @@ namespace CPSC481Group12FoodyApp.Logic
                         IsConfirmedEvent = isConfirmedEvent,
                     });
                 }
+            }
+
+            if (collection.Count > 1)
+            {
+                collection.Sort((a, b) => a.IsUser_chatTime.CompareTo(b.IsUser_chatTime));
             }
 
             return collection;
@@ -557,12 +563,9 @@ namespace CPSC481Group12FoodyApp.Logic
                         }
                     }
                 }
-
-                collection.Add(new propertyChange_GroupEvent
-                {
-                    TimeText = null,
-                });
             }
+
+            collection.Sort((a, b) => a.TimeText.CompareTo(b.TimeText));
 
             return collection;
         }

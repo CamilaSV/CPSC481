@@ -37,8 +37,9 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
-                                <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                <TextBlock Text="{Binding ChatTime_Formatted}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                             </StackPanel>
+                            <TextBlock Visibility="Collapsed" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                         </Grid>
                         <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontSize="18" Foreground="Black" MaxWidth="330"/>
                     </StackPanel>
@@ -71,9 +72,10 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                    <TextBlock Text="{Binding ChatTime_Formatted}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                     <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue"  Padding="6,0,0,0"/>
                                 </StackPanel>
+                                <TextBlock Visibility="Collapsed" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                                 <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding IsUser_chatMsg}" FontSize="18" Foreground="Black" MaxWidth="330"/>
                             </StackPanel>
                         </Grid>
@@ -107,8 +109,9 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding IsUser_chatSenderName}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="DeepSkyBlue" />
-                                <TextBlock Visibility="Hidden" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                                <TextBlock Text="{Binding ChatTime_Formatted}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                             </StackPanel>
+                            <TextBlock Visibility="Collapsed" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                         </Grid>
                         <TextBlock Text="{Binding IsUser_chatMsg}" TextWrapping="Wrap" FontFamily="Segoe UI Bold" FontSize="18" Foreground="Gray" MaxWidth="330"/>
                     </StackPanel>
@@ -117,30 +120,38 @@
         </Border>
 
         <Border BorderThickness="0,5,0,5">
-            <Grid x:Name="EventGrid" Width="340" Background="LightGray" Visibility="Collapsed">
+            <Grid x:Name="EventGrid" Width="340" Visibility="Collapsed">
+                    <TextBlock Visibility="Collapsed" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
                 <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Margin" Value="0,10,0,0" />
-                        </Style>
-                    </StackPanel.Resources>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Attend Event:" FontSize="28" TextAlignment="Center" />
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding ResName}" FontSize="24" TextAlignment="Center" />
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding EvTime}" FontSize="24" TextAlignment="Center" />
-                    <DockPanel Margin="10">
-                        <Button x:Name="YesButton" Content="Yes" DockPanel.Dock="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="YesButton_Click" Visibility="Hidden"/>
-                        <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Width="40" Height="40" Margin="40,0,0,0" Visibility="Hidden"/>
-                        <Button x:Name="NoButton" Content="No" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="NoButton_Click" Visibility="Hidden"/>
-                    </DockPanel>
+                    <TextBlock Text="{Binding ChatTime_Formatted}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                    <Grid Background="LightGray" >
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="0,10,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Attend Event:" FontSize="28" TextAlignment="Center" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding ResName}" FontSize="24" TextAlignment="Center" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding EvTime}" FontSize="24" TextAlignment="Center" />
+                            <DockPanel Margin="10">
+                                <Button x:Name="YesButton" Content="Yes" DockPanel.Dock="Left" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="YesButton_Click" Visibility="Hidden"/>
+                                <TextBlock x:Name="ConfirmText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Width="40" Height="40" Margin="40,0,0,0" Visibility="Hidden"/>
+                                <Button x:Name="NoButton" Content="No" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="28" Width="100" Height="50" Click="NoButton_Click" Visibility="Hidden"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
+
+                <TextBlock Visibility="Collapsed" Text="{Binding IsUser_chatTime}" FontFamily="Segoe UI SemiBold" FontSize="15" Foreground="Gray" Padding="6,0,0,0"/>
+                <TextBlock x:Name="EventIdText" Visibility="Collapsed" Text="{Binding EvId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
             </Grid>
         </Border>
 
-        <TextBlock x:Name="EventIdText" Visibility="Hidden" Text="{Binding EvId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
-        <TextBlock x:Name="ChatIdText" Visibility="Hidden" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
-        <TextBlock x:Name="IsSenderText" Visibility="Hidden" Text="{Binding IsSender}" FontFamily="Segoe UI SemiBold" FontSize="15" />
-        <TextBlock x:Name="IsJoinText" Visibility="Hidden" Text="{Binding IsUserJoined}" FontFamily="Segoe UI SemiBold" FontSize="15" />
-        <TextBlock x:Name="IsEventText" Visibility="Hidden" Text="{Binding IsEventNotification}" FontFamily="Segoe UI SemiBold" FontSize="15" />
-        <TextBlock x:Name="IsEventConfirmedText" Visibility="Hidden" Text="{Binding IsConfirmedEvent}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="ChatIdText" Visibility="Collapsed" Text="{Binding IsUser_chatId}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsSenderText" Visibility="Collapsed" Text="{Binding IsSender}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsJoinText" Visibility="Collapsed" Text="{Binding IsUserJoined}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsEventText" Visibility="Collapsed" Text="{Binding IsEventNotification}" FontFamily="Segoe UI SemiBold" FontSize="15" />
+        <TextBlock x:Name="IsEventConfirmedText" Visibility="Collapsed" Text="{Binding IsConfirmedEvent}" FontFamily="Segoe UI SemiBold" FontSize="15" />
     </Grid>
 </UserControl>

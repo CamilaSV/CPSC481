@@ -28,6 +28,7 @@ namespace CPSC481Group12FoodyApp
         {
             groupSavedRestaurantsInt = SessionData.getGroupSavedRestaurants(SessionData.getCurrentGroupId());
             suggestedEventTimes = SessionData.getEventCustomTimesOnGroupDate(SessionData.getCurrentGroupId());
+            suggestedEventTimes.Sort();
             InitializeComponent();
         }
 

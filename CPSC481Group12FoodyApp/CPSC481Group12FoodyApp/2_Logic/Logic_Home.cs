@@ -14,8 +14,10 @@ namespace CPSC481Group12FoodyApp.Logic
         {
             SessionData.stopTimer();
             SessionData.updateUserInfoFromDB();
+            SessionData.updateGroupInfoFromDB();
             SessionData.removeUserEvent(email, groupId, eventId);
             SessionData.saveUserInfoToDB();
+            SessionData.saveGroupInfoToDB();
             ComponentFunctions.refreshAll();
             SessionData.startTimer();
         }
